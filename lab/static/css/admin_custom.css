@@ -1,0 +1,5 @@
+/* Ajusta o logo do admin */
+.jazzmin-brand img {
+    width: 120px;    /* largura desejada */
+    height: auto;    /* mantém proporção */
+}
