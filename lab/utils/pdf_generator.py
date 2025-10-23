@@ -1,113 +1,179 @@
+# lab/utils/pdf_generator.py
+import os
 import io
 from datetime import datetime
-from django.http import FileResponse
+from django.conf import settings
 from reportlab.lib.pagesizes import A4
-from reportlab.lib import colors
 from reportlab.lib.units import cm
-from reportlab.pdfgen import canvas
-from reportlab.platypus import Table, TableStyle, Paragraph, Spacer
+from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 
+# =====================================================================
+# CONFIGURAÇÕES
+# =====================================================================
+LOGO_PATH = os.path.join(settings.BASE_DIR, "lab/static/img/logo.png")
+WATERMARK_PATH = os.path.join(settings.BASE_DIR, "lab/static/img/watermark.png")
 
+pdfmetrics.registerFont(UnicodeCIDFont("HeiseiKakuGo-W5"))  # Suporte UTF-8
+
+# =====================================================================#
+# FUNÇÕES DE LAYOUT FIXO											   #
+# =====================================================================#
+def draw_header(canvas_obj, width, height):
+    """Cabeçalho institucional"""
+    try:
+        canvas_obj.drawImage(LOGO_PATH, 1.5*cm, height - 2*cm, width=3*cm, preserveAspectRatio=True, mask='auto')
+    except Exception:
+        pass
+    canvas_obj.setFont("HeiseiKakuGo-W5", 14)
+    canvas_obj.drawCentredString(width / 2, height - 1.5*cm, "Hospital Provincial de Pemba")
+    canvas_obj.setFont("HeiseiKakuGo-W5", 11)
+    canvas_obj.drawCentredString(width / 2, height - 3*cm, "Laboratório de Análises Clínicas")
+    canvas_obj.setStrokeColor(colors.black)
+    canvas_obj.line(1.5*cm, height - 3.2*cm, width - 1.5*cm, height - 3.2*cm)
+
+def draw_footer(canvas_obj, width, height):
+    """Rodapé"""
+    canvas_obj.setFont("HeiseiKakuGo-W5", 8)
+    rodape = f"Gerado automaticamente por SYS-LAB em {datetime.now().strftime('%d/%m/%Y %H:%M')}"
+    canvas_obj.drawRightString(width - 1*cm, 1*cm, rodape)
+
+def draw_watermark(canvas_obj, width, height):
+    """Marca d'água centralizada"""
+    try:
+        canvas_obj.saveState()
+        canvas_obj.translate(width / 2, height / 2)
+        canvas_obj.rotate(30)
+        canvas_obj.setFillAlpha(0.08)
+        canvas_obj.drawImage(WATERMARK_PATH, -8*cm, -8*cm, width=16*cm, height=16*cm, preserveAspectRatio=True, mask='auto')
+        canvas_obj.restoreState()
+    except Exception:
+        pass
+
+# =====================================================================
+# FUNÇÕES PRINCIPAIS
+# =====================================================================
 def gerar_pdf_requisicao(requisicao):
-	buffer = io.BytesIO()
-	pdf = canvas.Canvas(buffer, pagesize=A4)
-	width, height = A4
+    """Gera PDF da requisição de análises"""
+    buffer = io.BytesIO()
+    doc = SimpleDocTemplate(buffer, pagesize=A4, leftMargin=1.5*cm, rightMargin=1.5*cm, topMargin=4.5*cm, bottomMargin=1.5*cm)
 
-	pdf.setTitle(f"Requisição {requisicao.id} - {requisicao.paciente.nome}")
+    story = []
+    styles = getSampleStyleSheet()
+    style_normal = styles["Normal"]
+    style_title = styles["Heading1"]
 
-	# Cabeçalho
-	pdf.setFont("Helvetica-Bold", 14)
-	pdf.drawString(2 * cm, 28 * cm, "SYS-LAB - Requisição de Análises")
-	pdf.setFont("Helvetica", 10)
-	pdf.drawString(2 * cm, 27.3 * cm, f"Data: {requisicao.data_solicitacao.strftime('%d/%m/%Y %H:%M')}")
-	pdf.line(2 * cm, 27 * cm, 19 * cm, 27 * cm)
+    # Título
+    story.append(Paragraph("REQUISIÇÃO DE ANÁLISES CLÍNICAS", style_title))
+    story.append(Spacer(1, 0.5*cm))
 
-	# Dados do Paciente
-	pdf.setFont("Helvetica-Bold", 11)
-	pdf.drawString(2 * cm, 26 * cm, "Dados do Paciente:")
-	pdf.setFont("Helvetica", 10)
-	pdf.drawString(2 * cm, 25.5 * cm, f"Nome: {requisicao.paciente.nome}")
-	pdf.drawString(2 * cm, 25.0 * cm, f"Proveniência: {requisicao.paciente.proveniencia}")
-	pdf.drawString(2 * cm, 24.5 * cm, f"Número de Identificação: {requisicao.paciente.numero_identificacao}")
+    # Dados do paciente
+    paciente = requisicao.paciente
+    dados = [
+        ["Nome do Paciente:", str(paciente)],
+        ["Idade:", f"{paciente.idade or '—'} anos"],
+        ["Sexo:", paciente.genero or "—"],
+        ["Número de Identificação:", paciente.numero_id],
+        ["Proveniência:", paciente.proveniencia or 'N/D']
+    ]
+    tabela_dados = Table(dados, colWidths=[5*cm, 10*cm])
+    tabela_dados.setStyle(TableStyle([
+        ("BOX", (0,0), (-1,-1), 0.5, colors.grey),
+        ("GRID", (0,0), (-1,-1), 0.5, colors.grey),
+        ("BACKGROUND", (0,0), (-1,0), colors.lightgrey)
+    ]))
+    story.append(tabela_dados)
+    story.append(Spacer(1, 0.7*cm))
 
-	# Exames solicitados
-	pdf.setFont("Helvetica-Bold", 11)
-	pdf.drawString(2 * cm, 23.5 * cm, "Exames Solicitados:")
+    # Exames
+    story.append(Paragraph("<b>Exames Solicitados:</b>", style_normal))
+    exames = [[exame.nome] for exame in requisicao.exames_list]
+    if not exames:
+        exames = [["Nenhum exame registrado."]]
+    tabela_exames = Table(exames, colWidths=[15*cm])
+    tabela_exames.setStyle(TableStyle([
+        ("BOX", (0,0), (-1,-1), 0.5, colors.grey),
+        ("GRID", (0,0), (-1,-1), 0.25, colors.grey)
+    ]))
+    story.append(tabela_exames)
 
-	y = 23.0 * cm
-	for item in requisicao.itemrequisicao_set.all():
-		pdf.setFont("Helvetica", 10)
-		pdf.drawString(2.3 * cm, y, f"- {item.exame.nome}")
-		y -= 0.5 * cm
+    def layout(canvas_obj, doc_obj):
+        width, height = A4
+        draw_watermark(canvas_obj, width, height)
+        draw_header(canvas_obj, width, height)
+        draw_footer(canvas_obj, width, height)
 
-	if not requisicao.itemrequisicao_set.exists():
-		pdf.drawString(2.3 * cm, y, "Nenhum exame registrado.")
-
-	# Rodapé
-	pdf.setFont("Helvetica-Oblique", 8)
-	pdf.drawString(2 * cm, 2 * cm, f"Gerado em {datetime.now().strftime('%d/%m/%Y %H:%M')} por SYS-LAB")
-
-	pdf.showPage()
-	pdf.save()
-
-	buffer.seek(0)
-	return FileResponse(buffer, as_attachment=True, filename=f"requisicao_{requisicao.id}.pdf")
+    doc.build(story, onFirstPage=layout, onLaterPages=layout)
+    pdf = buffer.getvalue()
+    buffer.close()
+    return pdf
 
 def gerar_pdf_resultados(requisicao):
-	buffer = io.BytesIO()
-	pdf = canvas.Canvas(buffer, pagesize=A4)
-	width, height = A4
-	styles = getSampleStyleSheet()
+    """Gera PDF com resultados laboratoriais"""
+    buffer = io.BytesIO()
+    doc = SimpleDocTemplate(buffer, pagesize=A4, leftMargin=3*cm, rightMargin=2*cm, topMargin=4.5*cm, bottomMargin=2*cm)
 
-	pdf.setTitle(f"Resultados - {requisicao.paciente.nome}")
+    styles = getSampleStyleSheet()
+    style_normal = styles["Normal"]
+    style_title = styles["Heading1"]
 
-	# Cabeçalho
-	pdf.setFont("Helvetica-Bold", 14)
-	pdf.drawString(2 * cm, 28 * cm, "SYS-LAB - Resultados de Análises")
-	pdf.setFont("Helvetica", 10)
-	pdf.drawString(2 * cm, 27.3 * cm, f"Data de Validação: {datetime.now().strftime('%d/%m/%Y %H:%M')}")
-	pdf.line(2 * cm, 27 * cm, 19 * cm, 27 * cm)
+    story = []
+    story.append(Paragraph("RESULTADOS DE ANÁLISES CLÍNICAS", style_title))
+    story.append(Spacer(1, 0.5*cm))
 
-	# Dados do Paciente
-	pdf.setFont("Helvetica-Bold", 11)
-	pdf.drawString(2 * cm, 26 * cm, "Dados do Paciente:")
-	pdf.setFont("Helvetica", 10)
-	pdf.drawString(2 * cm, 25.5 * cm, f"Nome: {requisicao.paciente.nome}")
-	pdf.drawString(2 * cm, 25.0 * cm, f"Proveniência: {requisicao.paciente.proveniencia}")
-	pdf.drawString(2 * cm, 24.5 * cm, f"Número de Identificação: {requisicao.paciente.numero_identificacao}")
+    # Dados do paciente
+    paciente = requisicao.paciente
+    idade = f"{paciente.idade} anos" if paciente.idade else "—"
+    genero = paciente.genero or "—"
+    data_analise = getattr(requisicao, 'created_at', None)
+    data_analise_str = data_analise.strftime("%d/%m/%Y") if data_analise else "—"
 
-	# Tabela de Resultados
-	data = [["Exame", "Resultado", "Unidade", "Referência", "Analista", "Validação"]]
+    dados_paciente = [
+        ["Nome do Paciente:", paciente.nome],
+        ["Idade:", idade],
+        ["Sexo:", genero],
+        ["Data de Análise:", data_analise_str]
+    ]
+    tabela_dados = Table(dados_paciente, colWidths=[5*cm, 10*cm])
+    tabela_dados.setStyle(TableStyle([
+        ("BOX", (0,0), (-1,-1), 0.5, colors.grey),
+        ("GRID", (0,0), (-1,-1), 0.25, colors.grey),
+        ("BACKGROUND", (0,0), (-1,0), colors.lightgrey)
+    ]))
+    story.append(tabela_dados)
+    story.append(Spacer(1, 0.7*cm))
 
-	for r in requisicao.resultados.all():
-		data.append([
-			r.exame.nome,
-			r.valor if r.valor else "-",
-			r.unidade or "-",
-			r.valor_referencia or "-",
-			r.validado_por.username if r.validado_por else "-",
-			r.data_validacao.strftime('%d/%m/%Y %H:%M') if r.data_validacao else "-"
-		])
+    # Resultados
+    story.append(Paragraph("<b>Resultados Obtidos:</b>", style_normal))
+    def safe(val):
+        return val if val else "—"
 
-	table = Table(data, colWidths=[5 * cm, 2.5 * cm, 2 * cm, 2.5 * cm, 3 * cm, 3 * cm])
-	table.setStyle(TableStyle([
-		('BACKGROUND', (0, 0), (-1, 0), colors.lightgrey),
-		('GRID', (0, 0), (-1, -1), 0.5, colors.grey),
-		('FONT', (0, 0), (-1, 0), 'Helvetica-Bold'),
-		('FONT', (0, 1), (-1, -1), 'Helvetica'),
-		('FONTSIZE', (0, 0), (-1, -1), 9),
-	]))
+    resultados_data = [["Exame", "Resultado", "Unidade", "Referência"]] + [
+        [
+            safe(res.exame.nome),
+            safe(res.valor),
+            safe(res.unidade),
+            safe(res.valor_referencia)
+        ] for res in requisicao.resultados.all()
+    ]
+    tabela_resultados = Table(resultados_data, colWidths=[3*cm, 8*cm, 2.5*cm, 2.5*cm])
+    tabela_resultados.setStyle(TableStyle([
+        ("BOX", (0,0), (-1,-1), 0.5, colors.grey),
+        ("GRID", (0,0), (-1,-1), 0.25, colors.grey),
+        ("BACKGROUND", (0,0), (-1,0), colors.lightgrey)
+    ]))
+    story.append(tabela_resultados)
 
-	w, h = table.wrapOn(pdf, width, height)
-	table.drawOn(pdf, 2 * cm, 20 * cm - h)
+    def layout(canvas_obj, doc_obj):
+        width, height = A4
+        draw_watermark(canvas_obj, width, height)
+        draw_header(canvas_obj, width, height)
+        draw_footer(canvas_obj, width, height)
 
-	# Rodapé
-	pdf.setFont("Helvetica-Oblique", 8)
-	pdf.drawString(2 * cm, 2 * cm, f"Gerado por SYS-LAB em {datetime.now().strftime('%d/%m/%Y %H:%M')}")
-
-	pdf.showPage()
-	pdf.save()
-
-	buffer.seek(0)
-	return FileResponse(buffer, as_attachment=True, filename=f"resultados_{requisicao.id}.pdf")
+    doc.build(story, onFirstPage=layout, onLaterPages=layout)
+    pdf = buffer.getvalue()
+    buffer.close()
+    return pdf
