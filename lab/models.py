@@ -200,60 +200,83 @@ class ItemRequisicao(models.Model):
 # ==========================================================
 # -------------------- Resultado ---------------------------
 # ==========================================================
+from django.db import models
+from django.conf import settings
+from django.utils.html import format_html
+from django.utils import timezone
+from .models import RequisicaoAnalise  # ajuste se necessário
+from .models import Exame  # ajuste se necessário
+
+
 class Resultado(models.Model):
-	"""
-	Representa os resultados laboratoriais de cada exame realizado.
-	Cada registro é vinculado a uma requisição e a um exame específico.
-	"""
+    """
+    Resultados laboratoriais de cada exame em uma requisição.
+    Unidade e valor de referência são preenchidos automaticamente a partir do exame.
+    """
+    requisicao = models.ForeignKey(
+        RequisicaoAnalise,
+        on_delete=models.CASCADE,
+        related_name='resultados',
+        verbose_name='Requisição'
+    )
+    exame = models.ForeignKey(Exame, on_delete=models.CASCADE, verbose_name='Exame')
+    resultado = models.TextField(null=True, blank=True)
+    valor = models.CharField(max_length=128, blank=True, verbose_name='Resultado analítico')
+    unidade = models.CharField(max_length=32, blank=True, verbose_name='Unidade')
+    valor_referencia = models.CharField(max_length=64, blank=True, verbose_name='Valor de referência')
+    inserido_por = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        null=True,
+        blank=True,
+        related_name='resultados_inseridos',
+        on_delete=models.SET_NULL,
+        verbose_name='Analista responsável'
+    )
+    data_insercao = models.DateTimeField(auto_now=True, verbose_name='Data de inserção')
+    validado = models.BooleanField(default=False, verbose_name='Validado')
+    validado_por = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        null=True,
+        blank=True,
+        related_name='resultados_validados',
+        on_delete=models.SET_NULL,
+        verbose_name='Validado por'
+    )
+    data_validacao = models.DateTimeField(null=True, blank=True, verbose_name='Data de validação')
 
-	requisicao = models.ForeignKey(
-		RequisicaoAnalise,
-		on_delete=models.CASCADE,
-		related_name='resultados',
-		verbose_name='Requisição'
-	)
-	exame = models.ForeignKey(Exame, on_delete=models.CASCADE, verbose_name='Exame')
-	resultado = models.TextField(null=True, blank=True)
-	valor = models.CharField(max_length=128, blank=True, verbose_name='Resultado analitico')
-	unidade = models.CharField(max_length=32, blank=True, verbose_name='Unidade')
-	valor_referencia = models.CharField(max_length=64, blank=True, verbose_name='Valor de referência')
-	inserido_por = models.ForeignKey(
-		settings.AUTH_USER_MODEL,
-		null=True,
-		blank=True,
-		related_name='resultados_inseridos',
-		on_delete=models.SET_NULL,
-		verbose_name='O Analista Responsavel'
-	)
-	data_insercao = models.DateTimeField(auto_now=True, verbose_name='Data de inserção')
-	validado = models.BooleanField(default=False, verbose_name='Validado')
-	validado_por = models.ForeignKey(
-		settings.AUTH_USER_MODEL,
-		null=True,
-		blank=True,
-		related_name='resultados_validados',
-		on_delete=models.SET_NULL,
-		verbose_name='Validado por'
-	)
-	data_validacao = models.DateTimeField(null=True, blank=True, verbose_name='Data de validação')
+    class Meta:
+        verbose_name = "Resultado de Exame"
+        verbose_name_plural = "Resultados de Exames"
+        unique_together = (('requisicao', 'exame'),)
+        ordering = ['requisicao', 'exame']
 
-	class Meta:
-		verbose_name = "Resultado de Exame"
-		verbose_name_plural = "Resultados de Exames"
-		unique_together = (('requisicao', 'exame'),)
-		ordering = ['requisicao', 'exame']
+    # ----------------- Métodos auxiliares ----------------- #
 
-	# ----------------- Métodos auxiliares ----------------- #
+    def save(self, *args, **kwargs):
+        """Preenche automaticamente unidade e valor de referência do exame"""
+        if self.exame:
+            if not self.unidade:
+                self.unidade = self.exame.unidade
+            if not self.valor_referencia:
+                self.valor_referencia = self.exame.valor_ref
+        # Preenche data de validação se já estiver marcado como validado
+        if self.validado and not self.data_validacao:
+            self.data_validacao = timezone.now()
+        super().save(*args, **kwargs)
 
-	def is_valid_display(self):
-		"""Indicador visual para validação (para uso no admin)."""
-		return format_html('<b style="color:{};">{}</b>', 'green' if self.validado else 'red', 'Sim' if self.validado else 'Não')
-	is_valid_display.short_description = "Validado"
+    def is_valid_display(self):
+        """Indicador visual no admin"""
+        return format_html(
+            '<b style="color:{};">{}</b>',
+            'green' if self.validado else 'red',
+            'Sim' if self.validado else 'Não'
+        )
+    is_valid_display.short_description = "Validado"
 
-	def formatted_data_insercao(self):
-		"""Retorna a data de inserção formatada (para leitura rápida)."""
-		return self.data_insercao.strftime("%d/%m/%Y %H:%M") if self.data_insercao else "—"
-	formatted_data_insercao.short_description = "Inserido em"
+    def formatted_data_insercao(self):
+        """Data de inserção formatada"""
+        return self.data_insercao.strftime("%d/%m/%Y %H:%M") if self.data_insercao else "—"
+    formatted_data_insercao.short_description = "Inserido em"
 
-	def __str__(self):
-		return f"Resultado: {self.requisicao} - {self.exame}"
+    def __str__(self):
+        return f"Resultado: {self.requisicao} - {self.exame}"
