@@ -1,5 +1,151 @@
-/* Ajusta o logo do admin */
-.jazzmin-brand img {
-    width: 120px;    /* largura desejada */
-    height: auto;    /* mantém proporção */
+/* ============================
+   Estilo Geral do Admin
+   ============================ */
+body, html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1em;
+    background: linear-gradient(145deg, #0d8a0dad, #0670068f);
+
+    color: #333333;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================
+   Container de Login
+   ============================ */
+#login-wrapper {
+    border: 3px solid green;
+    border-radius: 10px;
+    padding: 30px;
+    background: linear-gradient(145deg, #0d8a0d86, #06700660);
+    max-width: 400px;
+    margin: 50px auto;
+    background: linear-gradient(145deg, #0d8a0d86, #0670066e);
+    box-shadow: 1 8px 20px rgba(0, 0, 0, 0.452); /* sombra elegante */
+}
+
+/* ============================
+   Logo do Login
+   ============================ */
+.login-logo {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 150px;
+    height: auto;
+    background-image: url('../img/logo.png'); /* caminho relativo ao CSS */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* ============================
+   Estilo da Imagem do Logo
+   ============================ */
+.login-logo img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 3px solid green;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
+    position: relative;
+    z-index: 10;
+}
+
+/* ============================
+   Links como Botões
+   ============================ */
+a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 6px 14px;
+    margin: 2px;
+    border-radius: 4px;
+    background-color: rgba(26, 115, 232, 0.6);
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.6s ease;
+    border: none;
+    cursor: pointer;
+}
+
+a:hover {
+    background: linear-gradient(145deg, #0d8a0d, #067006);
+
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+a:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* ============================
+   Inputs e Botões do Admin
+   ============================ */
+input[type="submit"], 
+button {
+    background-color: rgba(26, 115, 232, 0.5);
+    background: linear-gradient(145deg, #0d8a0d79, #06700669);
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: rgba(71, 130, 206, 0.6);
+}
+
+/* ============================
+   Títulos e Fontes do Admin
+   ============================ */
+header, main, section > h1, h2, h3 {
+    font-weight: bold;
+    color: rgb(2, 85, 2);
+}
+
+/* ============================
+   Links da Sidebar/Admin
+   ============================ */
+#content-main a, 
+.model a, 
+.related-widget-wrapper a {
+    display: inline-block;
+}
+
+/* ============================
+   Responsividade
+   ============================ */
+@media (max-width: 768px) {
+    .login-logo {
+        max-width: 120px;
+    }
+    #login-wrapper {
+        margin: 30px 10px;
+        padding: 20px;
+    }
+}
+
+/* ============================
+   Logo Estilo Customizado
+   ============================ */
+.login-logo img {
+	position: relative;
+	max-width: 500px;       /* controla tamanho */
+	height: auto;
+	box-shadow: 2px 5px 20px rgba(0,0,0,0.4);
+	border-radius: 5px;
+	top: 0px;            /* ajusta vertical */
+	left: -176px;           /* ajusta horizontal */
+	z-index: 10;
+	border: 2px solid #025a27; /* verde profissional */
 }
