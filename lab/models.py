@@ -208,10 +208,21 @@ from .models import RequisicaoAnalise  # ajuste se necessário
 from .models import Exame  # ajuste se necessário
 
 
+# ==========================================================
+# -------------------- Resultado ---------------------------
+# ==========================================================
+from django.db import models
+from django.conf import settings
+from django.utils import timezone
+from django.utils.html import format_html
+from .models import RequisicaoAnalise, Exame
+
+
 class Resultado(models.Model):
     """
     Resultados laboratoriais de cada exame em uma requisição.
     Unidade e valor de referência são preenchidos automaticamente a partir do exame.
+    O nome completo do analista é preenchido automaticamente com base no usuário.
     """
     requisicao = models.ForeignKey(
         RequisicaoAnalise,
@@ -224,6 +235,12 @@ class Resultado(models.Model):
     valor = models.CharField(max_length=128, blank=True, verbose_name='Resultado analítico')
     unidade = models.CharField(max_length=32, blank=True, verbose_name='Unidade')
     valor_referencia = models.CharField(max_length=64, blank=True, verbose_name='Valor de referência')
+    nome_completo = models.CharField(
+        max_length=150,
+        blank=True,
+        verbose_name='Nome completo do Analista',
+        help_text="Preenchido automaticamente com base no usuário"
+    )
     inserido_por = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         null=True,
@@ -253,19 +270,31 @@ class Resultado(models.Model):
     # ----------------- Métodos auxiliares ----------------- #
 
     def save(self, *args, **kwargs):
-        """Preenche automaticamente unidade e valor de referência do exame"""
+        """
+        Preenche automaticamente:
+        - Unidade e valor de referência do exame
+        - Nome completo do usuário (inserido_por ou validado_por)
+        - Data de validação se estiver marcado como validado
+        """
         if self.exame:
             if not self.unidade:
                 self.unidade = self.exame.unidade
             if not self.valor_referencia:
                 self.valor_referencia = self.exame.valor_ref
-        # Preenche data de validação se já estiver marcado como validado
+
+        # Nome completo do analista
+        if self.inserido_por and not self.nome_completo:
+            self.nome_completo = f"{self.inserido_por.first_name} {self.inserido_por.last_name}".strip()
+
         if self.validado and not self.data_validacao:
             self.data_validacao = timezone.now()
+            if self.validado_por:
+                self.nome_completo = f"{self.validado_por.first_name} {self.validado_por.last_name}".strip()
+
         super().save(*args, **kwargs)
 
     def is_valid_display(self):
-        """Indicador visual no admin"""
+        """Indicador visual no admin: Sim (verde) ou Não (vermelho)."""
         return format_html(
             '<b style="color:{};">{}</b>',
             'green' if self.validado else 'red',
@@ -274,7 +303,7 @@ class Resultado(models.Model):
     is_valid_display.short_description = "Validado"
 
     def formatted_data_insercao(self):
-        """Data de inserção formatada"""
+        """Data de inserção formatada para exibição no admin."""
         return self.data_insercao.strftime("%d/%m/%Y %H:%M") if self.data_insercao else "—"
     formatted_data_insercao.short_description = "Inserido em"
 
