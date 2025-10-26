@@ -122,3 +122,16 @@
 [2025-10-27 00:04:10,446] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 20172
 [2025-10-27 00:04:10,532] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
 [2025-10-27 00:04:19,233] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 125411
+[2025-10-27 00:06:03,476] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 19590
+[2025-10-27 00:06:03,516] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 00:06:11,518] INFO django.server — "POST /admin/logout/ HTTP/1.1" 302 0
+[2025-10-27 00:06:11,526] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3082
+[2025-10-27 00:06:14,302] INFO django.server — "POST /admin/login/ HTTP/1.1" 302 0
+[2025-10-27 00:06:14,325] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-27 00:06:18,179] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-27 00:06:19,315] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-27 00:06:22,798] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 19574
+[2025-10-27 00:06:22,852] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 00:06:37,216] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 24215
+[2025-10-27 00:06:37,265] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-10-27 00:06:37,270] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
