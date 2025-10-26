@@ -1,10 +1,25 @@
+# ============================================================
 # lab/utils/pdf_generator.py
+# ============================================================
 """
-Gerador de PDFs institucionais (requisição e resultados).
-- Cabeçalho com logotipo (Times New Roman).
-- Marca d'água repetida horizontalmente (rotacionada 90°).
-- Tabelas com suporte a textos longos (Paragraph).
-- Assinaturas e docstrings explicativas.
+Módulo de geração de PDFs institucionais para o sistema SYS-LAB.
+
+Este módulo implementa funções para criar relatórios em PDF de:
+ - Requisições de análises clínicas
+ - Resultados laboratoriais
+
+Composição visual:
+ - Cabeçalho institucional com logotipo
+ - Marca d'água vertical repetida
+ - Rodapé com data e hora
+ - Linhas de assinatura (técnico e chefe do laboratório)
+
+Fontes: Times New Roman (prioritária) / fallback padrão ReportLab.
+Imagens: logo e marca d'água carregadas da pasta static.
+
+Autor: Trato (SYS-LAB Dev)
+Versão: 1.3
+Última atualização: Outubro/2025
 """
 
 import os
@@ -15,47 +30,49 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import cm
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.platypus import (
-    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
-)
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.utils import ImageReader
 from PIL import Image
 
-# --------------------------
-# CONFIGURAÇÕES
-# --------------------------
+# ============================================================
+# CONFIGURAÇÕES GERAIS
+# ============================================================
+
 LOGO_PATH = os.path.join(settings.BASE_DIR, "lab/static/img/logo_fix.png")
 WATERMARK_PATH = os.path.join(settings.BASE_DIR, "lab/static/img/watermark.png")
 
-# Registre a fonte Times (ajuste o caminho conforme seu sistema)
-# Se essas fontes não existirem no sistema, comente ou aponte para um .ttf válido.
 try:
     pdfmetrics.registerFont(TTFont("Times-Roman", "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"))
     pdfmetrics.registerFont(TTFont("Times-Bold", "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman_Bold.ttf"))
 except Exception:
-    # fallback: ReportLab já inclui "Times-Roman" sem registro em alguns ambientes
-    pass
+    pass  # fallback automático
 
-# Debug path (opcional)
 print("LOGO_PATH:", LOGO_PATH, os.path.exists(LOGO_PATH))
 print("WATERMARK_PATH:", WATERMARK_PATH, os.path.exists(WATERMARK_PATH))
 
-
-# --------------------------
-# LAYOUT: HEADER / FOOTER / WATERMARK
-# --------------------------
+# ============================================================
+# CABEÇALHO (HEADER)
+# ============================================================
 
 def draw_header(canvas, doc):
     """
-    Desenha o cabeçalho institucional com logotipo e textos.
-    Recebe (canvas, doc) — compatível com ReportLab onPage callbacks.
+    Desenha o cabeçalho institucional no topo do PDF.
+
+    Args:
+        canvas (Canvas): Objeto gráfico ReportLab.
+        doc (SimpleDocTemplate): Documento PDF ativo.
+
+    Estrutura:
+        - Logotipo do hospital
+        - Nome da instituição
+        - Localização e contatos
+        - Linha divisória inferior
     """
     canvas.saveState()
     canvas.setFont("Times-Bold", 12)
 
-    # Desenha logo (usa Pillow para compatibilidade)
     if os.path.exists(LOGO_PATH):
         try:
             with Image.open(LOGO_PATH) as img:
@@ -64,14 +81,16 @@ def draw_header(canvas, doc):
                 buf = io.BytesIO()
                 img.save(buf, format="PNG")
                 buf.seek(0)
-                # posição e tamanho (ajuste se desejar)
-                logo_x = 35
-                logo_y = A4[1] - 135  # A4[1] é a altura em pontos
-                canvas.drawImage(ImageReader(buf), logo_x, logo_y, width=100, height=100, preserveAspectRatio=True, mask='auto')
+                canvas.drawImage(
+                    ImageReader(buf),
+                    35, A4[1] - 135,
+                    width=100, height=100,
+                    preserveAspectRatio=True,
+                    mask='auto'
+                )
         except Exception as e:
             print("Erro ao carregar logo:", e)
 
-    # Texto institucional (Times)
     canvas.setFont("Times-Bold", 14)
     canvas.drawString(140, A4[1] - 60, "HOSPITAL PROVINCIAL DE PEMBA")
     canvas.setFont("Times-Roman", 11)
@@ -80,17 +99,23 @@ def draw_header(canvas, doc):
     canvas.drawString(140, A4[1] - 95, "Bairro Cimento, Cidade de Pemba - Cabo Delgado")
     canvas.drawString(140, A4[1] - 110, "Tel: +258 84 773 5374 | +258 86 128 4041 | info@lab-pemba-mz.com")
 
-    # Linha de separação
     canvas.setStrokeColor(colors.black)
     canvas.setLineWidth(10)
     canvas.line(0.0*cm, A4[1] - 135, A4[1] - 4*cm, A4[1] - 135)
 
     canvas.restoreState()
 
+# ============================================================
+# RODAPÉ (FOOTER)
+# ============================================================
 
 def draw_footer(canvas, doc):
     """
-    Desenha o rodapé com data/hora. Recebe (canvas, doc).
+    Desenha o rodapé institucional com data/hora de geração.
+
+    Args:
+        canvas (Canvas): Contexto gráfico ReportLab.
+        doc (SimpleDocTemplate): Documento PDF ativo.
     """
     canvas.saveState()
     canvas.setFont("Times-Roman", 8)
@@ -98,21 +123,26 @@ def draw_footer(canvas, doc):
     canvas.drawRightString(A4[0] - 2*cm, 1.5*cm, footer_text)
     canvas.restoreState()
 
+# ============================================================
+# MARCA D'ÁGUA (WATERMARK)
+# ============================================================
 
 def draw_watermark(canvas, doc):
     """
-    Marca d'água preenchendo toda a página, repetida horizontal e verticalmente.
-    Rotacionada 90° para ficar vertical.
+    Desenha marca d'água repetida horizontal e verticalmente (rotacionada 90°).
+
+    Args:
+        canvas (Canvas): Contexto gráfico ReportLab.
+        doc (SimpleDocTemplate): Documento PDF ativo.
     """
     try:
         canvas.saveState()
         try:
             canvas.setFillAlpha(0.1)
         except Exception:
-            pass  # fallback para versões antigas
+            pass  # fallback
 
         width, height = doc.pagesize
-
         if not os.path.exists(WATERMARK_PATH):
             canvas.restoreState()
             return
@@ -125,76 +155,108 @@ def draw_watermark(canvas, doc):
             buf.seek(0)
             watermark = ImageReader(buf)
 
-        # dimensões da marca (ajustar se quiser maior/menor)
-        wm_width = 4*cm
-        wm_height = 8*cm
-        spacing_x = -1.0*cm
-        spacing_y = -3.99999999*cm
+        wm_width, wm_height = 4*cm, 8*cm
+        spacing_x, spacing_y = -1.0*cm, -3.99999999*cm
 
-        # loop vertical
         y = -wm_height
         while y < height + wm_height:
             x = -wm_width
             while x < width + wm_width:
                 canvas.saveState()
-                cx = x + wm_width/2
-                cy = y + wm_height/2
+                cx, cy = x + wm_width/2, y + wm_height/2
                 canvas.translate(cx, cy)
                 canvas.rotate(90)
                 canvas.drawImage(
                     watermark,
                     -wm_width/2, -wm_height/2,
-                    width=wm_width,
-                    height=wm_height,
-                    preserveAspectRatio=True,
-                    mask='auto'
+                    width=wm_width, height=wm_height,
+                    preserveAspectRatio=True, mask='auto'
                 )
                 canvas.restoreState()
                 x += wm_width + spacing_x
             y += wm_height + spacing_y
-
         canvas.restoreState()
     except Exception as e:
         print("Erro ao desenhar watermark:", e)
 
+# ============================================================
+# ASSINATURAS
+# ============================================================
 
-
-# --------------------------
-# LAYOUT UNIFICADO (callback)
-# --------------------------
-def layout(canvas, doc):
+def draw_signatures(canvas, doc, tecnico_nome=None):
     """
-    Função passada para onFirstPage / onLaterPages.
-    Garante execução na ordem correta: watermark -> header -> footer.
+    Desenha as linhas de assinatura no final do PDF.
+
+    Args:
+        canvas (Canvas): Contexto gráfico ReportLab.
+        doc (SimpleDocTemplate): Documento PDF ativo.
+        tecnico_nome (str, optional): Nome completo do técnico autenticado.
+
+    Se nenhum nome for passado, exibe "Técnico de Laboratório".
     """
-    draw_watermark(canvas, doc)     # Marca D'agua
-    draw_header(canvas, doc)        # Cabecalho
-    draw_footer(canvas, doc)        # Rodape
-    draw_signatures(canvas, doc)    # assinaturas
+    canvas.saveState()
+    y = 3*cm
+    width_total = A4[0] - 3*cm - 2*cm
+    width_line = (width_total - 2*cm) / 2
 
+    x1_start, x1_end = 3*cm, 3*cm + width_line
+    x2_start, x2_end = x1_end + 2*cm, x1_end + 2*cm + width_line
 
-# --------------------------
-# GERADOR: REQUISIÇÃO
-# --------------------------
+    canvas.setLineWidth(1)
+    canvas.line(x1_start, y, x1_end, y)
+    canvas.line(x2_start, y, x2_end, y)
+
+    canvas.setFont("Times-Roman", 10)
+    tecnico_label = tecnico_nome or "Técnico de Laboratório"
+    canvas.drawCentredString((x1_start + x1_end)/2, y - 12, tecnico_label)
+    canvas.drawCentredString((x2_start + x2_end)/2, y - 12, "Chefe do Laboratório\nAnibal Albino")
+    canvas.restoreState()
+
+# ============================================================
+# LAYOUT UNIFICADO
+# ============================================================
+
+def layout(canvas, doc, tecnico_nome=None):
+    """
+    Callback aplicado em todas as páginas do PDF.
+
+    Args:
+        canvas (Canvas): Contexto gráfico ReportLab.
+        doc (SimpleDocTemplate): Documento PDF ativo.
+        tecnico_nome (str, optional): Nome completo do técnico autenticado.
+
+    Sequência de execução:
+        1. Marca d'água
+        2. Cabeçalho
+        3. Rodapé
+        4. Assinaturas
+    """
+    draw_watermark(canvas, doc)
+    draw_header(canvas, doc)
+    draw_footer(canvas, doc)
+    draw_signatures(canvas, doc, tecnico_nome)
+
+# ============================================================
+# GERAÇÃO DE PDF – REQUISIÇÃO
+# ============================================================
+
 def gerar_pdf_requisicao(requisicao):
     """
-    Gera PDF da requisição de análises.
-    Retorna bytes do PDF.
+    Gera o PDF da requisição de análises clínicas.
+
+    Args:
+        requisicao: Objeto Requisicao do sistema.
+
+    Returns:
+        bytes: Conteúdo binário do PDF.
     """
     buffer = io.BytesIO()
-    doc = SimpleDocTemplate(
-        buffer, pagesize=A4,
-        leftMargin=3*cm, rightMargin=2*cm,
-        topMargin=5*cm, bottomMargin=2*cm
-    )
+    doc = SimpleDocTemplate(buffer, pagesize=A4,
+        leftMargin=3*cm, rightMargin=2*cm, topMargin=5*cm, bottomMargin=2*cm)
 
     story = []
     styles = getSampleStyleSheet()
-    # assegura fonte Times nos headings
-    try:
-        styles["Heading1"].fontName = "Times-Bold"
-    except Exception:
-        pass
+    styles["Heading1"].fontName = "Times-Bold"
 
     story.append(Paragraph("REQUISIÇÃO DE ANÁLISES CLÍNICAS", styles["Heading1"]))
     story.append(Spacer(1, 1.5*cm))
@@ -207,7 +269,6 @@ def gerar_pdf_requisicao(requisicao):
         ["Número de ID:", paciente.numero_id or "—"],
         ["Proveniência:", paciente.proveniencia or 'N/D']
     ]
-
     tabela = Table(dados, colWidths=[5*cm, 10*cm])
     tabela.setStyle(TableStyle([
         ("FONTNAME", (0, 0), (-1, -1), "Times-Roman"),
@@ -227,33 +288,38 @@ def gerar_pdf_requisicao(requisicao):
     ]))
     story.append(tabela_exames)
 
-    doc.build(story, onFirstPage=layout, onLaterPages=layout)
+    # Nome completo do técnico
+    tecnico_nome = getattr(requisicao, "usuario", None)
+    if tecnico_nome:
+        tecnico_nome = " ".join(filter(None, [tecnico_nome.first_name, tecnico_nome.last_name]))
+
+    doc.build(story, onFirstPage=lambda c, d: layout(c, d, tecnico_nome),
+                    onLaterPages=lambda c, d: layout(c, d, tecnico_nome))
     pdf = buffer.getvalue()
     buffer.close()
     return pdf
 
+# ============================================================
+# GERAÇÃO DE PDF – RESULTADOS
+# ============================================================
 
-# --------------------------
-# GERADOR: RESULTADOS
-# --------------------------
 def gerar_pdf_resultados(requisicao):
     """
-    Gera PDF com resultados de análises (usa Paragraph nas células para wrap).
-    Retorna bytes do PDF.
+    Gera o PDF com resultados de análises clínicas.
+
+    Args:
+        requisicao: Objeto Requisicao do sistema.
+
+    Returns:
+        bytes: Conteúdo binário do PDF.
     """
     buffer = io.BytesIO()
-    doc = SimpleDocTemplate(
-        buffer, pagesize=A4,
-        leftMargin=3*cm, rightMargin=2*cm,
-        topMargin=5.0*cm, bottomMargin=2*cm
-    )
+    doc = SimpleDocTemplate(buffer, pagesize=A4,
+        leftMargin=3*cm, rightMargin=2*cm, topMargin=5*cm, bottomMargin=2*cm)
 
     story = []
     styles = getSampleStyleSheet()
-    try:
-        styles["Heading1"].fontName = "Times-Bold"
-    except Exception:
-        pass
+    styles["Heading1"].fontName = "Times-Bold"
 
     story.append(Paragraph("RESULTADOS DE ANÁLISES CLÍNICAS", styles["Heading1"]))
     story.append(Spacer(1, 0.5*cm))
@@ -280,7 +346,6 @@ def gerar_pdf_resultados(requisicao):
     story.append(tabela_dados)
     story.append(Spacer(1, 0.7*cm))
 
-    # tabela de resultados com quebra automática de texto
     resultados_data = [["Exame", "Resultado", "Unidade", "Referência"]]
     text_style = ParagraphStyle("TextWrap", fontName="Times-Roman", fontSize=10, leading=13)
 
@@ -302,38 +367,64 @@ def gerar_pdf_resultados(requisicao):
     ]))
     story.append(tabela_resultados)
 
-    doc.build(story, onFirstPage=layout, onLaterPages=layout)
+    # Nome completo do técnico
+    tecnico_nome = getattr(requisicao, "usuario", None)
+    if tecnico_nome:
+        tecnico_nome = " ".join(filter(None, [tecnico_nome.first_name, tecnico_nome.last_name]))
+
+    doc.build(story, onFirstPage=lambda c, d: layout(c, d, tecnico_nome),
+                    onLaterPages=lambda c, d: layout(c, d, tecnico_nome))
     pdf = buffer.getvalue()
     buffer.close()
     return pdf
 
-def draw_signatures(canvas, doc):
+# ============================================================
+# ASSINATURAS – ATUALIZADO PARA NOME COMPLETO DINÂMICO
+# ============================================================
+
+def draw_signatures(canvas, doc, usuario=None):
     """
-    Desenha duas linhas de assinatura no final da página
-    lado a lado: Técnico de Laboratório e Chefe do Laboratório
+    Desenha as linhas de assinatura no final do PDF.
+
+    Args:
+        canvas (Canvas): Contexto gráfico ReportLab.
+        doc (SimpleDocTemplate): Documento PDF ativo.
+        usuario (User, optional): Instância do usuário logado.
+
+    Funcionalidade:
+        - Linha esquerda: técnico logado (nome completo concatenado)
+        - Linha direita: chefe do laboratório (fixo)
     """
     canvas.saveState()
-
-    # Posição vertical do início das linhas (1.5cm acima da margem inferior)
     y = 3*cm
-    width_total = A4[0] - 3*cm - 2*cm  # largura disponível (margens)
-    width_line = (width_total - 2*cm) / 2  # espaço entre as linhas
+    width_total = A4[0] - 3*cm - 2*cm
+    width_line = (width_total - 2*cm) / 2
 
-    # Coordenadas das linhas
-    x1_start = 3*cm
-    x1_end = x1_start + width_line
-    x2_start = x1_end + 2*cm
-    x2_end = x2_start + width_line
+    x1_start, x1_end = 3*cm, 3*cm + width_line
+    x2_start, x2_end = x1_end + 2*cm, x1_end + 2*cm + width_line
 
-    # Linhas de assinatura
     canvas.setLineWidth(1)
-    canvas.line(x1_start, y, x1_end, y)  # Técnico
-    canvas.line(x2_start, y, x2_end, y)  # Chefe
+    canvas.line(x1_start, y, x1_end, y)
+    canvas.line(x2_start, y, x2_end, y)
 
-    # Textos abaixo das linhas
+    # Determina o nome completo do técnico
+    tecnico_nome = "Técnico de Laboratório"
+    if usuario:
+        nomes = []
+        # Primeiro nome
+        if hasattr(usuario, "first_name") and usuario.first_name:
+            nomes.append(usuario.first_name.strip())
+        # Último nome
+        if hasattr(usuario, "last_name") and usuario.last_name:
+            nomes.append(usuario.last_name.strip())
+        # Outros nomes extras, se existir (perfil customizado)
+        if hasattr(usuario, "outros_nomes") and usuario.outros_nomes:
+            nomes.extend([n.strip() for n in usuario.outros_nomes.split() if n.strip()])
+        if nomes:
+            tecnico_nome = " ".join(nomes)
+
     canvas.setFont("Times-Roman", 10)
-    canvas.drawCentredString((x1_start + x1_end)/2, y - 12, "Técnico de Laboratório")
-    canvas.drawCentredString((x2_start + x2_end)/2, y - 12, "Chefe do Laboratório \n Anibal Albino")
-
+    canvas.drawCentredString((x1_start + x1_end)/2, y - 12, tecnico_nome)
+    canvas.drawCentredString((x2_start + x2_end)/2, y - 12, "Chefe do Laboratório\nAnibal Albino")
     canvas.restoreState()
 

@@ -1,0 +1,124 @@
+[2025-10-26 23:39:10,539] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-26 23:39:39,297] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:39:39,349] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-10-26 23:39:40,253] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:39:41,050] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:39:41,581] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:39:42,020] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:39:42,455] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:39:42,904] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:39:43,326] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:39:43,803] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:39:44,211] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:39:44,641] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:39:48,403] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:39:48,897] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:39:50,099] INFO django.server — "GET /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2025-10-26 23:39:50,138] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:39:55,997] WARNING django.security.csrf — Forbidden (CSRF token from POST incorrect.): /admin/logout/
+[2025-10-26 23:39:55,997] WARNING django.server — "POST /admin/logout/ HTTP/1.1" 403 2508
+[2025-10-26 23:40:06,878] WARNING django.security.csrf — Forbidden (CSRF token from POST incorrect.): /admin/logout/
+[2025-10-26 23:40:06,878] WARNING django.server — "POST /admin/logout/ HTTP/1.1" 403 2508
+[2025-10-26 23:40:12,468] INFO django.server — "GET /admin HTTP/1.1" 301 0
+[2025-10-26 23:40:12,494] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:40:16,344] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:40:17,112] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:40:17,713] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:40:18,149] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:40:24,477] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-26 23:40:28,425] WARNING django.request — Not Found: /
+[2025-10-26 23:40:28,427] WARNING django.server — "GET / HTTP/1.1" 404 3462
+[2025-10-26 23:40:42,443] INFO django.server — "GET /admin HTTP/1.1" 301 0
+[2025-10-26 23:40:42,502] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:40:42,575] INFO django.server — "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+[2025-10-26 23:40:42,894] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+[2025-10-26 23:40:49,261] INFO django.server — "POST /admin/logout/ HTTP/1.1" 302 0
+[2025-10-26 23:40:49,270] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3082
+[2025-10-26 23:40:54,998] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3082
+[2025-10-26 23:40:55,656] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3082
+[2025-10-26 23:40:56,057] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3082
+[2025-10-26 23:40:56,277] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3082
+[2025-10-26 23:40:56,494] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3082
+[2025-10-26 23:40:56,703] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3082
+[2025-10-26 23:40:56,927] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3082
+[2025-10-26 23:41:07,954] INFO django.server — "POST /admin/login/ HTTP/1.1" 302 0
+[2025-10-26 23:41:07,975] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-26 23:41:13,271] INFO django.server — "GET /admin/auth/group/ HTTP/1.1" 200 16853
+[2025-10-26 23:41:13,330] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-26 23:41:24,567] INFO django.server — "GET /admin/auth/group/3/change/ HTTP/1.1" 200 20629
+[2025-10-26 23:41:24,640] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-26 23:41:24,697] INFO django.server — "GET /static/admin/js/SelectBox.js HTTP/1.1" 304 0
+[2025-10-26 23:41:24,792] INFO django.server — "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0
+[2025-10-26 23:41:24,928] INFO django.server — "GET /static/jazzmin/img/selector-icons.svg HTTP/1.1" 200 3291
+[2025-10-26 23:41:31,911] INFO django.server — "GET /admin/ HTTP/1.1" 200 26840
+[2025-10-26 23:41:36,131] INFO django.server — "GET /admin/auth/user/ HTTP/1.1" 200 22743
+[2025-10-26 23:41:36,193] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-26 23:41:36,266] INFO django.server — "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[2025-10-26 23:41:41,408] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21191
+[2025-10-26 23:41:41,469] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-26 23:41:57,791] INFO django.server — "GET /admin/lab/paciente/1/change/ HTTP/1.1" 200 26107
+[2025-10-26 23:41:57,858] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-26 23:41:57,919] INFO django.server — "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+[2025-10-26 23:41:57,921] INFO django.server — "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+[2025-10-26 23:42:20,108] INFO django.server — "GET /admin/ HTTP/1.1" 200 26840
+[2025-10-26 23:42:20,144] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-10-26 23:42:24,494] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 19574
+[2025-10-26 23:42:24,550] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-26 23:42:38,273] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 125411
+[2025-10-26 23:44:09,634] INFO django.server — "GET /admin/ HTTP/1.1" 200 26840
+[2025-10-26 23:44:15,562] INFO django.server — "GET /admin/auth/user/ HTTP/1.1" 200 22727
+[2025-10-26 23:44:15,635] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-26 23:44:24,161] INFO django.server — "GET /admin/ HTTP/1.1" 200 26840
+[2025-10-26 23:44:27,133] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 24215
+[2025-10-26 23:44:27,189] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-26 23:53:20,414] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-10-26 23:53:21,313] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-26 23:53:43,957] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 302 0
+[2025-10-26 23:53:43,976] INFO django.server — "GET /admin/login/?next=/admin/lab/resultado/ HTTP/1.1" 200 3109
+[2025-10-26 23:53:44,092] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-10-26 23:53:48,090] INFO django.server — "POST /admin/login/?next=/admin/lab/resultado/ HTTP/1.1" 302 0
+[2025-10-26 23:53:48,143] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 24215
+[2025-10-26 23:53:48,257] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-26 23:53:55,971] INFO django.server — "POST /admin/lab/resultado/ HTTP/1.1" 200 125134
+[2025-10-26 23:54:36,977] INFO django.server — "GET /admin/ HTTP/1.1" 200 26840
+[2025-10-26 23:54:38,309] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 19574
+[2025-10-26 23:54:38,366] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-26 23:54:46,048] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 125411
+[2025-10-26 23:58:46,882] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-10-26 23:58:48,325] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-26 23:59:00,812] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-10-26 23:59:02,422] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-26 23:59:28,766] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-10-26 23:59:29,824] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 00:01:29,667] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-10-27 00:01:30,628] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 00:01:47,772] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 19574
+[2025-10-27 00:01:47,825] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-10-27 00:01:47,832] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 00:01:48,855] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 19574
+[2025-10-27 00:01:48,901] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 00:01:55,637] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 125408
+[2025-10-27 00:02:25,714] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 24231
+[2025-10-27 00:02:25,778] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 00:02:32,208] INFO django.server — "POST /admin/lab/resultado/ HTTP/1.1" 200 125132
+[2025-10-27 00:03:08,857] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-10-27 00:03:09,781] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 00:03:11,018] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-10-27 00:03:12,160] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 00:03:13,440] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-10-27 00:03:14,065] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 00:03:18,016] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 24231
+[2025-10-27 00:03:18,058] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 00:03:19,283] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 24231
+[2025-10-27 00:03:19,320] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 00:03:34,397] INFO django.server — "POST /admin/lab/resultado/ HTTP/1.1" 200 125135
+[2025-10-27 00:03:58,496] INFO django.server — "GET /admin/ HTTP/1.1" 302 0
+[2025-10-27 00:03:58,513] INFO django.server — "GET /admin/login/?next=/admin/ HTTP/1.1" 200 3095
+[2025-10-27 00:04:01,045] INFO django.server — "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2025-10-27 00:04:01,076] INFO django.server — "GET /admin/ HTTP/1.1" 200 26856
+[2025-10-27 00:04:03,953] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 19590
+[2025-10-27 00:04:04,030] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 00:04:10,413] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 302 0
+[2025-10-27 00:04:10,446] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 20172
+[2025-10-27 00:04:10,532] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 00:04:19,233] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 125411

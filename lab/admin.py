@@ -17,6 +17,8 @@ from .utils.pdf_generator import gerar_pdf_requisicao, gerar_pdf_resultados
 from django.contrib import admin, messages
 from .models import Paciente
 
+
+
 # ==========================================================
 # -------------------- PACIENTE -----------------------------
 # ==========================================================
