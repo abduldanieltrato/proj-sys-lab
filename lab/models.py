@@ -49,7 +49,7 @@ class Paciente(models.Model):
 	nacionalidade = models.CharField(max_length=64, blank=True, verbose_name='País de origem')
 	numero_id = models.CharField(max_length=64, unique=True, verbose_name='Documento de Identificação')
 	historico_medico = models.TextField(blank=True, null=True, verbose_name='Histórico médico')
-	created_at = models.DateTimeField(auto_now_add=True, verbose_name='Horário de entrada')
+	created_at = models.DateTimeField(auto_now_add=True, verbose_name='Horário de entrada', null=False, blank=False)
 
 	# ----------------- Métodos utilitários ----------------- #
 

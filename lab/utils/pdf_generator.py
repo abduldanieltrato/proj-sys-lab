@@ -82,8 +82,8 @@ def draw_header(canvas, doc):
 
     # Linha de separação
     canvas.setStrokeColor(colors.black)
-    canvas.setLineWidth(2)
-    canvas.line(2*cm, A4[1] - 140, A4[0] - 2*cm, A4[1] - 140)
+    canvas.setLineWidth(10)
+    canvas.line(0.0*cm, A4[1] - 135, A4[1] - 4*cm, A4[1] - 135)
 
     canvas.restoreState()
 
@@ -107,7 +107,7 @@ def draw_watermark(canvas, doc):
     try:
         canvas.saveState()
         try:
-            canvas.setFillAlpha(0.08)
+            canvas.setFillAlpha(0.1)
         except Exception:
             pass  # fallback para versões antigas
 
@@ -128,8 +128,8 @@ def draw_watermark(canvas, doc):
         # dimensões da marca (ajustar se quiser maior/menor)
         wm_width = 4*cm
         wm_height = 8*cm
-        spacing_x = 0.3*cm
-        spacing_y = 0.2*cm
+        spacing_x = -1.0*cm
+        spacing_y = -3.99999999*cm
 
         # loop vertical
         y = -wm_height
@@ -245,7 +245,7 @@ def gerar_pdf_resultados(requisicao):
     doc = SimpleDocTemplate(
         buffer, pagesize=A4,
         leftMargin=3*cm, rightMargin=2*cm,
-        topMargin=4.5*cm, bottomMargin=2*cm
+        topMargin=5.0*cm, bottomMargin=2*cm
     )
 
     story = []
