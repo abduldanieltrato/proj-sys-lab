@@ -22,17 +22,18 @@ class Paciente(models.Model):
 	"""
 
 	class Proveniencia(models.TextChoices):
-		BS = 'BS', 'Banco de Socorros'
-		AMB = 'AMB', 'Ambulatório'
-		SUR = 'SUR', 'Serviço de Urgência de Reanimação'
-		PED = 'PED', 'Pediatria'
-		CIR = 'CIR', 'Cirurgia'
-		GIN = 'GIN', 'Ginecologia'
-		OBST = 'OBST', 'Obstetrícia'
-		UROL = 'UROL', 'Urologia'
-		MED_I = 'MED_I', 'Medicina Homem'
-		MED_II = 'MED_II', 'Medicina Mulher'
-		OFT = 'OFT', 'Oftalmologia'
+		BS = 'Banco de Socorros', 'Banco de Socorros'
+		AMB = 'Ambulatório', 'Ambulatório'
+		SUR = 'Serviço de Urgência de Reanimação', 'Serviço de Urgência de Reanimação'
+		PED = 'Pediatria', 'Pediatria'
+		CIR = 'Cirurgia', 'Cirurgia'
+		GIN = 'Ginecologia', 'Ginecologia'
+		OBST = 'Obstetrícia', 'Obstetrícia'
+		UROL = 'Urologia', 'Urologia'
+		MED_I = 'Mediciana_I', 'Medicina Homem'
+		MED_II = 'Medicina_II', 'Medicina Mulher'
+		OFT = 'Oftalmologia', 'Oftalmologia'
+		EST = "Estomatologia", "Estomatologia"
 		C_EXT = 'C.EXT', 'Consulta Externa'
 
 	id = models.BigIntegerField(primary_key=True, verbose_name='Número de entrada')
@@ -81,7 +82,7 @@ class Paciente(models.Model):
 	def __str__(self):
 		"""Representação legível do paciente."""
 		idade_txt = f" - Idade: {self.idade} anos" if self.idade else ""
-		return f"{self.id} — {self.nome}{idade_txt}"
+		return f"{self.id} — {self.nome}"
 
 	class Meta:
 		verbose_name = "Paciente"
