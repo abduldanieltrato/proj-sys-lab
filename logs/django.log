@@ -598,3 +598,535 @@
 [2025-10-27 17:04:02,787] INFO django.server — "GET /admin/ HTTP/1.1" 200 23399
 [2025-10-27 17:04:10,425] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 23941
 [2025-10-27 17:04:10,474] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 17:25:55,802] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 17:25:56,411] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 17:25:58,725] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 17:25:59,328] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 17:26:18,974] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-10-27 17:26:19,730] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 17:26:21,004] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-10-27 17:26:21,752] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 17:31:00,677] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 17:31:01,263] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 17:52:47,598] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 17:52:48,220] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 17:53:10,495] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 17:53:11,189] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 17:55:36,404] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 17:55:36,970] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 17:55:39,250] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 17:55:40,093] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 17:55:53,530] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 17:55:54,190] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 17:58:43,054] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-10-27 17:58:43,709] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 18:40:27,837] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 18:40:45,696] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 302 0
+[2025-10-27 18:40:45,710] INFO django.server — "GET /admin/login/?next=/admin/lab/resultado/ HTTP/1.1" 200 3109
+[2025-10-27 18:40:45,799] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-10-27 18:41:02,008] INFO django.server — "POST /admin/login/?next=/admin/lab/resultado/ HTTP/1.1" 302 0
+[2025-10-27 18:41:02,177] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 17188
+[2025-10-27 18:41:02,271] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:41:24,425] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 14101
+[2025-10-27 18:41:24,479] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:41:26,899] INFO django.server — "GET /admin/lab/exame/add/ HTTP/1.1" 200 19397
+[2025-10-27 18:41:26,948] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:43:30,318] INFO django.server — "POST /admin/lab/exame/add/ HTTP/1.1" 302 0
+[2025-10-27 18:43:30,354] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19760
+[2025-10-27 18:43:30,446] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:43:48,655] INFO django.server — "GET /admin/lab/examecamporesultado/ HTTP/1.1" 200 15000
+[2025-10-27 18:43:48,710] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:43:50,827] INFO django.server — "GET /admin/lab/examecamporesultado/add/ HTTP/1.1" 200 18851
+[2025-10-27 18:43:50,877] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:43:50,908] INFO django.server — "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[2025-10-27 18:43:50,909] INFO django.server — "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2025-10-27 18:44:21,608] INFO django.server — "GET /admin/lab/exame/add/?_to_field=id&_popup=1 HTTP/1.1" 200 10443
+[2025-10-27 18:44:21,659] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:44:36,638] INFO django.server — "POST /admin/lab/examecamporesultado/add/ HTTP/1.1" 302 0
+[2025-10-27 18:44:36,659] INFO django.server — "GET /admin/lab/examecamporesultado/ HTTP/1.1" 200 19454
+[2025-10-27 18:44:36,779] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:44:48,986] INFO django.server — "GET /admin/lab/examecamporesultado/add/ HTTP/1.1" 200 18851
+[2025-10-27 18:44:49,037] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:46:39,830] INFO django.server — "POST /admin/lab/examecamporesultado/add/ HTTP/1.1" 302 0
+[2025-10-27 18:46:39,852] INFO django.server — "GET /admin/lab/examecamporesultado/ HTTP/1.1" 200 20073
+[2025-10-27 18:46:39,959] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:46:40,002] INFO django.server — "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+[2025-10-27 18:46:57,715] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 15361
+[2025-10-27 18:46:57,787] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:47:00,096] INFO django.server — "GET /admin/lab/paciente/add/ HTTP/1.1" 200 24013
+[2025-10-27 18:47:00,147] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:47:59,313] INFO django.server — "POST /admin/lab/paciente/add/ HTTP/1.1" 302 0
+[2025-10-27 18:47:59,334] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 23080
+[2025-10-27 18:47:59,428] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:48:44,453] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 14918
+[2025-10-27 18:48:44,500] INFO django.server — "GET /static/js/requisicao_analise_admin.js HTTP/1.1" 200 1752
+[2025-10-27 18:48:44,504] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:48:46,571] INFO django.server — "GET /admin/lab/requisicaoanalise/add/ HTTP/1.1" 200 39493
+[2025-10-27 18:48:46,623] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:48:49,126] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=requisicaoanalise&field_name=paciente HTTP/1.1" 200 96
+[2025-10-27 18:49:02,665] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=itemrequisicao&field_name=exame HTTP/1.1" 200 96
+[2025-10-27 18:49:39,844] INFO django.server — "POST /admin/lab/requisicaoanalise/add/ HTTP/1.1" 302 0
+[2025-10-27 18:49:39,868] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 20253
+[2025-10-27 18:49:39,961] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:49:50,813] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 125417
+[2025-10-27 18:50:40,096] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 17204
+[2025-10-27 18:50:40,161] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:50:43,733] INFO django.server — "GET /admin/lab/resultado/add/ HTTP/1.1" 200 30582
+[2025-10-27 18:50:43,784] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:50:43,835] INFO django.server — "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[2025-10-27 18:50:44,979] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=requisicao HTTP/1.1" 200 103
+[2025-10-27 18:50:48,189] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=exame HTTP/1.1" 200 96
+[2025-10-27 18:51:03,871] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=exame HTTP/1.1" 302 0
+[2025-10-27 18:51:03,886] INFO django.server — "GET /admin/login/?next=/admin/autocomplete/%3Fapp_label%3Dlab%26model_name%3Dresultado%26field_name%3Dexame HTTP/1.1" 200 3172
+[2025-10-27 18:51:04,939] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=exame HTTP/1.1" 302 0
+[2025-10-27 18:51:04,949] INFO django.server — "GET /admin/login/?next=/admin/autocomplete/%3Fapp_label%3Dlab%26model_name%3Dresultado%26field_name%3Dexame HTTP/1.1" 200 3172
+[2025-10-27 18:51:06,205] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=exame HTTP/1.1" 302 0
+[2025-10-27 18:51:06,218] INFO django.server — "GET /admin/login/?next=/admin/autocomplete/%3Fapp_label%3Dlab%26model_name%3Dresultado%26field_name%3Dexame HTTP/1.1" 200 3172
+[2025-10-27 18:51:07,212] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=requisicao HTTP/1.1" 302 0
+[2025-10-27 18:51:07,235] INFO django.server — "GET /admin/login/?next=/admin/autocomplete/%3Fapp_label%3Dlab%26model_name%3Dresultado%26field_name%3Drequisicao HTTP/1.1" 200 3177
+[2025-10-27 18:51:10,423] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=requisicao HTTP/1.1" 302 0
+[2025-10-27 18:51:10,432] INFO django.server — "GET /admin/login/?next=/admin/autocomplete/%3Fapp_label%3Dlab%26model_name%3Dresultado%26field_name%3Drequisicao HTTP/1.1" 200 3177
+[2025-10-27 18:51:34,726] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=inserido_por HTTP/1.1" 302 0
+[2025-10-27 18:51:34,738] INFO django.server — "GET /admin/login/?next=/admin/autocomplete/%3Fapp_label%3Dlab%26model_name%3Dresultado%26field_name%3Dinserido_por HTTP/1.1" 200 3179
+[2025-10-27 18:51:36,481] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=inserido_por HTTP/1.1" 302 0
+[2025-10-27 18:51:36,500] INFO django.server — "GET /admin/login/?next=/admin/autocomplete/%3Fapp_label%3Dlab%26model_name%3Dresultado%26field_name%3Dinserido_por HTTP/1.1" 200 3179
+[2025-10-27 18:51:39,189] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=inserido_por HTTP/1.1" 302 0
+[2025-10-27 18:51:39,206] INFO django.server — "GET /admin/login/?next=/admin/autocomplete/%3Fapp_label%3Dlab%26model_name%3Dresultado%26field_name%3Dinserido_por HTTP/1.1" 200 3179
+[2025-10-27 18:51:42,611] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=validado_por HTTP/1.1" 302 0
+[2025-10-27 18:51:42,623] INFO django.server — "GET /admin/login/?next=/admin/autocomplete/%3Fapp_label%3Dlab%26model_name%3Dresultado%26field_name%3Dvalidado_por HTTP/1.1" 200 3179
+[2025-10-27 18:52:35,253] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=inserido_por HTTP/1.1" 302 0
+[2025-10-27 18:52:35,265] INFO django.server — "GET /admin/login/?next=/admin/autocomplete/%3Fapp_label%3Dlab%26model_name%3Dresultado%26field_name%3Dinserido_por HTTP/1.1" 200 3179
+[2025-10-27 18:52:41,130] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=inserido_por HTTP/1.1" 302 0
+[2025-10-27 18:52:41,144] INFO django.server — "GET /admin/login/?next=/admin/autocomplete/%3Fapp_label%3Dlab%26model_name%3Dresultado%26field_name%3Dinserido_por HTTP/1.1" 200 3179
+[2025-10-27 18:52:46,764] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=validado_por HTTP/1.1" 302 0
+[2025-10-27 18:52:46,783] INFO django.server — "GET /admin/login/?next=/admin/autocomplete/%3Fapp_label%3Dlab%26model_name%3Dresultado%26field_name%3Dvalidado_por HTTP/1.1" 200 3179
+[2025-10-27 18:52:51,433] INFO django.server — "POST /admin/lab/resultado/add/ HTTP/1.1" 302 0
+[2025-10-27 18:52:51,440] INFO django.server — "GET /admin/login/?next=/admin/lab/resultado/add/ HTTP/1.1" 200 3113
+[2025-10-27 18:52:54,321] INFO django.server — "POST /admin/login/?next=/admin/lab/resultado/add/ HTTP/1.1" 200 3450
+[2025-10-27 18:53:06,919] INFO django.server — "POST /admin/login/?next=/admin/lab/resultado/add/ HTTP/1.1" 302 0
+[2025-10-27 18:53:06,970] INFO django.server — "GET /admin/lab/resultado/add/ HTTP/1.1" 200 30582
+[2025-10-27 18:53:07,074] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:53:09,100] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=requisicao HTTP/1.1" 200 103
+[2025-10-27 18:53:11,902] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=exame HTTP/1.1" 200 96
+[2025-10-27 18:53:31,159] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=inserido_por HTTP/1.1" 200 70
+[2025-10-27 18:53:31,843] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=inserido_por HTTP/1.1" 200 70
+[2025-10-27 18:53:34,244] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=validado_por HTTP/1.1" 200 70
+[2025-10-27 18:53:41,118] INFO django.server — "POST /admin/lab/resultado/add/ HTTP/1.1" 302 0
+[2025-10-27 18:53:41,153] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 25389
+[2025-10-27 18:53:41,252] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:54:17,681] INFO django.server — "POST /admin/lab/resultado/ HTTP/1.1" 200 125149
+[2025-10-27 18:55:11,325] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19166
+[2025-10-27 18:55:11,376] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:55:13,421] INFO django.server — "GET /admin/lab/exame/add/ HTTP/1.1" 200 19381
+[2025-10-27 18:55:13,472] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:55:36,248] INFO django.server — "POST /admin/lab/exame/add/ HTTP/1.1" 302 0
+[2025-10-27 18:55:36,278] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 20297
+[2025-10-27 18:55:36,371] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:55:44,154] INFO django.server — "GET /admin/lab/examecamporesultado/ HTTP/1.1" 200 20097
+[2025-10-27 18:55:44,208] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:55:47,954] INFO django.server — "GET /admin/lab/examecamporesultado/add/ HTTP/1.1" 200 18921
+[2025-10-27 18:55:48,006] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:56:13,413] INFO django.server — "POST /admin/lab/examecamporesultado/add/ HTTP/1.1" 302 0
+[2025-10-27 18:56:13,436] INFO django.server — "GET /admin/lab/examecamporesultado/add/ HTTP/1.1" 200 19577
+[2025-10-27 18:56:13,529] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:56:27,553] INFO django.server — "POST /admin/lab/examecamporesultado/add/ HTTP/1.1" 302 0
+[2025-10-27 18:56:27,579] INFO django.server — "GET /admin/lab/examecamporesultado/ HTTP/1.1" 200 21879
+[2025-10-27 18:56:27,667] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:56:32,563] INFO django.server — "GET /admin/lab/examecamporesultado/add/ HTTP/1.1" 200 18921
+[2025-10-27 18:56:32,635] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:56:49,270] INFO django.server — "POST /admin/lab/examecamporesultado/add/ HTTP/1.1" 302 0
+[2025-10-27 18:56:49,291] INFO django.server — "GET /admin/lab/examecamporesultado/add/ HTTP/1.1" 200 19577
+[2025-10-27 18:56:49,378] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:57:07,277] INFO django.server — "POST /admin/lab/examecamporesultado/add/ HTTP/1.1" 302 0
+[2025-10-27 18:57:07,301] INFO django.server — "GET /admin/lab/examecamporesultado/ HTTP/1.1" 200 23056
+[2025-10-27 18:57:07,385] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:57:17,087] INFO django.server — "GET /admin/lab/examecamporesultado/add/ HTTP/1.1" 200 18921
+[2025-10-27 18:57:17,143] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:57:30,225] INFO django.server — "POST /admin/lab/examecamporesultado/add/ HTTP/1.1" 302 0
+[2025-10-27 18:57:30,264] INFO django.server — "GET /admin/lab/examecamporesultado/ HTTP/1.1" 200 23643
+[2025-10-27 18:57:30,358] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:57:35,171] INFO django.server — "GET /admin/lab/examecamporesultado/add/ HTTP/1.1" 200 18921
+[2025-10-27 18:57:35,223] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:58:10,494] INFO django.server — "POST /admin/lab/examecamporesultado/add/ HTTP/1.1" 302 0
+[2025-10-27 18:58:10,517] INFO django.server — "GET /admin/lab/examecamporesultado/ HTTP/1.1" 200 24234
+[2025-10-27 18:58:10,609] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:58:14,644] INFO django.server — "GET /admin/lab/examecamporesultado/add/ HTTP/1.1" 200 18921
+[2025-10-27 18:58:14,698] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:58:36,972] INFO django.server — "POST /admin/lab/examecamporesultado/add/ HTTP/1.1" 302 0
+[2025-10-27 18:58:36,997] INFO django.server — "GET /admin/lab/examecamporesultado/ HTTP/1.1" 200 24822
+[2025-10-27 18:58:37,086] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:58:50,305] INFO django.server — "GET /admin/lab/examecamporesultado/add/ HTTP/1.1" 200 18921
+[2025-10-27 18:58:50,373] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:59:03,124] INFO django.server — "POST /admin/lab/examecamporesultado/add/ HTTP/1.1" 302 0
+[2025-10-27 18:59:03,161] INFO django.server — "GET /admin/lab/examecamporesultado/ HTTP/1.1" 200 25419
+[2025-10-27 18:59:03,260] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:59:06,453] INFO django.server — "GET /admin/lab/examecamporesultado/add/ HTTP/1.1" 200 18921
+[2025-10-27 18:59:06,514] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:59:19,536] INFO django.server — "POST /admin/lab/examecamporesultado/add/ HTTP/1.1" 302 0
+[2025-10-27 18:59:19,563] INFO django.server — "GET /admin/lab/examecamporesultado/ HTTP/1.1" 200 26012
+[2025-10-27 18:59:19,668] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:59:29,641] INFO django.server — "GET /admin/lab/examecamporesultado/add/ HTTP/1.1" 200 18921
+[2025-10-27 18:59:29,703] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 18:59:46,217] INFO django.server — "POST /admin/lab/examecamporesultado/add/ HTTP/1.1" 302 0
+[2025-10-27 18:59:46,242] INFO django.server — "GET /admin/lab/examecamporesultado/ HTTP/1.1" 200 26604
+[2025-10-27 18:59:46,331] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 19:00:29,871] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 19639
+[2025-10-27 19:00:29,926] INFO django.server — "GET /static/js/requisicao_analise_admin.js HTTP/1.1" 304 0
+[2025-10-27 19:00:29,930] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 19:00:34,256] INFO django.server — "GET /admin/lab/requisicaoanalise/add/ HTTP/1.1" 200 40050
+[2025-10-27 19:00:34,306] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 19:00:36,829] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 19639
+[2025-10-27 19:00:39,238] INFO django.server — "GET /admin/lab/requisicaoanalise/1/change/ HTTP/1.1" 200 44056
+[2025-10-27 19:00:39,290] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 19:00:44,426] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=itemrequisicao&field_name=exame HTTP/1.1" 200 144
+[2025-10-27 19:00:50,666] INFO django.server — "POST /admin/lab/requisicaoanalise/1/change/ HTTP/1.1" 302 0
+[2025-10-27 19:00:50,688] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 20271
+[2025-10-27 19:00:50,792] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 19:01:16,516] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 125443
+[2025-10-27 19:02:09,901] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 24749
+[2025-10-27 19:02:09,945] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 19:02:11,712] INFO django.server — "GET /admin/lab/resultado/1/change/ HTTP/1.1" 200 31619
+[2025-10-27 19:02:11,763] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 19:02:42,422] INFO django.server — "POST /admin/lab/resultado/1/change/ HTTP/1.1" 302 0
+[2025-10-27 19:02:42,474] INFO django.server — "GET /admin/lab/resultado/add/ HTTP/1.1" 200 31268
+[2025-10-27 19:02:42,570] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 19:02:44,295] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=requisicao HTTP/1.1" 200 103
+[2025-10-27 19:02:45,948] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=exame HTTP/1.1" 200 144
+[2025-10-27 19:11:20,241] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 19:11:21,083] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 19:13:21,975] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-10-27 19:13:22,654] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 19:59:52,050] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 20:00:01,623] INFO django.server — "GET /admin/lab/resultado/add/ HTTP/1.1" 302 0
+[2025-10-27 20:00:01,664] INFO django.server — "GET /admin/login/?next=/admin/lab/resultado/add/ HTTP/1.1" 200 3113
+[2025-10-27 20:00:01,988] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+[2025-10-27 20:00:16,367] INFO django.server — "POST /admin/login/?next=/admin/lab/resultado/add/ HTTP/1.1" 302 0
+[2025-10-27 20:00:16,546] INFO django.server — "GET /admin/lab/resultado/add/ HTTP/1.1" 200 27011
+[2025-10-27 20:00:16,671] INFO django.server — "GET /static/admin/js/vendor/select2/i18n/pt.js HTTP/1.1" 200 878
+[2025-10-27 20:00:16,681] INFO django.server — "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-10-27 20:00:16,683] INFO django.server — "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-10-27 20:00:16,767] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 20:00:22,587] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=requisicao HTTP/1.1" 200 103
+[2025-10-27 20:00:24,197] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=exame HTTP/1.1" 200 144
+[2025-10-27 20:00:26,749] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=inserido_por HTTP/1.1" 200 70
+[2025-10-27 20:00:31,247] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=validado_por HTTP/1.1" 200 70
+[2025-10-27 20:00:42,549] INFO django.server — "POST /admin/lab/resultado/add/ HTTP/1.1" 302 0
+[2025-10-27 20:00:42,931] ERROR django.request — Internal Server Error: /admin/lab/resultado/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/options.py", line 683, in get_field
+    return self.fields_map[field_name]
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'is_valid_display'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/utils.py", line 290, in lookup_field
+    f = _get_non_gfk_field(opts, name)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/utils.py", line 330, in _get_non_gfk_field
+    field = opts.get_field(name)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/options.py", line 685, in get_field
+    raise FieldDoesNotExist(
+        "%s has no field named '%s'" % (self.object_name, field_name)
+    )
+django.core.exceptions.FieldDoesNotExist: Resultado has no field named 'is_valid_display'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/templatetags/base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/template/library.py", line 359, in render
+    _dict = self.func(*resolved_args, **resolved_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/templatetags/admin_list.py", line 354, in result_list
+    "results": list(results(cl)),
+               ~~~~^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/templatetags/admin_list.py", line 330, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/templatetags/admin_list.py", line 321, in __init__
+    super().__init__(*items)
+    ~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/templatetags/admin_list.py", line 219, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+                     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/utils.py", line 299, in lookup_field
+    value = attr(obj)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py", line 179, in is_valid_display
+    return format_html(
+           ^^^^^^^^^^^
+NameError: name 'format_html' is not defined
+[2025-10-27 20:00:42,941] ERROR django.server — "GET /admin/lab/resultado/ HTTP/1.1" 500 431169
+[2025-10-27 20:00:43,193] WARNING django.request — Not Found: /favicon.ico
+[2025-10-27 20:05:11,310] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-10-27 20:05:12,132] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 20:05:13,429] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-10-27 20:05:14,363] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 20:05:23,337] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 23832
+[2025-10-27 20:05:23,389] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 20:05:32,944] INFO django.server — "GET /admin/lab/resultado/add/ HTTP/1.1" 200 27011
+[2025-10-27 20:05:33,082] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 20:05:34,699] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=requisicao HTTP/1.1" 200 103
+[2025-10-27 20:05:36,196] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=exame HTTP/1.1" 200 144
+[2025-10-27 20:05:38,540] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=inserido_por HTTP/1.1" 200 70
+[2025-10-27 20:05:41,435] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=validado_por HTTP/1.1" 200 70
+[2025-10-27 20:05:51,977] INFO django.server — "POST /admin/lab/resultado/add/ HTTP/1.1" 302 0
+[2025-10-27 20:05:52,012] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 25296
+[2025-10-27 20:05:52,109] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 20:06:00,203] INFO django.server — "GET /admin/lab/resultado/2/change/ HTTP/1.1" 200 27983
+[2025-10-27 20:06:00,286] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 20:06:23,265] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 24669
+[2025-10-27 20:06:23,325] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 20:07:02,998] ERROR django.request — Internal Server Error: /admin/lab/resultado/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 2057, in changelist_view
+    response = self.response_action(
+        request, queryset=cl.get_queryset(request)
+    )
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1686, in response_action
+    response = func(self, request, queryset)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py", line 174, in baixar_pdf_resultados
+    pdf_content = gerar_pdf_resultados(requisicao)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py", line 355, in gerar_pdf_resultados
+    Paragraph(r.valor or "—", text_style),
+              ^^^^^^^
+AttributeError: 'Resultado' object has no attribute 'valor'
+[2025-10-27 20:07:03,002] ERROR django.server — "POST /admin/lab/resultado/ HTTP/1.1" 500 138957
+[2025-10-27 20:07:13,430] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 24669
+[2025-10-27 20:07:21,340] INFO django.server — "GET /admin/lab/resultado/3/change/ HTTP/1.1" 200 27934
+[2025-10-27 20:07:21,403] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 20:07:26,291] INFO django.server — "GET /admin/lab/exame/2/change/?_to_field=id&_popup=1 HTTP/1.1" 200 10543
+[2025-10-27 20:07:26,400] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 20:07:44,342] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=validado_por HTTP/1.1" 200 70
+[2025-10-27 20:07:47,777] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=inserido_por HTTP/1.1" 200 70
+[2025-10-27 21:03:43,724] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-10-27 21:03:44,656] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:03:55,065] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-10-27 21:03:55,959] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:08:17,938] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:08:18,812] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:19:57,139] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:20:09,242] INFO django.server — "GET /admin/lab/resultado/3/change/ HTTP/1.1" 302 0
+[2025-10-27 21:20:09,260] INFO django.server — "GET /admin/login/?next=/admin/lab/resultado/3/change/ HTTP/1.1" 200 3118
+[2025-10-27 21:20:09,465] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 3516
+[2025-10-27 21:21:46,757] INFO django.server — "POST /admin/login/?next=/admin/lab/resultado/3/change/ HTTP/1.1" 200 3455
+[2025-10-27 21:22:00,394] INFO django.server — "POST /admin/login/?next=/admin/lab/resultado/3/change/ HTTP/1.1" 302 0
+[2025-10-27 21:22:00,466] INFO django.server — "GET /admin/lab/resultado/3/change/ HTTP/1.1" 302 0
+[2025-10-27 21:22:00,597] INFO django.server — "GET /admin/ HTTP/1.1" 200 19078
+[2025-10-27 21:22:23,611] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 13584
+[2025-10-27 21:22:23,745] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:22:26,305] INFO django.server — "GET /admin/lab/exame/add/ HTTP/1.1" 200 18880
+[2025-10-27 21:22:26,363] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:23:15,471] INFO django.server — "POST /admin/lab/exame/add/ HTTP/1.1" 302 0
+[2025-10-27 21:23:15,631] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19557
+[2025-10-27 21:23:15,737] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:23:43,874] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 14860
+[2025-10-27 21:23:43,942] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:23:47,585] INFO django.server — "GET /admin/lab/paciente/add/ HTTP/1.1" 200 23512
+[2025-10-27 21:23:47,656] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:24:24,742] INFO django.server — "POST /admin/lab/paciente/add/ HTTP/1.1" 302 0
+[2025-10-27 21:24:24,766] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 22169
+[2025-10-27 21:24:24,868] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:24:42,858] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 14354
+[2025-10-27 21:24:42,922] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:24:45,600] INFO django.server — "GET /admin/lab/requisicaoanalise/add/ HTTP/1.1" 200 31817
+[2025-10-27 21:24:45,658] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:24:48,268] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=requisicaoanalise&field_name=paciente HTTP/1.1" 200 96
+[2025-10-27 21:24:52,160] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=itemrequisicao&field_name=exame HTTP/1.1" 200 77
+[2025-10-27 21:24:55,237] INFO django.server — "POST /admin/lab/requisicaoanalise/add/ HTTP/1.1" 302 0
+[2025-10-27 21:24:55,264] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 19661
+[2025-10-27 21:24:55,359] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:25:03,160] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 125404
+[2025-10-27 21:25:07,550] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 125404
+[2025-10-27 21:25:11,575] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 125404
+[2025-10-27 21:25:15,535] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 125404
+[2025-10-27 21:25:16,480] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 125404
+[2025-10-27 21:26:31,248] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 16703
+[2025-10-27 21:26:31,335] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:26:33,463] INFO django.server — "GET /admin/lab/resultado/add/ HTTP/1.1" 200 30081
+[2025-10-27 21:26:33,526] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:26:35,031] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=requisicao HTTP/1.1" 200 103
+[2025-10-27 21:26:37,249] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=exame HTTP/1.1" 200 77
+[2025-10-27 21:28:06,961] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:28:07,957] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:28:19,416] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:28:20,896] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:28:24,279] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:28:24,811] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:28:26,966] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:28:27,674] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:28:29,930] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:28:30,871] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:28:35,351] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:28:36,046] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:28:58,632] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:28:59,503] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:29:01,791] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:29:02,524] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:29:19,017] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:29:20,025] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:29:21,230] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:29:21,887] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:34:46,776] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:34:54,387] INFO django.server — "GET /admin/lab/resultado/add/ HTTP/1.1" 302 0
+[2025-10-27 21:34:54,408] INFO django.server — "GET /admin/login/?next=/admin/lab/resultado/add/ HTTP/1.1" 200 3113
+[2025-10-27 21:35:06,847] INFO django.server — "POST /admin/login/?next=/admin/lab/resultado/add/ HTTP/1.1" 302 0
+[2025-10-27 21:35:06,955] INFO django.server — "GET /admin/lab/resultado/add/ HTTP/1.1" 200 25877
+[2025-10-27 21:35:07,066] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:35:09,206] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=requisicao HTTP/1.1" 200 103
+[2025-10-27 21:35:11,300] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=exame HTTP/1.1" 200 77
+[2025-10-27 21:37:31,036] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:37:31,893] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:37:36,210] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:37:36,897] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:37:41,077] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:37:41,699] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:37:46,876] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:37:47,823] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:37:50,003] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:37:51,014] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:37:52,301] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:37:52,992] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:37:55,165] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:37:55,971] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:37:57,431] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:37:58,192] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:37:59,389] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:38:00,138] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:38:01,546] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:38:02,629] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:38:08,837] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:38:09,683] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:38:11,857] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:38:12,680] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:38:13,891] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:38:14,744] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:38:19,913] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:38:20,464] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:38:24,639] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:38:25,172] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:38:35,367] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:38:36,145] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:38:39,344] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:38:39,947] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:38:42,108] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:38:43,012] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:38:44,227] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:38:44,970] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:38:47,164] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:38:48,080] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:38:49,285] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:38:50,096] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:38:51,292] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:38:52,481] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:39:12,121] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:39:12,673] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:39:14,845] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:39:15,489] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:39:21,612] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:39:22,333] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:39:28,657] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:39:30,201] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:39:32,747] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:39:34,282] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:39:46,488] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:39:47,098] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:39:58,310] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:40:00,058] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:40:05,529] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:40:06,259] INFO django.utils.autoreload — Watching for file changes with StatReloader

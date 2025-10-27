@@ -1,26 +1,12 @@
-# ===========================================
-# models.py — Sistema de Gestão Laboratorial
-# Autor: Trato
-# Objetivo: Modelos otimizados (UX + lógica)
-# Sem alterações estruturais no DB (no migrations)
-# ===========================================
-
 from datetime import date
 from django.db import models
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.utils.html import format_html
+from django.utils import timezone
 
-
-# ==========================================================
 # -------------------- Paciente -----------------------------
-# ==========================================================
 class Paciente(models.Model):
-	"""
-	Entidade que representa um paciente atendido no laboratório.
-	Contém informações pessoais, de contacto e proveniência clínica.
-	"""
-
 	class Proveniencia(models.TextChoices):
 		BS = 'Banco de Socorros', 'Banco de Socorros'
 		AMB = 'Ambulatório', 'Ambulatório'
@@ -39,49 +25,35 @@ class Paciente(models.Model):
 	id = models.BigIntegerField(primary_key=True, verbose_name='Número de entrada')
 	nome = models.CharField(max_length=255, verbose_name='Nome do paciente')
 	data_nascimento = models.DateField(null=True, blank=True, verbose_name='Data de nascimento')
-	genero = models.CharField(
-		max_length=32,
-		choices=[('M', 'Masculino'), ('F', 'Feminino')],
-		verbose_name='Gênero'
-	)
+	genero = models.CharField(max_length=32, choices=[('M', 'Masculino'), ('F', 'Feminino')], verbose_name='Gênero')
 	telefone = models.CharField(max_length=32, blank=True, verbose_name='Número de celular')
 	residencia = models.CharField(max_length=255, blank=True, verbose_name='Residência')
 	proveniencia = models.CharField(max_length=128, blank=True, verbose_name='Sector de proveniência')
 	nacionalidade = models.CharField(max_length=64, blank=True, verbose_name='País de origem')
 	numero_id = models.CharField(max_length=64, unique=True, verbose_name='Documento de Identificação')
 	historico_medico = models.TextField(blank=True, null=True, verbose_name='Histórico médico')
-	created_at = models.DateTimeField(auto_now_add=True, verbose_name='Horário de entrada', null=False, blank=False)
-
-	# ----------------- Métodos utilitários ----------------- #
+	created_at = models.DateTimeField(auto_now_add=True, verbose_name='Horário de entrada')
 
 	@property
 	def idade(self):
-		"""Calcula idade com base na data de nascimento."""
 		if not self.data_nascimento:
 			return None
 		hoje = date.today()
-		return hoje.year - self.data_nascimento.year - (
-			(hoje.month, hoje.day) < (self.data_nascimento.month, self.data_nascimento.day)
-		)
+		return hoje.year - self.data_nascimento.year - ((hoje.month, hoje.day) < (self.data_nascimento.month, self.data_nascimento.day))
 
 	def clean(self):
-		"""Validação de integridade lógica."""
 		if self.data_nascimento and self.data_nascimento > date.today():
 			raise ValidationError("A data de nascimento não pode ser no futuro.")
 
 	def resumo(self):
-		"""Retorna resumo textual para visualização em admin/templates."""
 		return f"{self.nome} ({self.numero_id}) — {self.residencia or 'Local não especificado'}"
 	resumo.short_description = "Resumo do Paciente"
 
 	def idade_display(self):
-		"""Exibe idade formatada para admin/list_display."""
 		return f"{self.idade} anos" if self.idade is not None else "—"
 	idade_display.short_description = "Idade"
 
 	def __str__(self):
-		"""Representação legível do paciente."""
-		idade_txt = f" - Idade: {self.idade} anos" if self.idade else ""
 		return f"{self.id} — {self.nome}"
 
 	class Meta:
@@ -90,15 +62,8 @@ class Paciente(models.Model):
 		ordering = ['nome']
 
 
-# ==========================================================
 # -------------------- Exame -------------------------------
-# ==========================================================
 class Exame(models.Model):
-	"""
-	Modela os tipos de exames laboratoriais disponíveis.
-	Define nome, descrição, valor de referência e unidade de medida.
-	"""
-
 	id = models.IntegerField(primary_key=True)
 	nome = models.CharField(max_length=255, verbose_name='Nome do exame')
 	descricao = models.TextField(blank=True, help_text="Descrição detalhada do exame", verbose_name='Descrição do exame')
@@ -115,50 +80,30 @@ class Exame(models.Model):
 		return f'#{self.id} - {self.nome}'
 
 	def display_valor_ref(self):
-		"""Retorna o valor de referência formatado para exibição."""
 		return self.valor_ref or "—"
 	display_valor_ref.short_description = "Valor de referência"
 
 	def tempo_resposta_display(self):
-		"""Apresentação legível do tempo de resposta."""
 		return f"{self.trl_horas}h"
 	tempo_resposta_display.short_description = "TAT (Turnaround Time)"
 
 
-# ==========================================================
-# -------------------- Requisição de Análises --------------
-# ==========================================================
+# -------------------- Requisição de Análises -----------------
 class RequisicaoAnalise(models.Model):
-	"""
-	Representa uma requisição de análises laboratoriais associada a um paciente.
-	Cada requisição pode conter múltiplos exames.
-	"""
-
 	paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE, verbose_name="Paciente")
 	exames = models.ManyToManyField('Exame', through='ItemRequisicao', blank=True, verbose_name='Exames requisitados')
-	analista = models.ForeignKey(
-		settings.AUTH_USER_MODEL,
-		null=True,
-		blank=True,
-		on_delete=models.SET_NULL,
-		verbose_name='Técnico de Laboratório'
-	)
+	analista = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, verbose_name='Técnico de Laboratório')
 	observacoes = models.TextField(blank=True, verbose_name="Observações adicionais")
-
-	# ----------------- Métodos inteligentes ----------------- #
 
 	@property
 	def exames_list(self):
-		"""Retorna queryset de exames vinculados (via tabela intermediária)."""
 		return Exame.objects.filter(itemrequisicao__requisicao=self)
 
 	@property
 	def exames_count(self):
-		"""Retorna contagem de exames requisitados."""
 		return self.exames_list.count()
 
 	def exames_summary(self):
-		"""Resumo textual dos exames requisitados (limitado a 5 nomes)."""
 		names = list(self.exames_list.values_list('nome', flat=True)[:5])
 		summary = ", ".join(names)
 		if self.exames_count > 5:
@@ -167,7 +112,6 @@ class RequisicaoAnalise(models.Model):
 	exames_summary.short_description = "Resumo dos Exames"
 
 	def observacoes_short(self):
-		"""Trunca observações longas para exibição compacta."""
 		return (self.observacoes[:80] + '…') if self.observacoes and len(self.observacoes) > 80 else (self.observacoes or "—")
 	observacoes_short.short_description = "Observações"
 
@@ -180,13 +124,8 @@ class RequisicaoAnalise(models.Model):
 		ordering = ['-id']
 
 
-# ==========================================================
 # -------------------- Item da Requisição ------------------
-# ==========================================================
 class ItemRequisicao(models.Model):
-	"""
-	Tabela intermediária que vincula exames às requisições.
-	"""
 	requisicao = models.ForeignKey(RequisicaoAnalise, on_delete=models.CASCADE, verbose_name='Requisição')
 	exame = models.ForeignKey(Exame, on_delete=models.CASCADE, verbose_name='Exame')
 
@@ -198,115 +137,74 @@ class ItemRequisicao(models.Model):
 		verbose_name_plural = "Itens de Requisição"
 
 
-# ==========================================================
 # -------------------- Resultado ---------------------------
-# ==========================================================
-from django.db import models
-from django.conf import settings
-from django.utils.html import format_html
-from django.utils import timezone
-from .models import RequisicaoAnalise  # ajuste se necessário
-from .models import Exame  # ajuste se necessário
-
-
-# ==========================================================
-# -------------------- Resultado ---------------------------
-# ==========================================================
-from django.db import models
-from django.conf import settings
-from django.utils import timezone
-from django.utils.html import format_html
-from .models import RequisicaoAnalise, Exame
-
-
 class Resultado(models.Model):
-    """
-    Resultados laboratoriais de cada exame em uma requisição.
-    Unidade e valor de referência são preenchidos automaticamente a partir do exame.
-    O nome completo do analista é preenchido automaticamente com base no usuário.
-    """
-    requisicao = models.ForeignKey(
-        RequisicaoAnalise,
-        on_delete=models.CASCADE,
-        related_name='resultados',
-        verbose_name='Requisição'
-    )
-    exame = models.ForeignKey(Exame, on_delete=models.CASCADE, verbose_name='Exame')
-    resultado = models.TextField(null=True, blank=True)
-    valor = models.CharField(max_length=128, blank=True, verbose_name='Resultado analítico')
-    unidade = models.CharField(max_length=32, blank=True, verbose_name='Unidade')
-    valor_referencia = models.CharField(max_length=64, blank=True, verbose_name='Valor de referência')
-    nome_completo = models.CharField(
-        max_length=150,
-        blank=True,
-        verbose_name='Nome completo do Analista',
-        help_text="Preenchido automaticamente com base no usuário"
-    )
-    inserido_por = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        null=True,
-        blank=True,
-        related_name='resultados_inseridos',
-        on_delete=models.SET_NULL,
-        verbose_name='Analista responsável'
-    )
-    data_insercao = models.DateTimeField(auto_now=True, verbose_name='Data de inserção')
-    validado = models.BooleanField(default=False, verbose_name='Validado')
-    validado_por = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        null=True,
-        blank=True,
-        related_name='resultados_validados',
-        on_delete=models.SET_NULL,
-        verbose_name='Validado por'
-    )
-    data_validacao = models.DateTimeField(null=True, blank=True, verbose_name='Data de validação')
+	requisicao = models.ForeignKey(RequisicaoAnalise, on_delete=models.CASCADE, related_name='resultados', verbose_name='Requisição')
+	exame = models.ForeignKey(Exame, on_delete=models.CASCADE, verbose_name='Exame')
+	resultado = models.TextField(null=True, blank=True, verbose_name="Resultado")
+	unid = models.ForeignKey(Exame, on_delete=models.CASCADE)
+	unidade = models.CharField(max_length=32, blank=True, verbose_name='Unidade')
+	valor_referencia = models.CharField(max_length=64, blank=True, verbose_name='Valor de referência')
+	data_insercao = models.DateTimeField(auto_now=True, verbose_name='Data de inserção')
+	validado = models.BooleanField(default=False, verbose_name='Validado')
+	validado_por = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, related_name='resultados_validados', on_delete=models.SET_NULL, verbose_name='Validado por')
+	data_validacao = models.DateTimeField(null=True, blank=True, verbose_name='Data de validação')
 
-    class Meta:
-        verbose_name = "Resultado de Exame"
-        verbose_name_plural = "Resultados de Exames"
-        unique_together = (('requisicao', 'exame'),)
-        ordering = ['requisicao', 'exame']
+	class Meta:
+		verbose_name = "Resultado de Exame"
+		verbose_name_plural = "Resultados de Exames"
+		unique_together = (('requisicao', 'exame'),)
+		ordering = ['requisicao', 'exame']
 
-    # ----------------- Métodos auxiliares ----------------- #
+	def save(self, *args, **kwargs):
+		if self.exame:
+			if not self.unidade:
+				self.unidade = self.exame.unidade
+			if not self.valor_referencia:
+				self.valor_referencia = self.exame.valor_ref
+		if self.inserido_por and not self.nome_completo:
+			self.nome_completo = f"{self.inserido_por.first_name} {self.inserido_por.last_name}".strip()
+		if self.validado and not self.data_validacao:
+			self.data_validacao = timezone.now()
+			if self.validado_por:
+				self.nome_completo = f"{self.validado_por.first_name} {self.validado_por.last_name}".strip()
+		super().save(*args, **kwargs)
 
-    def save(self, *args, **kwargs):
-        """
-        Preenche automaticamente:
-        - Unidade e valor de referência do exame
-        - Nome completo do usuário (inserido_por ou validado_por)
-        - Data de validação se estiver marcado como validado
-        """
-        if self.exame:
-            if not self.unidade:
-                self.unidade = self.exame.unidade
-            if not self.valor_referencia:
-                self.valor_referencia = self.exame.valor_ref
+	def is_valid_display(self):
+		return format_html('<b style="color:{};">{}</b>', 'green' if self.validado else 'red', 'Sim' if self.validado else 'Não')
+	is_valid_display.short_description = "Validado"
 
-        # Nome completo do analista
-        if self.inserido_por and not self.nome_completo:
-            self.nome_completo = f"{self.inserido_por.first_name} {self.inserido_por.last_name}".strip()
+	def formatted_data_insercao(self):
+		return self.data_insercao.strftime("%d/%m/%Y %H:%M") if self.data_insercao else "—"
+	formatted_data_insercao.short_description = "Inserido em"
 
-        if self.validado and not self.data_validacao:
-            self.data_validacao = timezone.now()
-            if self.validado_por:
-                self.nome_completo = f"{self.validado_por.first_name} {self.validado_por.last_name}".strip()
+	def __str__(self):
+		return f"Resultado: {self.requisicao} - {self.exame}"
 
-        super().save(*args, **kwargs)
 
-    def is_valid_display(self):
-        """Indicador visual no admin: Sim (verde) ou Não (vermelho)."""
-        return format_html(
-            '<b style="color:{};">{}</b>',
-            'green' if self.validado else 'red',
-            'Sim' if self.validado else 'Não'
-        )
-    is_valid_display.short_description = "Validado"
+# -------------------- Campos dinâmicos por exame -----------------
+class ExameCampoResultado(models.Model):
+	exame = models.ForeignKey(Exame, on_delete=models.CASCADE, related_name='campos')
+	nome_campo = models.CharField(max_length=255)
+	tipo_campo = models.CharField(max_length=50, choices=[('text', 'Texto'), ('number', 'Número'), ('bool', 'Sim/Não')])
+	obrigatorio = models.BooleanField(default=True)
 
-    def formatted_data_insercao(self):
-        """Data de inserção formatada para exibição no admin."""
-        return self.data_insercao.strftime("%d/%m/%Y %H:%M") if self.data_insercao else "—"
-    formatted_data_insercao.short_description = "Inserido em"
+	def __str__(self):
+		return f"{self.exame.nome} | {self.nome_campo}"
 
-    def __str__(self):
-        return f"Resultado: {self.requisicao} - {self.exame}"
+
+# -------------------- ResultadoItem -------------------------
+class ResultadoItem(models.Model):
+	requisicao = models.ForeignKey(RequisicaoAnalise, on_delete=models.CASCADE, related_name='resultado_items')
+	exame_campo = models.ForeignKey(ExameCampoResultado, on_delete=models.CASCADE, verbose_name='Campo do exame')
+	valor = models.CharField(max_length=128, blank=True)
+	unidade = models.CharField(max_length=32, blank=True)
+	valor_referencia = models.CharField(max_length=64, blank=True)
+
+	def save(self, *args, **kwargs):
+		self.unidade = self.exame_campo.exame.unidade
+		self.valor_referencia = self.exame_campo.exame.valor_ref
+		super().save(*args, **kwargs)
+
+	def __str__(self):
+		return f"{self.exame_campo.exame.nome} | {self.exame_campo.nome_campo} | {self.valor}"

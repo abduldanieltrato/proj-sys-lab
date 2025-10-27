@@ -158,14 +158,14 @@ class RequisicaoAnaliseAdmin(admin.ModelAdmin):
 @admin.register(Resultado)
 class ResultadoAdmin(admin.ModelAdmin):
 	list_display = (
-		'requisicao', 'exame', 'valor', 'unidade', 'valor_referencia',
-		'is_valid_display', 'inserido_por', 'formatted_data_insercao',
+		'requisicao', 'exame', 'resultado', 'unidade', 'valor_referencia',
+		'is_valid_display', 'formatted_data_insercao',
 		'validado_por', 'data_validacao'
 	)
 	search_fields = ('requisicao__paciente__nome', 'requisicao__paciente__numero_id', 'exame__nome')
 	list_filter = ('validado', 'data_insercao', 'data_validacao')
-	autocomplete_fields = ('requisicao', 'exame', 'inserido_por', 'validado_por')
-	readonly_fields = ('data_insercao', 'data_validacao', 'nome_completo')
+	autocomplete_fields = ('requisicao', 'exame', 'validado_por')
+	readonly_fields = ('data_insercao', 'data_validacao')
 	actions = ['validar_resultados', 'baixar_pdf_resultados']
 	list_per_page = 40
 
