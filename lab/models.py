@@ -142,7 +142,6 @@ class Resultado(models.Model):
 	requisicao = models.ForeignKey(RequisicaoAnalise, on_delete=models.CASCADE, related_name='resultados', verbose_name='Requisição')
 	exame = models.ForeignKey(Exame, on_delete=models.CASCADE, verbose_name='Exame')
 	resultado = models.TextField(null=True, blank=True, verbose_name="Resultado")
-	unid = models.ForeignKey(Exame, on_delete=models.CASCADE)
 	unidade = models.CharField(max_length=32, blank=True, verbose_name='Unidade')
 	valor_referencia = models.CharField(max_length=64, blank=True, verbose_name='Valor de referência')
 	data_insercao = models.DateTimeField(auto_now=True, verbose_name='Data de inserção')
@@ -162,12 +161,8 @@ class Resultado(models.Model):
 				self.unidade = self.exame.unidade
 			if not self.valor_referencia:
 				self.valor_referencia = self.exame.valor_ref
-		if self.inserido_por and not self.nome_completo:
-			self.nome_completo = f"{self.inserido_por.first_name} {self.inserido_por.last_name}".strip()
 		if self.validado and not self.data_validacao:
 			self.data_validacao = timezone.now()
-			if self.validado_por:
-				self.nome_completo = f"{self.validado_por.first_name} {self.validado_por.last_name}".strip()
 		super().save(*args, **kwargs)
 
 	def is_valid_display(self):
@@ -197,7 +192,7 @@ class ExameCampoResultado(models.Model):
 class ResultadoItem(models.Model):
 	requisicao = models.ForeignKey(RequisicaoAnalise, on_delete=models.CASCADE, related_name='resultado_items')
 	exame_campo = models.ForeignKey(ExameCampoResultado, on_delete=models.CASCADE, verbose_name='Campo do exame')
-	valor = models.CharField(max_length=128, blank=True)
+	resultado = models.CharField(max_length=128, blank=True)
 	unidade = models.CharField(max_length=32, blank=True)
 	valor_referencia = models.CharField(max_length=64, blank=True)
 

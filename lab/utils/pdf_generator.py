@@ -352,7 +352,7 @@ def gerar_pdf_resultados(requisicao):
     for r in requisicao.resultados.all():
         resultados_data.append([
             Paragraph(getattr(r.exame, "nome", "—"), text_style),
-            Paragraph(r.valor or "—", text_style),
+            Paragraph(r.resultado or "—", text_style),
             Paragraph(r.unidade or getattr(r.exame, "unidade", "—"), text_style),
             Paragraph(r.valor_referencia or getattr(r.exame, "valor_ref", "—"), text_style)
         ])

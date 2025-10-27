@@ -164,7 +164,7 @@ class ResultadoAdmin(admin.ModelAdmin):
 	)
 	search_fields = ('requisicao__paciente__nome', 'requisicao__paciente__numero_id', 'exame__nome')
 	list_filter = ('validado', 'data_insercao', 'data_validacao')
-	autocomplete_fields = ('requisicao', 'exame', 'validado_por')
+	autocomplete_fields = ('requisicao', 'exame')
 	readonly_fields = ('data_insercao', 'data_validacao')
 	actions = ['validar_resultados', 'baixar_pdf_resultados']
 	list_per_page = 40
@@ -188,9 +188,8 @@ class ResultadoAdmin(admin.ModelAdmin):
 
 	def validar_resultados(self, request, queryset):
 		for res in queryset:
-			if res.valor and not res.validado:
+			if res.resultado and not res.validado:
 				res.validado = True
-				res.validado_por = request.user
 				res.data_validacao = timezone.now()
 				res.save()
 	validar_resultados.short_description = "Validar resultados selecionados"

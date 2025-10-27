@@ -1130,3 +1130,291 @@ AttributeError: 'Resultado' object has no attribute 'valor'
 [2025-10-27 21:40:00,058] INFO django.utils.autoreload — Watching for file changes with StatReloader
 [2025-10-27 21:40:05,529] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
 [2025-10-27 21:40:06,259] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:54:59,800] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:55:02,969] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:55:14,985] INFO django.server — "GET /admin/ HTTP/1.1" 302 0
+[2025-10-27 21:55:15,164] INFO django.server — "GET /admin/login/?next=/admin/ HTTP/1.1" 200 3095
+[2025-10-27 21:55:35,406] INFO django.server — "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2025-10-27 21:55:35,573] INFO django.server — "GET /admin/ HTTP/1.1" 200 22240
+[2025-10-27 21:55:53,206] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 18998
+[2025-10-27 21:55:53,325] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:56:08,927] INFO django.server — "GET /admin/lab/ HTTP/1.1" 200 19433
+[2025-10-27 21:56:11,785] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 19047
+[2025-10-27 21:56:11,844] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:56:15,645] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 16703
+[2025-10-27 21:56:15,702] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:56:19,386] INFO django.server — "GET /admin/lab/resultado/add/ HTTP/1.1" 200 25877
+[2025-10-27 21:56:19,444] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:56:20,700] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=requisicao HTTP/1.1" 200 103
+[2025-10-27 21:56:22,120] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=exame HTTP/1.1" 200 77
+[2025-10-27 21:56:38,707] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=resultado&field_name=validado_por HTTP/1.1" 200 70
+[2025-10-27 21:56:41,604] ERROR django.request — Internal Server Error: /admin/lab/resultado/add/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1984, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1894, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1314, in save_model
+    obj.save()
+    ~~~~~~~~^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py", line 164, in save
+    if self.inserido_por and not self.nome_completo:
+       ^^^^^^^^^^^^^^^^^
+AttributeError: 'Resultado' object has no attribute 'inserido_por'
+[2025-10-27 21:56:41,609] ERROR django.server — "POST /admin/lab/resultado/add/ HTTP/1.1" 500 139950
+[2025-10-27 21:56:41,757] WARNING django.request — Not Found: /favicon.ico
+[2025-10-27 21:57:12,950] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-10-27 21:57:13,815] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:57:31,566] ERROR django.request — Internal Server Error: /admin/lab/resultado/add/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1984, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1894, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1314, in save_model
+    obj.save()
+    ~~~~~~~~^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py", line 164, in save
+    if self.inserido_por and not self.nome_completo:
+       ^^^^^^^^^^^^^^^^^
+AttributeError: 'Resultado' object has no attribute 'inserido_por'
+[2025-10-27 21:57:31,571] ERROR django.server — "POST /admin/lab/resultado/add/ HTTP/1.1" 500 139950
+[2025-10-27 21:57:35,766] ERROR django.request — Internal Server Error: /admin/lab/resultado/add/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1984, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1894, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1314, in save_model
+    obj.save()
+    ~~~~~~~~^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py", line 164, in save
+    if self.inserido_por and not self.nome_completo:
+       ^^^^^^^^^^^^^^^^^
+AttributeError: 'Resultado' object has no attribute 'inserido_por'
+[2025-10-27 21:57:35,769] ERROR django.server — "POST /admin/lab/resultado/add/ HTTP/1.1" 500 139950
+[2025-10-27 21:58:36,658] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 21:58:37,576] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 21:58:51,665] INFO django.server — "POST /admin/lab/resultado/add/ HTTP/1.1" 302 0
+[2025-10-27 21:58:51,719] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 24366
+[2025-10-27 21:58:51,831] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 21:59:29,469] ERROR django.request — Internal Server Error: /admin/lab/resultado/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 2057, in changelist_view
+    response = self.response_action(
+        request, queryset=cl.get_queryset(request)
+    )
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1686, in response_action
+    response = func(self, request, queryset)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py", line 203, in baixar_pdf_resultados
+    pdf_content = gerar_pdf_resultados(requisicao)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py", line 355, in gerar_pdf_resultados
+    Paragraph(r.valor or "—", text_style),
+              ^^^^^^^
+AttributeError: 'Resultado' object has no attribute 'valor'
+[2025-10-27 21:59:29,474] ERROR django.server — "POST /admin/lab/resultado/ HTTP/1.1" 500 138389
+[2025-10-27 22:02:08,108] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-10-27 22:02:09,404] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 22:02:12,762] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-10-27 22:02:13,251] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 22:02:16,556] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-10-27 22:02:17,973] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 22:02:19,341] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-10-27 22:02:20,072] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 22:02:34,559] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-10-27 22:02:35,196] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 22:03:11,516] ERROR django.request — Internal Server Error: /admin/lab/resultado/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 2057, in changelist_view
+    response = self.response_action(
+        request, queryset=cl.get_queryset(request)
+    )
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1686, in response_action
+    response = func(self, request, queryset)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py", line 202, in baixar_pdf_resultados
+    pdf_content = gerar_pdf_resultados(requisicao)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py", line 355, in gerar_pdf_resultados
+    Paragraph(r.valor or "—", text_style),
+              ^^^^^^^
+AttributeError: 'Resultado' object has no attribute 'valor'
+[2025-10-27 22:03:11,521] ERROR django.server — "POST /admin/lab/resultado/ HTTP/1.1" 500 138389
+[2025-10-27 22:04:01,972] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 22:04:02,966] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 22:04:34,779] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 22:04:35,424] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 22:04:41,762] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-27 22:04:42,475] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 22:07:22,924] INFO django.server — "POST /admin/lab/resultado/ HTTP/1.1" 302 0
+[2025-10-27 22:07:23,006] INFO django.server — "GET /admin/login/?next=/admin/lab/resultado/ HTTP/1.1" 200 3109
+[2025-10-27 22:07:36,621] INFO django.server — "POST /admin/login/?next=/admin/lab/resultado/ HTTP/1.1" 302 0
+[2025-10-27 22:07:36,682] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 23745
+[2025-10-27 22:07:36,797] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 22:07:44,004] ERROR django.request — Internal Server Error: /admin/lab/resultado/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 2057, in changelist_view
+    response = self.response_action(
+        request, queryset=cl.get_queryset(request)
+    )
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1686, in response_action
+    response = func(self, request, queryset)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py", line 202, in baixar_pdf_resultados
+    pdf_content = gerar_pdf_resultados(requisicao)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py", line 355, in gerar_pdf_resultados
+    Paragraph(r.valor or "—", text_style),
+              ^^^^^^^
+AttributeError: 'Resultado' object has no attribute 'valor'
+[2025-10-27 22:07:44,009] ERROR django.server — "POST /admin/lab/resultado/ HTTP/1.1" 500 138389
+[2025-10-27 22:12:08,993] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-10-27 22:12:10,193] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 22:12:13,654] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-10-27 22:12:14,370] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-27 22:12:52,245] INFO django.server — "POST /admin/lab/resultado/ HTTP/1.1" 200 125139
+[2025-10-27 22:33:35,516] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 302 0
+[2025-10-27 22:33:35,652] INFO django.server — "GET /admin/login/?next=/admin/lab/resultado/ HTTP/1.1" 200 3109
+[2025-10-27 22:33:53,135] INFO django.server — "GET /static/vendor/adminlte/css/adminlte.min.css.map HTTP/1.1" 200 3783134
+[2025-10-27 22:39:04,274] INFO django.server — "POST /admin/login/?next=/admin/lab/resultado/ HTTP/1.1" 302 0
+[2025-10-27 22:39:04,341] INFO django.server — "GET /admin/lab/resultado/ HTTP/1.1" 200 23745
+[2025-10-27 22:39:04,468] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-27 22:39:36,919] INFO django.server — "GET /admin/auth/user/1/change/ HTTP/1.1" 200 35054
+[2025-10-27 22:39:37,032] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
