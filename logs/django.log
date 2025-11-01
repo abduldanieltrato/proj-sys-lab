@@ -1418,3 +1418,735 @@ AttributeError: 'Resultado' object has no attribute 'valor'
 [2025-10-27 22:39:04,468] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
 [2025-10-27 22:39:36,919] INFO django.server — "GET /admin/auth/user/1/change/ HTTP/1.1" 200 35054
 [2025-10-27 22:39:37,032] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-28 23:45:34,900] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-28 23:47:09,019] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-28 23:47:28,000] INFO django.server — "GET /admin/login/?next=/admin/ HTTP/1.1" 200 3095
+[2025-10-28 23:47:28,393] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 3516
+[2025-10-28 23:47:28,401] INFO django.server — "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+[2025-10-28 23:47:28,408] INFO django.server — "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+[2025-10-28 23:47:28,437] INFO django.server — "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+[2025-10-28 23:47:28,438] INFO django.server — "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2025-10-28 23:47:28,459] INFO django.server — "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+[2025-10-28 23:47:28,472] INFO django.server — "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+[2025-10-28 23:47:29,057] INFO django.server — "GET /static/img/logo.png HTTP/1.1" 200 13421
+[2025-10-28 23:47:29,364] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+[2025-10-28 23:47:51,517] INFO django.server — "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2025-10-28 23:47:51,842] INFO django.server — "GET /admin/ HTTP/1.1" 200 23488
+[2025-10-28 23:47:52,028] INFO django.server — "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+[2025-10-28 23:47:52,158] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+[2025-10-28 23:48:10,702] INFO django.server — "GET /admin/ HTTP/1.1" 200 23488
+[2025-10-28 23:48:16,555] INFO django.server — "GET /admin/ HTTP/1.1" 200 23488
+[2025-10-28 23:48:19,455] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 18998
+[2025-10-28 23:48:19,603] INFO django.server — "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+[2025-10-28 23:48:19,605] INFO django.server — "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[2025-10-28 23:48:19,607] INFO django.server — "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-10-28 23:48:19,613] INFO django.server — "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[2025-10-28 23:48:19,615] INFO django.server — "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[2025-10-28 23:48:19,624] INFO django.server — "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[2025-10-28 23:48:19,624] INFO django.server — "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[2025-10-28 23:48:19,634] INFO django.server — "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+[2025-10-28 23:48:19,643] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-28 23:48:19,643] INFO django.server — "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+[2025-10-28 23:48:19,645] INFO django.server — "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2025-10-28 23:48:25,987] INFO django.server — "GET /admin/lab/exame/1/change/ HTTP/1.1" 200 19582
+[2025-10-28 23:48:26,374] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-28 23:48:26,384] INFO django.server — "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2025-10-28 23:48:26,386] INFO django.server — "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-10-28 23:48:26,399] INFO django.server — "GET /static/jazzmin/js/change_form.js HTTP/1.1" 200 6052
+[2025-10-28 23:48:52,816] INFO django.server — "GET /admin/ HTTP/1.1" 200 23488
+[2025-10-29 20:50:44,797] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 20:51:25,383] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 20:51:28,734] INFO django.server — "GET /admin/ HTTP/1.1" 302 0
+[2025-10-29 20:51:28,886] INFO django.server — "GET /admin/login/?next=/admin/ HTTP/1.1" 200 3095
+[2025-10-29 20:51:29,135] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 3516
+[2025-10-29 20:51:29,149] INFO django.server — "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+[2025-10-29 20:51:29,167] INFO django.server — "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+[2025-10-29 20:51:29,168] INFO django.server — "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+[2025-10-29 20:51:29,170] INFO django.server — "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+[2025-10-29 20:51:29,177] INFO django.server — "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2025-10-29 20:51:29,213] INFO django.server — "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+[2025-10-29 20:51:30,301] INFO django.server — "GET /static/img/logo.png HTTP/1.1" 200 13421
+[2025-10-29 20:51:30,368] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+[2025-10-29 20:54:48,150] INFO django.server — "POST /admin/login/?next=/admin/ HTTP/1.1" 200 3432
+[2025-10-29 20:55:00,535] INFO django.server — "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2025-10-29 20:55:00,766] INFO django.server — "GET /admin/ HTTP/1.1" 200 23493
+[2025-10-29 20:55:00,910] INFO django.server — "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+[2025-10-29 20:55:00,918] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+[2025-10-29 20:55:10,247] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 18998
+[2025-10-29 20:55:10,395] INFO django.server — "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+[2025-10-29 20:55:10,397] INFO django.server — "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[2025-10-29 20:55:10,400] INFO django.server — "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-10-29 20:55:10,405] INFO django.server — "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[2025-10-29 20:55:10,416] INFO django.server — "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[2025-10-29 20:55:10,418] INFO django.server — "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[2025-10-29 20:55:10,426] INFO django.server — "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+[2025-10-29 20:55:10,428] INFO django.server — "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[2025-10-29 20:55:10,428] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 20:55:10,429] INFO django.server — "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+[2025-10-29 20:55:10,431] INFO django.server — "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2025-10-29 20:56:03,000] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 302 0
+[2025-10-29 20:56:03,028] INFO django.server — "GET /admin/login/?next=/admin/lab/exame/ HTTP/1.1" 200 3105
+[2025-10-29 20:56:03,498] INFO django.server — "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+[2025-10-29 20:56:03,505] INFO django.server — "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2025-10-29 20:56:03,507] INFO django.server — "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+[2025-10-29 20:56:03,515] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 3516
+[2025-10-29 20:56:03,516] INFO django.server — "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+[2025-10-29 20:56:03,516] INFO django.server — "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+[2025-10-29 20:56:03,523] INFO django.server — "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+[2025-10-29 20:56:03,575] INFO django.server — "GET /static/img/logo.png HTTP/1.1" 200 13421
+[2025-10-29 20:57:34,339] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+[2025-10-29 20:58:17,279] INFO django.server — "POST /admin/login/?next=/admin/lab/exame/ HTTP/1.1" 200 3442
+[2025-10-29 20:59:09,226] INFO django.server — "POST /admin/login/?next=/admin/lab/exame/ HTTP/1.1" 302 0
+[2025-10-29 20:59:09,259] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 18998
+[2025-10-29 20:59:09,367] INFO django.server — "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+[2025-10-29 20:59:09,379] INFO django.server — "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-10-29 20:59:09,387] INFO django.server — "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[2025-10-29 20:59:09,388] INFO django.server — "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[2025-10-29 20:59:09,391] INFO django.server — "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[2025-10-29 20:59:09,392] INFO django.server — "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+[2025-10-29 20:59:09,393] INFO django.server — "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[2025-10-29 20:59:09,395] INFO django.server — "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[2025-10-29 20:59:09,397] INFO django.server — "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+[2025-10-29 20:59:09,400] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 20:59:09,401] INFO django.server — "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+[2025-10-29 20:59:09,404] INFO django.server — "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2025-10-29 20:59:39,946] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+[2025-10-29 21:00:49,061] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:02:03,247] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:02:04,848] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:02:07,397] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:02:08,100] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:02:15,542] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19011
+[2025-10-29 21:02:15,681] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:02:29,845] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19011
+[2025-10-29 21:02:29,920] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:02:45,144] INFO django.server — "GET /admin/ HTTP/1.1" 200 23493
+[2025-10-29 21:02:54,976] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19011
+[2025-10-29 21:02:55,069] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:03:57,081] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18708
+[2025-10-29 21:03:57,173] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:04:34,223] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:04:34,934] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:04:38,188] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:04:38,986] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:04:46,308] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:04:46,983] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:04:48,260] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:04:48,891] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:04:54,248] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:04:54,917] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:04:57,189] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:04:57,828] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:05:07,216] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:05:07,838] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:05:12,396] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18680
+[2025-10-29 21:05:12,492] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:05:30,576] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:05:31,235] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:05:35,515] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:05:36,128] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:05:37,358] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:05:38,190] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:05:39,507] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:05:40,249] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:05:42,985] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18674
+[2025-10-29 21:05:43,060] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:05:56,826] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:05:57,558] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:05:58,597] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18666
+[2025-10-29 21:05:58,664] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:06:16,146] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:06:16,816] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:06:18,396] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18666
+[2025-10-29 21:06:18,470] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:06:20,048] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18666
+[2025-10-29 21:06:20,118] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:06:35,440] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:06:36,160] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:06:37,500] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18657
+[2025-10-29 21:06:37,565] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:06:57,996] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:06:58,843] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:07:00,094] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:07:00,900] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:07:01,406] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18649
+[2025-10-29 21:07:01,474] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:07:46,935] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:07:47,730] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:07:48,944] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:07:49,591] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:07:53,030] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18646
+[2025-10-29 21:07:53,098] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:09:15,262] INFO django.server — "GET /admin/ HTTP/1.1" 302 0
+[2025-10-29 21:09:15,432] INFO django.server — "GET /admin/login/?next=/admin/ HTTP/1.1" 200 3095
+[2025-10-29 21:09:15,672] INFO django.server — "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+[2025-10-29 21:09:15,689] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 3516
+[2025-10-29 21:09:15,757] INFO django.server — "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+[2025-10-29 21:09:15,757] INFO django.server — "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+[2025-10-29 21:09:15,760] INFO django.server — "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+[2025-10-29 21:09:15,761] INFO django.server — "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2025-10-29 21:09:15,928] INFO django.server — "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+[2025-10-29 21:09:15,944] INFO django.server — "GET /static/img/logo.png HTTP/1.1" 200 13421
+[2025-10-29 21:09:16,189] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+[2025-10-29 21:09:24,682] INFO django.server — "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2025-10-29 21:09:24,770] INFO django.server — "GET /admin/ HTTP/1.1" 200 23493
+[2025-10-29 21:09:24,886] INFO django.server — "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+[2025-10-29 21:09:24,939] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+[2025-10-29 21:09:28,672] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 18949
+[2025-10-29 21:09:28,758] INFO django.server — "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+[2025-10-29 21:09:28,780] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:09:28,810] INFO django.server — "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[2025-10-29 21:09:28,811] INFO django.server — "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-10-29 21:09:28,811] INFO django.server — "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[2025-10-29 21:09:28,811] INFO django.server — "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[2025-10-29 21:09:28,812] INFO django.server — "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[2025-10-29 21:09:28,816] INFO django.server — "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[2025-10-29 21:09:28,872] INFO django.server — "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+[2025-10-29 21:09:28,872] INFO django.server — "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+[2025-10-29 21:09:28,885] INFO django.server — "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2025-10-29 21:09:42,904] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18646
+[2025-10-29 21:09:43,009] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:09:52,224] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:09:52,931] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:09:54,943] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18641
+[2025-10-29 21:09:55,006] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:10:52,312] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:10:52,942] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:10:59,252] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:10:59,875] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:11:01,627] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18635
+[2025-10-29 21:11:01,722] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:11:30,690] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:11:31,432] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:11:32,998] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18641
+[2025-10-29 21:11:33,096] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:13:08,374] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:13:09,178] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:13:10,089] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18642
+[2025-10-29 21:13:10,175] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:13:23,701] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:13:24,410] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:13:26,512] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18646
+[2025-10-29 21:13:26,588] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:13:50,112] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21572
+[2025-10-29 21:13:50,223] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:14:08,287] INFO django.server — "GET /admin/lab/paciente/?o= HTTP/1.1" 200 21281
+[2025-10-29 21:14:08,397] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:14:48,244] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:14:48,892] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:14:52,231] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:14:53,035] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:14:54,342] INFO django.server — "GET /admin/lab/paciente/?o= HTTP/1.1" 200 21266
+[2025-10-29 21:14:54,429] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:15:06,675] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:15:07,483] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:15:08,475] INFO django.server — "GET /admin/lab/paciente/?o= HTTP/1.1" 200 21254
+[2025-10-29 21:15:08,549] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:15:33,186] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:15:33,972] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:15:35,194] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:15:35,867] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:15:38,164] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:15:38,821] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:15:47,165] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:15:47,798] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:15:49,046] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:15:49,842] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:15:51,091] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:15:51,767] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:15:54,729] INFO django.server — "GET /admin/lab/paciente/?o= HTTP/1.1" 200 21248
+[2025-10-29 21:15:54,827] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:16:47,071] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:16:47,741] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:16:52,019] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:16:52,659] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:17:12,758] INFO django.server — "GET /admin/lab/paciente/?o= HTTP/1.1" 200 21248
+[2025-10-29 21:17:12,847] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:17:14,912] INFO django.server — "GET /admin/lab/paciente/?o= HTTP/1.1" 200 21248
+[2025-10-29 21:17:14,990] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:17:20,604] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 18947
+[2025-10-29 21:17:20,695] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:17:40,738] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:17:41,358] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:18:29,972] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:18:32,773] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 18947
+[2025-10-29 21:18:32,891] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:19:09,941] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:19:10,580] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:19:14,832] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:19:15,665] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:19:16,958] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:19:17,753] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:19:18,989] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:19:19,904] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:19:21,120] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:19:21,739] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:19:23,972] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:19:24,632] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:19:26,527] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 302 0
+[2025-10-29 21:19:26,553] INFO django.server — "GET /admin/login/?next=/admin/lab/exame/ HTTP/1.1" 200 3105
+[2025-10-29 21:19:38,538] INFO django.server — "POST /admin/login/?next=/admin/lab/exame/ HTTP/1.1" 302 0
+[2025-10-29 21:19:38,590] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 18953
+[2025-10-29 21:19:38,714] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:20:04,665] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:20:05,291] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:20:08,587] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:20:09,116] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:20:10,276] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:20:10,690] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:20:14,851] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:20:15,526] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:20:16,738] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:20:17,899] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:20:20,211] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:20:20,622] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:20:25,789] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:20:26,216] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:20:28,376] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:20:28,801] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:20:31,955] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:20:32,419] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:20:33,587] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:20:34,017] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:20:40,186] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:20:40,593] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:20:47,765] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:20:48,259] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:20:50,418] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:20:51,254] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:20:52,494] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:20:53,328] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:20:54,581] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:20:55,331] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:21:00,610] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:21:01,219] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:21:03,482] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:21:03,971] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:21:06,142] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:21:07,234] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:21:12,541] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:21:13,187] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:21:15,438] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:21:16,165] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:21:28,558] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:21:29,260] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:21:50,823] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:21:51,869] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:21:53,087] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:21:53,788] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:21:55,107] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:21:55,554] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:22:06,744] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:22:07,461] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:22:08,615] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:22:09,048] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:22:12,226] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:22:12,955] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:22:14,103] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:22:14,498] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:22:21,676] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:22:22,267] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:22:24,425] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:22:24,994] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:22:34,352] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:22:35,006] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:22:47,909] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 18950
+[2025-10-29 21:22:48,003] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:22:59,710] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18647
+[2025-10-29 21:22:59,824] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:23:19,172] INFO django.server — "GET /admin/lab/exame/?o=2 HTTP/1.1" 200 19080
+[2025-10-29 21:23:19,262] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:23:20,826] INFO django.server — "GET /admin/lab/exame/?o=-2 HTTP/1.1" 200 19081
+[2025-10-29 21:23:20,914] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:23:22,686] INFO django.server — "GET /admin/lab/exame/?o=1.-2 HTTP/1.1" 200 19520
+[2025-10-29 21:23:22,763] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:23:25,712] INFO django.server — "GET /admin/lab/exame/?o=-1.-2 HTTP/1.1" 200 19522
+[2025-10-29 21:23:25,814] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:23:26,975] INFO django.server — "GET /admin/lab/exame/?o=2.-1 HTTP/1.1" 200 19520
+[2025-10-29 21:23:27,070] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:23:29,739] INFO django.server — "GET /admin/lab/exame/?o=2.-1 HTTP/1.1" 200 19520
+[2025-10-29 21:23:29,812] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:23:32,039] INFO django.server — "GET /admin/lab/exame/?o=2 HTTP/1.1" 200 19080
+[2025-10-29 21:23:32,146] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:23:33,544] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18647
+[2025-10-29 21:23:33,628] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:23:42,446] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 18950
+[2025-10-29 21:23:42,528] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:23:51,734] INFO django.server — "GET /admin/lab/exame/?o=1.2 HTTP/1.1" 200 19518
+[2025-10-29 21:23:51,828] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:23:53,728] INFO django.server — "GET /admin/lab/exame/1/change/?_changelist_filters=o%3D1.2 HTTP/1.1" 200 19614
+[2025-10-29 21:23:53,843] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:23:53,858] INFO django.server — "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-10-29 21:23:53,860] INFO django.server — "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2025-10-29 21:23:53,865] INFO django.server — "GET /static/jazzmin/js/change_form.js HTTP/1.1" 200 6052
+[2025-10-29 21:24:02,389] INFO django.server — "POST /admin/lab/exame/1/change/?_changelist_filters=o%3D1.2 HTTP/1.1" 302 0
+[2025-10-29 21:24:02,417] INFO django.server — "GET /admin/lab/exame/?o=1.2 HTTP/1.1" 200 20076
+[2025-10-29 21:24:02,526] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:24:25,772] INFO django.server — "GET /admin/lab/exame/1/change/?_changelist_filters=o%3D1.2 HTTP/1.1" 200 19614
+[2025-10-29 21:24:25,865] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:24:30,162] INFO django.server — "POST /admin/lab/exame/1/change/?_changelist_filters=o%3D1.2 HTTP/1.1" 302 0
+[2025-10-29 21:24:30,186] INFO django.server — "GET /admin/lab/exame/?o=1.2 HTTP/1.1" 200 20075
+[2025-10-29 21:24:30,303] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:25:09,980] INFO django.server — "GET /admin/lab/exame/?o=1.2 HTTP/1.1" 200 19518
+[2025-10-29 21:25:10,048] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:25:15,191] INFO django.server — "GET /admin/lab/exame/?o=1.2 HTTP/1.1" 200 19518
+[2025-10-29 21:25:15,258] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:25:34,364] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:25:39,020] INFO django.server — "GET /admin/lab/exame/?o=1.2 HTTP/1.1" 200 19518
+[2025-10-29 21:25:39,080] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:25:41,895] INFO django.server — "GET /admin/lab/exame/?o=2 HTTP/1.1" 200 19080
+[2025-10-29 21:25:41,983] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:25:43,558] INFO django.server — "GET /admin/lab/exame/?o= HTTP/1.1" 200 18647
+[2025-10-29 21:25:43,636] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:27:46,735] INFO django.server — "GET /admin/ HTTP/1.1" 200 26409
+[2025-10-29 21:27:49,338] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21539
+[2025-10-29 21:27:49,415] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:28:08,547] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:28:09,216] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:28:10,495] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:28:11,216] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:28:13,160] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21527
+[2025-10-29 21:28:13,216] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:28:54,235] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:28:55,170] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:28:58,868] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21527
+[2025-10-29 21:28:58,951] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:29:06,117] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21527
+[2025-10-29 21:29:06,182] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:36:15,740] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 302 0
+[2025-10-29 21:36:15,765] INFO django.server — "GET /admin/login/?next=/admin/lab/paciente/ HTTP/1.1" 200 3108
+[2025-10-29 21:36:24,860] INFO django.server — "POST /admin/login/?next=/admin/lab/paciente/ HTTP/1.1" 302 0
+[2025-10-29 21:36:24,888] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21527
+[2025-10-29 21:36:25,056] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:36:29,268] INFO django.server — "GET /admin/lab/paciente/?o= HTTP/1.1" 200 21220
+[2025-10-29 21:36:29,363] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:37:03,224] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:37:04,036] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:37:06,353] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:37:06,999] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:37:10,344] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:37:11,157] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:37:11,688] INFO django.server — "GET /admin/lab/paciente/?o= HTTP/1.1" 200 21210
+[2025-10-29 21:37:11,784] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:37:29,718] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:37:30,447] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:37:31,734] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:37:32,772] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:37:34,063] INFO django.server — "GET /admin/lab/paciente/?o= HTTP/1.1" 200 21190
+[2025-10-29 21:37:34,167] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:37:48,512] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:37:49,332] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:37:50,599] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:37:51,665] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:37:55,096] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:37:55,772] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:38:08,746] INFO django.server — "GET /admin/lab/paciente/?o= HTTP/1.1" 200 21186
+[2025-10-29 21:38:08,835] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:38:37,756] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:38:38,541] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:38:46,924] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:38:47,565] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:38:50,853] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:38:51,482] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:38:56,780] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:38:57,514] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:38:59,261] INFO django.server — "GET /admin/lab/paciente/?o= HTTP/1.1" 200 21175
+[2025-10-29 21:38:59,340] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:39:10,031] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:39:10,870] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:39:13,115] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:39:13,785] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:39:14,597] INFO django.server — "GET /admin/lab/paciente/?o= HTTP/1.1" 200 21172
+[2025-10-29 21:39:14,679] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:39:28,264] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:39:29,160] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:39:29,486] INFO django.server — "GET /admin/lab/paciente/?o= HTTP/1.1" 200 21168
+[2025-10-29 21:39:29,561] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:41:36,742] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:41:37,604] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:41:40,929] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:41:41,583] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:41:43,769] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:41:44,185] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:41:47,352] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:41:47,774] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:42:36,145] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:42:36,731] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:42:37,880] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:42:38,282] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:42:42,452] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:42:42,872] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:42:48,041] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:42:48,481] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:42:51,642] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:42:52,483] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:42:53,736] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:42:54,369] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:43:10,880] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:43:11,324] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:43:16,503] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:43:17,075] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:43:26,449] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:43:27,172] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:44:38,642] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:44:39,391] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:44:52,824] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:44:53,451] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:44:59,755] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:45:00,476] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:45:02,715] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:45:03,326] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:45:04,616] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:45:05,121] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:45:06,277] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:45:06,698] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:45:08,848] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:45:09,247] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:45:19,432] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:45:20,011] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:45:26,325] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:45:26,953] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:45:30,194] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:45:30,812] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:45:43,248] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:45:43,884] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:45:49,936] INFO django.server — "GET /admin/lab/paciente/?o= HTTP/1.1" 200 21183
+[2025-10-29 21:45:50,032] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:45:59,120] INFO django.server — "GET /admin/lab/paciente/1/change/?_changelist_filters=o%3D HTTP/1.1" 200 24355
+[2025-10-29 21:45:59,226] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:45:59,233] INFO django.server — "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+[2025-10-29 21:45:59,241] INFO django.server — "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+[2025-10-29 21:46:10,734] INFO django.server — "GET /admin/lab/paciente/1/change/?_changelist_filters=o%3D HTTP/1.1" 200 24355
+[2025-10-29 21:46:10,801] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:46:17,499] INFO django.server — "POST /admin/lab/paciente/1/change/?_changelist_filters=o%3D HTTP/1.1" 302 0
+[2025-10-29 21:46:17,532] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 22067
+[2025-10-29 21:46:17,640] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:48:23,102] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:48:23,634] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:48:38,843] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:48:39,432] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:49:14,001] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 302 0
+[2025-10-29 21:49:14,019] INFO django.server — "GET /admin/login/?next=/admin/lab/paciente/ HTTP/1.1" 200 3108
+[2025-10-29 21:49:22,525] INFO django.server — "POST /admin/login/?next=/admin/lab/paciente/ HTTP/1.1" 302 0
+[2025-10-29 21:49:22,580] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21486
+[2025-10-29 21:49:22,699] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:49:29,807] INFO django.server — "GET /admin/lab/paciente/?o= HTTP/1.1" 200 21179
+[2025-10-29 21:49:29,883] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:49:33,141] INFO django.server — "GET /admin/lab/paciente/1/change/?_changelist_filters=o%3D HTTP/1.1" 200 24350
+[2025-10-29 21:49:33,230] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:49:36,770] INFO django.server — "GET /static/jazzmin/img/calendar-icons.svg HTTP/1.1" 200 1094
+[2025-10-29 21:50:07,573] INFO django.server — "POST /admin/lab/paciente/1/change/?_changelist_filters=o%3D HTTP/1.1" 302 0
+[2025-10-29 21:50:07,600] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 22060
+[2025-10-29 21:50:07,709] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:50:18,799] INFO django.server — "GET /admin/lab/paciente/1/change/ HTTP/1.1" 200 24275
+[2025-10-29 21:50:18,888] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:50:34,417] INFO django.server — "POST /admin/lab/paciente/1/change/ HTTP/1.1" 302 0
+[2025-10-29 21:50:34,451] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 22060
+[2025-10-29 21:50:34,564] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:52:04,462] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:52:05,315] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:52:06,571] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:52:07,442] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:52:09,614] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:52:10,192] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:52:11,387] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:52:11,983] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:52:13,131] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:52:13,565] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:52:19,740] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:52:20,151] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:52:21,319] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:52:21,804] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:52:51,094] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:52:51,519] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:52:58,702] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:52:59,128] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:53:57,509] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:53:58,017] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:54:04,189] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 21:54:04,784] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 21:54:24,355] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21493
+[2025-10-29 21:54:24,442] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:54:33,485] INFO django.server — "GET /admin/lab/paciente/1/change/ HTTP/1.1" 200 24275
+[2025-10-29 21:54:33,570] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:54:43,504] INFO django.server — "POST /admin/lab/paciente/1/change/ HTTP/1.1" 302 0
+[2025-10-29 21:54:43,531] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 22069
+[2025-10-29 21:54:43,649] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:54:55,623] INFO django.server — "GET /admin/lab/paciente/1/change/ HTTP/1.1" 200 24275
+[2025-10-29 21:54:55,714] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:55:05,712] INFO django.server — "POST /admin/lab/paciente/1/change/ HTTP/1.1" 302 0
+[2025-10-29 21:55:05,740] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 22059
+[2025-10-29 21:55:05,840] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:57:20,183] INFO django.server — "GET /admin/lab/ HTTP/1.1" 200 24858
+[2025-10-29 21:57:22,332] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 19058
+[2025-10-29 21:57:22,417] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:57:33,712] INFO django.server — "GET /admin/lab/requisicaoanalise/?o= HTTP/1.1" 200 18766
+[2025-10-29 21:57:33,788] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 21:58:28,701] INFO django.server — "POST /admin/lab/requisicaoanalise/?o= HTTP/1.1" 200 125350
+[2025-10-29 22:00:23,035] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:00:23,935] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:00:25,741] INFO django.server — "GET /admin/lab/requisicaoanalise/?o= HTTP/1.1" 302 0
+[2025-10-29 22:00:25,761] INFO django.server — "GET /admin/login/?next=/admin/lab/requisicaoanalise/%3Fo%3D HTTP/1.1" 200 3124
+[2025-10-29 22:00:32,373] INFO django.server — "POST /admin/login/?next=/admin/lab/requisicaoanalise/%3Fo%3D HTTP/1.1" 200 3461
+[2025-10-29 22:00:39,656] INFO django.server — "POST /admin/login/?next=/admin/lab/requisicaoanalise/%3Fo%3D HTTP/1.1" 302 0
+[2025-10-29 22:00:39,716] INFO django.server — "GET /admin/lab/requisicaoanalise/?o= HTTP/1.1" 200 18807
+[2025-10-29 22:00:39,844] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 22:01:32,461] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:01:33,225] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:01:34,623] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:01:35,510] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:01:36,764] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:01:37,536] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:01:40,096] INFO django.server — "GET /admin/lab/requisicaoanalise/?o= HTTP/1.1" 200 18766
+[2025-10-29 22:01:40,160] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 22:02:40,918] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:02:41,437] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:03:00,662] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:03:01,224] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:03:08,557] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:03:09,250] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:03:10,521] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:03:11,023] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:03:14,187] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:03:14,871] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:03:28,301] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:03:29,090] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:03:30,348] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:03:30,957] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:03:37,306] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:03:37,748] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:03:43,914] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:03:44,323] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:03:51,500] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:03:52,117] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:03:54,491] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:03:55,107] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:03:57,326] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:03:57,796] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:04:01,968] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:04:02,628] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:04:06,910] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:04:07,528] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:04:12,826] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:04:13,318] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:04:29,521] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:04:30,135] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:04:32,425] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:04:33,276] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:04:34,175] INFO django.server — "GET /admin/lab/requisicaoanalise/?o= HTTP/1.1" 200 18809
+[2025-10-29 22:04:34,236] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 22:05:55,013] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:05:55,735] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:06:00,862] INFO django.server — "GET /admin/lab/requisicaoanalise/?o= HTTP/1.1" 200 18780
+[2025-10-29 22:06:00,916] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 22:06:02,952] INFO django.server — "GET /admin/lab/requisicaoanalise/?o= HTTP/1.1" 200 18780
+[2025-10-29 22:06:03,014] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 22:06:04,432] INFO django.server — "GET /admin/lab/requisicaoanalise/?o= HTTP/1.1" 200 18780
+[2025-10-29 22:06:04,496] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 22:06:04,949] INFO django.server — "GET /admin/lab/requisicaoanalise/?o= HTTP/1.1" 200 18780
+[2025-10-29 22:06:05,003] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 22:06:05,394] INFO django.server — "GET /admin/lab/requisicaoanalise/?o= HTTP/1.1" 200 18780
+[2025-10-29 22:06:05,455] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 22:06:05,833] INFO django.server — "GET /admin/lab/requisicaoanalise/?o= HTTP/1.1" 200 18780
+[2025-10-29 22:06:05,895] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 22:06:06,268] INFO django.server — "GET /admin/lab/requisicaoanalise/?o= HTTP/1.1" 200 18780
+[2025-10-29 22:06:06,343] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-10-29 22:15:15,074] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:15:15,780] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:15:23,961] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:15:24,462] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:15:30,631] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:15:31,038] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:15:58,297] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:15:59,419] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:16:00,765] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:16:01,591] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:16:08,972] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:16:09,599] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:16:11,857] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:16:12,547] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:16:29,757] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:16:30,240] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:16:36,411] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:16:36,974] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:16:39,156] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:16:39,599] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:16:43,765] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:16:44,253] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:16:46,410] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:16:46,913] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:16:49,072] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:16:49,743] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:16:53,934] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:16:54,339] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:17:00,511] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:17:00,966] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:17:03,146] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:17:03,785] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:17:06,970] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:17:07,428] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:17:12,593] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:17:13,063] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:17:15,220] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:17:15,641] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:17:23,839] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:17:24,433] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:17:29,727] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-10-29 22:17:30,404] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-10-29 22:17:43,318] INFO django.server — "GET /admin/lab/requisicaoanalise/?o= HTTP/1.1" 302 0
+[2025-10-29 22:17:43,340] INFO django.server — "GET /admin/login/?next=/admin/lab/requisicaoanalise/%3Fo%3D HTTP/1.1" 200 3124
+[2025-10-29 22:17:50,313] INFO django.server — "POST /admin/login/?next=/admin/lab/requisicaoanalise/%3Fo%3D HTTP/1.1" 302 0
+[2025-10-29 22:17:50,385] INFO django.server — "GET /admin/lab/requisicaoanalise/?o= HTTP/1.1" 200 18811
+[2025-10-29 22:17:50,527] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 7210
+[2025-11-01 07:06:13,510] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 07:06:45,162] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 07:07:57,510] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 08:21:39,892] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 08:22:02,398] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 08:29:07,333] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 08:29:21,193] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 08:29:39,832] INFO django.server — "GET /admin/ HTTP/1.1" 302 0
+[2025-11-01 08:29:40,004] INFO django.server — "GET /admin/login/?next=/admin/ HTTP/1.1" 200 3095
+[2025-11-01 08:29:40,253] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 3548
+[2025-11-01 08:29:40,253] INFO django.server — "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+[2025-11-01 08:29:40,261] INFO django.server — "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+[2025-11-01 08:29:40,265] INFO django.server — "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+[2025-11-01 08:29:40,282] INFO django.server — "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+[2025-11-01 08:29:40,297] INFO django.server — "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2025-11-01 08:29:40,316] INFO django.server — "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+[2025-11-01 08:29:40,365] INFO django.server — "GET /static/img/logo.png HTTP/1.1" 200 13421
+[2025-11-01 08:29:41,526] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+[2025-11-01 08:29:52,438] INFO django.server — "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2025-11-01 08:29:52,675] INFO django.server — "GET /admin/ HTTP/1.1" 200 27679
+[2025-11-01 08:29:52,803] INFO django.server — "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+[2025-11-01 08:29:52,810] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+[2025-11-01 08:40:52,857] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-01 08:40:54,895] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 08:41:31,227] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-01 08:41:32,500] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 08:42:08,433] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-01 08:42:09,560] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 08:42:44,470] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-11-01 08:42:45,876] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 08:52:22,786] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-01 08:52:23,490] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 08:52:28,870] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-01 08:52:30,103] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 08:53:48,762] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-01 08:53:49,498] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 09:05:01,038] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-01 09:05:02,070] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 09:05:06,397] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-01 09:05:07,395] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 09:05:11,846] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-01 09:05:12,621] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 09:05:14,893] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-01 09:05:15,703] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 09:05:25,085] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-01 09:05:25,708] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 09:05:34,086] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-01 09:05:35,781] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 09:05:45,576] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-01 09:05:46,464] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-01 09:05:48,727] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-01 09:05:49,690] INFO django.utils.autoreload — Watching for file changes with StatReloader

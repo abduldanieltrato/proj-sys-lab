@@ -7,69 +7,72 @@ from django.utils import timezone
 
 # -------------------- Paciente -----------------------------
 class Paciente(models.Model):
-	class Proveniencia(models.TextChoices):
-		BS = 'Banco de Socorros', 'Banco de Socorros'
-		AMB = 'Ambulatório', 'Ambulatório'
-		SUR = 'Serviço de Urgência de Reanimação', 'Serviço de Urgência de Reanimação'
-		PED = 'Pediatria', 'Pediatria'
-		CIR = 'Cirurgia', 'Cirurgia'
-		GIN = 'Ginecologia', 'Ginecologia'
-		OBST = 'Obstetrícia', 'Obstetrícia'
-		UROL = 'Urologia', 'Urologia'
-		MED_I = 'Mediciana_I', 'Medicina Homem'
-		MED_II = 'Medicina_II', 'Medicina Mulher'
-		OFT = 'Oftalmologia', 'Oftalmologia'
-		EST = "Estomatologia", "Estomatologia"
-		C_EXT = 'C.EXT', 'Consulta Externa'
-
-	id = models.BigIntegerField(primary_key=True, verbose_name='Número de entrada')
-	nome = models.CharField(max_length=255, verbose_name='Nome do paciente')
+	id = models.BigIntegerField(primary_key=True, verbose_name='NID')
+	nome = models.CharField(max_length=255, verbose_name='Nome')
 	data_nascimento = models.DateField(null=True, blank=True, verbose_name='Data de nascimento')
-	genero = models.CharField(max_length=32, choices=[('M', 'Masculino'), ('F', 'Feminino')], verbose_name='Gênero')
-	telefone = models.CharField(max_length=32, blank=True, verbose_name='Número de celular')
+	genero = models.CharField(max_length=32, choices=[('M', 'Masculino'), ('F', 'Feminino')], verbose_name='Sexo')
+	telefone = models.CharField(max_length=32, blank=True, verbose_name='Telefone')
 	residencia = models.CharField(max_length=255, blank=True, verbose_name='Residência')
-	proveniencia = models.CharField(max_length=128, blank=True, verbose_name='Sector de proveniência')
-	nacionalidade = models.CharField(max_length=64, blank=True, verbose_name='País de origem')
-	numero_id = models.CharField(max_length=64, unique=True, verbose_name='Documento de Identificação')
-	historico_medico = models.TextField(blank=True, null=True, verbose_name='Histórico médico')
-	created_at = models.DateTimeField(auto_now_add=True, verbose_name='Horário de entrada')
-
-	@property
-	def idade(self):
-		if not self.data_nascimento:
-			return None
-		hoje = date.today()
-		return hoje.year - self.data_nascimento.year - ((hoje.month, hoje.day) < (self.data_nascimento.month, self.data_nascimento.day))
-
-	def clean(self):
-		if self.data_nascimento and self.data_nascimento > date.today():
-			raise ValidationError("A data de nascimento não pode ser no futuro.")
-
-	def resumo(self):
-		return f"{self.nome} ({self.numero_id}) — {self.residencia or 'Local não especificado'}"
-	resumo.short_description = "Resumo do Paciente"
-
-	def idade_display(self):
-		return f"{self.idade} anos" if self.idade is not None else "—"
-	idade_display.short_description = "Idade"
-
-	def __str__(self):
-		return f"{self.id} — {self.nome}"
+	proveniencia = models.CharField(max_length=128, blank=True, verbose_name='Proveniência')
+	nacionalidade = models.CharField(max_length=64, blank=True, verbose_name='Nacionalidade')
+	numero_id = models.CharField(max_length=64, unique=True, verbose_name='Identidade')
+	historico_medico = models.TextField(blank=True, null=True, verbose_name='Histórico')
+	created_at = models.DateTimeField(auto_now_add=True, verbose_name='Entrada')
 
 	class Meta:
 		verbose_name = "Paciente"
 		verbose_name_plural = "Pacientes"
 		ordering = ['nome']
 
+	@property
+	def idade(self):
+		if not self.data_nascimento:
+			return None
+		hoje = date.today()
+		idade_em_anos = hoje.year - self.data_nascimento.year
+		if (hoje.month, hoje.day) < (self.data_nascimento.month, self.data_nascimento.day):
+			idade_em_anos -= 1
+		return idade_em_anos
+
+	def __str__(self):
+		idade_display = self.idade_display()
+		return f"{self.nome} ({self.numero_id}) - Idade: {idade_display}"
+
+	def idade_display(self):
+		if self.idade is None:
+			return "—"
+
+		# Menores de 2 anos: exibir detalhe meses/dias
+		if self.idade < 2:
+			hoje = date.today()
+			idade_total_dias = (hoje - self.data_nascimento).days
+			idade_em_anos = idade_total_dias // 365
+			idade_em_meses = (idade_total_dias % 365) // 30
+			idade_em_dias = idade_total_dias % 30
+
+			if idade_em_anos > 0:
+				return f"{idade_em_anos} ano{'s' if idade_em_anos > 1 else ''}, {idade_em_meses} mês{'es' if idade_em_meses != 1 else ''} e {idade_em_dias} dia{'s' if idade_em_dias != 1 else ''}"
+			elif idade_em_meses > 0:
+				return f"{idade_em_meses} mês{'es' if idade_em_meses != 1 else ''} e {idade_em_dias} dia{'s' if idade_em_dias != 1 else ''}"
+			else:
+				return f"{idade_em_dias} dia{'s' if idade_em_dias != 1 else ''}"
+
+		if self.idade == 1:
+			return f"{self.idade} ano"
+
+		return f"{self.idade} anos"
+
+	idade_display.short_description = "Idade"
+
 
 # -------------------- Exame -------------------------------
 class Exame(models.Model):
 	id = models.IntegerField(primary_key=True)
-	nome = models.CharField(max_length=255, verbose_name='Nome do exame')
-	descricao = models.TextField(blank=True, help_text="Descrição detalhada do exame", verbose_name='Descrição do exame')
-	valor_ref = models.CharField(max_length=64, blank=True, verbose_name='Valor de referência')
-	unidade = models.CharField(max_length=32, blank=True, verbose_name='Unidade de medida')
-	trl_horas = models.PositiveIntegerField(default=24, verbose_name='Tempo de resposta (horas)')
+	nome = models.CharField(max_length=255, verbose_name='Exames')
+	descricao = models.TextField(blank=True, help_text="Descrição", verbose_name='Descrição')
+	valor_ref = models.CharField(max_length=64, blank=True, verbose_name='Referência')
+	unidade = models.CharField(max_length=32, blank=True, verbose_name='Unidades')
+	trl_horas = models.PositiveIntegerField(default=24, verbose_name='TRL(horas)')
 
 	class Meta:
 		verbose_name = "Exame"
@@ -84,8 +87,11 @@ class Exame(models.Model):
 	display_valor_ref.short_description = "Valor de referência"
 
 	def tempo_resposta_display(self):
-		return f"{self.trl_horas}h"
-	tempo_resposta_display.short_description = "TAT (Turnaround Time)"
+		if self.trl_horas > 1:
+			return f'{self.trl_horas} horas'
+		else:
+			return f"{self.trl_horas} hora"
+	tempo_resposta_display.short_description = "TRL"
 
 
 # -------------------- Requisição de Análises -----------------
@@ -94,6 +100,7 @@ class RequisicaoAnalise(models.Model):
 	exames = models.ManyToManyField('Exame', through='ItemRequisicao', blank=True, verbose_name='Exames requisitados')
 	analista = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, verbose_name='Técnico de Laboratório')
 	observacoes = models.TextField(blank=True, verbose_name="Observações adicionais")
+	created_at = models.DateTimeField(auto_now_add=True, verbose_name='Criado em')
 
 	@property
 	def exames_list(self):
@@ -116,7 +123,7 @@ class RequisicaoAnalise(models.Model):
 	observacoes_short.short_description = "Observações"
 
 	def __str__(self):
-		return f"Req - #{self.id} — {self.paciente.nome}"
+		return f"Req - #{self.id} — {self.paciente.nome.upper()} | Exames: {self.exames_summary()}"
 
 	class Meta:
 		verbose_name = "Requisição de Análises"
@@ -197,9 +204,11 @@ class ResultadoItem(models.Model):
 	valor_referencia = models.CharField(max_length=64, blank=True)
 
 	def save(self, *args, **kwargs):
-		self.unidade = self.exame_campo.exame.unidade
-		self.valor_referencia = self.exame_campo.exame.valor_ref
+		if self.exame_campo and self.exame_campo.exame:
+			self.unidade = self.exame_campo.exame.unidade or self.unidade
+			self.valor_referencia = self.exame_campo.exame.valor_ref or self.valor_referencia
 		super().save(*args, **kwargs)
 
 	def __str__(self):
-		return f"{self.exame_campo.exame.nome} | {self.exame_campo.nome_campo} | {self.valor}"
+		# Corrigido: usar campo existente 'resultado' em vez de 'valor'
+		return f"{self.exame_campo.exame.nome} | {self.exame_campo.nome_campo} | {self.resultado or '—'}"

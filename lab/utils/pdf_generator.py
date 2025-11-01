@@ -1,29 +1,12 @@
-# ============================================================
-# lab/utils/pdf_generator.py
-# ============================================================
 """
 Módulo de geração de PDFs institucionais para o sistema SYS-LAB.
-
-Este módulo implementa funções para criar relatórios em PDF de:
- - Requisições de análises clínicas
- - Resultados laboratoriais
-
-Composição visual:
- - Cabeçalho institucional com logotipo
- - Marca d'água vertical repetida
- - Rodapé com data e hora
- - Linhas de assinatura (técnico e chefe do laboratório)
-
-Fontes: Times New Roman (prioritária) / fallback padrão ReportLab.
-Imagens: logo e marca d'água carregadas da pasta static.
-
-Autor: Trato (SYS-LAB Dev)
-Versão: 1.3
-Última atualização: Outubro/2025
+Autor: Trato
+Versão: 1.3 (corrigido)
 """
 
 import os
 import io
+import logging
 from datetime import datetime
 from django.conf import settings
 from reportlab.lib.pagesizes import A4
@@ -36,395 +19,313 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.utils import ImageReader
 from PIL import Image
 
-# ============================================================
-# CONFIGURAÇÕES GERAIS
-# ============================================================
+logger = logging.getLogger(__name__)
 
-LOGO_PATH = os.path.join(settings.BASE_DIR, "lab/static/img/logo_fix.png")
-WATERMARK_PATH = os.path.join(settings.BASE_DIR, "lab/static/img/watermark.png")
+# ============================================================
+# PATHS
+# ============================================================
+LOGO_PATH = os.path.join(settings.BASE_DIR, "lab", "static", "img", "logo_fix.png")
+WATERMARK_PATH = os.path.join(settings.BASE_DIR, "lab", "static", "img", "watermark.png")
 
+# Tenta registrar fontes opcionais (não falha se não existir)
 try:
-    pdfmetrics.registerFont(TTFont("Times-Roman", "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"))
-    pdfmetrics.registerFont(TTFont("Times-Bold", "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman_Bold.ttf"))
-except Exception:
-    pass  # fallback automático
+	pdfmetrics.registerFont(TTFont("TimesNewRoman", "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"))
+	pdfmetrics.registerFont(TTFont("TimesNewRoman-Bold", "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman_Bold.ttf"))
+except Exception as e:
+	logger.debug("Font registration failed or fonts not present: %s", e)
 
-print("LOGO_PATH:", LOGO_PATH, os.path.exists(LOGO_PATH))
-print("WATERMARK_PATH:", WATERMARK_PATH, os.path.exists(WATERMARK_PATH))
+logger.debug("LOGO_PATH: %s exists=%s", LOGO_PATH, os.path.exists(LOGO_PATH))
+logger.debug("WATERMARK_PATH: %s exists=%s", WATERMARK_PATH, os.path.exists(WATERMARK_PATH))
+
 
 # ============================================================
 # CABEÇALHO (HEADER)
 # ============================================================
-
 def draw_header(canvas, doc):
-    """
-    Desenha o cabeçalho institucional no topo do PDF.
+	canvas.saveState()
+	# Use fonte registrada se existir, senão fallback
+	try:
+		canvas.setFont("TimesNewRoman-Bold", 14)
+	except Exception:
+		canvas.setFont("Times-Bold", 14)
 
-    Args:
-        canvas (Canvas): Objeto gráfico ReportLab.
-        doc (SimpleDocTemplate): Documento PDF ativo.
+	# Logo
+	if os.path.exists(LOGO_PATH):
+		try:
+			with Image.open(LOGO_PATH) as img:
+				if img.mode == "RGBA":
+					img = img.convert("RGB")
+				buf = io.BytesIO()
+				img.save(buf, format="PNG")
+				buf.seek(0)
+				canvas.drawImage(
+					ImageReader(buf),
+					35, A4[1] - 135,
+					width=100, height=100,
+					preserveAspectRatio=True,
+					mask='auto'
+				)
+		except Exception as e:
+			logger.warning("Erro ao carregar logo: %s", e)
+	else:
+		# Fallback textual se logo não disponível
+		canvas.setFont("Times-Roman", 10)
+		canvas.drawString(35, A4[1] - 90, "LOGO INDISPONÍVEL")
 
-    Estrutura:
-        - Logotipo do hospital
-        - Nome da instituição
-        - Localização e contatos
-        - Linha divisória inferior
-    """
-    canvas.saveState()
-    canvas.setFont("Times-Bold", 12)
+	# Texto
+	try:
+		canvas.setFont("TimesNewRoman-Bold", 14)
+	except Exception:
+		canvas.setFont("Times-Bold", 14)
+	canvas.drawString(140, A4[1] - 60, "HOSPITAL PROVINCIAL DE PEMBA")
 
-    if os.path.exists(LOGO_PATH):
-        try:
-            with Image.open(LOGO_PATH) as img:
-                if img.mode == "RGBA":
-                    img = img.convert("RGB")
-                buf = io.BytesIO()
-                img.save(buf, format="PNG")
-                buf.seek(0)
-                canvas.drawImage(
-                    ImageReader(buf),
-                    35, A4[1] - 135,
-                    width=100, height=100,
-                    preserveAspectRatio=True,
-                    mask='auto'
-                )
-        except Exception as e:
-            print("Erro ao carregar logo:", e)
+	try:
+		canvas.setFont("TimesNewRoman", 11)
+	except Exception:
+		canvas.setFont("Times-Roman", 11)
+	canvas.drawString(140, A4[1] - 78, "Laboratório de Análises Clínicas")
+	canvas.setFont("Times-Roman", 9)
+	canvas.drawString(140, A4[1] - 95, "Bairro Cimento, Cidade de Pemba - Cabo Delgado")
+	canvas.drawString(140, A4[1] - 110, "Tel: +258 84 773 5374 | +258 86 128 4041 | info@lab-pemba-mz.com")
 
-    canvas.setFont("Times-Bold", 14)
-    canvas.drawString(140, A4[1] - 60, "HOSPITAL PROVINCIAL DE PEMBA")
-    canvas.setFont("Times-Roman", 11)
-    canvas.drawString(140, A4[1] - 78, "Laboratório de Análises Clínicas")
-    canvas.setFont("Times-Roman", 9)
-    canvas.drawString(140, A4[1] - 95, "Bairro Cimento, Cidade de Pemba - Cabo Delgado")
-    canvas.drawString(140, A4[1] - 110, "Tel: +258 84 773 5374 | +258 86 128 4041 | info@lab-pemba-mz.com")
+	# Linha divisória (coordenadas corretas: x1, y1, x2, y2)
+	canvas.setStrokeColor(colors.black)
+	canvas.setLineWidth(1)
+	canvas.line(2*cm, A4[1] - 135, A4[0] - 2*cm, A4[1] - 135)
 
-    canvas.setStrokeColor(colors.black)
-    canvas.setLineWidth(10)
-    canvas.line(0.0*cm, A4[1] - 135, A4[1] - 4*cm, A4[1] - 135)
+	canvas.restoreState()
 
-    canvas.restoreState()
 
 # ============================================================
 # RODAPÉ (FOOTER)
 # ============================================================
-
 def draw_footer(canvas, doc):
-    """
-    Desenha o rodapé institucional com data/hora de geração.
+	canvas.saveState()
+	try:
+		canvas.setFont("TimesNewRoman", 8)
+	except Exception:
+		canvas.setFont("Times-Roman", 8)
+	footer_text = f"Gerado automaticamente por SYS-LAB em {datetime.now().strftime('%d/%m/%Y %H:%M')}"
+	canvas.drawRightString(A4[0] - 2*cm, 1.5*cm, footer_text)
+	canvas.restoreState()
 
-    Args:
-        canvas (Canvas): Contexto gráfico ReportLab.
-        doc (SimpleDocTemplate): Documento PDF ativo.
-    """
-    canvas.saveState()
-    canvas.setFont("Times-Roman", 8)
-    footer_text = f"Gerado automaticamente por SYS-LAB em {datetime.now().strftime('%d/%m/%Y %H:%M')}"
-    canvas.drawRightString(A4[0] - 2*cm, 1.5*cm, footer_text)
-    canvas.restoreState()
 
 # ============================================================
 # MARCA D'ÁGUA (WATERMARK)
 # ============================================================
-
 def draw_watermark(canvas, doc):
-    """
-    Desenha marca d'água repetida horizontal e verticalmente (rotacionada 90°).
+	try:
+		canvas.saveState()
+		# tentativa de transparência; não quebra se não suportado
+		try:
+			canvas.setFillAlpha(0.08)
+		except Exception:
+			pass
 
-    Args:
-        canvas (Canvas): Contexto gráfico ReportLab.
-        doc (SimpleDocTemplate): Documento PDF ativo.
-    """
-    try:
-        canvas.saveState()
-        try:
-            canvas.setFillAlpha(0.1)
-        except Exception:
-            pass  # fallback
+		width, height = doc.pagesize
+		if not os.path.exists(WATERMARK_PATH):
+			canvas.restoreState()
+			return
 
-        width, height = doc.pagesize
-        if not os.path.exists(WATERMARK_PATH):
-            canvas.restoreState()
-            return
+		with Image.open(WATERMARK_PATH) as img:
+			if img.mode == "RGBA":
+				img = img.convert("RGB")
+			buf = io.BytesIO()
+			img.save(buf, format="PNG")
+			buf.seek(0)
+			watermark = ImageReader(buf)
 
-        with Image.open(WATERMARK_PATH) as img:
-            if img.mode == "RGBA":
-                img = img.convert("RGB")
-            buf = io.BytesIO()
-            img.save(buf, format="PNG")
-            buf.seek(0)
-            watermark = ImageReader(buf)
+		wm_width, wm_height = 4*cm, 8*cm
+		spacing_x, spacing_y = 1.0*cm, 2.0*cm
 
-        wm_width, wm_height = 4*cm, 8*cm
-        spacing_x, spacing_y = -1.0*cm, -3.99999999*cm
+		y = -wm_height
+		while y < height + wm_height:
+			x = -wm_width
+			while x < width + wm_width:
+				canvas.saveState()
+				cx, cy = x + wm_width/2, y + wm_height/2
+				canvas.translate(cx, cy)
+				canvas.rotate(90)
+				canvas.drawImage(
+					watermark,
+					-wm_width/2, -wm_height/2,
+					width=wm_width, height=wm_height,
+					preserveAspectRatio=True, mask='auto'
+				)
+				canvas.restoreState()
+				x += wm_width + spacing_x
+			y += wm_height + spacing_y
+		canvas.restoreState()
+	except Exception as e:
+		logger.warning("Erro ao desenhar watermark: %s", e)
 
-        y = -wm_height
-        while y < height + wm_height:
-            x = -wm_width
-            while x < width + wm_width:
-                canvas.saveState()
-                cx, cy = x + wm_width/2, y + wm_height/2
-                canvas.translate(cx, cy)
-                canvas.rotate(90)
-                canvas.drawImage(
-                    watermark,
-                    -wm_width/2, -wm_height/2,
-                    width=wm_width, height=wm_height,
-                    preserveAspectRatio=True, mask='auto'
-                )
-                canvas.restoreState()
-                x += wm_width + spacing_x
-            y += wm_height + spacing_y
-        canvas.restoreState()
-    except Exception as e:
-        print("Erro ao desenhar watermark:", e)
 
 # ============================================================
-# ASSINATURAS
+# ASSINATURAS (versão unificada)
 # ============================================================
+def draw_signatures(canvas, doc, usuario=None):
+	canvas.saveState()
+	y = 3*cm
+	width_total = A4[0] - 3*cm - 2*cm
+	width_line = (width_total - 2*cm) / 2
 
-def draw_signatures(canvas, doc, tecnico_nome=None):
-    """
-    Desenha as linhas de assinatura no final do PDF.
+	x1_start, x1_end = 3*cm, 3*cm + width_line
+	x2_start, x2_end = x1_end + 2*cm, x1_end + 2*cm + width_line
 
-    Args:
-        canvas (Canvas): Contexto gráfico ReportLab.
-        doc (SimpleDocTemplate): Documento PDF ativo.
-        tecnico_nome (str, optional): Nome completo do técnico autenticado.
+	canvas.setLineWidth(1)
+	canvas.line(x1_start, y, x1_end, y)
+	canvas.line(x2_start, y, x2_end, y)
 
-    Se nenhum nome for passado, exibe "Técnico de Laboratório".
-    """
-    canvas.saveState()
-    y = 3*cm
-    width_total = A4[0] - 3*cm - 2*cm
-    width_line = (width_total - 2*cm) / 2
+	tecnico_nome = "Técnico de Laboratório"
+	if usuario:
+		nomes = []
+		if hasattr(usuario, "first_name") and usuario.first_name:
+			nomes.append(usuario.first_name.strip())
+		if hasattr(usuario, "last_name") and usuario.last_name:
+			nomes.append(usuario.last_name.strip())
+		if hasattr(usuario, "outros_nomes") and usuario.outros_nomes:
+			nomes.extend([n.strip() for n in usuario.outros_nomes.split() if n.strip()])
+		if nomes:
+			tecnico_nome = " ".join(nomes)
 
-    x1_start, x1_end = 3*cm, 3*cm + width_line
-    x2_start, x2_end = x1_end + 2*cm, x1_end + 2*cm + width_line
+	try:
+		canvas.setFont("TimesNewRoman", 10)
+	except Exception:
+		canvas.setFont("Times-Roman", 10)
+	canvas.drawCentredString((x1_start + x1_end)/2, y - 12, tecnico_nome)
+	canvas.drawCentredString((x2_start + x2_end)/2, y - 12, "Chefe do Laboratório\nAnibal Albino")
+	canvas.restoreState()
 
-    canvas.setLineWidth(1)
-    canvas.line(x1_start, y, x1_end, y)
-    canvas.line(x2_start, y, x2_end, y)
-
-    canvas.setFont("Times-Roman", 10)
-    tecnico_label = tecnico_nome or "Técnico de Laboratório"
-    canvas.drawCentredString((x1_start + x1_end)/2, y - 12, tecnico_label)
-    canvas.drawCentredString((x2_start + x2_end)/2, y - 12, "Chefe do Laboratório\nAnibal Albino")
-    canvas.restoreState()
 
 # ============================================================
 # LAYOUT UNIFICADO
 # ============================================================
+def layout(canvas, doc, usuario=None):
+	draw_watermark(canvas, doc)
+	draw_header(canvas, doc)
+	draw_footer(canvas, doc)
+	draw_signatures(canvas, doc, usuario)
 
-def layout(canvas, doc, tecnico_nome=None):
-    """
-    Callback aplicado em todas as páginas do PDF.
-
-    Args:
-        canvas (Canvas): Contexto gráfico ReportLab.
-        doc (SimpleDocTemplate): Documento PDF ativo.
-        tecnico_nome (str, optional): Nome completo do técnico autenticado.
-
-    Sequência de execução:
-        1. Marca d'água
-        2. Cabeçalho
-        3. Rodapé
-        4. Assinaturas
-    """
-    draw_watermark(canvas, doc)
-    draw_header(canvas, doc)
-    draw_footer(canvas, doc)
-    draw_signatures(canvas, doc, tecnico_nome)
 
 # ============================================================
 # GERAÇÃO DE PDF – REQUISIÇÃO
 # ============================================================
-
 def gerar_pdf_requisicao(requisicao):
-    """
-    Gera o PDF da requisição de análises clínicas.
+	buffer = io.BytesIO()
+	doc = SimpleDocTemplate(buffer, pagesize=A4,
+		leftMargin=3*cm, rightMargin=2*cm, topMargin=5*cm, bottomMargin=2*cm)
 
-    Args:
-        requisicao: Objeto Requisicao do sistema.
+	story = []
+	styles = getSampleStyleSheet()
+	try:
+		styles["Heading1"].fontName = "TimesNewRoman-Bold"
+	except Exception:
+		styles["Heading1"].fontName = "Times-Bold"
 
-    Returns:
-        bytes: Conteúdo binário do PDF.
-    """
-    buffer = io.BytesIO()
-    doc = SimpleDocTemplate(buffer, pagesize=A4,
-        leftMargin=3*cm, rightMargin=2*cm, topMargin=5*cm, bottomMargin=2*cm)
+	story.append(Paragraph("REQUISIÇÃO DE ANÁLISES CLÍNICAS", styles["Heading1"]))
+	story.append(Spacer(1, 1.5*cm))
 
-    story = []
-    styles = getSampleStyleSheet()
-    styles["Heading1"].fontName = "Times-Bold"
+	paciente = requisicao.paciente
+	dados = [
+		["Nome do Paciente:", str(paciente)],
+		["Idade:", paciente.idade_display() if hasattr(paciente, "idade_display") else (f"{paciente.idade} anos" if getattr(paciente, "idade", None) else "—")],
+		["Sexo:", paciente.genero or "—"],
+		["Número de ID:", paciente.numero_id or "—"],
+		["Proveniência:", paciente.proveniencia or 'N/D']
+	]
+	tabela = Table(dados, colWidths=[5*cm, 10*cm])
+	tabela.setStyle(TableStyle([
+		("FONTNAME", (0, 0), (-1, -1), "Times-Roman"),
+		("BOX", (0, 0), (-1, -1), 0.5, colors.grey),
+		("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
+		("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey)
+	]))
+	story.append(tabela)
+	story.append(Spacer(1, 0.7*cm))
 
-    story.append(Paragraph("REQUISIÇÃO DE ANÁLISES CLÍNICAS", styles["Heading1"]))
-    story.append(Spacer(1, 1.5*cm))
+	exames = [[e.nome] for e in getattr(requisicao, "exames_list", requisicao.exames.all())] or [["Nenhum exame registrado."]]
+	tabela_exames = Table(exames, colWidths=[15*cm])
+	tabela_exames.setStyle(TableStyle([
+		("FONTNAME", (0, 0), (-1, -1), "Times-Roman"),
+		("BOX", (0, 0), (-1, -1), 0.5, colors.grey),
+		("GRID", (0, 0), (-1, -1), 0.25, colors.grey)
+	]))
+	story.append(tabela_exames)
 
-    paciente = requisicao.paciente
-    dados = [
-        ["Nome do Paciente:", str(paciente)],
-        ["Idade:", f"{paciente.idade or '—'} anos"],
-        ["Sexo:", paciente.genero or "—"],
-        ["Número de ID:", paciente.numero_id or "—"],
-        ["Proveniência:", paciente.proveniencia or 'N/D']
-    ]
-    tabela = Table(dados, colWidths=[5*cm, 10*cm])
-    tabela.setStyle(TableStyle([
-        ("FONTNAME", (0, 0), (-1, -1), "Times-Roman"),
-        ("BOX", (0, 0), (-1, -1), 0.5, colors.grey),
-        ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
-        ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey)
-    ]))
-    story.append(tabela)
-    story.append(Spacer(1, 0.7*cm))
+	# Nome completo do técnico (usar campo 'analista')
+	tecnico_user = getattr(requisicao, "analista", None)
+	doc.build(story, onFirstPage=lambda c, d: layout(c, d, tecnico_user),
+					onLaterPages=lambda c, d: layout(c, d, tecnico_user))
+	pdf = buffer.getvalue()
+	buffer.close()
+	return pdf
 
-    exames = [[e.nome] for e in getattr(requisicao, "exames_list", requisicao.exames.all())] or [["Nenhum exame registrado."]]
-    tabela_exames = Table(exames, colWidths=[15*cm])
-    tabela_exames.setStyle(TableStyle([
-        ("FONTNAME", (0, 0), (-1, -1), "Times-Roman"),
-        ("BOX", (0, 0), (-1, -1), 0.5, colors.grey),
-        ("GRID", (0, 0), (-1, -1), 0.25, colors.grey)
-    ]))
-    story.append(tabela_exames)
-
-    # Nome completo do técnico
-    tecnico_nome = getattr(requisicao, "usuario", None)
-    if tecnico_nome:
-        tecnico_nome = " ".join(filter(None, [tecnico_nome.first_name, tecnico_nome.last_name]))
-
-    doc.build(story, onFirstPage=lambda c, d: layout(c, d, tecnico_nome),
-                    onLaterPages=lambda c, d: layout(c, d, tecnico_nome))
-    pdf = buffer.getvalue()
-    buffer.close()
-    return pdf
 
 # ============================================================
 # GERAÇÃO DE PDF – RESULTADOS
 # ============================================================
-
 def gerar_pdf_resultados(requisicao):
-    """
-    Gera o PDF com resultados de análises clínicas.
+	buffer = io.BytesIO()
+	doc = SimpleDocTemplate(buffer, pagesize=A4,
+		leftMargin=3*cm, rightMargin=2*cm, topMargin=5*cm, bottomMargin=2*cm)
 
-    Args:
-        requisicao: Objeto Requisicao do sistema.
+	story = []
+	styles = getSampleStyleSheet()
+	try:
+		styles["Heading1"].fontName = "TimesNewRoman-Bold"
+	except Exception:
+		styles["Heading1"].fontName = "Times-Bold"
 
-    Returns:
-        bytes: Conteúdo binário do PDF.
-    """
-    buffer = io.BytesIO()
-    doc = SimpleDocTemplate(buffer, pagesize=A4,
-        leftMargin=3*cm, rightMargin=2*cm, topMargin=5*cm, bottomMargin=2*cm)
+	story.append(Paragraph("RESULTADOS DE ANÁLISES CLÍNICAS", styles["Heading1"]))
+	story.append(Spacer(1, 0.5*cm))
 
-    story = []
-    styles = getSampleStyleSheet()
-    styles["Heading1"].fontName = "Times-Bold"
+	paciente = requisicao.paciente
+	idade = paciente.idade_display() if hasattr(paciente, "idade_display") else (f"{paciente.idade} anos" if getattr(paciente, "idade", None) else "—")
+	genero = paciente.genero or "—"
+	data_analise = getattr(requisicao, "created_at", None)
+	data_str = data_analise.strftime("%d/%m/%Y") if data_analise else "—"
 
-    story.append(Paragraph("RESULTADOS DE ANÁLISES CLÍNICAS", styles["Heading1"]))
-    story.append(Spacer(1, 0.5*cm))
+	dados_paciente = [
+		["Nome do Paciente:", paciente.nome],
+		["Idade:", idade],
+		["Sexo:", genero],
+		["Data de Análise:", data_str]
+	]
+	tabela_dados = Table(dados_paciente, colWidths=[5*cm, 10*cm])
+	tabela_dados.setStyle(TableStyle([
+		("FONTNAME", (0, 0), (-1, -1), "Times-Roman"),
+		("BOX", (0, 0), (-1, -1), 0.5, colors.grey),
+		("GRID", (0, 0), (-1, -1), 0.25, colors.grey),
+		("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey)
+	]))
+	story.append(tabela_dados)
+	story.append(Spacer(1, 0.7*cm))
 
-    paciente = requisicao.paciente
-    idade = f"{paciente.idade} anos" if getattr(paciente, "idade", None) else "—"
-    genero = paciente.genero or "—"
-    data_analise = getattr(requisicao, "created_at", None)
-    data_str = data_analise.strftime("%d/%m/%Y") if data_analise else "—"
+	resultados_data = [["Exame", "Resultado", "Unidade", "Referência"]]
+	text_style = ParagraphStyle("TextWrap", fontName="Times-Roman", fontSize=10, leading=13)
 
-    dados_paciente = [
-        ["Nome do Paciente:", paciente.nome],
-        ["Idade:", idade],
-        ["Sexo:", genero],
-        ["Data de Análise:", data_str]
-    ]
-    tabela_dados = Table(dados_paciente, colWidths=[5*cm, 10*cm])
-    tabela_dados.setStyle(TableStyle([
-        ("FONTNAME", (0, 0), (-1, -1), "Times-Roman"),
-        ("BOX", (0, 0), (-1, -1), 0.5, colors.grey),
-        ("GRID", (0, 0), (-1, -1), 0.25, colors.grey),
-        ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey)
-    ]))
-    story.append(tabela_dados)
-    story.append(Spacer(1, 0.7*cm))
+	for r in requisicao.resultados.all():
+		resultados_data.append([
+			Paragraph(getattr(r.exame, "nome", "—"), text_style),
+			Paragraph(r.resultado or "—", text_style),
+			Paragraph(r.unidade or getattr(r.exame, "unidade", "—"), text_style),
+			Paragraph(r.valor_referencia or getattr(r.exame, "valor_ref", "—"), text_style)
+		])
 
-    resultados_data = [["Exame", "Resultado", "Unidade", "Referência"]]
-    text_style = ParagraphStyle("TextWrap", fontName="Times-Roman", fontSize=10, leading=13)
+	tabela_resultados = Table(resultados_data, colWidths=[6*cm, 3*cm, 3*cm, 3*cm])
+	tabela_resultados.setStyle(TableStyle([
+		("FONTNAME", (0, 0), (-1, -1), "Times-Roman"),
+		("VALIGN", (0, 0), (-1, -1), "TOP"),
+		("BOX", (0, 0), (-1, -1), 0.5, colors.grey),
+		("GRID", (0, 0), (-1, -1), 0.25, colors.grey),
+		("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey)
+	]))
+	story.append(tabela_resultados)
 
-    for r in requisicao.resultados.all():
-        resultados_data.append([
-            Paragraph(getattr(r.exame, "nome", "—"), text_style),
-            Paragraph(r.resultado or "—", text_style),
-            Paragraph(r.unidade or getattr(r.exame, "unidade", "—"), text_style),
-            Paragraph(r.valor_referencia or getattr(r.exame, "valor_ref", "—"), text_style)
-        ])
-
-    tabela_resultados = Table(resultados_data, colWidths=[6*cm, 3*cm, 3*cm, 3*cm])
-    tabela_resultados.setStyle(TableStyle([
-        ("FONTNAME", (0, 0), (-1, -1), "Times-Roman"),
-        ("VALIGN", (0, 0), (-1, -1), "TOP"),
-        ("BOX", (0, 0), (-1, -1), 0.5, colors.grey),
-        ("GRID", (0, 0), (-1, -1), 0.25, colors.grey),
-        ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey)
-    ]))
-    story.append(tabela_resultados)
-
-    # Nome completo do técnico
-    tecnico_nome = getattr(requisicao, "usuario", None)
-    if tecnico_nome:
-        tecnico_nome = " ".join(filter(None, [tecnico_nome.first_name, tecnico_nome.last_name]))
-
-    doc.build(story, onFirstPage=lambda c, d: layout(c, d, tecnico_nome),
-                    onLaterPages=lambda c, d: layout(c, d, tecnico_nome))
-    pdf = buffer.getvalue()
-    buffer.close()
-    return pdf
-
-# ============================================================
-# ASSINATURAS – ATUALIZADO PARA NOME COMPLETO DINÂMICO
-# ============================================================
-
-def draw_signatures(canvas, doc, usuario=None):
-    """
-    Desenha as linhas de assinatura no final do PDF.
-
-    Args:
-        canvas (Canvas): Contexto gráfico ReportLab.
-        doc (SimpleDocTemplate): Documento PDF ativo.
-        usuario (User, optional): Instância do usuário logado.
-
-    Funcionalidade:
-        - Linha esquerda: técnico logado (nome completo concatenado)
-        - Linha direita: chefe do laboratório (fixo)
-    """
-    canvas.saveState()
-    y = 3*cm
-    width_total = A4[0] - 3*cm - 2*cm
-    width_line = (width_total - 2*cm) / 2
-
-    x1_start, x1_end = 3*cm, 3*cm + width_line
-    x2_start, x2_end = x1_end + 2*cm, x1_end + 2*cm + width_line
-
-    canvas.setLineWidth(1)
-    canvas.line(x1_start, y, x1_end, y)
-    canvas.line(x2_start, y, x2_end, y)
-
-    # Determina o nome completo do técnico
-    tecnico_nome = "Técnico de Laboratório"
-    if usuario:
-        nomes = []
-        # Primeiro nome
-        if hasattr(usuario, "first_name") and usuario.first_name:
-            nomes.append(usuario.first_name.strip())
-        # Último nome
-        if hasattr(usuario, "last_name") and usuario.last_name:
-            nomes.append(usuario.last_name.strip())
-        # Outros nomes extras, se existir (perfil customizado)
-        if hasattr(usuario, "outros_nomes") and usuario.outros_nomes:
-            nomes.extend([n.strip() for n in usuario.outros_nomes.split() if n.strip()])
-        if nomes:
-            tecnico_nome = " ".join(nomes)
-
-    canvas.setFont("Times-Roman", 10)
-    canvas.drawCentredString((x1_start + x1_end)/2, y - 12, tecnico_nome)
-    canvas.drawCentredString((x2_start + x2_end)/2, y - 12, "Chefe do Laboratório\nAnibal Albino")
-    canvas.restoreState()
-
+	# Nome completo do técnico (usar campo 'analista')
+	tecnico_user = getattr(requisicao, "analista", None)
+	doc.build(story, onFirstPage=lambda c, d: layout(c, d, tecnico_user),
+					onLaterPages=lambda c, d: layout(c, d, tecnico_user))
+	pdf = buffer.getvalue()
+	buffer.close()
+	return pdf

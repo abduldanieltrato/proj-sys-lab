@@ -1,9 +1,3 @@
-# ===========================================
-# admin.py — Sistema de Gestão Laboratorial
-# Autor: Trato
-# Versão: Produção — Permissões refinadas por grupo
-# ===========================================
-
 from django.contrib import admin
 from django import forms
 from django.http import HttpResponse
@@ -62,17 +56,14 @@ class ExameAdmin(admin.ModelAdmin):
 
 	def has_add_permission(self, request):
 		user = request.user
-		# Apenas administrador pode criar exames
 		return user.is_superuser or user.groups.filter(name='Administrador').exists()
 
 	def has_change_permission(self, request, obj=None):
 		user = request.user
-		# Apenas administrador pode editar exames
 		return user.is_superuser or user.groups.filter(name='Administrador').exists()
 
 	def has_delete_permission(self, request, obj=None):
 		user = request.user
-		# Apenas administrador pode excluir exames
 		return user.is_superuser or user.groups.filter(name='Administrador').exists()
 
 
@@ -174,12 +165,10 @@ class ResultadoAdmin(admin.ModelAdmin):
 
 	def has_add_permission(self, request):
 		user = request.user
-		# Técnicos e administradores podem adicionar
 		return user.is_superuser or user.groups.filter(name__in=['Administrador', 'Técnico de Laboratório']).exists()
 
 	def has_change_permission(self, request, obj=None):
 		user = request.user
-		# Técnicos e administradores podem editar
 		return user.is_superuser or user.groups.filter(name__in=['Administrador', 'Técnico de Laboratório']).exists()
 
 	def has_delete_permission(self, request, obj=None):
