@@ -5,6 +5,7 @@ from django.core.exceptions import ValidationError
 from django.utils.html import format_html
 from django.utils import timezone
 from pathlib import Path
+from tabbed_admin import TabbedModelAdmin
 import os
 
 # ============================================================
@@ -232,38 +233,106 @@ LOGGING = {
 }
 
 # ============================================================
-# 🎨 ADMIN PERSONALIZAÇÃO (BioLink)
+# 🎨 ADMIN PERSONALIZAÇÃO — AnaLinkLab
 # ============================================================
+
 JAZZMIN_SETTINGS = {
-	"site_title": "BioLink | Painel Administrativo",
-	"site_header": "BioLink Admin",
-	"welcome_sign": "Bem-vindo ao BioLink — Sistema de Gestão Laboratorial",
-	"site_logo": "img/bio_link_logo.png",
-	"login_logo": "img/bio_link_logo.png",
-	"login_logo_dark": None,
+	# === Identidade visual ===
+	"site_title": "AnaLinkLab | Painel Administrativo",
+	"site_header": "AnaLinkLab Admin",
+	"site_brand": "AnaLinkLab",
+	"welcome_sign": "Bem-vindo ao AnaLinkLab",
+	"site_logo": "img/ana_link_lab_logo.png",
+	"login_logo": "img/ana_link_lab_logo.png",
+	"copyright": " AnaLinkLab Systems Todos os direitos reservados.",
+
+	# === Layout e UX ===
+	"show_sidebar": True,
+    "show_jazzmin_version": False,
+	"navigation_expanded": True,
+	"use_google_fonts_cdn": True,
+	"related_modal_active": True,
+	"changeform_format": "horizontal_tabs",
+	"language_chooser": True,
+	"theme": "cosmo", # Tema leve e profissional
+    
+
+	# === Customização visual ===
 	"custom_css": "css/admin_custom.css",
 	"custom_js": None,
-	"show_sidebar": True,
-	"navigation_expanded": True,
-	"site_brand": "BioLink",
-	"copyright": "© 2025 BioLink Systems",
+
+	# === Menu superior ===
 	"topmenu_links": [
 		{"name": "Início", "url": "admin:index", "permissions": ["auth.view_user"]},
 		{"app": "lab"},
-		{"app": "pacientes"},
-		{"app": "doacoes"},
 	],
-	"use_google_fonts_cdn": True,
-	"related_modal_active": True,
+
+	# === Ícones personalizados ===
 	"icons": {
-		"auth": "fas fa-users-cog",
+		# Apps do sistema
 		"lab": "fas fa-vials",
-		"pacientes": "fas fa-user-injured",
-		"doacoes": "fas fa-hand-holding-medical",
-		"transfusoes": "fas fa-syringe",
+        "tabbed_admin": "fas fa-th-large",
+
+		# Modelos principais
+		"lab.Paciente": "fas fa-user-injured",
+		"lab.Exame": "fas fa-vials",
+		"lab.RequisicaoAnalise": "fas fa-clipboard-list",
+		"lab.ItemRequisicao": "fas fa-list-ul",
+		"lab.Resultado": "fas fa-microscope",
+		"lab.ExameCampoResultado": "fas fa-cog",
+		"lab.ResultadoItem": "fas fa-notes-medical",
+
+		# Autenticação
+		"auth": "fas fa-users-cog",
+		"auth.User": "fas fa-user-shield",
+		"auth.Group": "fas fa-users-cog",
 	},
-	"changeform_format": "horizontal_tabs",
-	"language_chooser": True,
+
+	# === Ícones padrão ===
+	"default_icon_parents": "fas fa-folder-open",
+	"default_icon_children": "fas fa-file-medical",
+}
+
+# ============================================================
+# 💎 ESTILO E UX — Jazzmin UI Tweaks (AnaLinkLab)
+# ============================================================
+
+JAZZMIN_UI_TWEAKS = {
+	# === Paleta de cores e layout ===
+	"theme": "cosmo",  # Mantém visual leve e profissional
+	"dark_mode_theme": None,
+	"navbar": "navbar-white navbar-light",
+	"navbar_fixed": True,
+	"sidebar_fixed": True,
+	"sidebar": "sidebar-dark-primary",
+	"brand_color": "navbar-primary",
+    
+
+	# === Botões e inputs ===
+	"button_classes": {
+		"primary": "btn btn-primary",
+		"secondary": "btn btn-secondary",
+		"info": "btn btn-info",
+		"warning": "btn btn-warning",
+		"danger": "btn btn-danger",
+		"success": "btn btn-success",
+	},
+
+	# === Elementos de navegação ===
+	"actions_sticky_top": True,         # Mantém botões de ação visíveis
+	"show_ui_builder": False,           # Desativa construtor visual (produção)
+	"sidebar_nav_compact_style": True,  # Menu lateral mais compacto
+	"sidebar_nav_child_indent": True,   # Indenta submenus
+	"sidebar_nav_flat_style": False,    # Mantém hierarquia clara
+	"related_modal_active": True,       # Pop-up de relacionamentos ativo
+
+	# === Branding refinado ===
+	"body_small_text": False,
+	"footer_small_text": False,
+	"brand_small_text": False,
+	"sidebar_small_text": False,
+	"no_navbar_border": True,
+    "show_jazzmin_version": False,
 }
 
 
@@ -298,3 +367,25 @@ TEMPLATES = [
 LOGS_DIR = BASE_DIR / "logs"
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
 (LOGS_DIR / "django.log").touch(exist_ok=True)
+
+# ------------------------
+# SESSÕES
+# ------------------------
+
+# 1️⃣  Termina a sessão ao fechar o navegador
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+# 2️⃣  Expira após 30 minutos (1800 segundos) de inatividade
+SESSION_COOKIE_AGE = 30 * 60  # 30 minutos
+
+# 3️⃣  Renova o tempo de vida da sessão a cada requisição ativa
+SESSION_SAVE_EVERY_REQUEST = True
+
+# 4️⃣  Se quiser reforçar limpeza de sessão (boa prática)
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+# 5️⃣  Opcional: garantir cookies de sessão mais seguros
+SESSION_COOKIE_SECURE = True          # só HTTPS
+SESSION_COOKIE_HTTPONLY = True        # não acessível via JS
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_SAMESITE = 'Lax'      # proteção CSRF básica

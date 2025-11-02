@@ -9,6 +9,7 @@ django-import-export
 django-extensions
 matplotlib
 pandas
+django-tabbed-admin==1.0.3
 reportlab
 django-simple-history
 django-axes
@@ -21,4 +22,5 @@ django-phonenumber-field
 django-countries
 django-extensions
 pyOpenSSL
+django-tabbed-admin
 "737-325-093"

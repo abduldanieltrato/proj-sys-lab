@@ -2,6 +2,7 @@ from django.contrib import admin
 from django import forms
 from django.http import HttpResponse
 from django.utils import timezone
+from tabbed_admin import TabbedModelAdmin
 from django.contrib.auth.models import Group
 from .models import Paciente, Exame, RequisicaoAnalise, ItemRequisicao, Resultado
 from .utils.pdf_generator import gerar_pdf_requisicao, gerar_pdf_resultados
@@ -11,7 +12,7 @@ from .utils.pdf_generator import gerar_pdf_requisicao, gerar_pdf_resultados
 # ==========================================================
 @admin.register(Paciente)
 class PacienteAdmin(admin.ModelAdmin):
-	list_display = ('id', 'nome', 'genero', 'idade_display', 'telefone', 'proveniencia', 'nacionalidade', 'numero_id', 'created_at')
+	list_display = ('id', 'nome', 'idade_display', 'data_entrada', 'residencia', 'proveniencia')
 	search_fields = ('nome', 'numero_id', 'telefone')
 	list_filter = ('genero', 'nacionalidade', 'proveniencia')
 	ordering = ('nome',)
@@ -43,27 +44,30 @@ class PacienteAdmin(admin.ModelAdmin):
 # ==========================================================
 # -------------------- EXAME -------------------------------
 # ==========================================================
+from django.contrib import admin
+from .models import Designacao, Metodo, Exame
+
+@admin.register(Designacao)
+class DesignacaoAdmin(admin.ModelAdmin):
+    list_display = ['nome', 'descricao']
+    search_fields = ['nome']
+
+@admin.register(Metodo)
+class MetodoAdmin(admin.ModelAdmin):
+    list_display = ['nome', 'descricao']
+    search_fields = ['nome']
+
 @admin.register(Exame)
 class ExameAdmin(admin.ModelAdmin):
-	list_display = ('id', 'nome', 'descricao', 'valor_ref', 'unidade', 'trl_horas', 'tempo_resposta_display')
-	search_fields = ('nome', 'descricao')
-	ordering = ('nome',)
-	list_per_page = 30
+    list_display = ['nome', 'designacao', 'metodo', 'display_valor_ref', 'tempo_resposta_display']
+    list_filter = ['designacao', 'metodo']
+    search_fields = ['nome', 'descricao']
+    fieldsets = (
+        ("Informações Gerais", {"fields": ("nome", "designacao", "metodo", "descricao")}),
+        ("Dados Técnicos", {"fields": ("valor_ref", "unidade", "trl_horas"), "classes": ("collapse",)}),
+    )
 
-	def has_view_permission(self, request, obj=None):
-		return request.user.is_authenticated
 
-	def has_add_permission(self, request):
-		user = request.user
-		return user.is_superuser or user.groups.filter(name='Administrador').exists()
-
-	def has_change_permission(self, request, obj=None):
-		user = request.user
-		return user.is_superuser or user.groups.filter(name='Administrador').exists()
-
-	def has_delete_permission(self, request, obj=None):
-		user = request.user
-		return user.is_superuser or user.groups.filter(name='Administrador').exists()
 
 
 # ==========================================================
@@ -71,7 +75,7 @@ class ExameAdmin(admin.ModelAdmin):
 # ==========================================================
 class ItemRequisicaoInline(admin.TabularInline):
 	model = ItemRequisicao
-	extra = 3
+	extra = 1
 	autocomplete_fields = ['exame']
 	show_change_link = True
 	verbose_name = "Item de Exame"

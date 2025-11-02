@@ -4,6 +4,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.utils.html import format_html
 from django.utils import timezone
+from datetime import date
 
 # -------------------- Paciente -----------------------------
 class Paciente(models.Model):
@@ -34,15 +35,11 @@ class Paciente(models.Model):
 			idade_em_anos -= 1
 		return idade_em_anos
 
-	def __str__(self):
-		idade_display = self.idade_display()
-		return f"{self.nome} ({self.numero_id}) - Idade: {idade_display}"
-
 	def idade_display(self):
 		if self.idade is None:
 			return "—"
 
-		# Menores de 2 anos: exibir detalhe meses/dias
+		# Menores de 2 anos: exibir meses e dias
 		if self.idade < 2:
 			hoje = date.today()
 			idade_total_dias = (hoje - self.data_nascimento).days
@@ -59,39 +56,108 @@ class Paciente(models.Model):
 
 		if self.idade == 1:
 			return f"{self.idade} ano"
-
 		return f"{self.idade} anos"
 
 	idade_display.short_description = "Idade"
 
-
-# -------------------- Exame -------------------------------
-class Exame(models.Model):
-	id = models.IntegerField(primary_key=True)
-	nome = models.CharField(max_length=255, verbose_name='Exames')
-	descricao = models.TextField(blank=True, help_text="Descrição", verbose_name='Descrição')
-	valor_ref = models.CharField(max_length=64, blank=True, verbose_name='Referência')
-	unidade = models.CharField(max_length=32, blank=True, verbose_name='Unidades')
-	trl_horas = models.PositiveIntegerField(default=24, verbose_name='TRL(horas)')
-
-	class Meta:
-		verbose_name = "Exame"
-		verbose_name_plural = "Exames"
-		ordering = ['nome']
+	def data_entrada(self):
+		"""Formata a data de entrada como DD/MM/AAAA."""
+		return self.created_at.strftime("%d/%m/%Y") if self.created_at else "—"
+	data_entrada.short_description = "Entrada"
 
 	def __str__(self):
-		return f'#{self.id} - {self.nome}'
+		idade_display = self.idade_display()
+		return f"{self.nome} ({self.numero_id}) - Idade: {idade_display}"
 
-	def display_valor_ref(self):
-		return self.valor_ref or "—"
-	display_valor_ref.short_description = "Valor de referência"
 
-	def tempo_resposta_display(self):
-		if self.trl_horas > 1:
-			return f'{self.trl_horas} horas'
-		else:
-			return f"{self.trl_horas} hora"
-	tempo_resposta_display.short_description = "TRL"
+# -------------------- Exame -------------------------------
+from django.db import models
+
+class Designacao(models.Model):
+    nome = models.CharField(max_length=100, unique=True, verbose_name="Designação")
+    descricao = models.TextField(blank=True, verbose_name="Descrição")
+
+    class Meta:
+        verbose_name = "Designação"
+        verbose_name_plural = "Designações"
+        ordering = ['nome']
+
+    def __str__(self):
+        return self.nome
+
+
+from django.db import models
+
+
+class Designacao(models.Model):
+    nome = models.CharField(max_length=100, unique=True, verbose_name="Designação")
+    descricao = models.TextField(blank=True, verbose_name="Descrição")
+
+    class Meta:
+        verbose_name = "Designação"
+        verbose_name_plural = "Designações"
+        ordering = ['nome']
+
+    def __str__(self):
+        return self.nome
+
+
+class Metodo(models.Model):
+    nome = models.CharField(max_length=100, unique=True, verbose_name="Método")
+    descricao = models.TextField(blank=True, verbose_name="Descrição")
+
+    class Meta:
+        verbose_name = "Método"
+        verbose_name_plural = "Métodos"
+        ordering = ['nome']
+
+    def __str__(self):
+        return self.nome
+
+
+class Exame(models.Model):
+    id = models.AutoField(primary_key=True)
+    nome = models.CharField(max_length=255, verbose_name='Exame')
+    descricao = models.TextField(blank=True, help_text="Descrição do exame", verbose_name='Descrição')
+    valor_ref = models.CharField(max_length=64, blank=True, verbose_name='Referência')
+    unidade = models.CharField(max_length=32, blank=True, verbose_name='Unidades')
+    trl_horas = models.PositiveIntegerField(default=24, verbose_name='TRL (horas)')
+
+    designacao = models.ForeignKey(
+        Designacao,
+        on_delete=models.PROTECT,
+        related_name="exames",
+        verbose_name="Designação"
+    )
+
+    metodo = models.ForeignKey(
+        Metodo,
+        on_delete=models.PROTECT,
+        related_name="exames",
+        verbose_name="Método",
+        blank=True,
+        null=True
+    )
+
+    class Meta:
+        verbose_name = "Exame"
+        verbose_name_plural = "Exames"
+        ordering = ['designacao__nome', 'nome']
+
+    def __str__(self):
+        if self.metodo:
+            return f"{self.nome} ({self.designacao} - {self.metodo})"
+        return f"{self.nome} ({self.designacao})"
+
+    def display_valor_ref(self):
+        return self.valor_ref or "—"
+    display_valor_ref.short_description = "Valor de referência"
+
+    def tempo_resposta_display(self):
+        return f"{self.trl_horas} hora{'s' if self.trl_horas != 1 else ''}"
+    tempo_resposta_display.short_description = "TRL"
+
+
 
 
 # -------------------- Requisição de Análises -----------------
@@ -111,19 +177,20 @@ class RequisicaoAnalise(models.Model):
 		return self.exames_list.count()
 
 	def exames_summary(self):
-		names = list(self.exames_list.values_list('nome', flat=True)[:5])
+		names = list(self.exames_list.values_list('nome', flat=True))
+		count = self.exames_count
+		if not names:
+			return "—"
 		summary = ", ".join(names)
-		if self.exames_count > 5:
-			summary += " …"
-		return summary or "—"
-	exames_summary.short_description = "Resumo dos Exames"
+		return f"{summary} ({count} exame{'s' if count != 1 else ''})"
+	exames_summary.short_description = "Exames requisitados"
 
 	def observacoes_short(self):
 		return (self.observacoes[:80] + '…') if self.observacoes and len(self.observacoes) > 80 else (self.observacoes or "—")
 	observacoes_short.short_description = "Observações"
 
 	def __str__(self):
-		return f"Req - #{self.id} — {self.paciente.nome.upper()} | Exames: {self.exames_summary()}"
+		return f"Req - #{self.id} — {self.paciente.nome.upper()}"
 
 	class Meta:
 		verbose_name = "Requisição de Análises"
@@ -210,5 +277,4 @@ class ResultadoItem(models.Model):
 		super().save(*args, **kwargs)
 
 	def __str__(self):
-		# Corrigido: usar campo existente 'resultado' em vez de 'valor'
-		return f"{self.exame_campo.exame.nome} | {self.exame_campo.nome_campo} | {self.resultado or '—'}"
+		return self.exame_campo.exame.nome
