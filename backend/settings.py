@@ -4,55 +4,77 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.utils.html import format_html
 from django.utils import timezone
-
 from pathlib import Path
 import os
-from dotenv import load_dotenv
 
 # ============================================================
-# BASE & ENV
+# BASE
 # ============================================================
 BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(BASE_DIR / ".env")
 
 # ============================================================
-# 🔐 SEGURANÇA BÁSICA
+# 🔐 SEGURANÇA BÁSICA APRIMORADA
 # ============================================================
-SECRET_KEY = os.environ.get("SECRET_KEY", "change-me")
-DEBUG = os.environ.get("DEBUG", "False").lower() in ("true", "1")
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+
+# Chave secreta – deve ser única e complexa em produção
+SECRET_KEY = "coloque2541SDDFSdhgnmvyeetga_uma_chave_fnd<hsudchsuper_complexa_aquihdhfwysyd"
+
+# Desativa debug em produção
+DEBUG = True
+
+# Hosts permitidos para evitar Host Header attacks
+ALLOWED_HOSTS = [
+	"127.0.0.1",
+	"localhost",
+]
+
 
 # ============================================================
-# 🌐 INTERNACIONALIZAÇÃO
+# 🌐 INTERNACIONALIZAÇÃO APRIMORADA
 # ============================================================
-LANGUAGE_CODE = os.environ.get("LANGUAGE_CODE", "pt-MZ")
-TIME_ZONE = os.environ.get("TIME_ZONE", "Africa/Maputo")
+
+# Idioma padrão
+LANGUAGE_CODE = "pt-MZ"
+
+# Fuso horário
+TIME_ZONE = "Africa/Maputo"
+
+# Internacionalização e formatação de datas/números
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+
 # ============================================================
-# 📡 BANCO DE DADOS (PostgreSQL)
+# 📡 BANCO DE DADOS (SQLite)
 # ============================================================
 DATABASES = {
-    "default": {
-        "ENGINE": os.environ.get("DB_ENGINE", "django.db.backends.sqlite3"),
-        "NAME": os.environ.get("DB_NAME", BASE_DIR / "db.sqlite3"),
-        "USER": os.environ.get("DB_USER", ""),
-        "PASSWORD": os.environ.get("DB_PASSWORD", ""),
-        "HOST": os.environ.get("DB_HOST", "localhost"),
-        "PORT": os.environ.get("DB_PORT", ""),
-    }
+	"default": {
+		"ENGINE": "django.db.backends.sqlite3",
+		"NAME": BASE_DIR / "db.sqlite3",
+	}
 }
 
 # ============================================================
-# 📁 STATIC & MEDIA
+# 📁 STATIC & MEDIA APRIMORADO
 # ============================================================
-STATIC_URL = os.environ.get("STATIC_URL", "/static/")
-MEDIA_URL = os.environ.get("MEDIA_URL", "/media/")
+
+# URLs públicas
+STATIC_URL = "/static/"
+MEDIA_URL = "/media/"
+
+# Diretórios onde os arquivos serão coletados
 STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_ROOT = BASE_DIR / "mediafiles"
-STATICFILES_DIRS = [BASE_DIR / "lab" / "static"]
+
+# Diretórios adicionais de arquivos estáticos
+STATICFILES_DIRS = [
+	BASE_DIR / "lab" / "static"
+]
+
+# Configurações adicionais recomendadas
+# Gzip e cache headers podem ser configurados no servidor (nginx/Apache)
+# para melhorar a performance na entrega de arquivos estáticos.
 
 # ============================================================
 # APPS
@@ -67,6 +89,7 @@ INSTALLED_APPS = [
     # Terceiros
     "phonenumber_field",
     "django_countries",
+    "django_extensions",
 
     # Django Core
     "django.contrib.admin",
@@ -109,12 +132,30 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # ============================================================
-# SEGURANÇA HTTP
+# SEGURANÇA HTTP APRIMORADA
 # ============================================================
-SESSION_COOKIE_SECURE = os.environ.get("SESSION_COOKIE_SECURE", "False").lower() in ("true", "1")
-CSRF_COOKIE_SECURE = os.environ.get("CSRF_COOKIE_SECURE", "False").lower() in ("true", "1")
-SECURE_SSL_REDIRECT = os.environ.get("SECURE_SSL_REDIRECT", "False").lower() in ("true", "1")
-X_FRAME_OPTIONS = os.environ.get("X_FRAME_OPTIONS", "SAMEORIGIN")
+
+# Garante que os cookies de sessão e CSRF só sejam enviados via HTTPS
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# Redireciona automaticamente todas requisições HTTP para HTTPS
+SECURE_SSL_REDIRECT = True
+
+# Protege contra Clickjacking
+X_FRAME_OPTIONS = "DENY"
+
+# HSTS – força navegadores a acessarem via HTTPS por um período
+SECURE_HSTS_SECONDS = 31536000  # 1 ano
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+# Evita que o navegador interprete arquivos como HTML quando não deveriam
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# Protege contra ataques de XSS
+SECURE_BROWSER_XSS_FILTER = True
+
 
 # ============================================================
 # AUTENTICAÇÃO
@@ -124,15 +165,16 @@ LOGIN_REDIRECT_URL = "/admin/"
 LOGOUT_REDIRECT_URL = "/admin/login/"
 
 # ============================================================
-# E-MAIL
+# 📧 CONFIGURAÇÃO DE EMAIL (SMTP GMAIL)
 # ============================================================
-EMAIL_BACKEND = os.environ.get("EMAIL_BACKEND", "django.core.mail.backends.smtp.EmailBackend")
-EMAIL_HOST = os.environ.get("EMAIL_HOST", "smtp.gmail.com")
-EMAIL_PORT = int(os.environ.get("EMAIL_PORT", 587))
-EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS", "True").lower() in ("true", "1")
-EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
-DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", EMAIL_HOST_USER)
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "abdultrato@gmail.com"
+EMAIL_HOST_PASSWORD = "CfCw@6205"
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 
 # ============================================================
 # CACHE
@@ -144,48 +186,86 @@ CACHES = {
     }
 }
 
+
 # ============================================================
-# LOGGING
+# 🧾 LOGGING
 # ============================================================
-LOG_FILE = os.environ.get("LOG_FILE", BASE_DIR / "logs" / "django.log")
+import os
+
+LOG_DIR = BASE_DIR / "logs"
+LOG_DIR.mkdir(exist_ok=True)
+
+LOG_FILE = LOG_DIR / "django.log"
+
 LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "formatters": {
-        "verbose": {"format": "[{asctime}] {levelname} {name} — {message}", "style": "{"},
-    },
-    "handlers": {
-        "file": {
-            "level": os.environ.get("LOG_LEVEL", "INFO"),
-            "class": "logging.FileHandler",
-            "filename": str(LOG_FILE),
-            "formatter": "verbose",
-        },
-    },
-    "loggers": {
-        "django": {"handlers": ["file"], "level": os.environ.get("LOG_LEVEL", "INFO"), "propagate": True},
-    },
+	"version": 1,
+	"disable_existing_loggers": False,
+
+	"formatters": {
+		"verbose": {
+			"format": "[{asctime}] {levelname} {name} — {message}",
+			"style": "{",
+		},
+	},
+
+	"handlers": {
+		"file": {
+			"level": "INFO",
+			"class": "logging.FileHandler",
+			"filename": str(LOG_FILE),
+			"formatter": "verbose",
+		},
+		"console": {
+			"level": "INFO",
+			"class": "logging.StreamHandler",
+			"formatter": "verbose",
+		},
+	},
+
+	"loggers": {
+		"django": {
+			"handlers": ["file", "console"],
+			"level": "INFO",
+			"propagate": True,
+		},
+	},
 }
 
 # ============================================================
-# ADMIN PERSONALIZAÇÃO
+# 🎨 ADMIN PERSONALIZAÇÃO (BioLink)
 # ============================================================
 JAZZMIN_SETTINGS = {
-    "site_title": "SYS-LAB",
-    "site_header": "SYS-LAB Admin",
-    "welcome_sign": "Sys-G-Lab - Sistema de Gestão Laboratorial",
-    "site_logo": "img/logo.png",
-    "custom_css": "css/admin_custom.css",
-    "show_sidebar": True,
-    "navigation_expanded": True,
+	"site_title": "BioLink | Painel Administrativo",
+	"site_header": "BioLink Admin",
+	"welcome_sign": "Bem-vindo ao BioLink — Sistema de Gestão Laboratorial",
+	"site_logo": "img/biolink_logo.png",
+	"login_logo": "img/biolink_logo.png",
+	"login_logo_dark": None,
+	"custom_css": "css/admin_custom.css",
+	"custom_js": None,
+	"show_sidebar": True,
+	"navigation_expanded": True,
+	"site_brand": "BioLink",
+	"copyright": "© 2025 BioLink Systems",
+	"topmenu_links": [
+		{"name": "Início", "url": "admin:index", "permissions": ["auth.view_user"]},
+		{"app": "lab"},
+		{"app": "pacientes"},
+		{"app": "doacoes"},
+	],
+	"use_google_fonts_cdn": True,
+	"related_modal_active": True,
+	"icons": {
+		"auth": "fas fa-users-cog",
+		"lab": "fas fa-vials",
+		"pacientes": "fas fa-user-injured",
+		"doacoes": "fas fa-hand-holding-medical",
+		"transfusoes": "fas fa-syringe",
+	},
+	"changeform_format": "horizontal_tabs",
+	"language_chooser": True,
 }
 
-# ============================================================
-# CORS
-# ============================================================
-CORS_ALLOWED_ORIGINS = os.environ.get(
-    "CORS_ALLOWED_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000"
-).split(",")
 
 # ============================================================
 # DJANGO DEFAULTS
