@@ -1,2 +1,4 @@
 [2025-11-02 18:50:25,995] WARNING django.request — Not Found: /
 [2025-11-02 18:50:26,309] WARNING django.request — Not Found: /favicon.ico
+[2025-11-02 22:52:33,870] WARNING django.request — Not Found: /admin/lab/requisicaoanalise/
+[2025-11-02 22:52:34,303] WARNING django.request — Not Found: /favicon.ico

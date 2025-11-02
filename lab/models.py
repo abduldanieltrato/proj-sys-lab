@@ -6,68 +6,73 @@ from django.utils.html import format_html
 from django.utils import timezone
 from datetime import date
 
-# -------------------- Paciente -----------------------------
+from django.db import models
+from datetime import date
+
 class Paciente(models.Model):
-	id = models.BigIntegerField(primary_key=True, verbose_name='NID')
-	nome = models.CharField(max_length=255, verbose_name='Nome')
-	data_nascimento = models.DateField(null=True, blank=True, verbose_name='Data de nascimento')
-	genero = models.CharField(max_length=32, choices=[('M', 'Masculino'), ('F', 'Feminino')], verbose_name='Sexo')
-	telefone = models.CharField(max_length=32, blank=True, verbose_name='Telefone')
-	residencia = models.CharField(max_length=255, blank=True, verbose_name='Residência')
-	proveniencia = models.CharField(max_length=128, blank=True, verbose_name='Proveniência')
-	nacionalidade = models.CharField(max_length=64, blank=True, verbose_name='Nacionalidade')
-	numero_id = models.CharField(max_length=64, unique=True, verbose_name='Identidade')
-	historico_medico = models.TextField(blank=True, null=True, verbose_name='Histórico')
-	created_at = models.DateTimeField(auto_now_add=True, verbose_name='Entrada')
+    id = models.CharField(primary_key=True, max_length=12, editable=False, verbose_name='NID')
+    nome = models.CharField(max_length=255, verbose_name='Nome')
+    data_nascimento = models.DateField(null=True, blank=True, verbose_name='Data de nascimento')
+    genero = models.CharField(max_length=32, choices=[('M', 'Masculino'), ('F', 'Feminino')], verbose_name='Sexo')
+    telefone = models.CharField(max_length=32, blank=True, verbose_name='Telefone')
+    residencia = models.CharField(max_length=255, blank=True, verbose_name='Residência')
+    proveniencia = models.CharField(max_length=128, blank=True, verbose_name='Proveniência')
+    nacionalidade = models.CharField(max_length=64, blank=True, verbose_name='Nacionalidade')
+    numero_id = models.CharField(max_length=64, unique=True, verbose_name='Identidade')
+    historico_medico = models.TextField(blank=True, null=True, verbose_name='Histórico')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Entrada')
 
-	class Meta:
-		verbose_name = "Paciente"
-		verbose_name_plural = "Pacientes"
-		ordering = ['nome']
+    class Meta:
+        verbose_name = "Paciente"
+        verbose_name_plural = "Pacientes"
+        ordering = ['nome']
 
-	@property
-	def idade(self):
-		if not self.data_nascimento:
-			return None
-		hoje = date.today()
-		idade_em_anos = hoje.year - self.data_nascimento.year
-		if (hoje.month, hoje.day) < (self.data_nascimento.month, self.data_nascimento.day):
-			idade_em_anos -= 1
-		return idade_em_anos
+    def save(self, *args, **kwargs):
+        if not self.id:
+            hoje_str = date.today().strftime("%Y%m%d")  # YYYYMMDD
+            # Conta quantos pacientes já foram criados hoje
+            contador = Paciente.objects.filter(created_at__date=date.today()).count() + 1
+            self.id = f"{hoje_str}{contador:04d}"  # Ex: 20251102 + 0001
+        super().save(*args, **kwargs)
 
-	def idade_display(self):
-		if self.idade is None:
-			return "—"
+    @property
+    def idade(self):
+        if not self.data_nascimento:
+            return None
+        hoje = date.today()
+        idade_em_anos = hoje.year - self.data_nascimento.year
+        if (hoje.month, hoje.day) < (self.data_nascimento.month, self.data_nascimento.day):
+            idade_em_anos -= 1
+        return idade_em_anos
 
-		# Menores de 2 anos: exibir meses e dias
-		if self.idade < 2:
-			hoje = date.today()
-			idade_total_dias = (hoje - self.data_nascimento).days
-			idade_em_anos = idade_total_dias // 365
-			idade_em_meses = (idade_total_dias % 365) // 30
-			idade_em_dias = idade_total_dias % 30
+    def idade_display(self):
+        if self.idade is None:
+            return "—"
+        if self.idade < 2:
+            hoje = date.today()
+            idade_total_dias = (hoje - self.data_nascimento).days
+            idade_em_anos = idade_total_dias // 365
+            idade_em_meses = (idade_total_dias % 365) // 30
+            idade_em_dias = idade_total_dias % 30
 
-			if idade_em_anos > 0:
-				return f"{idade_em_anos} ano{'s' if idade_em_anos > 1 else ''}, {idade_em_meses} mês{'es' if idade_em_meses != 1 else ''} e {idade_em_dias} dia{'s' if idade_em_dias != 1 else ''}"
-			elif idade_em_meses > 0:
-				return f"{idade_em_meses} mês{'es' if idade_em_meses != 1 else ''} e {idade_em_dias} dia{'s' if idade_em_dias != 1 else ''}"
-			else:
-				return f"{idade_em_dias} dia{'s' if idade_em_dias != 1 else ''}"
+            if idade_em_anos > 0:
+                return f"{idade_em_anos} ano{'s' if idade_em_anos > 1 else ''}, {idade_em_meses} mês{'es' if idade_em_meses != 1 else ''} e {idade_em_dias} dia{'s' if idade_em_dias != 1 else ''}"
+            elif idade_em_meses > 0:
+                return f"{idade_em_meses} mês{'es' if idade_em_meses != 1 else ''} e {idade_em_dias} dia{'s' if idade_em_dias != 1 else ''}"
+            else:
+                return f"{idade_em_dias} dia{'s' if idade_em_dias != 1 else ''}"
+        if self.idade == 1:
+            return f"{self.idade} ano"
+        return f"{self.idade} anos"
 
-		if self.idade == 1:
-			return f"{self.idade} ano"
-		return f"{self.idade} anos"
+    idade_display.short_description = "Idade"
 
-	idade_display.short_description = "Idade"
+    def data_entrada(self):
+        return self.created_at.strftime("%d/%m/%Y") if self.created_at else "—"
+    data_entrada.short_description = "Entrada"
 
-	def data_entrada(self):
-		"""Formata a data de entrada como DD/MM/AAAA."""
-		return self.created_at.strftime("%d/%m/%Y") if self.created_at else "—"
-	data_entrada.short_description = "Entrada"
-
-	def __str__(self):
-		idade_display = self.idade_display()
-		return f"{self.nome} ({self.numero_id}) - Idade: {idade_display}"
+    def __str__(self):
+        return "{} ({})".format(self.nome, self.id)
 
 
 # -------------------- Exame -------------------------------
@@ -190,7 +195,7 @@ class RequisicaoAnalise(models.Model):
 	observacoes_short.short_description = "Observações"
 
 	def __str__(self):
-		return f"Req - #{self.id} — {self.paciente.nome.upper()}"
+		return f"Req - #{self.paciente.id} — {self.paciente.nome}"
 
 	class Meta:
 		verbose_name = "Requisição de Análises"

@@ -5,7 +5,6 @@ from django.core.exceptions import ValidationError
 from django.utils.html import format_html
 from django.utils import timezone
 from pathlib import Path
-from tabbed_admin import TabbedModelAdmin
 import os
 
 # ============================================================
@@ -271,7 +270,8 @@ JAZZMIN_SETTINGS = {
 	"icons": {
 		# Apps do sistema
 		"lab": "fas fa-vials",
-        "tabbed_admin": "fas fa-th-large",
+        "lab.Metodo": "fas fa-cogs",
+		"lab.Designacao": "fas fa-tags",
 
 		# Modelos principais
 		"lab.Paciente": "fas fa-user-injured",
