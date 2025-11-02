@@ -6,7 +6,6 @@ from django.contrib.auth.models import Group
 from .models import Paciente, Exame, RequisicaoAnalise, ItemRequisicao, Resultado
 from .utils.pdf_generator import gerar_pdf_requisicao, gerar_pdf_resultados
 
-
 # ==========================================================
 # -------------------- PACIENTE -----------------------------
 # ==========================================================
