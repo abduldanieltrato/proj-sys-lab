@@ -192,7 +192,7 @@ class ResultadoAdmin(admin.ModelAdmin):
         if len(requisicoes) != 1:
             return
         requisicao = list(requisicoes)[0]
-        pdf_content, filename, _ = gerar_pdf_resultados(requisicao)
+        pdf_content, filename = gerar_pdf_resultados(requisicao)
         response = HttpResponse(pdf_content, content_type='application/pdf')
         response['Content-Disposition'] = f'attachment; filename="{filename}"'
         return response

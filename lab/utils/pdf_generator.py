@@ -216,6 +216,7 @@ def gerar_pdf_requisicao(requisicao):
     filename = f"Req-{paciente.id}-{paciente.nome.replace(' ', '_')}.pdf"
     return pdf_bytes, filename
 
+
 # ================= GERAÇÃO DE PDF – RESULTADOS =================
 def gerar_pdf_resultados(requisicao):
     buffer = io.BytesIO()
@@ -251,13 +252,18 @@ def gerar_pdf_resultados(requisicao):
 
     resultados_data = [["Exame", "Resultado", "Unidade", "Referência"]]
     text_style = ParagraphStyle("TextWrap", fontName="Times-Roman", fontSize=10, leading=13)
-    for r in getattr(requisicao, "resultados", []):
-        resultados_data.append([
-            getattr(r.exame, "nome", "—"),
-            getattr(r, "resultado", "—"),
-            getattr(r, "unidade", getattr(r.exame, "unidade", "—")),
-            getattr(r, "valor_referencia", getattr(r.exame, "valor_ref", "—"))
-        ])
+
+    # ✅ Corrigido: iterar sobre queryset de resultados
+    resultados_qs = getattr(requisicao, "resultados", None)
+    if resultados_qs:
+        for r in resultados_qs.all():  # .all() transforma RelatedManager em lista de objetos
+            resultados_data.append([
+                getattr(r.exame, "nome", "—"),
+                getattr(r, "resultado", "—"),
+                getattr(r, "unidade", getattr(r.exame, "unidade", "—")),
+                getattr(r, "valor_referencia", getattr(r.exame, "valor_ref", "—"))
+            ])
+
     tabela_resultados = Table(resultados_data, colWidths=[6*cm, 3*cm, 3*cm, 3*cm])
     tabela_resultados.setStyle(TableStyle([
         ("FONTNAME", (0,0), (-1,-1), "Times-Roman"),
