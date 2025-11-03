@@ -5,17 +5,23 @@ from django.utils import timezone
 from django.contrib.auth.models import Group
 from .models import (
     Paciente, Exame, RequisicaoAnalise, ItemRequisicao, Resultado,
-    Designacao, Metodo
+    Designacao, Metodo, ExameCampoResultado, ResultadoItem
 )
 from .utils.pdf_generator import gerar_pdf_requisicao, gerar_pdf_resultados
+
+class CustomAdminSite(admin.AdminSite):
+    class Media:
+        css = {
+            'all': ('css/admin_custom.css',)
+        }
 
 # ==========================================================
 # -------------------- PACIENTE ---------------------------
 # ==========================================================
 @admin.register(Paciente)
 class PacienteAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nome', 'idade_display', 'data_entrada', 'residencia', 'proveniencia')
-    search_fields = ('nome', 'numero_id', 'telefone')
+    list_display = ('nid', 'nome', 'idade_display', 'data_entrada', 'residencia', 'proveniencia')
+    search_fields = ('nome', 'nid', 'numero_id', 'telefone')
     list_filter = ('genero', 'nacionalidade', 'proveniencia')
     ordering = ('nome',)
     list_per_page = 25
@@ -50,6 +56,7 @@ class PacienteAdmin(admin.ModelAdmin):
 class DesignacaoAdmin(admin.ModelAdmin):
     list_display = ['nome', 'descricao']
     search_fields = ['nome']
+
 
 @admin.register(Metodo)
 class MetodoAdmin(admin.ModelAdmin):
@@ -102,8 +109,8 @@ class RequisicaoAnaliseAdminForm(forms.ModelForm):
 class RequisicaoAnaliseAdmin(admin.ModelAdmin):
     form = RequisicaoAnaliseAdminForm
     inlines = [ItemRequisicaoInline]
-    list_display = ('id', 'paciente', 'exames_count', 'analista', 'observacoes_short')
-    search_fields = ('paciente__nome', 'paciente__numero_id', 'analista__username')
+    list_display = ('paciente', 'exames_summary', 'analista', 'created_at')
+    search_fields = ('paciente__nome', 'paciente__nid', 'paciente__numero_id', 'analista__username')
     list_filter = ('analista', 'paciente')
     autocomplete_fields = ('paciente', 'analista')
     readonly_fields = ('analista',)
@@ -144,7 +151,7 @@ class RequisicaoAnaliseAdmin(admin.ModelAdmin):
         response = HttpResponse(pdf_content, content_type='application/pdf')
         response['Content-Disposition'] = f'attachment; filename="{filename}"'
         return response
-    baixar_pdf_requisicao.short_description = "Baixar PDF da requisição selecionada"
+    baixar_pdf_requisicao.short_description = "Baixar PDF da Requisição"
 
 
 # ==========================================================
@@ -157,7 +164,7 @@ class ResultadoAdmin(admin.ModelAdmin):
         'is_valid_display', 'formatted_data_insercao',
         'validado_por', 'data_validacao'
     )
-    search_fields = ('requisicao__paciente__nome', 'requisicao__paciente__numero_id', 'exame__nome')
+    search_fields = ('requisicao__paciente__nome', 'requisicao__paciente__nid', 'exame__nome')
     list_filter = ('validado', 'data_insercao', 'data_validacao')
     autocomplete_fields = ('requisicao', 'exame')
     readonly_fields = ('data_insercao', 'data_validacao')
@@ -197,3 +204,19 @@ class ResultadoAdmin(admin.ModelAdmin):
         response['Content-Disposition'] = f'attachment; filename="{filename}"'
         return response
     baixar_pdf_resultados.short_description = "Baixar PDF dos resultados selecionados"
+
+
+# ==========================================================
+# -------------------- ADMIN PARA MODELOS AUXILIARES ------
+# ==========================================================
+@admin.register(ExameCampoResultado)
+class ExameCampoResultadoAdmin(admin.ModelAdmin):
+    list_display = ('exame', 'nome_campo', 'tipo_campo', 'obrigatorio')
+    search_fields = ('exame__nome', 'nome_campo')
+    list_filter = ('tipo_campo', 'obrigatorio')
+
+
+@admin.register(ResultadoItem)
+class ResultadoItemAdmin(admin.ModelAdmin):
+    list_display = ('requisicao', 'exame_campo', 'resultado', 'unidade', 'valor_referencia')
+    search_fields = ('requisicao__paciente__nome', 'exame_campo__nome_campo')

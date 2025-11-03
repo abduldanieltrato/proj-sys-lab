@@ -1,8 +1,15 @@
 {% extends "admin/base.html" %}
 {% load static %}
 
+{% block title %}Painel do Laboratório{% endblock %}
+
 {% block branding %}
-<div class="jazzmin-brand">
-    <img src="{% static 'img/logo.png' %}" alt="Logo do Laboratório" style="max-width:200px; height:auto;">
+<div class="jazzmin-brand" style="display:flex; align-items:center; gap:10px;">
+    <img src="{% static 'img/logo.png' %}" alt="Logo do Laboratório" style="max-width:160px; height:auto;">
 </div>
+{% endblock %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/admin_custom.css' %}">
 {% endblock %}

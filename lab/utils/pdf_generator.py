@@ -1,7 +1,7 @@
 """
 Módulo de geração de PDFs institucionais para SYS-LAB
 Autor: Trato
-Versão: 1.4 (com nomes de arquivo automáticos e retorno de filename)
+Versão: 1.8 (sem linhas verticais em todas as tabelas, fontes com fallback automático)
 """
 
 import os
@@ -9,15 +9,16 @@ import io
 import logging
 from datetime import datetime
 from django.conf import settings
-from django.http import HttpResponse
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import cm
 from reportlab.lib import colors
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.styles import ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.utils import ImageReader
+
+from lab.models import Paciente
 from PIL import Image
 
 logger = logging.getLogger(__name__)
@@ -26,22 +27,22 @@ logger = logging.getLogger(__name__)
 LOGO_PATH = os.path.join(settings.BASE_DIR, "lab", "static", "img", "logo.png")
 WATERMARK_PATH = LOGO_PATH
 
-# ================= FONTS =================
+# ================= FONTES =================
 try:
-    pdfmetrics.registerFont(TTFont("TimesNewRoman", "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"))
-    pdfmetrics.registerFont(TTFont("TimesNewRoman-Bold", "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman_Bold.ttf"))
+    pdfmetrics.registerFont(TTFont("Roboto", "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"))
+    pdfmetrics.registerFont(TTFont("Roboto-Bold", "/usr/share/fonts/truetype/roboto/Roboto-Bold.ttf"))
+    DEFAULT_FONT = "Roboto"
+    DEFAULT_FONT_BOLD = "Roboto-Bold"
 except Exception as e:
-    logger.debug("Font registration failed or fonts not present: %s", e)
+    logger.warning("Falha ao registrar Roboto, usando Courier como fallback: %s", e)
+    DEFAULT_FONT = "Courier"
+    DEFAULT_FONT_BOLD = "Courier-Bold"
 
 # ================= HEADER =================
 def draw_header(canvas, doc):
     canvas.saveState()
-    try:
-        canvas.setFont("TimesNewRoman-Bold", 14)
-    except Exception:
-        canvas.setFont("Times-Bold", 14)
+    canvas.setFont(DEFAULT_FONT_BOLD, 14)
 
-    # Logo
     if os.path.exists(LOGO_PATH):
         try:
             with Image.open(LOGO_PATH) as img:
@@ -50,37 +51,32 @@ def draw_header(canvas, doc):
                 buf = io.BytesIO()
                 img.save(buf, format="PNG")
                 buf.seek(0)
-                canvas.drawImage(ImageReader(buf), 35, A4[1] - 135, width=100, height=100, preserveAspectRatio=True, mask='auto')
+                canvas.drawImage(ImageReader(buf), 35, A4[1] - 135,
+                                 width=100, height=100, preserveAspectRatio=True, mask='auto')
         except Exception as e:
             logger.warning("Erro ao carregar logo: %s", e)
     else:
-        canvas.setFont("Times-Roman", 10)
+        canvas.setFont(DEFAULT_FONT, 10)
         canvas.drawString(35, A4[1] - 90, "LOGO INDISPONÍVEL")
 
-    canvas.setFont("Times-Bold", 14)
+    canvas.setFont(DEFAULT_FONT_BOLD, 14)
     canvas.drawString(140, A4[1] - 60, "HOSPITAL PROVINCIAL DE PEMBA")
-    try:
-        canvas.setFont("TimesNewRoman", 11)
-    except Exception:
-        canvas.setFont("Times-Roman", 11)
+    canvas.setFont(DEFAULT_FONT, 11)
     canvas.drawString(140, A4[1] - 78, "Laboratório de Análises Clínicas")
-    canvas.setFont("Times-Roman", 9)
+    canvas.setFont(DEFAULT_FONT, 9)
     canvas.drawString(140, A4[1] - 95, "Bairro Cimento, Cidade de Pemba - Cabo Delgado")
     canvas.drawString(140, A4[1] - 110, "Tel: +258 84 773 5374 | +258 86 128 4041 | info@lab-pemba-mz.com")
 
     canvas.setStrokeColor(colors.black)
     canvas.setLineWidth(1)
-    canvas.line(2 * cm, A4[1] - 135, A4[0] - 2 * cm, A4[1] - 135)
+    canvas.line(0 * cm, A4[1] - 120, A4[0] - 0 * cm, A4[1] - 120)
     canvas.restoreState()
 
 # ================= FOOTER =================
 def draw_footer(canvas, doc):
     canvas.saveState()
-    try:
-        canvas.setFont("TimesNewRoman", 8)
-    except Exception:
-        canvas.setFont("Times-Roman", 8)
-    footer_text = f"Gerado automaticamente por SYS-LAB em {datetime.now().strftime('%d/%m/%Y %H:%M')}"
+    canvas.setFont(DEFAULT_FONT, 8)
+    footer_text = f"Gerado automaticamente por analinklab em {datetime.now().strftime('%d/%m/%Y %H:%M')}"
     canvas.drawRightString(A4[0] - 2 * cm, 1.5 * cm, footer_text)
     canvas.restoreState()
 
@@ -117,7 +113,11 @@ def draw_watermark(canvas, doc):
                 cx, cy = x + wm_width / 2, y + wm_height / 2
                 canvas.translate(cx, cy)
                 canvas.rotate(90)
-                canvas.drawImage(watermark, -wm_width/2, -wm_height/2, width=wm_width, height=wm_height, preserveAspectRatio=True, mask='auto')
+                canvas.drawImage(
+                    watermark, -wm_width/2, -wm_height/2,
+                    width=wm_width, height=wm_height,
+                    preserveAspectRatio=True, mask='auto'
+                )
                 canvas.restoreState()
                 x += wm_width + spacing_x
             y += wm_height + spacing_y
@@ -128,9 +128,9 @@ def draw_watermark(canvas, doc):
 # ================= ASSINATURAS =================
 def draw_signatures(canvas, doc, usuario=None):
     canvas.saveState()
-    y = 3 * cm
-    width_total = A4[0] - 3 * cm - 2 * cm
-    width_line = (width_total - 2 * cm) / 2
+    y = 2 * cm
+    width_total = A4[0] - 1 * cm - 1 * cm
+    width_line = (width_total - 3 * cm) / 2
 
     x1_start, x1_end = 3 * cm, 3 * cm + width_line
     x2_start, x2_end = x1_end + 2 * cm, x1_end + 2 * cm + width_line
@@ -142,21 +142,18 @@ def draw_signatures(canvas, doc, usuario=None):
     tecnico_nome = "Técnico de Laboratório"
     if usuario:
         nomes = []
-        if hasattr(usuario, "first_name") and usuario.first_name:
+        if getattr(usuario, "first_name", None):
             nomes.append(usuario.first_name.strip())
-        if hasattr(usuario, "last_name") and usuario.last_name:
+        if getattr(usuario, "last_name", None):
             nomes.append(usuario.last_name.strip())
-        if hasattr(usuario, "outros_nomes") and usuario.outros_nomes:
+        if getattr(usuario, "outros_nomes", None):
             nomes.extend([n.strip() for n in usuario.outros_nomes.split() if n.strip()])
         if nomes:
             tecnico_nome = " ".join(nomes)
 
-    try:
-        canvas.setFont("TimesNewRoman", 10)
-    except Exception:
-        canvas.setFont("Times-Roman", 10)
+    canvas.setFont(DEFAULT_FONT, 10)
     canvas.drawCentredString((x1_start + x1_end)/2, y - 12, tecnico_nome)
-    canvas.drawCentredString((x2_start + x2_end)/2, y - 12, "Chefe do Laboratório\nAnibal Albino")
+    canvas.drawCentredString((x2_start + x2_end)/2, y - 12, "Responsavel do Laboratório")
     canvas.restoreState()
 
 # ================= LAYOUT UNIFICADO =================
@@ -166,67 +163,69 @@ def layout(canvas, doc, usuario=None):
     draw_footer(canvas, doc)
     draw_signatures(canvas, doc, usuario)
 
-# ================= GERAÇÃO DE PDF – REQUISIÇÃO =================
+# ================= ESTILO DE TABELAS =================
+def estilo_tabela_horizontal():
+    return TableStyle([
+        ("FONTNAME", (0,0), (-1,-1), DEFAULT_FONT),
+        ("FONTSIZE", (0,0), (-1,-1), 9),
+        ("VALIGN", (0,0), (-1,-1), "TOP"),
+        ("LINEABOVE", (0,0), (-1,0), 0.5, colors.black),
+        ("LINEBELOW", (0,-1), (-1,-1), 0.5, colors.black),
+        ("LINEBELOW", (0,0), (-1,-1), 0.25, colors.black),
+        ("BACKGROUND", (0,0), (-1,0), colors.lightgrey)
+    ])
+
+# ================= PDF DE REQUISIÇÃO =================
 def gerar_pdf_requisicao(requisicao):
     buffer = io.BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=A4,
-                            leftMargin=3*cm, rightMargin=2*cm,
-                            topMargin=5*cm, bottomMargin=2*cm)
+                            leftMargin=2*cm, rightMargin=0.5*cm,
+                            topMargin=2*cm, bottomMargin=0.5*cm)
 
     story = []
-    styles = getSampleStyleSheet()
-    story.append(Paragraph("REQUISIÇÃO DE ANÁLISES CLÍNICAS", styles["Heading1"]))
-    story.append(Spacer(1, 1*cm))
+    heading_style = ParagraphStyle("Heading1", fontName=DEFAULT_FONT_BOLD, fontSize=10, leading=12)
+    story.append(Paragraph("REQUISIÇÃO DE ANÁLISES CLÍNICAS", heading_style))
+    story.append(Spacer(0, 3*cm))
 
     paciente = requisicao.paciente
     idade = getattr(paciente, "idade_display", lambda: "—")()
+
     dados = [
-        ["Nome do Paciente:", paciente.nome],
-        ["Idade:", idade],
-        ["Sexo:", paciente.genero or "—"],
-        ["Número de ID:", paciente.numero_id or "—"],
-        ["Proveniência:", getattr(paciente, "proveniencia", "N/D")]
+        ["nome do paciente:", paciente.nome],
+        ["idade:", idade],
+        ["gênero:", paciente.genero or "—"],
+        ["N. B.I./Passaporte/Doc:", paciente.numero_id or "—"],
+        ["Proveniência:", getattr(Paciente.proveniencia, "proveniencia", "N/D")]
     ]
-    tabela = Table(dados, colWidths=[5*cm, 10*cm])
-    tabela.setStyle(TableStyle([
-        ("FONTNAME", (0,0), (-1,-1), "Times-Roman"),
-        ("BOX", (0,0), (-1,-1), 0.5, colors.grey),
-        ("GRID", (0,0), (-1,-1), 0.5, colors.grey),
-        ("BACKGROUND", (0,0), (-1,0), colors.lightgrey)
-    ]))
+    tabela = Table(dados, colWidths=[4*cm, 12*cm])
+    tabela.setStyle(estilo_tabela_horizontal())
     story.append(tabela)
-    story.append(Spacer(1, 0.7*cm))
+    story.append(Spacer(2, 2*cm))
 
     exames = [[e.nome] for e in getattr(requisicao, "exames_list", requisicao.exames.all())] or [["Nenhum exame registrado."]]
     tabela_exames = Table(exames, colWidths=[15*cm])
-    tabela_exames.setStyle(TableStyle([
-        ("FONTNAME", (0,0), (-1,-1), "Times-Roman"),
-        ("BOX", (0,0), (-1,-1), 0.5, colors.grey),
-        ("GRID", (0,0), (-1,-1), 0.25, colors.grey)
-    ]))
+    tabela_exames.setStyle(estilo_tabela_horizontal())
     story.append(tabela_exames)
 
     tecnico_user = getattr(requisicao, "analista", None)
     doc.build(story, onFirstPage=lambda c,d: layout(c,d,tecnico_user),
-                    onLaterPages=lambda c,d: layout(c,d,tecnico_user))
+              onLaterPages=lambda c,d: layout(c,d,tecnico_user))
 
     pdf_bytes = buffer.getvalue()
     buffer.close()
-
-    filename = f"Req-{paciente.id}-{paciente.nome.replace(' ', '_')}.pdf"
+    filename = f"Req-{paciente.nid}-{paciente.nome.replace(' ', '_')}.pdf"
     return pdf_bytes, filename
 
-
-# ================= GERAÇÃO DE PDF – RESULTADOS =================
+# ================= PDF DE RESULTADOS =================
 def gerar_pdf_resultados(requisicao):
     buffer = io.BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=A4,
-                            leftMargin=3*cm, rightMargin=2*cm,
-                            topMargin=5*cm, bottomMargin=2*cm)
+                            leftMargin=2*cm, rightMargin=2*cm,
+                            topMargin=3*cm, bottomMargin=2*cm)
 
     story = []
-    styles = getSampleStyleSheet()
-    story.append(Paragraph("RESULTADOS DE ANÁLISES CLÍNICAS", styles["Heading1"]))
+    heading_style = ParagraphStyle("Heading1", fontName=DEFAULT_FONT_BOLD, fontSize=12, leading=14)
+    story.append(Paragraph("RESULTADOS DE ANÁLISES CLÍNICAS", heading_style))
     story.append(Spacer(1, 0.5*cm))
 
     paciente = requisicao.paciente
@@ -235,28 +234,20 @@ def gerar_pdf_resultados(requisicao):
     data_str = data_analise.strftime("%d/%m/%Y") if data_analise else "—"
 
     dados_paciente = [
-        ["Nome do Paciente:", paciente.nome],
-        ["Idade:", idade],
-        ["Sexo:", paciente.genero or "—"],
-        ["Data de Análise:", data_str]
+        ["nome do paciente:", paciente.nome],
+        ["idade:", idade],
+        ["gênero:", paciente.genero or "—"],
+        ["data da análise:", data_str]
     ]
-    tabela_dados = Table(dados_paciente, colWidths=[5*cm, 10*cm])
-    tabela_dados.setStyle(TableStyle([
-        ("FONTNAME", (0,0), (-1,-1), "Times-Roman"),
-        ("BOX", (0,0), (-1,-1), 0.5, colors.grey),
-        ("GRID", (0,0), (-1,-1), 0.25, colors.grey),
-        ("BACKGROUND", (0,0), (-1,0), colors.lightgrey)
-    ]))
+    tabela_dados = Table(dados_paciente, colWidths=[6*cm, 12*cm])
+    tabela_dados.setStyle(estilo_tabela_horizontal())
     story.append(tabela_dados)
-    story.append(Spacer(1, 0.7*cm))
+    story.append(Spacer(2, 0.5*cm))
 
-    resultados_data = [["Exame", "Resultado", "Unidade", "Referência"]]
-    text_style = ParagraphStyle("TextWrap", fontName="Times-Roman", fontSize=10, leading=13)
-
-    # ✅ Corrigido: iterar sobre queryset de resultados
+    resultados_data = [["exame", "resultado", "unidade", "referência"]]
     resultados_qs = getattr(requisicao, "resultados", None)
     if resultados_qs:
-        for r in resultados_qs.all():  # .all() transforma RelatedManager em lista de objetos
+        for r in resultados_qs.all():
             resultados_data.append([
                 getattr(r.exame, "nome", "—"),
                 getattr(r, "resultado", "—"),
@@ -264,22 +255,15 @@ def gerar_pdf_resultados(requisicao):
                 getattr(r, "valor_referencia", getattr(r.exame, "valor_ref", "—"))
             ])
 
-    tabela_resultados = Table(resultados_data, colWidths=[6*cm, 3*cm, 3*cm, 3*cm])
-    tabela_resultados.setStyle(TableStyle([
-        ("FONTNAME", (0,0), (-1,-1), "Times-Roman"),
-        ("VALIGN", (0,0), (-1,-1), "TOP"),
-        ("BOX", (0,0), (-1,-1), 0.5, colors.grey),
-        ("GRID", (0,0), (-1,-1), 0.25, colors.grey),
-        ("BACKGROUND", (0,0), (-1,0), colors.lightgrey)
-    ]))
+    tabela_resultados = Table(resultados_data, colWidths=[5*cm, 5*cm, 2.5*cm, 2.5*cm])
+    tabela_resultados.setStyle(estilo_tabela_horizontal())
     story.append(tabela_resultados)
 
     tecnico_user = getattr(requisicao, "analista", None)
     doc.build(story, onFirstPage=lambda c,d: layout(c,d,tecnico_user),
-                    onLaterPages=lambda c,d: layout(c,d,tecnico_user))
+              onLaterPages=lambda c,d: layout(c,d,tecnico_user))
 
     pdf_bytes = buffer.getvalue()
     buffer.close()
-
-    filename = f"Res-{paciente.id}-{paciente.nome.replace(' ', '_')}.pdf"
+    filename = f"Res-{paciente.nid}-{paciente.nome.replace(' ', '_')}.pdf"
     return pdf_bytes, filename
