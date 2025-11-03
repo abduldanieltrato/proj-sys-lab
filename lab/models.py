@@ -5,7 +5,6 @@ from django.core.exceptions import ValidationError
 from django.utils.html import format_html
 from django.utils import timezone
 
-
 # ==========================================================
 # -------------------- PACIENTE ----------------------------
 # ==========================================================
@@ -29,9 +28,9 @@ class Paciente(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.nid:
-            hoje_str = date.today().strftime("%Y%m%d")  # YYYYMMDD
+            hoje_str = date.today().strftime("%Y%m%d")
             contador = Paciente.objects.filter(created_at__date=date.today()).count() + 1
-            self.nid = f"{hoje_str}{contador:04d}"  # Ex: 20251102 + 0001
+            self.nid = f"{hoje_str}{contador:04d}"
         super().save(*args, **kwargs)
 
     @property
@@ -73,7 +72,6 @@ class Paciente(models.Model):
     def __str__(self):
         return f"{self.nome}"
 
-
 # ==========================================================
 # -------------------- DESIGNACAO --------------------------
 # ==========================================================
@@ -88,7 +86,6 @@ class Designacao(models.Model):
 
     def __str__(self):
         return self.nome
-
 
 # ==========================================================
 # -------------------- METODO ------------------------------
@@ -105,12 +102,10 @@ class Metodo(models.Model):
     def __str__(self):
         return self.nome
 
-
 # ==========================================================
 # -------------------- EXAME -------------------------------
 # ==========================================================
 class Exame(models.Model):
-    # id automático (AutoField) será criado automaticamente pelo Django
     nome = models.CharField(max_length=255, verbose_name='Exame')
     descricao = models.TextField(blank=True, help_text="Descrição do exame", verbose_name='Descrição')
     valor_ref = models.CharField(max_length=64, blank=True, verbose_name='Referência')
@@ -151,7 +146,6 @@ class Exame(models.Model):
         return f"{self.trl_horas} hora{'s' if self.trl_horas != 1 else ''}"
     tempo_resposta_display.short_description = "TRL"
 
-
 # ==========================================================
 # -------------------- REQUISIÇÃO DE ANÁLISES --------------
 # ==========================================================
@@ -184,14 +178,12 @@ class RequisicaoAnalise(models.Model):
     observacoes_short.short_description = "Observações"
 
     def __str__(self):
-        # mostrar nid do paciente (Paciente.__str__ já mostra nome (nid))
         return f"Req - #{self.paciente.nid} — {self.paciente.nome}"
 
     class Meta:
         verbose_name = "Requisição de Análises"
         verbose_name_plural = "Requisições de Análises"
         ordering = ['-created_at']
-
 
 # ==========================================================
 # -------------------- ITEM REQUISIÇÃO ---------------------
@@ -206,7 +198,6 @@ class ItemRequisicao(models.Model):
     class Meta:
         verbose_name = "Item de Requisição"
         verbose_name_plural = "Itens de Requisição"
-
 
 # ==========================================================
 # -------------------- RESULTADO ---------------------------
@@ -249,7 +240,6 @@ class Resultado(models.Model):
     def __str__(self):
         return f"Resultado: {self.requisicao} - {self.exame}"
 
-
 # ==========================================================
 # -------------------- Campos dinâmicos por exame ----------
 # ==========================================================
@@ -261,7 +251,6 @@ class ExameCampoResultado(models.Model):
 
     def __str__(self):
         return f"{self.exame.nome} | {self.nome_campo}"
-
 
 # ==========================================================
 # -------------------- ResultadoItem -----------------------
