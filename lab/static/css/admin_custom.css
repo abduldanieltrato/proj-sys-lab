@@ -177,5 +177,28 @@ body#grp-body *, body#container * {
   line-height: revert !important;
 }
 
+/* ==========================
+   🛠️ Ajustes específicos do Jazzmin
+=========================== */
+.jazzmin-logo {
+	border-radius: var(--radius) !important;
+	box-shadow: var(--shadow) !important;
+}
+.jazzmin-card {
+	border-radius: var(--radius) !important;
+	box-shadow: var(--shadow) !important;
+}
+.jazzmin-sidebar .nav-link.active {
+	background: rgba(255, 255, 255, 0.3) !important;
+}
+.jazzmin-navbar {
+	box-shadow: var(--shadow) !important;
+}
+
+/* css/admin_custom.css */
+footer.main-footer small {
+	display: none !important;
+}
+
 
 /* Fim do arquivo admin_custom.css */

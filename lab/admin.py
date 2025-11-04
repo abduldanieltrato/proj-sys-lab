@@ -9,11 +9,23 @@ from .models import (
 )
 from .utils.pdf_generator import gerar_pdf_requisicao, gerar_pdf_resultados
 
-class CustomAdminSite(admin.AdminSite):
-    class Media:
-        css = {
-            'all': ('css/admin_custom.css',)
-        }
+
+
+from django.contrib import admin
+from django.contrib.admin import AdminSite
+from django.utils.html import format_html
+from django.urls import path
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django import forms
+from django.http import HttpResponse
+from django.utils import timezone
+
+from .models import (
+    Paciente, Exame, RequisicaoAnalise, ItemRequisicao, Resultado,
+    Designacao, Metodo, ExameCampoResultado, ResultadoItem
+)
+from .utils.pdf_generator import gerar_pdf_requisicao, gerar_pdf_resultados
 
 # ==========================================================
 # -------------------- PACIENTE ---------------------------

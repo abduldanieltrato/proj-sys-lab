@@ -243,22 +243,32 @@ JAZZMIN_SETTINGS = {
 	"welcome_sign": "Bem-vindo ao AnaLinkLab",
 	"site_logo": "img/ana_link_lab_logo.png",
 	"login_logo": "img/ana_link_lab_logo.png",
-	"copyright": " AnaLinkLab Systems Todos os direitos reservados.",
+	"copyright": " AnaLinkLab Systems",
 
 	# === Layout e UX ===
 	"show_sidebar": True,
     "show_jazzmin_version": False,
-	"navigation_expanded": True,
-	"use_google_fonts_cdn": True,
-	"related_modal_active": True,
-	"changeform_format": "horizontal_tabs",
+	"navigation_expanded": True, # Menu lateral expandido por padrão
+	"hide_apps": [],
+	"hide_models": [],
+	"order_with_respect_to": ["auth", "lab"], # Ordem dos apps
+	"custom_order": {
+		"auth": 1,	
+		"lab": 2, 
+	},
+	"search_url": "",	# URL de busca personalizada
+	"use_google_fonts_cdn": True, # Usa Google Fonts CDN
+	"related_modal_active": True, # Pop-up de relacionamentos ativo
+	"show_ui_builder": False,      # Desativa construtor visual (produção)
+	"search_model": "auth.User",   # Busca rápida no modelo User
+	"changeform_format": "horizontal_tabs", # Abas horizontais para formulários
 	"language_chooser": True,
 	"theme": "cosmo", # Tema leve e profissional
     
 
 	# === Customização visual ===
-	"custom_css": "css/admin_custom.css",
-	"custom_js": None,
+	"custom_css": "css/admin_custom.css", 
+	"custom_js": None, 
 
 	# === Menu superior ===
 	"topmenu_links": [
@@ -269,13 +279,29 @@ JAZZMIN_SETTINGS = {
 	# === Ícones personalizados ===
 	"icons": {
 		# Apps do sistema
-		"lab": "fas fa-vials",
+		"lab": "fas fa-vials", 
+		# Modelos auxiliares
+		"lab.Genero": "fas fa-venus-mars",
+		"lab.EstadoCivil": "fas fa-heart",
+		"lab.Pais": "fas fa-flag",
+		"lab.Provincia": "fas fa-map-marked-alt",
+		"lab.Cidade": "fas fa-city",
+		"lab.TipoAmostra": "fas fa-prescription-bottle-alt",
+		"lab.UnidadeMedida": "fas fa-ruler",
+		"lab.Frequencia": "fas fa-clock",
+		"lab.CategoriaExame": "fas fa-layer-group",
         "lab.Metodo": "fas fa-cogs",
 		"lab.Designacao": "fas fa-tags",
 
 		# Modelos principais
-		"lab.Paciente": "fas fa-user-injured",
-		"lab.Exame": "fas fa-vials",
+		"lab.Paciente": "fas fa-user-injured", 
+		"lab.Medico": "fas fa-user-md", 
+		"lab.Laboratorista": "fas fa-user-nurse",
+		"lab.Amostra": "fas fa-flask",
+		"lab.TipoExame": "fas fa-file-medical",
+		"lab.Exame": "fas fa-vials", 
+		"lab.ExameMetodo": "fas fa-tools",
+		"lab.Requisicao": "fas fa-file-prescription",
 		"lab.RequisicaoAnalise": "fas fa-clipboard-list",
 		"lab.ItemRequisicao": "fas fa-list-ul",
 		"lab.Resultado": "fas fa-microscope",
@@ -283,7 +309,7 @@ JAZZMIN_SETTINGS = {
 		"lab.ResultadoItem": "fas fa-notes-medical",
 
 		# Autenticação
-		"auth": "fas fa-users-cog",
+		"auth": "fas fa-users-cog", 
 		"auth.User": "fas fa-user-shield",
 		"auth.Group": "fas fa-users-cog",
 	},
@@ -300,13 +326,31 @@ JAZZMIN_SETTINGS = {
 JAZZMIN_UI_TWEAKS = {
 	# === Paleta de cores e layout ===
 	"theme": "cosmo",  # Mantém visual leve e profissional
-	"dark_mode_theme": None,
+	"light_mode_theme": "cosmo",
+    "show_jazzmin_version": False,
 	"navbar": "navbar-white navbar-light",
 	"navbar_fixed": True,
 	"sidebar_fixed": True,
 	"sidebar": "sidebar-dark-primary",
 	"brand_color": "navbar-primary",
-    
+	"accent": "accent-primary",
+	"layout_boxed": False,
+	"layout_fluid": True,
+	"layout_topnav": False,
+	"layout_fixed_sidebar": True,
+	"layout_fixed_navbar": True,
+	"layout_fixed_footer": False,
+	"layout_collapsed_sidebar": False,
+    "layout_compact_sidebar": True,
+	"layout_small_text_sidebar": False,
+	"layout_small_text_body": False,
+	"layout_small_text_footer": False,
+	"layout_small_text_brand": False,
+	
+
+
+	"light_mode_theme_auto": False,
+	"light_mode_theme": "cosmo",
 
 	# === Botões e inputs ===
 	"button_classes": {
@@ -350,6 +394,7 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [TEMPLATES_DIR],
         "APP_DIRS": True,
+        
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
@@ -389,3 +434,56 @@ SESSION_COOKIE_SECURE = True          # só HTTPS
 SESSION_COOKIE_HTTPONLY = True        # não acessível via JS
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_SAMESITE = 'Lax'      # proteção CSRF básica
+# ------------------------
+
+# ============================================================
+# 🎨 ADMIN PERSONALIZAÇÃO — AnaLinkLab
+# ============================================================
+JAZZMIN_SETTINGS = {
+	# === Identidade visual ===
+	"site_title": "AnaLinkLab | Painel Administrativo",
+	"site_header": "AnaLinkLab Admin",
+	"site_brand": "AnaLinkLab",
+	"welcome_sign": "Bem-vindo ao AnaLinkLab",
+	"site_logo": "img/ana_link_lab_logo.png",
+	"login_logo": "img/ana_link_lab_logo.png",
+   "custom_css": "css/admin_custom.css",
+   "custom_js": "js/admin_custom.js",
+   "show_ui_builder": False,
+
+   "custom_template": "admin/custom_template.html",
+   "custom_js": "js/admin_custom.js",
+   "custom_css": "css/admin_custom.css",
+   "custom_footer": "admin/custom_footer.html",
+
+   "custom_js": "js/admin_custom.js",
+   "custom_css": "css/admin_custom.css",
+   "custom_footer": "admin/custom_footer.html",
+
+   "custom_js": "js/admin_custom.js",
+
+	"custom_css": "css/admin_custom.css",
+	"custom_js": None,
+   "custom_footer": None,
+   "custom_template": None,
+
+	# === Layout e UX ===
+	"layout_fixed": True,
+	"layout_boxed": False,
+	"layout_full_width": True,
+	"sidebar_collapsed": False,
+	"sidebar_sticky": True,
+	"navbar_sticky": True,
+	"footer_fixed": False,
+	"custom_scrollbar": True,
+	"show_ui_builder": False,      # Desativa construtor visual (produção)
+	"search_model": "auth.User",   # Busca rápida no modelo User
+	"changeform_format": "horizontal_tabs", # Abas horizontais para formulários
+	"language_chooser": True,
+	# === Ícones personalizados ===
+    "custom_icon": "img/custom_icon.png",
+    
+
+}
+
+SESSION_COOKIE_NAME = "analinklab_session"
