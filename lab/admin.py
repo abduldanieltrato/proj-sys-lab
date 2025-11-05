@@ -2,24 +2,6 @@ from django.contrib import admin
 from django import forms
 from django.http import HttpResponse
 from django.utils import timezone
-from django.contrib.auth.models import Group
-from .models import (
-    Paciente, Exame, RequisicaoAnalise, ItemRequisicao, Resultado,
-    Designacao, Metodo, ExameCampoResultado, ResultadoItem
-)
-from .utils.pdf_generator import gerar_pdf_requisicao, gerar_pdf_resultados
-
-
-
-from django.contrib import admin
-from django.contrib.admin import AdminSite
-from django.utils.html import format_html
-from django.urls import path
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from django import forms
-from django.http import HttpResponse
-from django.utils import timezone
 
 from .models import (
     Paciente, Exame, RequisicaoAnalise, ItemRequisicao, Resultado,
@@ -27,102 +9,78 @@ from .models import (
 )
 from .utils.pdf_generator import gerar_pdf_requisicao, gerar_pdf_resultados
 
-# ==========================================================
-# -------------------- PACIENTE ---------------------------
-# ==========================================================
+# ========================== PACIENTE ==========================
 @admin.register(Paciente)
 class PacienteAdmin(admin.ModelAdmin):
     list_display = ('nid', 'nome', 'idade_display', 'data_entrada', 'residencia', 'proveniencia')
     search_fields = ('nome', 'nid', 'numero_id', 'telefone')
     list_filter = ('genero', 'nacionalidade', 'proveniencia')
-    ordering = ('nome',)
-    list_per_page = 25
     readonly_fields = ('created_at',)
+    list_per_page = 25
 
-    def has_view_permission(self, request, obj=None):
-        return request.user.is_authenticated
-
-    def has_add_permission(self, request):
-        user = request.user
-        return (
-            user.is_superuser or
-            user.groups.filter(name__in=['Administrador', 'Administrativo', 'Técnico de Laboratório']).exists()
-        )
-
-    def has_change_permission(self, request, obj=None):
-        user = request.user
-        return (
-            user.is_superuser or
-            user.groups.filter(name__in=['Administrador', 'Administrativo', 'Técnico de Laboratório']).exists()
-        )
-
-    def has_delete_permission(self, request, obj=None):
-        user = request.user
-        return user.is_superuser or user.groups.filter(name='Administrador').exists()
-
-
-# ==========================================================
-# -------------------- DESIGNACAO & METODO ----------------
-# ==========================================================
+# ========================== DESIGNACAO & METODO ==========================
 @admin.register(Designacao)
 class DesignacaoAdmin(admin.ModelAdmin):
     list_display = ['nome', 'descricao']
     search_fields = ['nome']
-
 
 @admin.register(Metodo)
 class MetodoAdmin(admin.ModelAdmin):
     list_display = ['nome']
     search_fields = ['nome']
 
-
-# ==========================================================
-# -------------------- EXAME ------------------------------
-# ==========================================================
+# ========================== EXAME ==========================
 @admin.register(Exame)
 class ExameAdmin(admin.ModelAdmin):
     list_display = ['nome', 'designacao', 'metodo', 'display_valor_ref', 'tempo_resposta_display']
     list_filter = ['designacao', 'metodo']
     search_fields = ['nome', 'descricao']
-    fieldsets = (
-        ("Informações Gerais", {"fields": ("nome", "designacao", "metodo", "descricao")}),
-        ("Dados Técnicos", {"fields": ("valor_ref", "unidade", "trl_horas"), "classes": ("collapse",)}),
-    )
 
-
-# ==========================================================
-# -------------------- ITEM REQUISIÇÃO --------------------
-# ==========================================================
+# ========================== ITEM REQUISICAO INLINE ==========================
 class ItemRequisicaoInline(admin.TabularInline):
     model = ItemRequisicao
     extra = 1
     autocomplete_fields = ['exame']
-    show_change_link = True
-    verbose_name = "Exame"
-    verbose_name_plural = "Itens de Exames"
 
+# ========================== RESULTADO INLINE REFINADO ==========================
+class ResultadoInline(admin.TabularInline):
+    model = Resultado
+    extra = 0
+    readonly_fields = ('unidade', 'valor_referencia')
+    fields = ('exame', 'unidade', 'valor_referencia', 'resultado', 'observacoes')
+    can_delete = False
 
-# ==========================================================
-# -------------------- FORMULÁRIO CUSTOMIZADO -------------
-# ==========================================================
+    def get_queryset(self, request):
+        """
+        Retorna resultados existentes ou cria instâncias em memória
+        para todos os exames da requisição, sem salvar ainda.
+        """
+        qs = super().get_queryset(request)
+        requisicao = getattr(self, 'parent_obj', None)
+        if requisicao:
+            existing = {r.exame_id: r for r in qs}
+            # Criar instâncias temporárias para exames sem resultado
+            for exame in requisicao.exames_list.all():
+                if exame.id not in existing:
+                    temp_result = Resultado(requisicao=requisicao, exame=exame)
+                    qs |= Resultado.objects.none()  # só para permitir append sem salvar
+                    temp_result._state.adding = True  # marca como novo objeto
+                    qs = list(qs) + [temp_result]  # converte QuerySet em lista para exibir
+        return qs
+
+# ========================== REQUISICAO ANALISE ==========================
 class RequisicaoAnaliseAdminForm(forms.ModelForm):
     class Meta:
         model = RequisicaoAnalise
         fields = '__all__'
-        widgets = {
-            'exames': forms.CheckboxSelectMultiple()
-        }
+        widgets = {'exames': forms.CheckboxSelectMultiple()}
 
-
-# ==========================================================
-# -------------------- REQUISIÇÃO DE ANÁLISES -------------
-# ==========================================================
 @admin.register(RequisicaoAnalise)
 class RequisicaoAnaliseAdmin(admin.ModelAdmin):
     form = RequisicaoAnaliseAdminForm
-    inlines = [ItemRequisicaoInline]
+    inlines = [ItemRequisicaoInline, ResultadoInline]
     list_display = ('paciente', 'exames_summary', 'analista', 'created_at')
-    search_fields = ('paciente__nome', 'paciente__nid', 'paciente__numero_id', 'analista__username')
+    search_fields = ('paciente__nome', 'paciente__nid', 'analista__username')
     list_filter = ('analista', 'paciente')
     autocomplete_fields = ('paciente', 'analista')
     readonly_fields = ('analista',)
@@ -134,29 +92,23 @@ class RequisicaoAnaliseAdmin(admin.ModelAdmin):
             obj.analista = request.user
         super().save_model(request, obj, form, change)
 
-    def has_view_permission(self, request, obj=None):
-        return request.user.is_authenticated
+    def save_related(self, request, form, formsets, change):
+        """
+        Salva resultados novos após salvar a requisição e inline.
+        """
+        super().save_related(request, form, formsets, change)
+        requisicao = form.instance
+        for exame in requisicao.exames_list.all():
+            Resultado.objects.get_or_create(requisicao=requisicao, exame=exame)
 
-    def has_add_permission(self, request):
-        user = request.user
-        return (
-            user.is_superuser or
-            user.groups.filter(name__in=['Administrador', 'Administrativo', 'Técnico de Laboratório']).exists()
-        )
-
-    def has_change_permission(self, request, obj=None):
-        user = request.user
-        return (
-            user.is_superuser or
-            user.groups.filter(name__in=['Administrador', 'Administrativo', 'Técnico de Laboratório']).exists()
-        )
-
-    def has_delete_permission(self, request, obj=None):
-        user = request.user
-        return user.is_superuser or user.groups.filter(name='Administrador').exists()
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        ResultadoInline.parent_obj = obj
+        return form
 
     def baixar_pdf_requisicao(self, request, queryset):
         if queryset.count() != 1:
+            self.message_user(request, "Selecione apenas uma requisição.", level='warning')
             return
         requisicao = queryset.first()
         pdf_content, filename = gerar_pdf_requisicao(requisicao)
@@ -165,70 +117,53 @@ class RequisicaoAnaliseAdmin(admin.ModelAdmin):
         return response
     baixar_pdf_requisicao.short_description = "Baixar PDF da Requisição"
 
-
-# ==========================================================
-# -------------------- RESULTADO ---------------------------
-# ==========================================================
-@admin.register(Resultado)
-class ResultadoAdmin(admin.ModelAdmin):
-    list_display = (
-        'requisicao', 'exame', 'resultado', 'unidade', 'valor_referencia',
-        'is_valid_display', 'formatted_data_insercao',
-        'validado_por', 'data_validacao'
-    )
-    search_fields = ('requisicao__paciente__nome', 'requisicao__paciente__nid', 'exame__nome')
-    list_filter = ('validado', 'data_insercao', 'data_validacao')
-    autocomplete_fields = ('requisicao', 'exame')
-    readonly_fields = ('data_insercao', 'data_validacao')
-    actions = ['validar_resultados', 'baixar_pdf_resultados']
-    list_per_page = 40
-
-    def has_view_permission(self, request, obj=None):
-        return request.user.is_authenticated
-
-    def has_add_permission(self, request):
-        user = request.user
-        return user.is_superuser or user.groups.filter(name__in=['Administrador', 'Técnico de Laboratório']).exists()
-
-    def has_change_permission(self, request, obj=None):
-        user = request.user
-        return user.is_superuser or user.groups.filter(name__in=['Administrador', 'Técnico de Laboratório']).exists()
-
-    def has_delete_permission(self, request, obj=None):
-        user = request.user
-        return user.is_superuser or user.groups.filter(name='Administrador').exists()
-
-    def validar_resultados(self, request, queryset):
-        for res in queryset:
-            if res.resultado and not res.validado:
-                res.validado = True
-                res.data_validacao = timezone.now()
-                res.save()
-    validar_resultados.short_description = "Validar resultados selecionados"
-
-    def baixar_pdf_resultados(self, request, queryset):
-        requisicoes = set(r.requisicao for r in queryset)
-        if len(requisicoes) != 1:
-            return
-        requisicao = list(requisicoes)[0]
-        pdf_content, filename = gerar_pdf_resultados(requisicao)
-        response = HttpResponse(pdf_content, content_type='application/pdf')
-        response['Content-Disposition'] = f'attachment; filename="{filename}"'
-        return response
-    baixar_pdf_resultados.short_description = "Baixar PDF dos resultados selecionados"
-
-
-# ==========================================================
-# -------------------- ADMIN PARA MODELOS AUXILIARES ------
-# ==========================================================
+# ========================== EXAME CAMPO ==========================
 @admin.register(ExameCampoResultado)
 class ExameCampoResultadoAdmin(admin.ModelAdmin):
     list_display = ('exame', 'nome_campo', 'tipo_campo', 'obrigatorio')
     search_fields = ('exame__nome', 'nome_campo')
     list_filter = ('tipo_campo', 'obrigatorio')
 
+# ========================== RESULTADO ITEM ==========================
+from django.contrib import admin
+from .models import ResultadoItem
+
 
 @admin.register(ResultadoItem)
 class ResultadoItemAdmin(admin.ModelAdmin):
-    list_display = ('requisicao', 'exame_campo', 'resultado', 'unidade', 'valor_referencia')
-    search_fields = ('requisicao__paciente__nome', 'exame_campo__nome_campo')
+	list_display = (
+		'resultado',
+		'exame_campo',
+		'valor',
+		'get_unidade',
+		'get_valor_referencia',
+		'gravado_em',
+	)
+	search_fields = (
+		'resultado__requisicao__paciente__nome',
+		'exame_campo__nome_campo',
+		'resultado__exame__nome',
+	)
+	list_filter = ('exame_campo__tipo_campo', 'resultado__requisicao__analista')
+	readonly_fields = ('gravado_em',)
+	list_per_page = 25
+	ordering = ['resultado']
+
+	fieldsets = (
+		("Informações do Resultado", {
+			'fields': ('resultado', 'exame_campo', 'valor')
+		}),
+		("Referências", {
+			'fields': ('unidade', 'valor_referencia', 'gravado_em')
+		}),
+	)
+
+	def has_add_permission(self, request):
+		# Permitir adição apenas através das requisições
+		return True
+
+	def has_change_permission(self, request, obj=None):
+		return True
+
+	def has_delete_permission(self, request, obj=None):
+		return True

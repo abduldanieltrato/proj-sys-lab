@@ -4,23 +4,44 @@ from .utils.pdf_generator import gerar_pdf_requisicao, gerar_pdf_resultados
 
 # -------------------- VIEWS OPERACIONAIS -----------------
 
-def inserir_resultados(request):
-    """
-    View placeholder para inserção de resultados laboratoriais.
-    """
-    return render(request, "laboratorio/inserir_resultados.html", {})
+def inserir_resultados(request, requisicao_id):
+	req = get_object_or_404(RequisicaoAnalise, pk=requisicao_id)
+	exames = req.exames.all()
+	resultados_objs = []
+
+	for exame in exames:
+		resultado, created = Resultado.objects.get_or_create(requisicao=req, exame=exame)
+		resultado.create_missing_result_items()
+		resultados_objs.append(resultado)
+
+	if request.method == "POST":
+		for resultado in resultados_objs:
+			for item in resultado.resultadoitem_set.all():
+				valor = request.POST.get(f"item_{item.id}")
+				if valor is not None:
+					item.valor = valor
+					item.save()
+
+		return render(request, "lab/sucesso.html", {"mensagem": "Resultados salvos com sucesso!"})
+
+	return render(request, "lab/inserir_resultados.html", {
+		"requisicao": req,
+		"resultados": resultados_objs,
+	})
 
 
 def validar_resultados(request):
-    """
-    Lista todos os resultados pendentes de validação.
-    """
-    resultados = Resultado.objects.filter(validado=False).select_related("requisicao", "exame")
-    contexto = {
-        "resultados": resultados,
-        "titulo_pagina": "Validação de Resultados Pendentes",
-    }
-    return render(request, "laboratorio/validar_resultados.html", contexto)
+	resultados = Resultado.objects.filter(validado=False).select_related("requisicao", "exame")
+
+	if request.method == "POST":
+		for resultado in resultados:
+			if f"validar_{resultado.id}" in request.POST:
+				resultado.validado = True
+				resultado.save()
+
+	return render(request, "lab/validar_resultados.html", {
+		"resultados": resultados,
+	})
 
 
 # -------------------- GERAÇÃO DE PDFs ---------------------

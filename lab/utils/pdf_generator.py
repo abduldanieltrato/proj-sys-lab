@@ -1,7 +1,7 @@
 """
 Módulo de geração de PDFs institucionais para SYS-LAB
 Autor: Trato
-Versão: 2.0 (organizado, fontes com fallback, sem linhas verticais, retorno padronizado)
+Versão: 3.0 (controle absoluto de posição de tabelas, linhas horizontais apenas)
 """
 
 import os
@@ -40,7 +40,6 @@ except Exception as e:
 # ==================== CABEÇALHO ====================
 def draw_header(canvas, doc):
     canvas.saveState()
-
     if os.path.exists(LOGO_PATH):
         try:
             with Image.open(LOGO_PATH) as img:
@@ -98,8 +97,8 @@ def draw_watermark(canvas, doc):
         except Exception:
             pass
 
-        wm_width, wm_height = 4 * cm, 8 * cm
-        spacing_x, spacing_y = 1.0 * cm, 2.0 * cm
+        wm_width, wm_height = 6 * cm, 8 * cm
+        spacing_x, spacing_y = 1 * cm, 2 * cm
         width, height = doc.pagesize
 
         y = -wm_height
@@ -125,7 +124,7 @@ def draw_signatures(canvas, doc, usuario=None):
     canvas.saveState()
     y = 2 * cm
     width_total = A4[0] - 2 * cm
-    width_line = (width_total - 3 * cm) / 2
+    width_line = (width_total - 4 * cm) / 2
 
     x1, x2 = 3 * cm, 3 * cm + width_line + 2 * cm + width_line
 
@@ -163,20 +162,24 @@ def estilo_tabela_sem_verticais():
     ])
 
 # ==================== PDF DE REQUISIÇÃO ====================
-def gerar_pdf_requisicao(requisicao):
+def gerar_pdf_requisicao(requisicao, pos_x=1*cm, pos_y=None):
     buffer = io.BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=A4,
-                            leftMargin=2*cm, rightMargin=0.5*cm,
-                            topMargin=2*cm, bottomMargin=0.5*cm)
+                            leftMargin=3*cm, rightMargin=1*cm,
+                            topMargin=4*cm, bottomMargin=1*cm)
 
     story = []
+
+    # Título
     style = ParagraphStyle("Heading1", fontName=FONT_BOLD, fontSize=10)
+    story.append(Spacer(1, 1*cm if not pos_y else pos_y))  # ajuste Y
     story.append(Paragraph("REQUISIÇÃO DE ANÁLISES CLÍNICAS", style))
-    story.append(Spacer(1, 0.5 * cm))
+    story.append(Spacer(2, 0.5*cm))
 
     paciente = requisicao.paciente
     idade = getattr(paciente, "idade_display", lambda: "—")()
 
+    # Dados do paciente
     dados = [
         ["Nome do Paciente:", paciente.nome],
         ["Idade:", idade],
@@ -184,13 +187,17 @@ def gerar_pdf_requisicao(requisicao):
         ["Documento:", paciente.numero_id or "—"],
         ["Proveniência:", getattr(paciente, "proveniencia", "N/D")]
     ]
-    tabela = Table(dados, colWidths=[4*cm, 12*cm])
+    tabela = Table(dados, colWidths=[4*cm, 12*cm], hAlign='LEFT')
     tabela.setStyle(estilo_tabela_sem_verticais())
     story.append(tabela)
-    story.append(Spacer(1, 0.8 * cm))
+    story.append(Spacer(1, 0.5*cm))
+    story.append(Spacer(1, 0.5*cm))
+    story.append(Paragraph("Exames Requisitados", style))
+    story.append(Spacer(1, 0.5*cm))
 
+    # Exames
     exames = [[e.nome] for e in getattr(requisicao, "exames_list", requisicao.exames.all())] or [["Nenhum exame registrado."]]
-    tabela_exames = Table(exames, colWidths=[15*cm])
+    tabela_exames = Table(exames, colWidths=[16*cm], hAlign='LEFT')
     tabela_exames.setStyle(estilo_tabela_sem_verticais())
     story.append(tabela_exames)
 
@@ -204,33 +211,36 @@ def gerar_pdf_requisicao(requisicao):
     return pdf_bytes, filename
 
 # ==================== PDF DE RESULTADOS ====================
-def gerar_pdf_resultados(requisicao):
+def gerar_pdf_resultados(requisicao, pos_x=2*cm, pos_y=None):
     buffer = io.BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=A4,
-                            leftMargin=2*cm, rightMargin=2*cm,
+                            leftMargin=0.5*cm, rightMargin=0.5*cm,
                             topMargin=3*cm, bottomMargin=2*cm)
 
     story = []
+    story.append(Spacer(1, 1*cm if not pos_y else pos_y))  # ajuste Y
     style = ParagraphStyle("Heading1", fontName=FONT_BOLD, fontSize=12)
     story.append(Paragraph("RESULTADOS DE ANÁLISES CLÍNICAS", style))
-    story.append(Spacer(1, 0.5 * cm))
+    story.append(Spacer(1, 0.5*cm))
 
     paciente = requisicao.paciente
     idade = getattr(paciente, "idade_display", lambda: "—")()
     data_analise = getattr(requisicao, "created_at", None)
     data_str = data_analise.strftime("%d/%m/%Y") if data_analise else "—"
 
+    # Dados do paciente
     dados = [
         ["Nome do Paciente:", paciente.nome],
         ["Idade:", idade],
         ["Gênero:", paciente.genero or "—"],
         ["Data da Análise:", data_str],
     ]
-    tabela_dados = Table(dados, colWidths=[6*cm, 12*cm])
+    tabela_dados = Table(dados, colWidths=[6*cm, 12*cm], hAlign='LEFT')
     tabela_dados.setStyle(estilo_tabela_sem_verticais())
     story.append(tabela_dados)
-    story.append(Spacer(1, 0.8 * cm))
+    story.append(Spacer(1, 0.5*cm))
 
+    # Resultados
     resultados_data = [["Exame", "Resultado", "Unidade", "Referência"]]
     resultados_qs = getattr(requisicao, "resultados", None)
     if resultados_qs:
@@ -241,8 +251,7 @@ def gerar_pdf_resultados(requisicao):
                 getattr(r, "unidade", getattr(r.exame, "unidade", "—")),
                 getattr(r, "valor_referencia", getattr(r.exame, "valor_ref", "—"))
             ])
-
-    tabela_resultados = Table(resultados_data, colWidths=[5*cm, 5*cm, 2.5*cm, 2.5*cm])
+    tabela_resultados = Table(resultados_data, colWidths=[5*cm, 5*cm, 2.5*cm, 2.5*cm], hAlign='LEFT')
     tabela_resultados.setStyle(estilo_tabela_sem_verticais())
     story.append(tabela_resultados)
 

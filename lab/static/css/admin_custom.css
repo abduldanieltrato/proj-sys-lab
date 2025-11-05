@@ -49,19 +49,19 @@
 
 /* Navbar (topo) */
 .navbar {
+	font-size: 1.4em;
 	background-color: var(--verde-escuro) !important;
 	color: var(--branco) !important;
 	box-shadow: var(--shadow);
-
+	padding: 0px 10px 5px 20px;
 }
 
-.navbar a,
-.navbar .nav-link {
+
+.navbar a {
 	text-align: center;
 	vertical-align: middle;
 	background-color: var(--verde-escuro);
-	line-height: 1.5em;
-	
+	line-height: 1em;
 	color: var(--branco) !important;
     font-weight: 800;
 
@@ -71,7 +71,8 @@
 .card-header {
 	text-align: center;
 	vertical-align: middle;
-	line-height: 1.2rem;
+	line-height: 1rem;
+	padding: 20px;
 	background-color: var(--verde-escuro);
 	color: var(--branco) !important;
 
@@ -82,19 +83,19 @@
 =========================== */
 .table-striped tbody tr:nth-of-type(odd) {
 	background-color: var(--verde-escuro);
-	opacity: 0.8;
+	opacity: 1;
 }
 
 .table td {
+	padding: -1em;
 	font: 1em sans-serif;
-	padding: 1rem;
 	text-decoration: none;
-	margin: 1em;
 	vertical-align: middle;
-	border-top: 10px solid #ffffffc5 !important;
+	border-top: 2px solid #916161 !important;
+	border-bottom: 2px solid #a18282d2 !important;
 	color: var(--preto);
     font-weight: bold;
-    font-size: 0.9em;
+    font-size: 1em;
 	background-color: var(--verde-escuro);
 }
 
@@ -107,7 +108,7 @@ a:visited {
 	text-decoration: none;
     font: 1em sans-serif;
 	font-weight: 600;
-	transition: all 0.3s ease;
+	
 }
 
 .table a:hover,
@@ -135,7 +136,7 @@ a:hover {
 	border-color: var(--verde-escuro);
 	color: var(--branco);
     font-weight: 600;
-    text-decoration: underline;
+    
 }
 
 /* ==========================
@@ -189,8 +190,8 @@ button:focus {
 
 /* Corrige ícones grandes no Django Admin */
 svg {
-  width: 6px !important;
-  height: 6px !important;
+  width: 3px !important;
+  height: 3px !important;
   vertical-align: middle;
 }
 
@@ -208,3 +209,6 @@ body#grp-body *, body#container * {
   line-height: revert !important;
 }
 
+* {
+	color: #999;
+}
