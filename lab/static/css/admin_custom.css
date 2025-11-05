@@ -1,30 +1,19 @@
-/* ============================================================
-   🎨 AnaLinkLab — Admin Custom CSS (Links e Tabelas Brancas)
-   ============================================================ */
-
-/* ==========================
-   🎯 Variáveis de cores
-=========================== */
 :root {
-	--verde-principal: #08af08;
-	--verde-escuro: #098609;
-	--branco: #000000;
-	--preto: #0000009d;
-	--cinza-suave: #967a7a;
+	--verde-principal: #05861b;
+	--verde-escuro:	rgb(21, 87, 21);
+	--preto: #000000;
+	--cinza-suave: #27790e;
 	--radius: 6px;
-	--shadow: 0 4px 12px rgba(0,0,0,0.2);
+	--shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+	--branco: #ffffff;
 }
 
-/* ==========================
-   🌐 Estrutura base
-=========================== */
-html, body, header, main, footer {
-	margin: 0;
-	padding: 0;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	background-color: var(--cinza-suave);
-	color: var(--preto);
-    font: 1em sans-serif bold;
+.card-body {
+	vertical-align: middle;
+	font-weight: 600;
+	color: var(--branco);
+	font: 1em sans-serif;
+	background-color: rgb(16, 68, 16);
 }
 
 /* ==========================
@@ -33,58 +22,80 @@ html, body, header, main, footer {
 
 /* Sidebar */
 .sidebar-dark-primary {
-	background: linear-gradient(180deg, var(--verde-principal), var(--verde-escuro));
+	background-color: rgb(19, 88, 19);
+	width: auto;
 }
 
 .sidebar .nav-link,
 .sidebar .brand-link,
 .sidebar .nav-link i {
+	font: 1em sans-serif;
 	color: var(--branco) !important;
+	font-weight: 600;
+	padding: 3px;
+	background-color: #310909b6;
+	border-radius: 5px;
+	line-height: 18px;
+	font-style: italic;
 }
 
-.sidebar .nav-link.active {
-	background: rgba(255, 255, 255, 0.25);
+.sidebar {
+	background-color: var(--verde-escuro);
 	border-radius: var(--radius);
+	color: var(--branco) !important;
+	font-weight: bolder;
+	margin-right: 10px;
 }
 
 /* Navbar (topo) */
 .navbar {
-	background-color: var(--verde-principal) !important;
+	background-color: var(--verde-escuro) !important;
 	color: var(--branco) !important;
 	box-shadow: var(--shadow);
+
 }
 
 .navbar a,
 .navbar .nav-link {
+	text-align: center;
+	vertical-align: middle;
+	background-color: var(--verde-escuro);
+	line-height: 1.5em;
+	
 	color: var(--branco) !important;
     font-weight: 800;
+
 }
 
 /* Headers dos cards */
 .card-header {
-	background-color: var(--verde-principal) !important;
-	color: var(--branco);
-	font-weight: 600;
-	border-radius: var(--radius) var(--radius) 0 0;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 1.2rem;
+	background-color: var(--verde-escuro);
+	color: var(--branco) !important;
+
 }
 
 /* ==========================
-   📋 Tabelas e links
+   📋 Tabelas
 =========================== */
-
-/* Cabeçalho da tabela */
-.table th {
-    font: 1em sans-serif;
+.table-striped tbody tr:nth-of-type(odd) {
 	background-color: var(--verde-escuro);
-	color: var(--branco) !important;
-	font-weight: bolder;
+	opacity: 0.8;
 }
 
-/* Linhas */
 .table td {
+	font: 1em sans-serif;
+	padding: 1rem;
+	text-decoration: none;
+	margin: 1em;
+	vertical-align: middle;
+	border-top: 10px solid #ffffffc5 !important;
 	color: var(--preto);
     font-weight: bold;
-    font-size: .9em;
+    font-size: 0.9em;
+	background-color: var(--verde-escuro);
 }
 
 /* Links dentro das tabelas (Ex: usuários, pacientes, exames, etc.) */
@@ -95,13 +106,13 @@ a:visited {
 	color: var(--branco) !important;
 	text-decoration: none;
     font: 1em sans-serif;
-	font-weight: 700;
+	font-weight: 600;
 	transition: all 0.3s ease;
 }
 
 .table a:hover,
 a:hover {
-	color: #b40c0c !important;
+	color: var(--branco) !important;
     font-weight: bold;
     text-decoration: underline;
 }
@@ -110,6 +121,9 @@ a:hover {
    🧩 Botões
 =========================== */
 .btn-primary {
+	overflow: hidden;
+	border-radius: var(--radius);
+	text-decoration: none;
 	background-color: var(--verde-principal);
 	border-color: var(--verde-escuro);
 	color: var(--branco);
@@ -120,7 +134,7 @@ a:hover {
 	background-color: var(--verde-escuro);
 	border-color: var(--verde-escuro);
 	color: var(--branco);
-    font-weight: 900;
+    font-weight: 600;
     text-decoration: underline;
 }
 
@@ -131,41 +145,58 @@ a:hover {
 	background: var(--verde-escuro);
 	color: var(--branco);
 	text-align: center;
-	padding: 0.5rem;
-	font-size: 0.85rem;
-	border-top: 2px solid var(--verde-principal);
+	padding: 0.6rem;
+	font-style: italic;
+	font-size: 1rem;
 }
 
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
+	border: 1px solid var(--verde-principal);
 	outline: none;
 	border-color: var(--verde-principal);
+	background-color: var(--cinza-suave);
 	box-shadow: 0 0 5px rgba(13, 138, 13, 0.3);
 }
 /* ==========================
    🔹 Logo de login ajustada ao formulário
 =========================== */
+.login-box {
+	padding: auto;
+	overflow: hidden;
+	justify-content: flex-end;
+	height: 500px;
+	border-radius: 6px;
+	border: 2px solid #27790e ;
+	box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.233);
+	background-color: rgb(15, 105, 15);
+}
 
-imgi {
+.login-box :placeholder-shown {
+	background-color: #00000041;
+}
+
+.login-logo img {
     width: 100%;
-    height: 100%;
+    height: 225px;
 	border-radius: var(--radius) var(--radius) 0 0;
     object-fit: cover;  /* cobre todo o container sem distorção */
     display: block;
+	box-shadow: 0px 0px 4px black;
 }
 
 /* Corrige ícones grandes no Django Admin */
 svg {
-  width: 14px !important;
-  height: 14px !important;
+  width: 6px !important;
+  height: 6px !important;
   vertical-align: middle;
 }
 
 /* Mantém botões e links no tamanho padrão */
 a.changelink, a.deletelink, a.viewlink, a.addlink, .object-tools a, .object-tools button {
-  font-size: 13px !important;
+  font-size: 10px !important;
   line-height: normal !important;
   width: auto !important;
   height: auto !important;
@@ -177,28 +208,3 @@ body#grp-body *, body#container * {
   line-height: revert !important;
 }
 
-/* ==========================
-   🛠️ Ajustes específicos do Jazzmin
-=========================== */
-.jazzmin-logo {
-	border-radius: var(--radius) !important;
-	box-shadow: var(--shadow) !important;
-}
-.jazzmin-card {
-	border-radius: var(--radius) !important;
-	box-shadow: var(--shadow) !important;
-}
-.jazzmin-sidebar .nav-link.active {
-	background: rgba(255, 255, 255, 0.3) !important;
-}
-.jazzmin-navbar {
-	box-shadow: var(--shadow) !important;
-}
-
-/* css/admin_custom.css */
-footer.main-footer small {
-	display: none !important;
-}
-
-
-/* Fim do arquivo admin_custom.css */

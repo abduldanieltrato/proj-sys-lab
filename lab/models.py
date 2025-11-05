@@ -8,69 +8,166 @@ from django.utils import timezone
 # ==========================================================
 # -------------------- PACIENTE ----------------------------
 # ==========================================================
+
+from datetime import date
+from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
+from django_countries.fields import CountryField
+
+
 class Paciente(models.Model):
-    nid = models.CharField(primary_key=True, max_length=12, editable=False, verbose_name='nid')
-    nome = models.CharField(max_length=255, verbose_name='Nome')
-    data_nascimento = models.DateField(null=True, blank=True, verbose_name='data de nascimento')
-    genero = models.CharField(max_length=32, choices=[('M', 'Masculino'), ('F', 'Feminino')], verbose_name='sexo')
-    telefone = models.CharField(max_length=32, blank=True, verbose_name='Telefone')
-    residencia = models.CharField(max_length=255, blank=True, verbose_name='residência')
-    proveniencia = models.CharField(max_length=128, blank=True, verbose_name='proveniência')
-    nacionalidade = models.CharField(max_length=64, blank=True, verbose_name='Nacionalidade')
-    numero_id = models.CharField(max_length=64, unique=True, verbose_name='Identidade')
-    historico_medico = models.TextField(blank=True, null=True, verbose_name='Histórico')
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Entrada')
 
-    class Meta:
-        verbose_name = "Paciente"
-        verbose_name_plural = "Pacientes"
-        ordering = ['-created_at']
+	# -------------------- PROVENIÊNCIA --------------------
+	class Proveniencia(models.TextChoices):
+		SUR = 'Serviço de Urgência de Reanimação', 'Serviço de Urgência de Reanimação'
+		PED = 'Pediatria', 'Pediatria'
+		CIR = 'Cirurgia', 'Cirurgia'
+		GIN = 'Ginecologia', 'Ginecologia'
+		OBST = 'Obstetricia', 'Obstetricia'
+		UROL = 'Urologia', 'Urologia'
+		MED_I = 'Medicina Homem', 'Medicina Homem'
+		MED_II = 'Medicina Mulher', 'Medicina Mulher'
+		OFT = 'Oftalmologia', 'Oftalmologia'
+		C_EXT = 'Consulta Externa', 'Consulta Externa'
+		DENT = 'Dentisteria', 'Dentisteria'
+		LAB = 'Laboratório', 'Laboratório'
+		RADIO = 'Radiologia', 'Radiologia'
+		OUT = 'Outros', 'Outros'
 
-    def save(self, *args, **kwargs):
-        if not self.nid:
-            hoje_str = date.today().strftime("%Y%m%d")
-            contador = Paciente.objects.filter(created_at__date=date.today()).count() + 1
-            self.nid = f"{hoje_str}{contador:04d}"
-        super().save(*args, **kwargs)
+	# -------------------- CAMPOS PRINCIPAIS --------------------
+	nid = models.CharField(
+		primary_key=True,
+		max_length=12,
+		editable=False,
+		verbose_name='NID',
+		help_text='Número de Identificação do Paciente',
+		unique=True
+	)
+	nome = models.CharField(
+		max_length=255,
+		verbose_name='Nome',
+		help_text='Nome completo do paciente'
+	)
+	email = models.EmailField(
+		blank=True,
+		verbose_name='Email',
+		help_text='Endereço de email do paciente'
+	)
+	data_nascimento = models.DateField(
+		null=True,
+		blank=True,
+		verbose_name='Data de Nascimento',
+		help_text='Data de nascimento do paciente'
+	)
+	genero = models.CharField(
+		max_length=32,
+		choices=[('M', 'Masculino'), ('F', 'Feminino')],
+		verbose_name='Sexo',
+		blank=True,
+		null=True,
+		help_text='Gênero do paciente'
+	)
+	telefone = PhoneNumberField(
+		region='MZ',
+		blank=True,
+		null=True,
+		verbose_name='Telefone',
+		help_text='Número de telefone do paciente'
+	)
+	residencia = models.CharField(
+		max_length=255,
+		blank=True,
+		verbose_name='Residência',
+		help_text='Endereço de residência do paciente'
+	)
+	proveniencia = models.CharField(
+		max_length=128,
+		blank=True,
+		choices=Proveniencia.choices,
+		default=Proveniencia.PED,
+		verbose_name='Proveniência',
+		help_text='Unidade de proveniência do paciente'
+	)
+	nacionalidade = CountryField(
+		blank=True,
+		null=True,
+		default='MZ',
+		verbose_name='Nacionalidade',
+		help_text='Nacionalidade do paciente'
+	)
+	numero_id = models.CharField(
+		max_length=64,
+		unique=True,
+		verbose_name='Identidade', 
+        help_text='Número do documento de identidade do paciente: B.I., Passaporte, etc.',
+        blank=True,
+	)
+	historico_medico = models.TextField(
+		blank=True,
+		null=True,
+		verbose_name='Histórico Médico',
+        help_text='Histórico médico relevante do paciente'
+	)
+	created_at = models.DateTimeField(
+		auto_now_add=True,
+		verbose_name='Entrada',
+		help_text='Data e hora de entrada do registo do paciente'
+	)
 
-    @property
-    def idade(self):
-        if not self.data_nascimento:
-            return None
-        hoje = date.today()
-        idade_em_anos = hoje.year - self.data_nascimento.year
-        if (hoje.month, hoje.day) < (self.data_nascimento.month, self.data_nascimento.day):
-            idade_em_anos -= 1
-        return idade_em_anos
+	# -------------------- MÉTODOS DE MODELO --------------------
+	def save(self, *args, **kwargs):
+		if not self.nid:
+			hoje_str = date.today().strftime("%Y%m%d")
+			contador = Paciente.objects.filter(created_at__date=date.today()).count() + 1
+			self.nid = f"{hoje_str}{contador:04d}"
+		super().save(*args, **kwargs)
 
-    def idade_display(self):
-        if self.idade is None:
-            return "—"
-        if self.idade < 2:
-            hoje = date.today()
-            idade_total_dias = (hoje - self.data_nascimento).days
-            idade_em_anos = idade_total_dias // 365
-            idade_em_meses = (idade_total_dias % 365) // 30
-            idade_em_dias = idade_total_dias % 30
+	@property
+	def idade(self):
+		if not self.data_nascimento:
+			return None
+		hoje = date.today()
+		idade = hoje.year - self.data_nascimento.year
+		if (hoje.month, hoje.day) < (self.data_nascimento.month, self.data_nascimento.day):
+			idade -= 1
+		return idade
 
-            if idade_em_anos > 0:
-                return f"{idade_em_anos} ano{'s' if idade_em_anos > 1 else ''}, {idade_em_meses} mês{'es' if idade_em_meses != 1 else ''} e {idade_em_dias} dia{'s' if idade_em_dias != 1 else ''}"
-            elif idade_em_meses > 0:
-                return f"{idade_em_meses} mês{'es' if idade_em_meses != 1 else ''} e {idade_em_dias} dia{'s' if idade_em_dias != 1 else ''}"
-            else:
-                return f"{idade_em_dias} dia{'s' if idade_em_dias != 1 else ''}"
-        if self.idade == 1:
-            return f"{self.idade} ano"
-        return f"{self.idade} anos"
+	def idade_display(self):
+		if self.idade is None:
+			return "—"
 
-    idade_display.short_description = "Idade"
+		if self.idade < 2:
+			hoje = date.today()
+			dias_totais = (hoje - self.data_nascimento).days
+			anos = dias_totais // 365
+			meses = (dias_totais % 365) // 30
+			dias = dias_totais % 30
 
-    def data_entrada(self):
-        return self.created_at.strftime("%d/%m/%Y") if self.created_at else "—"
-    data_entrada.short_description = "Entrada"
+			if anos > 0:
+				return f"{anos} ano{'s' if anos > 1 else ''}, {meses} mês{'es' if meses != 1 else ''} e {dias} dia{'s' if dias != 1 else ''}"
+			elif meses > 0:
+				return f"{meses} mês{'es' if meses != 1 else ''} e {dias} dia{'s' if dias != 1 else ''}"
+			else:
+				return f"{dias} dia{'s' if dias != 1 else ''}"
 
-    def __str__(self):
-        return f"{self.nome}"
+		return f"{self.idade} ano{'s' if self.idade > 1 else ''}"
+
+	idade_display.short_description = "Idade"
+
+	def data_entrada(self):
+		return self.created_at.strftime("%d/%m/%Y") if self.created_at else "—"
+
+	data_entrada.short_description = "Entrada"
+
+	def __str__(self):
+		return f"{self.nome} ({self.nid})"
+
+	# -------------------- META --------------------
+	class Meta:
+		verbose_name = "Paciente"
+		verbose_name_plural = "Pacientes"
+		ordering = ['-created_at']
+
 
 # ==========================================================
 # -------------------- DESIGNACAO --------------------------
@@ -92,13 +189,10 @@ class Designacao(models.Model):
 # ==========================================================
 class Metodo(models.Model):
     nome = models.CharField(max_length=100, unique=True, verbose_name="Método")
-    descricao = models.TextField(blank=True, verbose_name="Descrição")
-
     class Meta:
         verbose_name = "Método"
         verbose_name_plural = "Métodos"
         ordering = ['nome']
-
     def __str__(self):
         return self.nome
 
@@ -111,37 +205,33 @@ class Exame(models.Model):
     valor_ref = models.CharField(max_length=64, blank=True, verbose_name='Referência')
     unidade = models.CharField(max_length=32, blank=True, verbose_name='Unidades')
     trl_horas = models.PositiveIntegerField(default=24, verbose_name='TRL (horas)')
-
     designacao = models.ForeignKey(
         Designacao,
         on_delete=models.PROTECT,
         related_name="exames",
-        verbose_name="Designação"
+        verbose_name="Sector de Análise",
+        help_text="Sector de análise ao qual o exame pertence"
     )
-
     metodo = models.ForeignKey(
         Metodo,
         on_delete=models.PROTECT,
         related_name="exames",
         verbose_name="Método",
         blank=True,
-        null=True
+        null=True, 
+        help_text="Método utilizado para realizar o exame, exemplo: Enzimático, Colorimétrico, etc."
     )
-
     class Meta:
         verbose_name = "Exame"
-        verbose_name_plural = "Exames"
+        verbose_name_plural = "Exames Disponíveis no Laboratório"
         ordering = ['designacao__nome', 'nome']
-
     def __str__(self):
         if self.metodo:
             return f"{self.nome} ({self.designacao} - {self.metodo})"
         return f"{self.nome} ({self.designacao})"
-
     def display_valor_ref(self):
         return self.valor_ref or "—"
     display_valor_ref.short_description = "Valor de referência"
-
     def tempo_resposta_display(self):
         return f"{self.trl_horas} hora{'s' if self.trl_horas != 1 else ''}"
     tempo_resposta_display.short_description = "TRL"
@@ -150,11 +240,11 @@ class Exame(models.Model):
 # -------------------- REQUISIÇÃO DE ANÁLISES --------------
 # ==========================================================
 class RequisicaoAnalise(models.Model):
-    paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE, verbose_name="Paciente")
-    exames = models.ManyToManyField('Exame', through='ItemRequisicao', blank=True, verbose_name='Exames requisitados')
-    analista = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, verbose_name='Técnico de Laboratório')
-    observacoes = models.TextField(blank=True, verbose_name="Observações adicionais")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Criado em')
+    paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE, verbose_name="Paciente", related_name='requisicoes', help_text="Paciente ao qual a requisição pertence")
+    exames = models.ManyToManyField('Exame', through='ItemRequisicao', blank=True, verbose_name='Exames requisitados', help_text='Exames incluídos nesta requisição', related_name='requisicoes')
+    analista = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, verbose_name='Técnico de Laboratório', help_text='Técnico de laboratório que criou a requisição', related_name='requisicoes_criadas')
+    observacoes = models.TextField(blank=True, verbose_name="Observações adicionais", help_text="Observações adicionais sobre a requisição")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Criado em', help_text='Data e hora de criação da requisição', db_index=True)
 
     @property
     def exames_list(self):
@@ -189,34 +279,33 @@ class RequisicaoAnalise(models.Model):
 # -------------------- ITEM REQUISIÇÃO ---------------------
 # ==========================================================
 class ItemRequisicao(models.Model):
-    requisicao = models.ForeignKey(RequisicaoAnalise, on_delete=models.CASCADE, verbose_name='Requisição')
-    exame = models.ForeignKey(Exame, on_delete=models.CASCADE, verbose_name='Exame')
+    requisicao = models.ForeignKey(RequisicaoAnalise, on_delete=models.CASCADE, verbose_name='Requisição', related_name='itens', help_text='Requisição à qual este item pertence')
+    exame = models.ForeignKey(Exame, on_delete=models.CASCADE, verbose_name='Exame', help_text='Exame incluído nesta requisição', related_name='itens_requisicao')
 
     def __str__(self):
         return f"{self.requisicao} | {self.exame}"
 
     class Meta:
         verbose_name = "Item de Requisição"
-        verbose_name_plural = "Itens de Requisição"
+        verbose_name_plural = "Itens de Requisições"
 
 # ==========================================================
 # -------------------- RESULTADO ---------------------------
 # ==========================================================
 class Resultado(models.Model):
-    requisicao = models.ForeignKey(RequisicaoAnalise, on_delete=models.CASCADE, related_name='resultados', verbose_name='Requisição')
-    exame = models.ForeignKey(Exame, on_delete=models.CASCADE, verbose_name='Exame')
-    resultado = models.TextField(null=True, blank=True, verbose_name="Resultado")
-    unidade = models.CharField(max_length=32, blank=True, verbose_name='Unidade')
-    valor_referencia = models.CharField(max_length=64, blank=True, verbose_name='Valor de referência')
-    data_insercao = models.DateTimeField(auto_now=True, verbose_name='Data de inserção')
-    validado = models.BooleanField(default=False, verbose_name='Validado')
-    validado_por = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, related_name='resultados_validados', on_delete=models.SET_NULL, verbose_name='Validado por')
-    data_validacao = models.DateTimeField(null=True, blank=True, verbose_name='Data de validação')
+    requisicao = models.ForeignKey(RequisicaoAnalise, on_delete=models.CASCADE, related_name='resultados', verbose_name='Requisição', help_text='Requisição à qual este resultado pertence', db_index=True)
+    exame = models.ForeignKey(Exame, on_delete=models.CASCADE, verbose_name='Exame', help_text='Exame ao qual este resultado pertence', db_index=True)
+    resultado = models.TextField(null=True, blank=True, verbose_name="Resultado", help_text="Valor do resultado do exame, observações ou interpretação")
+    unidade = models.CharField(max_length=32, blank=True, verbose_name='Unidade', help_text='Unidade de medida do resultado')
+    valor_referencia = models.CharField(max_length=64, blank=True, verbose_name='Valor de referência', help_text='Valor de referência do exame')
+    data_insercao = models.DateTimeField(auto_now=True, verbose_name='Data de inserção', help_text='Data e hora de inserção do resultado')
+    validado = models.BooleanField(default=False, verbose_name='Validado', help_text='Indica se o resultado foi validado')
+    validado_por = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, related_name='resultados_validados', on_delete=models.SET_NULL, verbose_name='Validado por', help_text='Usuário que validou o resultado')
+    data_validacao = models.DateTimeField(null=True, blank=True, verbose_name='Data de validação', help_text='Data e hora da validação do resultado')
 
     class Meta:
         verbose_name = "Resultado de Exame"
         verbose_name_plural = "Resultados de Exames"
-        unique_together = (('requisicao', 'exame'),)
         ordering = ['requisicao', 'exame']
 
     def save(self, *args, **kwargs):
@@ -244,10 +333,10 @@ class Resultado(models.Model):
 # -------------------- Campos dinâmicos por exame ----------
 # ==========================================================
 class ExameCampoResultado(models.Model):
-    exame = models.ForeignKey(Exame, on_delete=models.CASCADE, related_name='campos')
-    nome_campo = models.CharField(max_length=255)
-    tipo_campo = models.CharField(max_length=50, choices=[('text', 'Texto'), ('number', 'Número'), ('bool', 'Sim/Não')])
-    obrigatorio = models.BooleanField(default=True)
+    exame = models.ForeignKey(Exame, on_delete=models.CASCADE, related_name='campos', verbose_name='Exame', help_text='Exame ao qual este campo pertence', db_index=True)
+    nome_campo = models.CharField(max_length=255, verbose_name='Nome do campo', help_text='Nome do campo de resultado do exame', db_index=True, unique=True)
+    tipo_campo = models.CharField(max_length=50, choices=[('text', 'Texto'), ('number', 'Número'), ('bool', 'Sim/Não'), ('date', 'Data'), ('datetime', 'Data/Hora'), ('percent', 'Porcentagem')], verbose_name='Tipo de campo', help_text='Tipo de dado do campo de resultado')
+    obrigatorio = models.BooleanField(default=True, verbose_name='Obrigatório', help_text='Indica se o campo é obrigatório')
 
     def __str__(self):
         return f"{self.exame.nome} | {self.nome_campo}"
@@ -256,11 +345,16 @@ class ExameCampoResultado(models.Model):
 # -------------------- ResultadoItem -----------------------
 # ==========================================================
 class ResultadoItem(models.Model):
-    requisicao = models.ForeignKey(RequisicaoAnalise, on_delete=models.CASCADE, related_name='resultado_items')
-    exame_campo = models.ForeignKey(ExameCampoResultado, on_delete=models.CASCADE, verbose_name='Campo do exame')
-    resultado = models.CharField(max_length=128, blank=True)
-    unidade = models.CharField(max_length=32, blank=True)
-    valor_referencia = models.CharField(max_length=64, blank=True)
+    requisicao = models.ForeignKey(RequisicaoAnalise, on_delete=models.CASCADE, related_name='resultado_items', verbose_name='Requisição', help_text='Requisição à qual este resultado item pertence', db_index=True)
+    exame_campo = models.ForeignKey(ExameCampoResultado, on_delete=models.CASCADE, verbose_name='Campo do exame', help_text='Campo de resultado do exame', db_index=True)
+    resultado = models.CharField(max_length=128, blank=True, verbose_name='Resultado', help_text='Valor do resultado do campo do exame', db_index=True)
+    unidade = models.CharField(max_length=32, blank=True, verbose_name='Unidade', help_text='Unidade de medida do resultado')
+    valor_referencia = models.CharField(max_length=64, blank=True, verbose_name='Valor de referência', help_text='Valor de referência do campo do exame')
+
+    class Meta:
+        verbose_name = "Item de Resultado de Exame"
+        verbose_name_plural = "Itens de Resultados de Exames"
+        ordering = ['requisicao', 'exame_campo']
 
     def save(self, *args, **kwargs):
         if self.exame_campo and self.exame_campo.exame:

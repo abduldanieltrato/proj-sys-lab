@@ -72,7 +72,7 @@ class DesignacaoAdmin(admin.ModelAdmin):
 
 @admin.register(Metodo)
 class MetodoAdmin(admin.ModelAdmin):
-    list_display = ['nome', 'descricao']
+    list_display = ['nome']
     search_fields = ['nome']
 
 
