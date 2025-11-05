@@ -214,7 +214,7 @@ SESSION_COOKIE_AGE = 30 * 60  # 30 minutos
 # ============================================================
 JAZZMIN_SETTINGS = {
     "site_title": "AnaLinkLab | Painel Administrativo",
-    "site_header": "AnaLinkLab Admin",
+    "site_header": "AnaLinkLab | Gestão de Análises Clínicas",
     "site_brand": " ",
     "welcome_sign": "Bem-vindo ao AnaLinkLab",
     "site_logo": "img/ana_link_lab_logo.png",
@@ -227,24 +227,26 @@ JAZZMIN_SETTINGS = {
     "order_with_respect_to": ["auth", "lab"],
     "icons": {
         "lab": "fas fa-vials",
+        "lab.Requisicao": "fas fa-vials",
+		"lab.Resultado": "fas fa-microscope",
+		"lab.Paciente": "fas fa-user-injured",
         "auth": "fas fa-users-cog",
         "auth.User": "fas fa-user-shield",
-    },
-    "default_icon_parents": "fas fa-folder-open",
-    "default_icon_children": "fas fa-file-medical",
-    "theme":  "sandstone",
-    "search_model": "auth.User",
-    "changeform_format": "horizontal_tabs",
-    "language_chooser": True,
+        "default_icon_parents": "fas fa-folder-open",
+        "default_icon_children": "fas fa-file-medical",
+        "theme":  "sandstone",
+        "search_model": "auth.User",
+        "changeform_format": "horizontal_tabs",
+    }
+
 }
 
 JAZZMIN_UI_TWEAKS = {
-    "custom_css": "css/custom.css",
+    "custom_css": "css/admin_custom.css",
     "theme": "cosmo",
     "navbar": "navbar-white navbar-light",
     "navbar_fixed": True,
     "sidebar_fixed": True,
-    "sidebar": "sidebar-dark-primary",
     "brand_color": "navbar-primary",
     "actions_sticky_top": True,
     "sidebar_nav_child_indent": True,

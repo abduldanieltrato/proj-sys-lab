@@ -18,8 +18,15 @@
 
 {% block extrastyle %}
 	{{ block.super }}
-	
+	{% block extrastyle %}
+	{{ block.super }}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="{% static 'css/admin_custom.css' %}">
+{% endblock %}
+
 	<!-- Font Awesome 6 -->
+	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-hW7M/fI7wr3V+kN+xH4BvGp2lM8w50Yc6bCl6CBKDNJ1Hzf08c0rFw5X1AaZJbKyiE+rxm7bKzIxBgI1tK6tVw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	<!-- Custom Admin Styles -->
