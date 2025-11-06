@@ -1,0 +1,50 @@
+{% extends 'admin/base_site.html' %}
+{% load static %}
+
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'lab/css/resultados_admin.css' %}">
+{% endblock %}
+
+
+{% block title %}Preencher Resultados — {{ requisicao }}{% endblock %}
+
+
+{% block content %}
+<div class="content" style="max-width: 90%; margin: auto;">
+<h1>Preencher Resultados — Requisição #{{ requisicao.id }}</h1>
+<p><strong>Paciente:</strong> {{ requisicao.paciente.nome }} | <strong>ID:</strong> {{ requisicao.paciente.numero_id }}</p>
+<hr>
+
+
+<form method="post" novalidate>
+{% csrf_token %}
+<div class="module">
+{% for exame, itens in grouped.items %}
+<fieldset class="exame-bloco">
+<legend>🧪 {{ exame }}</legend>
+{% for ri in itens %}
+<div class="form-row">
+{{ form.ri_{{ ri.id }}.label_tag }}
+{{ form.ri_{{ ri.id }} }}
+{% if form.ri_{{ ri.id }}.help_text %}
+<p class="help">{{ form.ri_{{ ri.id }}.help_text }}</p>
+{% endif %}
+{% if form.ri_{{ ri.id }}.errors %}
+<div class="errors">{{ form.ri_{{ ri.id }}.errors }}</div>
+{% endif %}
+</div>
+{% endfor %}
+</fieldset>
+{% endfor %}
+</div>
+
+
+<div class="botoes-acao">
+<button type="submit" class="button default botao-verde">💾 Gravar Resultados</button>
+<a href="{% url 'lab:revisar_resultados' requisicao.id %}" class="button botao-azul">🔍 Revisar Resultados</a>
+<a href="/admin/lab/requisicaoanalise/" class="button cancel-link">⬅️ Voltar ao Painel</a>
+</div>
+</form>
+</div>
+{% endblock %}

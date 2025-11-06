@@ -15,9 +15,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ============================================================
 # SEGURANÇA
 # ============================================================
-SECRET_KEY = "coloque_aqui_uma_chave_super_segura_e_unica"
-DEBUG = True
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "coloque_aqui_uma_chave_super_segura_e_unica")
+DEBUG = os.environ.get("DJANGO_DEBUG", "True") == "True"
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
 # ============================================================
 # INTERNACIONALIZAÇÃO
@@ -32,8 +32,12 @@ USE_TZ = True
 # ============================================================
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": os.environ.get("DB_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.environ.get("DB_NAME", BASE_DIR / "db.sqlite3"),
+        "USER": os.environ.get("DB_USER", ""),
+        "PASSWORD": os.environ.get("DB_PASSWORD", ""),
+        "HOST": os.environ.get("DB_HOST", ""),
+        "PORT": os.environ.get("DB_PORT", ""),
     }
 }
 
@@ -45,19 +49,21 @@ MEDIA_URL = "/media/"
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_ROOT = BASE_DIR / "mediafiles"
-STATICFILES_DIRS = [BASE_DIR / "lab" / "static"]  # Certifique-se de criar esta pasta
+STATICFILES_DIRS = [BASE_DIR / "lab" / "static"]
 
 # ============================================================
 # APLICAÇÕES
 # ============================================================
 INSTALLED_APPS = [
-    "jazzmin",  # UI/Admin
-    "lab",  # App principal
+    # Interface Administrativa
+    "jazzmin",
+    # Aplicações Locais
+    "lab",
     # Terceiros
     "phonenumber_field",
     "django_countries",
     "django_extensions",
-    # Django Core
+    # Core Django
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -70,11 +76,11 @@ INSTALLED_APPS = [
 # EMAIL (SMTP)
 # ============================================================
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
+EMAIL_HOST = os.environ.get("EMAIL_HOST", "smtp.gmail.com")
+EMAIL_PORT = int(os.environ.get("EMAIL_PORT", 587))
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "abdultrato@gmail.com"
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD", "CfCw@6205")
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "abdultrato@gmail.com")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "CfCw@6205")
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # ============================================================
@@ -83,6 +89,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -103,9 +110,9 @@ LOGOUT_REDIRECT_URL = "/admin/login/"
 # ============================================================
 # SEGURANÇA HTTP
 # ============================================================
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
+SECURE_SSL_REDIRECT = not DEBUG
 X_FRAME_OPTIONS = "DENY"
 SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
@@ -147,10 +154,18 @@ LOGGING = {
         "verbose": {"format": "[{asctime}] {levelname} {name} — {message}", "style": "{"},
     },
     "handlers": {
-        "file": {"level": "INFO", "class": "logging.FileHandler", "filename": str(LOG_FILE), "formatter": "verbose"},
+        "file": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "filename": str(LOG_FILE),
+            "formatter": "verbose",
+        },
         "console": {"level": "INFO", "class": "logging.StreamHandler", "formatter": "verbose"},
     },
-    "loggers": {"django": {"handlers": ["file", "console"], "level": "INFO", "propagate": True}},
+    "loggers": {
+        "django": {"handlers": ["file", "console"], "level": "INFO", "propagate": True},
+        "lab": {"handlers": ["file", "console"], "level": "INFO", "propagate": False},
+    },
 }
 
 # ============================================================
@@ -186,7 +201,7 @@ SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SAMESITE = "Lax"
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_SAVE_EVERY_REQUEST = True
-SESSION_COOKIE_AGE = 30 * 60  # 30 minutos
+SESSION_COOKIE_AGE = 30 * 60 * 60 * 60  # 30 minutos
 
 # ============================================================
 # JAZZMIN SETTINGS — AnaLinkLab
@@ -194,34 +209,28 @@ SESSION_COOKIE_AGE = 30 * 60  # 30 minutos
 JAZZMIN_SETTINGS = {
     "site_title": "AnaLinkLab | Painel Administrativo",
     "site_header": "AnaLinkLab | Gestão de Análises Clínicas",
-    "site_brand": " ",
+    "site_brand": "AnaLinkLab",
     "welcome_sign": "Bem-vindo ao AnaLinkLab",
     "site_logo": "img/ana_link_lab_logo.png",
     "login_logo": "img/ana_link_lab_logo.png",
     "custom_css": "css/admin_custom.css",
     "custom_js": "js/admin_custom.js",
-    "copyright": "AnaLinkLab Systems",
+    "copyright": "© 2025 AnaLinkLab Systems",
     "show_sidebar": True,
     "navigation_expanded": True,
     "order_with_respect_to": ["auth", "lab"],
     "icons": {
         "lab": "fas fa-vials",
         "lab.RequisicaoAnalise": "fas fa-vials",
-        "lab.Resultado": "fas fa-microscope",
+        "lab.ResultadoItem": "fas fa-clipboard-check",
         "lab.Paciente": "fas fa-user-injured",
         "lab.Exame": "fas fa-vial",
         "lab.Designacao": "fas fa-certificate",
         "lab.Metodo": "fas fa-flask",
         "lab.ExameCampoResultado": "fas fa-list-alt",
-        "lab.ResultadoItem": "fas fa-clipboard",
         "auth": "fas fa-users-cog",
         "auth.User": "fas fa-user-shield",
-        "default_icon_parents": "fas fa-folder-open",
-        "default_icon_children": "fas fa-file-medical",
-        "theme": "sandstone",
-        "search_model": "auth.User",
-        "changeform_format": "horizontal_tabs",
-    }
+    },
 }
 
 JAZZMIN_UI_TWEAKS = {
@@ -239,5 +248,11 @@ JAZZMIN_UI_TWEAKS = {
     "layout_collapsed_sidebar": False,
     "layout_compact_sidebar": True,
     "no_navbar_border": True,
-    "custom_css": "css/custom.css",
 }
+
+# ============================================================
+# STATIC FILES
+# ============================================================
+STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [BASE_DIR / "static"]

@@ -1,7 +1,7 @@
 """
-Módulo de geração de PDFs institucionais para SYS-LAB
+Módulo de geração de PDFs institucionais para AnaBioLink
 Autor: Trato
-Versão: 3.0 (controle absoluto de posição de tabelas, linhas horizontais apenas)
+Versão: 3.1 (layout híbrido: design AnaBioLink + margens institucionais precisas)
 """
 
 import os
@@ -18,7 +18,6 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.utils import ImageReader
 from PIL import Image
-from lab.models import Paciente
 
 logger = logging.getLogger(__name__)
 
@@ -37,6 +36,7 @@ except Exception as e:
     FONT = "Courier"
     FONT_BOLD = "Courier-Bold"
 
+
 # ==================== CABEÇALHO ====================
 def draw_header(canvas, doc):
     canvas.saveState()
@@ -48,8 +48,8 @@ def draw_header(canvas, doc):
                 buf = io.BytesIO()
                 img.save(buf, format="PNG")
                 buf.seek(0)
-                canvas.drawImage(ImageReader(buf), 15, A4[1] - 130,
-                                 width=150, height=190, preserveAspectRatio=True, mask='auto')
+                canvas.drawImage(ImageReader(buf), 20, A4[1] - 130,
+                                 width=125, height=190, preserveAspectRatio=True, mask='auto')
         except Exception as e:
             logger.warning("Erro ao carregar logo: %s", e)
     else:
@@ -57,67 +57,27 @@ def draw_header(canvas, doc):
         canvas.drawString(35, A4[1] - 90, "LOGO INDISPONÍVEL")
 
     canvas.setFont(FONT_BOLD, 14)
-    canvas.drawString(140, A4[1] - 60, "HOSPITAL PROVINCIAL DE PEMBA")
+    canvas.drawString(150, A4[1] - 60, "AnaBioLink - Sistema de Gestão Laboratorial")
     canvas.setFont(FONT, 11)
-    canvas.drawString(140, A4[1] - 78, "Laboratório de Análises Clínicas")
+    canvas.drawString(150, A4[1] - 78, "Laboratório de Análises Clínicas e Diagnóstico")
     canvas.setFont(FONT, 9)
-    canvas.drawString(140, A4[1] - 95, "Bairro Cimento, Cidade de Pemba - Cabo Delgado")
-    canvas.drawString(140, A4[1] - 110, "Tel: +258 84 773 5374 | +258 86 128 4041 | info@lab-pemba-mz.com")
+    canvas.drawString(150, A4[1] - 95, "Pemba - Cabo Delgado, Moçambique")
+    canvas.drawString(150, A4[1] - 110, "Tel: +258 84 773 5374 | Email: suporte@anabiolink.mz")
 
-    canvas.setStrokeColor(colors.black)
-    canvas.setLineWidth(1)
+    canvas.setStrokeColor(colors.darkblue)
+    canvas.setLineWidth(5)
     canvas.line(0 * cm, A4[1] - 120, A4[0] - 0 * cm, A4[1] - 120)
     canvas.restoreState()
+
 
 # ==================== RODAPÉ ====================
 def draw_footer(canvas, doc):
     canvas.saveState()
     canvas.setFont(FONT, 8)
-    footer_text = f"Gerado automaticamente por analinklab em {datetime.now().strftime('%d/%m/%Y %H:%M')}"
+    footer_text = f"Gerado automaticamente por AnaBioLink em {datetime.now().strftime('%d/%m/%Y %H:%M')}"
     canvas.drawRightString(A4[0] - 1 * cm, 0.7 * cm, footer_text)
     canvas.restoreState()
 
-# ==================== WATERMARK ====================
-def draw_watermark(canvas, doc):
-    try:
-        if not os.path.exists(WATERMARK_PATH):
-            return
-
-        with Image.open(WATERMARK_PATH) as img:
-            if img.mode == "RGBA":
-                img = img.convert("RGB")
-            buf = io.BytesIO()
-            img.save(buf, format="PNG")
-            buf.seek(0)
-            watermark = ImageReader(buf)
-
-        canvas.saveState()
-        try:
-            canvas.setFillAlpha(0.08)
-        except Exception:
-            pass
-
-        wm_width, wm_height = 6 * cm, 8 * cm
-        spacing_x, spacing_y = 1 * cm, 2 * cm
-        width, height = doc.pagesize
-
-        y = -wm_height
-        while y < height + wm_height:
-            x = -wm_width
-            while x < width + wm_width:
-                canvas.saveState()
-                canvas.translate(x + wm_width / 2, y + wm_height / 2)
-                canvas.rotate(90)
-                canvas.drawImage(watermark, -wm_width/2, -wm_height/2,
-                                 width=wm_width, height=wm_height,
-                                 preserveAspectRatio=True, mask='auto')
-                canvas.restoreState()
-                x += wm_width + spacing_x
-            y += wm_height + spacing_y
-
-        canvas.restoreState()
-    except Exception as e:
-        logger.warning("Erro ao desenhar watermark: %s", e)
 
 # ==================== ASSINATURAS ====================
 def draw_signatures(canvas, doc, usuario=None):
@@ -125,7 +85,7 @@ def draw_signatures(canvas, doc, usuario=None):
     y = 2 * cm
     width_total = A4[0] - 2 * cm
     width_line = (width_total - 4 * cm) / 2
-
+    
     x1, x2 = 3 * cm, 3 * cm + width_line + 2 * cm + width_line
 
     canvas.setLineWidth(1)
@@ -142,12 +102,54 @@ def draw_signatures(canvas, doc, usuario=None):
     canvas.drawCentredString((3 * cm + width_line + 2 * cm + x2) / 2, y - 12, "Responsável do Laboratório")
     canvas.restoreState()
 
+
+# ==================== MARCA D'ÁGUA ====================
+def draw_watermark(canvas, doc):
+    canvas.saveState()
+    try:
+        if os.path.exists(WATERMARK_PATH):
+            with Image.open(WATERMARK_PATH) as img:
+                if img.mode == "RGBA":
+                    img = img.convert("RGB")
+                buf = io.BytesIO()
+                img.save(buf, format="PNG")
+                buf.seek(0)
+                watermark = ImageReader(buf)
+
+                # Tamanho da marca d’água (em pontos)
+                w, h = 120, 170
+
+                # Espaçamento entre as marcas
+                step_x, step_y = w + 40, h + 50
+
+                # Transparência
+                canvas.setFillAlpha(0.08)
+
+                # Desenhar múltiplas instâncias
+                y = 0
+                while y < A4[1]:
+                    x = 0
+                    while x < A4[0]:
+                        canvas.drawImage(watermark, x, y, width=w, height=h, mask='auto', preserveAspectRatio=True)
+                        x += step_x
+                    y += step_y
+
+                canvas.setFillAlpha(1.0)
+        else:
+            logger.warning("Marca d'água não encontrada em %s", WATERMARK_PATH)
+    except Exception as e:
+        logger.warning("Falha ao aplicar marca d'água: %s", e)
+    finally:
+        canvas.restoreState()
+
+
 # ==================== LAYOUT PADRÃO ====================
 def layout(canvas, doc, usuario=None):
     draw_watermark(canvas, doc)
     draw_header(canvas, doc)
     draw_footer(canvas, doc)
     draw_signatures(canvas, doc, usuario)
+
 
 # ==================== ESTILO DE TABELAS ====================
 def estilo_tabela_sem_verticais():
@@ -158,8 +160,9 @@ def estilo_tabela_sem_verticais():
         ("LINEABOVE", (0,0), (-1,0), 0.5, colors.black),
         ("LINEBELOW", (0,-1), (-1,-1), 0.5, colors.black),
         ("LINEBELOW", (0,0), (-1,-1), 0.25, colors.black),
-        ("BACKGROUND", (0,0), (-1,0), colors.lightgrey)
+        ("BACKGROUND", (0,0), (-1,0), colors.HexColor("#E0E0E0"))
     ])
+
 
 # ==================== PDF DE REQUISIÇÃO ====================
 def gerar_pdf_requisicao(requisicao, pos_x=1*cm, pos_y=None):
@@ -170,16 +173,14 @@ def gerar_pdf_requisicao(requisicao, pos_x=1*cm, pos_y=None):
 
     story = []
 
-    # Título
     style = ParagraphStyle("Heading1", fontName=FONT_BOLD, fontSize=10)
-    story.append(Spacer(1, 1*cm if not pos_y else pos_y))  # ajuste Y
+    story.append(Spacer(1, 1*cm if not pos_y else pos_y))
     story.append(Paragraph("REQUISIÇÃO DE ANÁLISES CLÍNICAS", style))
     story.append(Spacer(2, 0.5*cm))
 
     paciente = requisicao.paciente
     idade = getattr(paciente, "idade_display", lambda: "—")()
 
-    # Dados do paciente
     dados = [
         ["Nome do Paciente:", paciente.nome],
         ["Idade:", idade],
@@ -191,11 +192,9 @@ def gerar_pdf_requisicao(requisicao, pos_x=1*cm, pos_y=None):
     tabela.setStyle(estilo_tabela_sem_verticais())
     story.append(tabela)
     story.append(Spacer(1, 0.5*cm))
-    story.append(Spacer(1, 0.5*cm))
     story.append(Paragraph("Exames Requisitados", style))
     story.append(Spacer(1, 0.5*cm))
 
-    # Exames
     exames = [[e.nome] for e in getattr(requisicao, "exames_list", requisicao.exames.all())] or [["Nenhum exame registrado."]]
     tabela_exames = Table(exames, colWidths=[16*cm], hAlign='LEFT')
     tabela_exames.setStyle(estilo_tabela_sem_verticais())
@@ -207,18 +206,19 @@ def gerar_pdf_requisicao(requisicao, pos_x=1*cm, pos_y=None):
 
     pdf_bytes = buffer.getvalue()
     buffer.close()
-    filename = f"Req-{paciente.nid}-{paciente.nome.replace(' ', '_')}.pdf"
+    filename = f"AnaBioLink_Req-{paciente.numero_id}-{paciente.nome.replace(' ', '_')}.pdf"
     return pdf_bytes, filename
+
 
 # ==================== PDF DE RESULTADOS ====================
 def gerar_pdf_resultados(requisicao, pos_x=2*cm, pos_y=None):
     buffer = io.BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=A4,
-                            leftMargin=0.5*cm, rightMargin=0.5*cm,
-                            topMargin=3*cm, bottomMargin=2*cm)
+                            leftMargin=3*cm, rightMargin=1*cm,
+                            topMargin=4*cm, bottomMargin=1*cm)
 
     story = []
-    story.append(Spacer(1, 1*cm if not pos_y else pos_y))  # ajuste Y
+    story.append(Spacer(1, 1*cm if not pos_y else pos_y))
     style = ParagraphStyle("Heading1", fontName=FONT_BOLD, fontSize=12)
     story.append(Paragraph("RESULTADOS DE ANÁLISES CLÍNICAS", style))
     story.append(Spacer(1, 0.5*cm))
@@ -228,7 +228,6 @@ def gerar_pdf_resultados(requisicao, pos_x=2*cm, pos_y=None):
     data_analise = getattr(requisicao, "created_at", None)
     data_str = data_analise.strftime("%d/%m/%Y") if data_analise else "—"
 
-    # Dados do paciente
     dados = [
         ["Nome do Paciente:", paciente.nome],
         ["Idade:", idade],
@@ -240,17 +239,20 @@ def gerar_pdf_resultados(requisicao, pos_x=2*cm, pos_y=None):
     story.append(tabela_dados)
     story.append(Spacer(1, 0.5*cm))
 
-    # Resultados
     resultados_data = [["Exame", "Resultado", "Unidade", "Referência"]]
     resultados_qs = getattr(requisicao, "resultados", None)
     if resultados_qs:
         for r in resultados_qs.all():
+            exame_nome = getattr(r.exame_campo, "nome_campo", "—")
+            unidade = r.unidade or getattr(r.exame_campo, "unidade", "—")
+            valor_ref = r.valor_referencia or getattr(r.exame_campo, "valor_referencia", "—")
             resultados_data.append([
-                getattr(r.exame, "nome", "—"),
-                getattr(r, "resultado", "—"),
-                getattr(r, "unidade", getattr(r.exame, "unidade", "—")),
-                getattr(r, "valor_referencia", getattr(r.exame, "valor_ref", "—"))
+                exame_nome,
+                r.resultado or "—",
+                unidade,
+                valor_ref
             ])
+
     tabela_resultados = Table(resultados_data, colWidths=[5*cm, 5*cm, 2.5*cm, 2.5*cm], hAlign='LEFT')
     tabela_resultados.setStyle(estilo_tabela_sem_verticais())
     story.append(tabela_resultados)
@@ -261,5 +263,5 @@ def gerar_pdf_resultados(requisicao, pos_x=2*cm, pos_y=None):
 
     pdf_bytes = buffer.getvalue()
     buffer.close()
-    filename = f"Res-{paciente.nid}-{paciente.nome.replace(' ', '_')}.pdf"
+    filename = f"AnaBioLink_Res-{paciente.numero_id}-{paciente.nome.replace(' ', '_')}.pdf"
     return pdf_bytes, filename

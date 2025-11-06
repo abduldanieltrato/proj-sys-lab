@@ -1,0 +1,60 @@
+{% extends 'admin/base_site.html' %}
+{% load static %}
+
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'lab/css/resultados_admin.css' %}">
+{% endblock %}
+
+
+{% block title %}Revisar Resultados — {{ requisicao }}{% endblock %}
+
+
+{% block content %}
+<div class="content" style="max-width: 90%; margin: auto;">
+<h1>Revisar Resultados — Requisição #{{ requisicao.id }}</h1>
+<p><strong>Paciente:</strong> {{ requisicao.paciente.nome }} | <strong>ID:</strong> {{ requisicao.paciente.numero_id }}</p>
+<p><strong>Status:</strong> {{ requisicao.get_status_display }}</p>
+<hr>
+
+
+{% for exame, itens in grouped.items %}
+<fieldset class="exame-bloco">
+<legend>🧪 {{ exame }}</legend>
+<table class="tabela-resultados">
+<thead>
+<tr>
+<th>Campo</th>
+<th>Resultado</th>
+<th>Unidade</th>
+<th>Valor de Referência</th>
+</tr>
+</thead>
+<tbody>
+{% for ri in itens %}
+<tr>
+<td>{{ ri.exame_campo.nome_campo }}</td>
+<td>{{ ri.resultado|default:"—" }}</td>
+<td>{{ ri.unidade|default:"—" }}</td>
+<td>{{ ri.valor_referencia|default:"—" }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</fieldset>
+{% endfor %}
+
+
+<div class="botoes-acao">
+<a href="{% url 'lab:preencher_resultados' requisicao.id %}" class="button botao-amarelo">⬅️ Voltar a Editar</a>
+
+
+{% if request.user.is_superuser or request.user.groups.filter(name__in=['Administrador','Técnico de Laboratório']).exists %}
+<a href="{% url 'lab:validar_resultados' requisicao.id %}" class="button botao-verde">✅ Validar Resultados</a>
+{% endif %}
+
+
+<a href="/admin/lab/requisicaoanalise/" class="button cancel-link">🏠 Voltar ao Painel</a>
+</div>
+</div>
+{% endblock %}
