@@ -553,3 +553,153 @@ AttributeError: 'ResultadoItem' object has no attribute 'exame'
 [2025-11-07 00:09:35,890] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
 [2025-11-07 00:09:37,020] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
 [2025-11-07 00:09:37,067] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 00:18:58,582] INFO django.server — "GET /admin/lab/requisicaoanalise/?o=2.-5 HTTP/1.1" 200 22416
+[2025-11-07 00:18:58,738] INFO django.server — "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+[2025-11-07 00:18:58,757] INFO django.server — "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+[2025-11-07 00:18:58,757] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 4451
+[2025-11-07 00:18:58,759] INFO django.server — "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+[2025-11-07 00:18:58,766] INFO django.server — "GET /static/vendor/bootswatch/cosmo/bootstrap.min.css HTTP/1.1" 200 154456
+[2025-11-07 00:19:35,041] INFO django.server — "GET /admin HTTP/1.1" 301 0
+[2025-11-07 00:19:35,196] INFO django.server — "GET /admin/ HTTP/1.1" 200 31500
+[2025-11-07 00:19:35,258] INFO django.server — "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+[2025-11-07 00:19:35,269] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 4451
+[2025-11-07 00:19:35,270] INFO django.server — "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+[2025-11-07 00:19:35,279] INFO django.server — "GET /static/vendor/bootswatch/cosmo/bootstrap.min.css HTTP/1.1" 200 154456
+[2025-11-07 00:19:35,300] INFO django.server — "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+[2025-11-07 00:19:35,302] INFO django.server — "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+[2025-11-07 00:19:35,307] INFO django.server — "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2025-11-07 00:19:35,308] INFO django.server — "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+[2025-11-07 00:19:35,315] INFO django.server — "GET /static/js/admin_custom.js HTTP/1.1" 200 0
+[2025-11-07 00:19:35,322] INFO django.server — "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+[2025-11-07 00:19:35,886] INFO django.server — "GET /static/img/ana_link_lab_logo.png HTTP/1.1" 200 300727
+[2025-11-07 00:19:36,017] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+[2025-11-07 00:19:36,018] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+[2025-11-07 00:19:46,220] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 33504
+[2025-11-07 00:19:46,290] INFO django.server — "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+[2025-11-07 00:19:46,298] INFO django.server — "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-11-07 00:19:46,320] INFO django.server — "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[2025-11-07 00:19:46,321] INFO django.server — "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[2025-11-07 00:19:46,322] INFO django.server — "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[2025-11-07 00:19:46,323] INFO django.server — "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[2025-11-07 00:19:46,325] INFO django.server — "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[2025-11-07 00:19:46,381] INFO django.server — "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+[2025-11-07 00:19:46,409] INFO django.server — "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+[2025-11-07 00:19:46,411] INFO django.server — "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2025-11-07 00:19:46,437] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 00:19:46,482] INFO django.server — "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+[2025-11-07 00:20:15,440] INFO django.server — "GET /admin/lab/resultadoitem/17/change/ HTTP/1.1" 200 25717
+[2025-11-07 00:20:15,560] INFO django.server — "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-11-07 00:20:15,563] INFO django.server — "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2025-11-07 00:20:15,568] INFO django.server — "GET /static/jazzmin/js/change_form.js HTTP/1.1" 200 6052
+[2025-11-07 00:20:15,715] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 00:20:15,734] INFO django.server — "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[2025-11-07 00:20:15,735] INFO django.server — "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2025-11-07 00:20:15,736] INFO django.server — "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[2025-11-07 00:20:15,737] INFO django.server — "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2025-11-07 00:20:36,615] INFO django.server — "POST /admin/lab/resultadoitem/17/change/ HTTP/1.1" 302 0
+[2025-11-07 00:20:36,748] INFO django.server — "GET /admin/lab/resultadoitem/add/ HTTP/1.1" 200 25637
+[2025-11-07 00:20:37,040] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 00:21:13,364] INFO django.server — "GET /admin/ HTTP/1.1" 200 31828
+[2025-11-07 00:21:15,886] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 33520
+[2025-11-07 00:21:16,181] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 00:21:16,192] INFO django.server — "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[2025-11-07 00:21:36,806] INFO django.server — "POST /admin/lab/resultadoitem/ HTTP/1.1" 302 0
+[2025-11-07 00:21:36,931] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 34030
+[2025-11-07 00:21:37,206] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 00:22:11,119] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 21862
+[2025-11-07 00:22:11,333] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 00:22:28,299] ERROR django.request — Internal Server Error: /admin/lab/requisicaoanalise/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/reportlab/platypus/doctemplate.py", line 165, in apply
+    getattr(doc,arn)(*args)
+    ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/reportlab/platypus/doctemplate.py", line 1298, in handle_pageBegin
+    self._handle_pageBegin()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/reportlab/platypus/doctemplate.py", line 621, in handle_pageBegin
+    self.pageTemplate.onPage(self.canv,self)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py", line 223, in <lambda>
+    story.append(Paragraph("RESULTADOS DE ANÁLISES CLÍNICAS", style))
+                                             ^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py", line 110, in layout
+    if os.path.exists(WATERMARK_PATH):
+    ^^^^^^^^^^
+NameError: name 'draw_watermark' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 2057, in changelist_view
+    response = self.response_action(
+        request, queryset=cl.get_queryset(request)
+    )
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1686, in response_action
+    response = func(self, request, queryset)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py", line 120, in gerar_pdf_resultados
+    pdf_content, filename = gerar_pdf_resultados(requisicao)
+                            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py", line 223, in gerar_pdf_resultados
+    story.append(Paragraph("RESULTADOS DE ANÁLISES CLÍNICAS", style))
+    story.append(Spacer(1, 0.5*cm))
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/reportlab/platypus/doctemplate.py", line 1322, in build
+    BaseDocTemplate.build(self,flowables, canvasmaker=canvasmaker)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/reportlab/platypus/doctemplate.py", line 1080, in build
+    self.clean_hanging()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/reportlab/platypus/doctemplate.py", line 592, in clean_hanging
+    self.handle_flowable(self._hanging)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/reportlab/platypus/doctemplate.py", line 926, in handle_flowable
+    f.apply(self)
+    ~~~~~~~^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/reportlab/platypus/doctemplate.py", line 172, in apply
+    annotateException("\nhandle_%s args=%s"%(action,ascii(args)))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/reportlab/lib/utils.py", line 1176, in annotateException
+    rl_reraise(t,t(sep.join((_ for _ in (msg,str(v),postMsg) if _))),b)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/reportlab/lib/utils.py", line 138, in rl_reraise
+    raise v.with_traceback(b)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/reportlab/platypus/doctemplate.py", line 165, in apply
+    getattr(doc,arn)(*args)
+    ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/reportlab/platypus/doctemplate.py", line 1298, in handle_pageBegin
+    self._handle_pageBegin()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/reportlab/platypus/doctemplate.py", line 621, in handle_pageBegin
+    self.pageTemplate.onPage(self.canv,self)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py", line 223, in <lambda>
+    story.append(Paragraph("RESULTADOS DE ANÁLISES CLÍNICAS", style))
+                                             ^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py", line 110, in layout
+    if os.path.exists(WATERMARK_PATH):
+    ^^^^^^^^^^
+NameError: 
+handle_pageBegin args=() name 'draw_watermark' is not defined
+[2025-11-07 00:22:28,307] ERROR django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 500 227117
+[2025-11-07 00:22:28,548] WARNING django.request — Not Found: /favicon.ico
+[2025-11-07 00:22:28,549] WARNING django.server — "GET /favicon.ico HTTP/1.1" 404 4388
