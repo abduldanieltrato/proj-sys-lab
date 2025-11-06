@@ -4,20 +4,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    # Django Admin
-    path('admin/', admin.site.urls),
+	# -------------------- ADMIN --------------------
+	path("admin/", admin.site.urls),
 
-    # App laboratorio
-    path('', include('lab.urls')),  # todas as URLs do app
+	# -------------------- APLICATIVOS --------------------
+	path("", include("lab.urls")),
+
+	# -------------------- INTERNACIONALIZAÇÃO --------------------
+	path("i18n/", include("django.conf.urls.i18n")),
 ]
 
-# Configuração para servir arquivos de mídia durante o desenvolvimento
+# -------------------- ARQUIVOS ESTÁTICOS E MÍDIA --------------------
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-from django.urls import path, include
-
-urlpatterns += [
-	path('i18n/', include('django.conf.urls.i18n')),  # 🔥 Adicione esta linha
-	# ... outras rotas
-]
+	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

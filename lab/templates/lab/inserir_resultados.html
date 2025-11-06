@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Inserir Resultados - {{ requisicao.paciente.nome }}</h2>
+
+<form method="POST">
+	{% csrf_token %}
+	{% for resultado in resultados %}
+		<div class="card">
+			<div class="card-header">{{ resultado.exame.nome }}</div>
+			<div class="card-body">
+				{% for item in resultado.resultadoitem_set.all %}
+					<div class="form-group">
+						<label>{{ item.campo_resultado.nome_campo }}</label>
+						<input type="text" 
+							name="item_{{ item.id }}" 
+							value="{{ item.valor|default:'' }}" 
+							class="form-control">
+						<small>{{ item.campo_resultado.unidade }} | Ref: {{ item.campo_resultado.valor_ref }}</small>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% endfor %}
+	<button type="submit" class="btn btn-success">Salvar</button>
+</form>
+{% endblock %}

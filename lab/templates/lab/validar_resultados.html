@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Validação de Resultados</h2>
+<form method="POST">
+	{% csrf_token %}
+	{% for r in resultados %}
+		<div class="card">
+			<div class="card-header">
+				{{ r.exame.nome }} — {{ r.requisicao.paciente.nome }}
+			</div>
+			<div class="card-body">
+				<ul>
+					{% for item in r.resultadoitem_set.all %}
+						<li><b>{{ item.campo_resultado.nome_campo }}:</b> {{ item.valor }}</li>
+					{% endfor %}
+				</ul>
+				<label>
+					<input type="checkbox" name="validar_{{ r.id }}"> Validar
+				</label>
+			</div>
+		</div>
+	{% endfor %}
+	<button type="submit" class="btn btn-success">Confirmar Validação</button>
+</form>
+{% endblock %}

@@ -1,15 +1,52 @@
 {% extends "admin/base.html" %}
 {% load static %}
 
-{% block title %}Painel do Laboratório{% endblock %}
+{% block title %}Painel Administrativo — Laboratório{% endblock %}
 
 {% block branding %}
-<div class="jazzmin-brand" style="display:flex; align-items:center; gap:10px;">
-    <img src="{% static 'img/logo.png' %}" alt="Logo do Laboratório" style="max-width:160px; height:auto;">
-</div>
+	<!-- Favicon -->
+	<link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+
+	<!-- Marca -->
+	<div class="jazzmin-brand d-flex align-items-center" style="gap: 8px;">
+		<img src="{% static 'img/logo.png' %}" alt="Logo do Laboratório" style="max-height:42px; width:auto; border-radius:4px;">
+		<h1 style="font-size:14px; font-weight:700; color:#fff; margin:0; letter-spacing:0.5px; text-shadow:0 0 1px rgba(0,0,0,0.4);">
+			AnaLinkLab
+		</h1>
+	</div>
 {% endblock %}
 
 {% block extrastyle %}
-  {{ block.super }}
-  <link rel="stylesheet" href="{% static 'css/admin_custom.css' %}">
+	{{ block.super }}
+	{% block extrastyle %}
+	{{ block.super }}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="{% static 'css/admin_custom.css' %}">
+{% endblock %}
+
+	<!-- Font Awesome 6 -->
+	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-hW7M/fI7wr3V+kN+xH4BvGp2lM8w50Yc6bCl6CBKDNJ1Hzf08c0rFw5X1AaZJbKyiE+rxm7bKzIxBgI1tK6tVw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-- Custom Admin Styles -->
+	<link rel="stylesheet" href="{% static 'css/admin_custom.css' %}">
+
+	<style>
+		/* Ajustes adicionais diretos para o branding */
+		.jazzmin-brand img {
+			transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+		}
+		.jazzmin-brand:hover img {
+			transform: scale(1.04);
+			filter: brightness(1.1);
+		}
+		.jazzmin-brand h1::before {
+			font-family: "Font Awesome 6 Free";
+			content: "\f0f1"; /* flask icon */
+			margin-right: 6px;
+			font-weight: 900;
+			color: #09c009;
+		}
+	</style>
 {% endblock %}
