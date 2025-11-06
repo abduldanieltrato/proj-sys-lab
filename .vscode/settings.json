@@ -1,0 +1,5 @@
+{
+    "python.testing.unittestEnabled": true,
+    "python.useEnvironmentsExtension": true,
+    "debugpy.showPythonInlineValues": true
+}

@@ -271,7 +271,8 @@ class ResultadoItem(models.Model):
 	exame_campo = models.ForeignKey(
 		'ExameCampoResultado',
 		on_delete=models.CASCADE,
-		related_name='itens_resultado'
+		related_name='itens_resultado',
+          
 	)
 	unidade = models.ForeignKey(
 		'Exame',
