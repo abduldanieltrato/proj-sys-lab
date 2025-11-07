@@ -1,206 +1,107 @@
 :root {
-	--verde-principal: #05861b;
-	--verde-escuro:	rgb(21, 87, 21);
-	--preto: #000000;
-	--cinza-suave: #27790e;
-	--radius: 6px;
-	--shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-	--branco: #0a0808;
-}
-
-.card-body {
-	vertical-align: middle;
-	font-weight: 600;
-	color: var(--branco);
-	font: 1em sans-serif;
-	background-color: rgb(16, 68, 16);
+    --grad-bg: linear-gradient(135deg, #3b5ca8, #6b7da5, #f0a655); /* azul → azul cinza → amarelo-alaranjado */
+    --btn-gradient: linear-gradient(45deg, #3b5ca8, #f0a655);
+    --text-light: #ffffff;
+    --text-dark: #1a1a1a;
+    --radius: 8px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* ==========================
    📊 Painel administrativo
 =========================== */
+body {
+    background: var(--grad-bg);
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text-dark);
+}
+
+/* Navbar */
+.navbar {
+    background: var(--grad-bg);
+    color: var(--text-light);
+    box-shadow: var(--shadow);
+    font-weight: 700;
+}
 
 /* Sidebar */
-.sidebar-dark-primary {
-	background-color: rgb(19, 88, 19);
-	width: auto;
-}
-
-.sidebar .nav-link,
-.sidebar .brand-link,
-.sidebar .nav-link i {
-	font: 1em sans-serif;
-	color: var(--branco) !important;
-	font-weight: 600;
-	padding: 3px;
-	background-color: #310909b6;
-	border-radius: 5px;
-	line-height: 18px;
-	font-style: italic;
-}
-
 .sidebar {
-	background-color: var(--verde-escuro);
-	border-radius: var(--radius);
-	color: var(--branco) !important;
-	font-weight: bolder;
-	margin-right: 10px;
+    background: rgba(255, 255, 255, 0.05); /* leve transparência */
+    color: var(--text-light);
+    border-radius: var(--radius);
 }
 
-/* Navbar (topo) */
-.navbar {
-	font-size: 1.4em;
-	background-color: var(--verde-escuro) !important;
-	color: var(--branco) !important;
-	box-shadow: var(--shadow);
-	padding: 0px 10px 5px 20px;
-}
-
-
-.navbar a {
-	text-align: center;
-	vertical-align: middle;
-	background-color: var(--verde-escuro);
-	line-height: 1em;
-	color: var(--branco) !important;
-    font-weight: 800;
-
-}
-
-/* Headers dos cards */
+/* Card headers e corpo */
 .card-header {
-	text-align: center;
-	vertical-align: middle;
-	line-height: 1rem;
-	padding: 20px;
-	background-color: var(--verde-escuro);
-	color: var(--branco) !important;
-
+    background: var(--grad-bg);
+    color: var(--text-light);
+    text-align: center;
+    font-weight: 700;
 }
 
-/* ==========================
-   📋 Tabelas
-=========================== */
-.table-striped tbody tr:nth-of-type(odd) {
-	background-color: var(--verde-escuro);
-	opacity: 1;
+.card-body {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
 }
 
-.table td {
-	padding: -1em;
-	font: 1em sans-serif;
-	text-decoration: none;
-	vertical-align: middle;
-	border-top: 2px solid #916161 !important;
-	border-bottom: 2px solid #a18282d2 !important;
-	color: var(--preto);
-    font-weight: bold;
-    font-size: 1em;
-	background-color: var(--verde-escuro);
-}
-
-/* Links dentro das tabelas (Ex: usuários, pacientes, exames, etc.) */
-.table a,
-a,
-a:link,
-a:visited {
-	color: var(--preto) !important;
-	text-decoration: none;
-    font: 1em sans-serif;
-	font-weight: 600;
-	
-}
-
-.table a:hover,
-a:hover {
-	color: var(--branco) !important;
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-/* ==========================
-   🧩 Botões
-=========================== */
+/* Botões */
 .btn-primary {
-	overflow: hidden;
-	border-radius: var(--radius);
-	text-decoration: none;
-	background-color: var(--verde-principal);
-	border-color: var(--verde-escuro);
-	color: var(--preto);
-    font-weight: 800;
+    background: var(--btn-gradient);
+    border: none;
+    color: var(--text-dark);
+    font-weight: 700;
+    border-radius: var(--radius);
+    transition: 0.3s;
 }
 
 .btn-primary:hover {
-	background-color: var(--verde-escuro);
-	border-color: var(--verde-escuro);
-	color: var(--preto;
+    background: linear-gradient(45deg, #f0a655, #3b5ca8);
+    color: var(--text-light);
+}
+
+/* Tabelas */
+.table-striped tbody tr:nth-of-type(odd) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.table td {
+    color: var(--text-dark);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Links */
+a, a:link, a:visited {
+    color: var(--text-dark);
     font-weight: 600;
-    
 }
 
-/* ==========================
-   🧭 Footer e detalhes
-=========================== */
+a:hover {
+    color: var(--text-light);
+    text-decoration: underline;
+}
+
+/* Footer */
 .main-footer {
-	background: var(--verde-escuro);
-	color: var(--branco);
-	text-align: center;
-	padding: 0.6rem;
-	font-style: italic;
-	font-size: 1rem;
+    background: var(--grad-bg);
+    color: var(--text-light);
+    text-align: center;
+    font-style: italic;
 }
 
+/* Inputs e focus */
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-	border: 1px solid var(--verde-principal);
-	outline: none;
-	border-color: var(--verde-principal);
-	background-color: var(--cinza-suave);
-	box-shadow: 0 0 5px rgba(13, 138, 13, 0.3);
+    border: 2px solid #f0a655;
+    outline: none;
+    box-shadow: 0 0 5px rgba(240, 166, 85, 0.4);
 }
-/* ==========================
-   🔹 Logo de login ajustada ao formulário
-=========================== */
+
+/* Login box */
 .login-box {
-	padding: auto;
-	overflow: hidden;
-	justify-content: flex-end;
-	height: 450px;
-	border-radius: 6px;
-	border: 2px solid #27790e00 ;
-	box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.233);
-	background-color: rgb(15, 105, 15);
-}
-
-.login-box input:placeholder-shown {
-	background-color: #ffffff;
-}
-
-
-/* Corrige ícones grandes no Django Admin */
-svg {
-  width: 3px !important;
-  height: 3px !important;
-  vertical-align: middle;
-}
-
-/* Mantém botões e links no tamanho padrão */
-a.changelink, a.deletelink, a.viewlink, a.addlink, .object-tools a, .object-tools button {
-  font-size: 10px !important;
-  line-height: normal !important;
-  width: auto !important;
-  height: auto !important;
-}
-
-/* Evita que o CSS global (como Tailwind) quebre o layout do admin */
-body#grp-body *, body#container * {
-  font-size: revert !important;
-  line-height: revert !important;
-}
-
-* {
-	color: #b4a9a9;
+    background: var(--grad-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    color: var(--text-light);
 }

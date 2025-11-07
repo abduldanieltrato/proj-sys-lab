@@ -1009,3 +1009,72 @@ handle_pageBegin args=() name 'draw_watermark' is not defined
 [2025-11-07 02:04:11,977] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3315
 [2025-11-07 02:04:13,031] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3315
 [2025-11-07 02:04:13,983] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3315
+[2025-11-07 02:05:07,089] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3315
+[2025-11-07 02:05:47,567] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3315
+[2025-11-07 02:05:48,521] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3315
+[2025-11-07 02:05:57,579] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3315
+[2025-11-07 02:05:58,540] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3315
+[2025-11-07 02:05:59,516] INFO django.server — "GET /admin/login/ HTTP/1.1" 200 3315
+[2025-11-07 02:06:40,118] INFO django.server — "POST /admin/login/ HTTP/1.1" 302 0
+[2025-11-07 02:06:40,304] INFO django.server — "GET /admin/ HTTP/1.1" 200 32406
+[2025-11-07 02:06:40,552] INFO django.server — "GET /static/js/admin_custom.js HTTP/1.1" 200 0
+[2025-11-07 02:06:40,574] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+[2025-11-07 02:06:47,057] INFO django.server — "GET /admin/lab/historicooperacao/ HTTP/1.1" 200 15448
+[2025-11-07 02:06:47,233] INFO django.server — "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-11-07 02:06:47,424] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 02:06:49,355] INFO django.server — "GET /admin/lab/historicooperacao/add/ HTTP/1.1" 200 21257
+[2025-11-07 02:06:49,768] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 02:07:10,258] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21281
+[2025-11-07 02:07:10,705] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 02:08:01,671] INFO django.server — "GET /admin/lab/paciente/1/change/ HTTP/1.1" 200 21416
+[2025-11-07 02:08:01,926] INFO django.server — "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-11-07 02:08:01,939] INFO django.server — "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2025-11-07 02:08:01,941] INFO django.server — "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-11-07 02:08:01,941] INFO django.server — "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+[2025-11-07 02:08:01,945] INFO django.server — "GET /static/js/admin_custom.js HTTP/1.1" 200 0
+[2025-11-07 02:08:01,959] INFO django.server — "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+[2025-11-07 02:08:02,163] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 02:08:14,601] INFO django.server — "POST /admin/lab/paciente/1/change/ HTTP/1.1" 302 0
+[2025-11-07 02:08:14,768] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 22022
+[2025-11-07 02:08:15,252] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 02:16:08,417] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21433
+[2025-11-07 02:16:08,544] INFO django.server — "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-11-07 02:16:08,554] INFO django.server — "GET /static/js/admin_custom.js HTTP/1.1" 200 0
+[2025-11-07 02:16:08,769] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 02:16:14,043] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21433
+[2025-11-07 02:16:14,368] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 02:16:27,057] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21433
+[2025-11-07 02:16:27,376] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 02:16:29,563] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21433
+[2025-11-07 02:16:29,942] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 02:19:02,220] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21417
+[2025-11-07 02:19:02,530] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 02:19:04,481] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21417
+[2025-11-07 02:19:04,820] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 02:19:06,273] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 21417
+[2025-11-07 02:19:06,570] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 02:19:12,589] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 21851
+[2025-11-07 02:19:13,040] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 02:19:45,580] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 02:20:04,759] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 02:20:05,277] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 02:20:05,297] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 02:20:22,147] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 02:20:22,984] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 02:20:27,996] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 02:20:28,510] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 02:20:28,530] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 02:20:33,700] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 21851
+[2025-11-07 02:20:34,083] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 02:20:34,145] INFO django.server — "GET /static/img/watermark.png HTTP/1.1" 304 0
+[2025-11-07 02:20:35,284] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 21851
+[2025-11-07 02:20:35,615] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 02:20:47,314] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 646276
+[2025-11-07 09:51:27,067] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 09:51:27,833] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 09:51:27,854] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 09:51:43,116] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 09:51:43,794] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 09:51:49,531] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 09:51:50,016] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 09:51:50,035] INFO django.utils.autoreload — Watching for file changes with StatReloader

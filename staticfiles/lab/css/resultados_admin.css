@@ -1,0 +1,77 @@
+/* ============================
+Estilos personalizados para Jazzmin / Django Admin
+============================ */
+
+
+fieldset.exame-bloco {
+border: 2px solid #e0e0e0;
+border-radius: 10px;
+padding: 15px 20px;
+margin-bottom: 25px;
+background-color: #fafafa;
+box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+
+fieldset.exame-bloco legend {
+font-size: 1.1rem;
+font-weight: 600;
+color: #2c3e50;
+padding: 0 8px;
+}
+
+
+.tabela-resultados {
+width: 100%;
+border-collapse: collapse;
+background-color: white;
+}
+
+
+.tabela-resultados th {
+background-color: #3f51b5;
+color: white;
+text-align: left;
+padding: 8px;
+}
+
+
+.tabela-resultados td {
+border-bottom: 1px solid #ddd;
+padding: 6px 8px;
+}
+
+
+.tabela-resultados tr:nth-child(even) {
+background-color: #f9f9f9;
+}
+
+
+.botoes-acao {
+margin-top: 30px;
+display: flex;
+gap: 15px;
+}
+
+
+.botao-verde {
+background-color: #4CAF50 !important;
+color: white !important;
+}
+
+
+.botao-azul {
+background-color: #2196F3 !important;
+color: white !important;
+}
+
+
+.botao-amarelo {
+background-color: #FFC107 !important;
+color: black !important;
+}
+
+
+button.button:hover, a.button:hover {
+opacity: 0.9;
+}
