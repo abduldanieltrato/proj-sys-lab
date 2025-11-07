@@ -1,0 +1,117 @@
+{% extends "admin/change_form.html" %}
+{% load static %}
+
+{% block extrahead %}
+{{ block.super }}
+<style>
+	.inline-related table { width: 100%; border-collapse: collapse; }
+	.inline-related th, .inline-related td { padding: 4px 8px; text-align: left; border-bottom: 1px solid #ddd; }
+	.button { text-decoration: none; padding: 2px 6px; border-radius: 4px; font-weight: bold; margin-right: 4px; cursor: pointer; }
+	.button.save { background-color: #1976d2; color: white; }
+	.button.validate { background-color: #388e3c; color: white; }
+	.button.remove { background-color: #d32f2f; color: white; }
+	.button:hover { opacity: 0.85; }
+</style>
+<script src="{% static 'admin/js/jquery.init.js' %}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+	function csrfSafeMethod(method) {
+		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+	}
+	const csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+	jQuery('.inline-related').on('click', '.button', function(e){
+		e.preventDefault();
+		let btn = jQuery(this);
+		let action = btn.data('action');
+		let resultadoId = btn.data('id');
+		let input = btn.closest('tr').find('input[name$="resultado"]');
+
+		if(action === 'save'){
+			let valor = input.val();
+			jQuery.ajax({
+				url: `/admin/laboratorio/resultadoitem/${resultadoId}/update/`,
+				method: 'POST',
+				headers: {'X-CSRFToken': csrftoken},
+				data: {resultado: valor},
+				success: function(resp){
+					alert('Resultado gravado com sucesso!');
+				},
+				error: function(){ alert('Erro ao gravar resultado'); }
+			});
+		}
+
+		if(action === 'validate'){
+			jQuery.ajax({
+				url: `/admin/laboratorio/resultadoitem/${resultadoId}/validate/`,
+				method: 'POST',
+				headers: {'X-CSRFToken': csrftoken},
+				success: function(resp){
+					alert('Resultado validado!');
+					btn.closest('tr').find('td.validado span').text('Sim');
+				},
+				error: function(){ alert('Erro ao validar'); }
+			});
+		}
+
+		if(action === 'remove'){
+			if(!confirm('Tem certeza que deseja remover este resultado?')) return;
+			jQuery.ajax({
+				url: `/admin/laboratorio/resultadoitem/${resultadoId}/delete/`,
+				method: 'POST',
+				headers: {'X-CSRFToken': csrftoken},
+				success: function(resp){
+					alert('Resultado removido!');
+					btn.closest('tr').fadeOut();
+				},
+				error: function(){ alert('Erro ao remover'); }
+			});
+		}
+	});
+
+});
+</script>
+{% endblock %}
+
+{% block content %}
+{{ block.super }}
+
+<h3>Resultados de todos os exames</h3>
+<div class="inline-related">
+	{% for inline in inline_admin_formsets %}
+		{% if inline.formset.forms %}
+			<table>
+				<thead>
+					<tr>
+						{% for field in inline.formset.forms.0.visible_fields %}
+							<th>{{ field.label }}</th>
+						{% endfor %}
+						<th>Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for form in inline.formset.forms %}
+						<tr>
+							{% for field in form.visible_fields %}
+								<td {% if field.name == 'validado' %}class="validado"{% endif %}>
+									{% if field.name == 'validado' %}
+										<span>{% if field.value %}Sim{% else %}Não{% endif %}</span>
+									{% else %}
+										{{ field }}
+									{% endif %}
+								</td>
+							{% endfor %}
+							<td>
+								<button class="button save" data-action="save" data-id="{{ form.instance.id }}">💾</button>
+								<button class="button validate" data-action="validate" data-id="{{ form.instance.id }}">✅</button>
+								<button class="button remove" data-action="remove" data-id="{{ form.instance.id }}">🗑</button>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		{% endif %}
+	{% endfor %}
+</div>
+{% endblock %}
