@@ -198,6 +198,11 @@ def gerar_pdf_requisicao(requisicao, pos_x=1*cm, pos_y=None):
     exames = [[e.nome] for e in getattr(requisicao, "exames_list", requisicao.exames.all())] or [["Nenhum exame registrado."]]
     tabela_exames = Table(exames, colWidths=[16*cm], hAlign='LEFT')
     tabela_exames.setStyle(estilo_tabela_sem_verticais())
+    tabela_exames.setStyle(TableStyle([
+    ("LINEABOVE", (0, 0), (-1, 0), 0.5, colors.black),
+    ("LINEBELOW", (0, -1), (-1, -1), 0.5, colors.black),
+    ]))
+
     story.append(tabela_exames)
 
     usuario = getattr(requisicao, "analista", None)
@@ -212,6 +217,12 @@ def gerar_pdf_requisicao(requisicao, pos_x=1*cm, pos_y=None):
 
 # ==================== PDF DE RESULTADOS ====================
 def gerar_pdf_resultados(requisicao, pos_x=2*cm, pos_y=None):
+    """
+    Gera PDF de resultados agrupando por exame.
+    Para cada exame, insere uma linha cabeçalho com o nome do exame antes dos seus parâmetros.
+    """
+    import itertools
+
     buffer = io.BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=A4,
                             leftMargin=3*cm, rightMargin=1*cm,
@@ -220,7 +231,7 @@ def gerar_pdf_resultados(requisicao, pos_x=2*cm, pos_y=None):
     story = []
     story.append(Spacer(1, 1*cm if not pos_y else pos_y))
     style = ParagraphStyle("Heading1", fontName=FONT_BOLD, fontSize=12)
-    story.append(Paragraph("RESULTADOS DE ANÁLISES CLÍNICAS", style))
+    story.append(Paragraph("RESULTADOS DE ANÁLISES", style))
     story.append(Spacer(1, 0.5*cm))
 
     paciente = requisicao.paciente
@@ -239,24 +250,75 @@ def gerar_pdf_resultados(requisicao, pos_x=2*cm, pos_y=None):
     story.append(tabela_dados)
     story.append(Spacer(1, 0.5*cm))
 
-    resultados_data = [["Exame", "Resultado", "Unidade", "Referência"]]
+    # -----------------------------------------------------------
+    # Construção dos resultados agrupados por exame
+    # -----------------------------------------------------------
+    # Cabeçalho da tabela (será usado apenas para a primeira linha do bloco de dados de cada exame)
+    # Vamos criar 'resultados_data' contendo linhas e também um 'table_style_extra' para estilizar os cabeçalhos dos exames.
+    resultados_data = []
+    table_style_extra = []
+
+    # Pegar queryset de resultados relacionados à requisição
     resultados_qs = getattr(requisicao, "resultados", None)
-    if resultados_qs:
-        for r in resultados_qs.all():
-            exame_nome = getattr(r.exame_campo, "nome_campo", "—")
-            unidade = r.unidade or getattr(r.exame_campo, "unidade", "—")
-            valor_ref = r.valor_referencia or getattr(r.exame_campo, "valor_referencia", "—")
-            resultados_data.append([
-                exame_nome,
-                r.resultado or "—",
-                unidade,
-                valor_ref
-            ])
+    if not resultados_qs:
+        resultados_data = [["Nenhum resultado disponível."]]
+        tabela_resultados = Table(resultados_data, colWidths=[16*cm], hAlign='LEFT')
+        tabela_resultados.setStyle(estilo_tabela_sem_verticais())
+        story.append(tabela_resultados)
+    else:
+        # Ordena por exame e por ordem do campo (se existir), para agrupar logicamente
+        resultados_list = list(resultados_qs.all().select_related('exame_campo', 'exame_campo__exame'))
+        resultados_list.sort(key=lambda r: (
+            getattr(r.exame_campo.exame, "nome", ""),
+            getattr(r.exame_campo, "ordem", 0)
+        ))
 
-    tabela_resultados = Table(resultados_data, colWidths=[5*cm, 5*cm, 2.5*cm, 2.5*cm], hAlign='LEFT')
-    tabela_resultados.setStyle(estilo_tabela_sem_verticais())
-    story.append(tabela_resultados)
+        # Agrupa por nome do exame
+        for exame_nome, group in itertools.groupby(resultados_list, key=lambda r: getattr(r.exame_campo.exame, "nome", "—")):
+            # Inserir linha de cabeçalho do exame (uma linha só que ocupará as 4 colunas)
+            # Usamos uma linha com o nome do exame na primeira célula; em seguida criaremos um SPAN via estilos.
+            header_text = exame_nome or "—"
+            row_index = len(resultados_data)  # índice da linha que vamos inserir
+            resultados_data.append([header_text, "", "", ""])  # 4 colunas para manter compatibilidade
+            
+            # Aplica estilo para essa linha de cabeçalho (fundo claro, negrito, e span)
+            table_style_extra.append(("SPAN", (0, row_index), (-1, row_index)))
+            table_style_extra.append(("FONTNAME", (0, row_index), (0, row_index), FONT_BOLD))
+            table_style_extra.append(("FONTSIZE", (0, row_index), (0, row_index), 11))
+            table_style_extra.append(("BACKGROUND", (0, row_index), (-1, row_index), colors.HexColor("#F2F7FF")))
+            table_style_extra.append(("LEFTPADDING", (0, row_index), (-1, row_index), 6))
+            table_style_extra.append(("BOTTOMPADDING", (0, row_index), (-1, row_index), 4))
+            table_style_extra.append(("TOPPADDING", (0, row_index), (-1, row_index), 4))
+            
+            table_style_extra.append(("LINEABOVE", (0, row_index), (-1, row_index), 0.5, colors.black))
+            table_style_extra.append(("LINEBELOW", (0, row_index), (-1, row_index), 0.5, colors.black))
+            
+            # Adiciona linhas horizontais apenas no cabeçalho do exame
 
+
+
+            # Agora acrescenta as linhas dos parâmetros desse exame
+            for r in group:
+                exame_campo = getattr(r, "exame_campo", None)
+                exame_nome_campo = getattr(exame_campo, "nome_campo", "—")
+                unidade = r.unidade or getattr(exame_campo, "unidade", "—")
+                valor_ref = r.valor_referencia or getattr(exame_campo, "valor_referencia", "—")
+                valor = r.resultado or "—"
+                resultados_data.append([exame_nome_campo, valor, unidade, valor_ref])
+
+        # Criar tabela com larguras adaptadas
+        tabela_resultados = Table(resultados_data, colWidths=[5*cm, 5*cm, 2*cm, 6*cm], hAlign='LEFT')
+
+        # Aplica o estilo base sem verticais e depois os estilos adicionais (cabeçalhos de exame)
+        base_style = estilo_tabela_sem_verticais()
+        for st in table_style_extra:
+            base_style.add(*st) if hasattr(base_style, 'add') else base_style._cmds.append(st)  # compatibilidade com versões
+        tabela_resultados.setStyle(base_style)
+        story.append(tabela_resultados)
+
+    # -----------------------------------------------------------
+    # Finaliza documento mantendo header/footer/watermark via layout existente
+    # -----------------------------------------------------------
     usuario = getattr(requisicao, "analista", None)
     doc.build(story, onFirstPage=lambda c,d: layout(c,d,usuario),
               onLaterPages=lambda c,d: layout(c,d,usuario))
