@@ -1078,3 +1078,1701 @@ handle_pageBegin args=() name 'draw_watermark' is not defined
 [2025-11-07 09:51:49,531] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
 [2025-11-07 09:51:50,016] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
 [2025-11-07 09:51:50,035] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 09:58:39,190] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 302 0
+[2025-11-07 09:58:39,424] INFO django.server — "GET /admin/login/?next=/admin/lab/requisicaoanalise/ HTTP/1.1" 200 3350
+[2025-11-07 09:58:39,920] INFO django.server — "GET /static/img/watermark.png HTTP/1.1" 200 2167518
+[2025-11-07 09:59:02,685] INFO django.server — "POST /admin/login/?next=/admin/lab/requisicaoanalise/ HTTP/1.1" 302 0
+[2025-11-07 09:59:03,091] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 21835
+[2025-11-07 09:59:03,330] INFO django.server — "GET /static/js/admin_custom.js HTTP/1.1" 304 0
+[2025-11-07 09:59:03,360] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 2191
+[2025-11-07 09:59:03,591] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 09:59:30,769] INFO django.server — "GET /admin/ HTTP/1.1" 200 32423
+[2025-11-07 09:59:42,605] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19799
+[2025-11-07 09:59:43,004] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 09:59:43,018] INFO django.server — "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[2025-11-07 10:01:28,089] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19783
+[2025-11-07 10:01:28,525] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:03:21,662] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19799
+[2025-11-07 10:03:21,964] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:03:23,103] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19799
+[2025-11-07 10:03:23,390] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:03:24,440] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19799
+[2025-11-07 10:03:24,779] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:03:25,963] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19799
+[2025-11-07 10:03:26,315] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:03:57,850] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19799
+[2025-11-07 10:03:58,296] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:04:30,563] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 10:04:48,062] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 10:04:48,556] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 10:04:48,577] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 10:04:52,143] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19799
+[2025-11-07 10:04:52,490] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:04:53,915] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19799
+[2025-11-07 10:04:54,219] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:05:04,304] INFO django.server — code 400, message Bad request version ('©´¿\x13Z©®@ìIf3u\x19ÿò\x08¥\x00"\x13\x01\x13\x03\x13\x02À+À/Ì©Ì¨À,À0À')
+[2025-11-07 10:05:04,305] ERROR django.server — You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-11-07 10:05:04,442] INFO django.server — code 400, message Bad request version ('\x08>\x11©g¶\x95å/NµF\x0f\x00"\x13\x01\x13\x03\x13\x02À+À/Ì©Ì¨À,À0À')
+[2025-11-07 10:05:04,443] ERROR django.server — You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-11-07 10:05:04,452] INFO django.server — code 400, message Bad request version ('?')
+[2025-11-07 10:05:04,452] ERROR django.server — You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-11-07 10:05:04,454] INFO django.server — code 400, message Bad request version ('I')
+[2025-11-07 10:05:04,454] ERROR django.server — You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-11-07 10:05:11,159] INFO django.server — "GET /admin/ HTTP/1.1" 200 32437
+[2025-11-07 10:10:54,724] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-07 10:14:10,191] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 10:14:10,784] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 10:14:10,805] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 10:14:20,793] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19799
+[2025-11-07 10:14:21,026] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6432
+[2025-11-07 10:14:21,028] INFO django.server — "GET /static/js/admin_custom.js HTTP/1.1" 200 0
+[2025-11-07 10:14:21,096] INFO django.server — "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+[2025-11-07 10:14:21,096] INFO django.server — "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+[2025-11-07 10:14:21,105] INFO django.server — "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-11-07 10:14:21,488] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:14:21,911] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+[2025-11-07 10:14:21,912] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+[2025-11-07 10:15:58,290] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19783
+[2025-11-07 10:15:58,408] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 0
+[2025-11-07 10:15:58,606] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:16:17,172] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19799
+[2025-11-07 10:16:17,302] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6542
+[2025-11-07 10:16:17,489] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:17:54,706] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19783
+[2025-11-07 10:17:54,834] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 4549
+[2025-11-07 10:17:55,200] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:18:32,168] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19783
+[2025-11-07 10:18:34,644] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19783
+[2025-11-07 10:18:34,745] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6542
+[2025-11-07 10:18:34,982] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:19:38,352] INFO django.server — "GET /admin/ HTTP/1.1" 200 32423
+[2025-11-07 10:19:38,581] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 10:19:54,576] INFO django.server — "GET /admin/ HTTP/1.1" 200 32439
+[2025-11-07 10:19:54,688] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 10:19:59,338] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19783
+[2025-11-07 10:19:59,819] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:20:41,701] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19799
+[2025-11-07 10:20:41,831] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6542
+[2025-11-07 10:20:42,053] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:24:21,075] INFO django.server — "GET /admin/lab/historicooperacao/ HTTP/1.1" 200 15464
+[2025-11-07 10:24:21,286] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 10:24:21,568] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:25:26,756] INFO django.server — "GET /admin/lab/historicooperacao/ HTTP/1.1" 200 15448
+[2025-11-07 10:25:26,883] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6540
+[2025-11-07 10:25:27,051] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:27:46,660] INFO django.server — "GET /admin/lab/historicooperacao/ HTTP/1.1" 200 15464
+[2025-11-07 10:27:46,779] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7093
+[2025-11-07 10:27:47,078] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:28:24,828] INFO django.server — "GET /admin/lab/historicooperacao/ HTTP/1.1" 200 15464
+[2025-11-07 10:28:24,945] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7133
+[2025-11-07 10:28:25,140] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:29:11,584] INFO django.server — "GET /admin/lab/historicooperacao/ HTTP/1.1" 200 15448
+[2025-11-07 10:29:11,688] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7133
+[2025-11-07 10:29:11,881] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:29:27,362] INFO django.server — "GET /admin/lab/historicooperacao/ HTTP/1.1" 200 15464
+[2025-11-07 10:29:27,500] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7134
+[2025-11-07 10:29:27,720] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:30:01,036] INFO django.server — "GET /admin/lab/historicooperacao/ HTTP/1.1" 200 15448
+[2025-11-07 10:30:01,155] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7135
+[2025-11-07 10:30:01,486] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:30:36,460] INFO django.server — "GET /admin/lab/historicooperacao/ HTTP/1.1" 200 15448
+[2025-11-07 10:30:36,571] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6543
+[2025-11-07 10:30:36,791] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:32:08,397] INFO django.server — "GET /admin/lab/historicooperacao/ HTTP/1.1" 200 15464
+[2025-11-07 10:32:08,539] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7288
+[2025-11-07 10:32:08,847] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:32:40,802] INFO django.server — "GET /admin/ HTTP/1.1" 200 32424
+[2025-11-07 10:32:40,990] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 10:33:03,078] INFO django.server — "GET /admin/ HTTP/1.1" 200 32440
+[2025-11-07 10:33:03,184] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 10:33:23,903] INFO django.server — "GET /admin/ HTTP/1.1" 200 32440
+[2025-11-07 10:33:24,015] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 10:33:25,397] INFO django.server — "GET /admin/ HTTP/1.1" 200 32440
+[2025-11-07 10:34:22,052] INFO django.server — "GET /admin/ HTTP/1.1" 200 32424
+[2025-11-07 10:34:22,162] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6679
+[2025-11-07 10:34:40,025] INFO django.server — "GET /admin/ HTTP/1.1" 200 32440
+[2025-11-07 10:34:40,134] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 10:35:39,455] INFO django.server — "GET /admin/ HTTP/1.1" 200 32440
+[2025-11-07 10:35:39,558] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6711
+[2025-11-07 10:35:41,342] INFO django.server — "GET /admin/ HTTP/1.1" 200 32440
+[2025-11-07 10:35:41,448] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 10:35:42,331] INFO django.server — "GET /admin/ HTTP/1.1" 200 32440
+[2025-11-07 10:35:42,440] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 10:36:43,835] INFO django.server — "GET /admin/ HTTP/1.1" 200 32424
+[2025-11-07 10:36:43,954] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6735
+[2025-11-07 10:37:00,474] INFO django.server — "GET /admin/ HTTP/1.1" 200 32440
+[2025-11-07 10:37:00,577] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6735
+[2025-11-07 10:37:31,629] INFO django.server — "GET /admin/ HTTP/1.1" 200 32424
+[2025-11-07 10:37:31,798] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6801
+[2025-11-07 10:37:33,221] INFO django.server — "GET /admin/ HTTP/1.1" 200 32424
+[2025-11-07 10:37:33,345] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 10:37:49,883] INFO django.server — "GET /admin/ HTTP/1.1" 200 32440
+[2025-11-07 10:37:50,004] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6807
+[2025-11-07 10:37:52,301] INFO django.server — "GET /admin/ HTTP/1.1" 200 32440
+[2025-11-07 10:37:52,410] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 10:37:53,871] INFO django.server — "GET /admin/ HTTP/1.1" 200 32440
+[2025-11-07 10:37:53,972] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 10:38:05,640] INFO django.server — "GET /admin/ HTTP/1.1" 200 32424
+[2025-11-07 10:38:05,737] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6810
+[2025-11-07 10:38:29,045] INFO django.server — "GET /admin/ HTTP/1.1" 200 32440
+[2025-11-07 10:38:29,154] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6794
+[2025-11-07 10:38:41,590] INFO django.server — "GET /admin/ HTTP/1.1" 200 32424
+[2025-11-07 10:38:41,693] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6712
+[2025-11-07 10:39:06,975] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 19799
+[2025-11-07 10:39:07,180] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6712
+[2025-11-07 10:39:07,434] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:46:32,861] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 21851
+[2025-11-07 10:46:33,076] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 10:46:33,321] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:46:41,633] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 646277
+[2025-11-07 10:56:18,027] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 21851
+[2025-11-07 10:56:18,230] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6712
+[2025-11-07 10:56:18,660] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:58:00,346] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-11-07 10:58:02,907] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 10:58:03,015] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 10:58:14,734] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-11-07 10:58:15,496] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 10:58:15,516] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 10:58:19,851] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-11-07 10:58:20,703] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 10:58:20,728] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 10:58:34,227] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-11-07 10:58:35,119] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 10:58:35,138] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 10:58:38,530] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-11-07 10:58:39,448] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 10:58:39,468] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 10:58:44,890] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-11-07 10:58:45,649] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 10:58:45,676] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 10:58:56,774] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 21851
+[2025-11-07 10:58:56,914] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6712
+[2025-11-07 10:58:57,332] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:59:09,138] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 302 0
+[2025-11-07 10:59:09,332] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 22440
+[2025-11-07 10:59:09,741] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 10:59:16,744] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 646146
+[2025-11-07 11:01:50,852] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 21851
+[2025-11-07 11:01:50,962] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6712
+[2025-11-07 11:01:51,203] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 11:01:59,990] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/utils/pdf_generator.py changed, reloading.
+[2025-11-07 11:02:01,354] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:02:01,395] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:17:48,775] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:17:49,642] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:17:49,666] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:34:18,704] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:34:19,971] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:34:19,996] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:35:04,194] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:35:05,087] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:35:14,301] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:35:15,239] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:35:26,440] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:35:27,430] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:35:27,448] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:36:14,610] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:36:16,017] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:36:16,071] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:36:27,790] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:36:28,999] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:36:29,030] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:37:38,662] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:37:39,965] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:37:39,995] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:37:43,456] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:37:44,168] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:37:44,188] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:38:09,966] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:38:11,510] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:38:11,581] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:38:14,231] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:38:15,817] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:38:19,069] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:38:20,067] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:38:23,259] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:38:24,160] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:38:24,179] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:38:26,542] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:38:27,643] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:38:27,674] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:38:30,037] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:38:30,531] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:38:37,733] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:38:38,722] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:38:42,918] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:38:43,830] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:38:46,006] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:38:47,127] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:38:47,210] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:38:48,705] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:38:49,751] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:38:49,778] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:38:52,278] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:38:53,096] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:38:56,294] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:38:57,417] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:38:58,623] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:38:59,882] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:38:59,914] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:39:02,360] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:39:03,213] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:39:11,410] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:39:12,081] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:39:18,273] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:39:19,083] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:39:19,100] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:39:23,453] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:39:24,519] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:39:24,547] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:39:41,096] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:39:41,840] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:39:41,866] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:39:46,200] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:39:47,258] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:39:47,289] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:39:55,717] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:39:57,045] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:40:02,267] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:40:03,565] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:40:06,859] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:40:08,211] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:40:08,242] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:40:15,804] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:40:16,654] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:40:16,675] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:40:28,100] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:40:29,869] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:40:29,920] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:40:32,616] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:40:33,697] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:40:33,716] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:41:12,712] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:41:13,779] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:41:13,819] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:41:32,504] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:41:33,148] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:41:33,167] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:41:36,458] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:41:37,198] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:41:37,218] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:41:45,595] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:41:46,639] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:41:46,675] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:41:51,044] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:41:52,794] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:41:52,845] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:41:56,347] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:41:57,694] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:41:57,718] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:42:01,043] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:42:02,399] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:42:02,460] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:42:03,911] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:42:04,832] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:42:04,859] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:42:09,209] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:42:10,955] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:42:10,987] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:42:23,725] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:42:24,401] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:42:24,421] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:42:48,087] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:42:48,717] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:42:48,737] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:42:51,132] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:42:52,009] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:42:52,029] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:43:01,436] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:43:02,182] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:43:02,199] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:45:38,693] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:45:39,251] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:45:39,539] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:45:40,656] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:45:41,630] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:45:41,679] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:45:43,106] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:45:43,890] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:45:43,911] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:45:48,196] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:45:48,982] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:45:49,002] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:45:51,295] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:45:52,142] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:45:52,177] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:45:56,566] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:45:57,291] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:45:57,535] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:46:00,622] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:46:01,146] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:46:01,381] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:46:03,460] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:46:04,233] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:46:04,254] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:47:02,648] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:47:03,275] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:47:03,295] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:47:05,595] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:47:06,338] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:47:06,356] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:47:10,747] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:47:11,458] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:47:11,478] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:47:14,773] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:47:15,502] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:47:15,521] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:47:19,811] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:47:20,535] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:47:20,558] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:47:26,877] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:47:27,618] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:47:27,636] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:47:31,938] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:47:32,445] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:47:32,688] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:47:35,758] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:47:36,344] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:47:36,591] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:47:39,668] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:47:40,415] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:47:40,443] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:48:18,531] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:48:19,203] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:48:19,239] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:48:20,582] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:48:21,316] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:48:21,342] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:48:41,936] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:48:42,621] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:48:42,644] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:48:45,947] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:48:46,696] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:48:47,056] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:48:49,182] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:48:49,891] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:48:49,911] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:48:52,175] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:48:52,729] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:48:52,969] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:49:04,088] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:49:04,799] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:49:04,818] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:49:27,499] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:49:28,148] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:49:28,166] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:49:33,500] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:49:34,213] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:49:34,234] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:49:36,512] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:49:37,176] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:49:37,201] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:49:51,664] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:49:52,189] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:49:52,425] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:49:59,524] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:50:00,843] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:50:00,868] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:50:02,115] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:50:03,116] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:50:03,130] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:50:13,359] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:50:13,923] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:50:14,267] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:50:15,367] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:50:16,108] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:50:16,131] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:51:15,578] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:51:16,358] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:51:16,378] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:51:18,655] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:51:19,381] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:51:19,411] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:51:21,762] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:51:22,499] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:51:22,522] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:51:28,933] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:51:29,728] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:51:29,748] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:51:32,056] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 11:51:32,805] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:51:32,833] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:53:33,529] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:53:34,225] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:53:34,243] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:53:41,593] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:53:42,241] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:53:42,277] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:53:43,716] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:53:44,634] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:53:44,673] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:53:47,961] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:53:49,166] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:53:49,197] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:53:51,524] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:53:52,511] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:53:52,533] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:53:57,862] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:53:58,599] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:53:58,624] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:54:05,963] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:54:07,057] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:54:07,084] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:55:48,249] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:55:48,957] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:55:48,979] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:55:52,267] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:55:53,259] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:55:53,296] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:55:54,536] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:55:55,159] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:55:55,180] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:55:57,524] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:55:58,422] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:55:58,458] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:56:03,818] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:56:04,621] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:56:04,873] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:56:08,969] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:56:09,769] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:56:09,790] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:56:13,099] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:56:13,965] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:56:13,987] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:56:16,245] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:56:16,870] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:56:17,147] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:56:19,214] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:56:20,115] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:56:20,153] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:56:21,558] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:56:22,297] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:56:22,321] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:56:25,581] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:56:26,219] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:56:26,238] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:56:28,489] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:56:29,186] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:56:29,208] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:56:33,500] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:56:34,029] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:56:34,341] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:56:35,483] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:56:36,187] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:56:36,213] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:56:38,497] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:56:39,121] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:56:39,141] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:56:42,398] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:56:42,942] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:56:43,194] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:56:45,267] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:56:45,962] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:56:45,981] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:57:01,511] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:57:02,321] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:57:02,342] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:57:14,836] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:57:15,704] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:57:16,035] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:57:17,191] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:57:18,080] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:57:18,104] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:57:30,579] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 11:57:31,412] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:57:31,432] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 11:59:33,112] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:59:33,604] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 11:59:33,624] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:00:21,763] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:00:22,539] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:00:22,571] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:03:38,968] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:03:39,753] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:03:39,779] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:03:58,154] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:03:58,658] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:03:58,678] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:05:11,332] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 12:05:11,861] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:05:14,090] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 12:05:14,717] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:05:14,736] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:05:24,149] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 12:05:24,840] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:05:24,860] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:05:34,936] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 21851
+[2025-11-07 12:05:35,069] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 12:05:35,334] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:05:35,461] INFO django.server — "GET /static/img/watermark.png HTTP/1.1" 200 2167518
+[2025-11-07 12:06:24,171] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:08:52,925] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:24:14,327] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:25:57,818] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:26:51,950] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:26:52,432] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:26:52,450] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:27:01,768] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 21851
+[2025-11-07 12:27:01,908] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 12:27:02,178] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:27:09,673] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 56143
+[2025-11-07 12:27:10,093] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:27:24,231] INFO django.server — "GET /admin/lab/paciente/?all= HTTP/1.1" 200 90589
+[2025-11-07 12:27:24,595] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:31:43,905] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:31:44,558] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:31:44,576] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:31:47,921] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:31:48,632] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:31:48,652] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:32:45,169] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:32:45,971] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:32:46,000] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:32:49,340] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:32:50,044] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:32:50,064] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:32:53,445] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:32:54,290] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:32:54,324] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:33:12,057] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:33:13,283] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:33:13,312] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:33:14,614] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:33:15,400] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:33:15,437] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:33:16,864] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:33:17,577] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:33:17,597] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:33:28,040] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:33:28,974] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:33:29,018] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:33:34,007] INFO django.server — "GET /admin/lab/paciente/?all= HTTP/1.1" 200 89749
+[2025-11-07 12:33:34,506] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:39:23,770] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:39:24,494] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:39:24,511] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:46:28,024] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:46:29,025] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:46:29,423] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:46:33,543] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:46:34,040] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:46:34,287] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:46:36,350] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:46:36,950] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:46:37,213] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:46:38,321] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:46:39,170] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:46:39,199] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:46:44,071] INFO django.server — "GET /admin/lab/paciente/?all= HTTP/1.1" 200 89814
+[2025-11-07 12:46:44,184] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6712
+[2025-11-07 12:46:44,261] WARNING django.server — "GET /static/admin/js/data_registo_buttons.js HTTP/1.1" 404 1910
+[2025-11-07 12:46:44,623] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:46:44,659] WARNING django.server — "GET /static/admin/js/data_registo_buttons.js HTTP/1.1" 404 1910
+[2025-11-07 12:48:01,616] ERROR django.request — Internal Server Error: /admin/lab/paciente/93/change/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 840, in get_form
+    return modelform_factory(self.model, **defaults)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/forms/models.py", line 654, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/forms/models.py", line 312, in __new__
+    fields = fields_for_model(
+        opts.model,
+    ...<11 lines>...
+        form_declared_fields=new_class.declared_fields,
+    )
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/forms/models.py", line 207, in fields_for_model
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: 'data_registo' cannot be specified for Paciente model form as it is a non-editable field
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1840, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1878, in _changeform_view
+    ModelForm = self.get_form(
+        request, obj, change=not add, fields=flatten_fieldsets(fieldsets)
+    )
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 842, in get_form
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: 'data_registo' cannot be specified for Paciente model form as it is a non-editable field. Check fields/fieldsets/exclude attributes of class PacienteAdmin.
+[2025-11-07 12:48:01,625] ERROR django.server — "GET /admin/lab/paciente/93/change/?_changelist_filters=all%3D HTTP/1.1" 500 165931
+[2025-11-07 12:48:58,369] ERROR django.request — Internal Server Error: /admin/lab/paciente/93/change/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 840, in get_form
+    return modelform_factory(self.model, **defaults)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/forms/models.py", line 654, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/forms/models.py", line 312, in __new__
+    fields = fields_for_model(
+        opts.model,
+    ...<11 lines>...
+        form_declared_fields=new_class.declared_fields,
+    )
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/forms/models.py", line 207, in fields_for_model
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: 'data_registo' cannot be specified for Paciente model form as it is a non-editable field
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1840, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1878, in _changeform_view
+    ModelForm = self.get_form(
+        request, obj, change=not add, fields=flatten_fieldsets(fieldsets)
+    )
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 842, in get_form
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: 'data_registo' cannot be specified for Paciente model form as it is a non-editable field. Check fields/fieldsets/exclude attributes of class PacienteAdmin.
+[2025-11-07 12:48:58,374] ERROR django.server — "GET /admin/lab/paciente/93/change/?_changelist_filters=all%3D HTTP/1.1" 500 165931
+[2025-11-07 12:48:58,978] WARNING django.request — Not Found: /favicon.ico
+[2025-11-07 12:50:47,912] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:50:48,957] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:50:48,978] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:50:51,958] INFO django.server — "GET /admin/lab/paciente/93/change/?_changelist_filters=all%3D HTTP/1.1" 200 22010
+[2025-11-07 12:50:52,140] INFO django.server — "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+[2025-11-07 12:50:52,148] INFO django.server — "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-11-07 12:50:52,149] INFO django.server — "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2025-11-07 12:50:52,283] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:51:29,182] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:51:29,997] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:51:30,022] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:51:30,625] INFO django.server — "GET /admin/lab/paciente/93/change/?_changelist_filters=all%3D HTTP/1.1" 200 22010
+[2025-11-07 12:51:31,060] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:52:48,983] INFO django.server — "POST /admin/lab/paciente/93/change/?_changelist_filters=all%3D HTTP/1.1" 302 0
+[2025-11-07 12:52:49,172] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 56305
+[2025-11-07 12:52:49,625] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:52:53,156] INFO django.server — "GET /admin/lab/paciente/29/change/ HTTP/1.1" 200 21931
+[2025-11-07 12:52:53,618] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:53:00,412] INFO django.server — "POST /admin/lab/paciente/29/change/ HTTP/1.1" 302 0
+[2025-11-07 12:53:00,618] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 56301
+[2025-11-07 12:53:01,004] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:53:10,842] INFO django.server — "GET /admin/lab/paciente/?p=2 HTTP/1.1" 200 57067
+[2025-11-07 12:53:11,208] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:53:20,554] INFO django.server — "GET /admin/lab/paciente/?p=3 HTTP/1.1" 200 25783
+[2025-11-07 12:53:20,913] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:53:29,249] INFO django.server — "GET /admin/lab/paciente/?all= HTTP/1.1" 200 89737
+[2025-11-07 12:53:29,629] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:53:40,217] INFO django.server — "GET /admin/lab/paciente/?all=&o=2.1 HTTP/1.1" 200 91284
+[2025-11-07 12:53:40,851] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:53:55,915] INFO django.server — "GET /admin/lab/paciente/?all=&o=5.2.1 HTTP/1.1" 200 91934
+[2025-11-07 12:53:56,315] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:54:11,021] INFO django.server — "GET /admin/lab/paciente/?q=Laura&all=&o=5.2.1 HTTP/1.1" 200 20010
+[2025-11-07 12:54:11,432] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:54:29,881] INFO django.server — "GET /admin/lab/paciente/?q=Abdul&all=&o=5.2.1 HTTP/1.1" 200 25299
+[2025-11-07 12:54:30,283] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 12:54:45,585] ERROR django.request — Internal Server Error: /admin/lab/exame/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: lab_exame.metodo
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 2163, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ~~~^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: lab_exame.metodo
+[2025-11-07 12:54:45,594] ERROR django.server — "GET /admin/lab/exame/ HTTP/1.1" 500 185874
+[2025-11-07 12:57:52,170] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 12:57:52,943] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:57:52,971] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:59:10,800] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:59:11,632] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:59:11,666] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 12:59:42,522] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 12:59:43,473] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 12:59:43,494] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 13:00:26,603] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 13:00:27,462] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:00:27,482] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 13:00:35,850] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 13:00:36,559] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:00:36,582] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 13:00:38,884] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 13:00:39,677] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:00:39,706] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 13:01:18,896] ERROR django.request — Internal Server Error: /admin/lab/exame/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: lab_exame.metodo
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 2163, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ~~~^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: lab_exame.metodo
+[2025-11-07 13:01:18,904] ERROR django.server — "GET /admin/lab/exame/ HTTP/1.1" 500 185469
+[2025-11-07 13:01:52,862] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:01:53,631] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:01:58,692] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:01:59,173] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:01:59,198] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 13:02:01,925] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 28985
+[2025-11-07 13:02:01,989] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 13:02:02,183] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:02:12,704] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116016
+[2025-11-07 13:02:12,926] INFO django.server — "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-11-07 13:02:12,926] INFO django.server — "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2025-11-07 13:02:13,026] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:06:02,095] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116016
+[2025-11-07 13:06:02,726] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:06:31,121] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116016
+[2025-11-07 13:06:31,554] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:06:32,869] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116016
+[2025-11-07 13:06:33,247] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:06:48,445] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116016
+[2025-11-07 13:06:48,851] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:06:50,312] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116016
+[2025-11-07 13:06:50,638] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:06:57,265] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116016
+[2025-11-07 13:06:57,557] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:07:10,095] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116016
+[2025-11-07 13:07:10,496] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:07:28,311] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116016
+[2025-11-07 13:07:28,633] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:07:39,724] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116016
+[2025-11-07 13:07:40,088] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:07:51,276] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116016
+[2025-11-07 13:07:51,681] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:08:46,423] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116016
+[2025-11-07 13:08:46,826] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:08:48,378] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116016
+[2025-11-07 13:08:48,694] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:08:49,867] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116016
+[2025-11-07 13:08:50,212] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:09:37,173] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116000
+[2025-11-07 13:09:37,470] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:09:53,668] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116000
+[2025-11-07 13:09:53,977] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:09:55,486] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116000
+[2025-11-07 13:09:55,789] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:10:13,479] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116000
+[2025-11-07 13:10:13,788] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:10:15,702] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116000
+[2025-11-07 13:10:16,055] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:10:46,984] INFO django.server — "POST /admin/lab/exame/2/change/ HTTP/1.1" 302 0
+[2025-11-07 13:10:47,233] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29556
+[2025-11-07 13:10:47,652] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:10:55,319] INFO django.server — "GET /admin/lab/exame/1/change/ HTTP/1.1" 200 39709
+[2025-11-07 13:10:55,886] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:11:28,427] INFO django.server — "POST /admin/lab/exame/1/change/ HTTP/1.1" 302 0
+[2025-11-07 13:11:28,610] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29576
+[2025-11-07 13:11:29,057] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:17:28,757] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-07 13:17:29,448] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:17:29,468] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 13:17:32,775] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-07 13:19:50,578] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:19:51,075] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:19:51,094] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 13:19:53,802] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:19:53,896] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7259
+[2025-11-07 13:19:54,307] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:20:02,811] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:20:03,112] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:20:14,542] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:20:15,233] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:20:20,105] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:20:20,581] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:20:20,603] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 13:20:25,613] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:20:25,921] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:20:32,065] INFO django.server — "GET /admin/ HTTP/1.1" 200 32160
+[2025-11-07 13:20:35,455] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:20:35,805] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:25:02,510] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:25:02,635] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 13:25:02,927] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:25:03,102] INFO django.server — "GET /static/img/watermark.png HTTP/1.1" 200 2167518
+[2025-11-07 13:25:20,029] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:25:20,337] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:27:17,631] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:27:17,753] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 13:27:18,117] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:30:00,354] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-07 13:30:01,199] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:30:01,224] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 13:30:43,469] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:30:43,591] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7259
+[2025-11-07 13:30:43,910] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:30:45,613] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:30:45,922] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:31:31,349] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:31:31,671] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:31:35,323] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:31:35,659] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:31:58,079] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:32:02,926] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:32:24,034] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:32:24,525] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:32:24,543] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 13:32:27,618] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:32:27,855] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:32:30,890] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:32:31,223] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:36:19,753] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-07 13:36:20,567] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:36:20,594] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 13:38:13,905] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:38:39,176] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:38:48,023] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:38:48,502] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:38:48,524] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 13:46:18,888] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:46:45,745] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:46:46,220] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:46:46,243] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 13:46:55,446] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:46:55,616] INFO django.server — "GET /static/js/admin_custom.js HTTP/1.1" 200 0
+[2025-11-07 13:46:55,616] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7344
+[2025-11-07 13:46:55,616] INFO django.server — "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-11-07 13:46:55,882] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:46:58,330] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:46:58,592] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:48:03,200] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:48:03,695] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 13:48:03,719] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 13:48:05,900] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:48:06,186] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:48:37,604] INFO django.server — "GET /admin/lab/historicooperacao/ HTTP/1.1" 200 15464
+[2025-11-07 13:48:37,789] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 13:48:37,962] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:48:59,096] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:48:59,496] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:49:02,839] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116000
+[2025-11-07 13:49:03,265] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:50:12,304] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116000
+[2025-11-07 13:50:12,695] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:50:35,468] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116000
+[2025-11-07 13:50:35,583] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7354
+[2025-11-07 13:50:35,827] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:50:46,743] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116000
+[2025-11-07 13:50:46,853] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7354
+[2025-11-07 13:50:47,051] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:50:56,827] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116000
+[2025-11-07 13:50:56,937] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 13:50:57,155] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:51:07,684] INFO django.server — "POST /admin/lab/exame/2/change/ HTTP/1.1" 302 0
+[2025-11-07 13:51:07,915] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29572
+[2025-11-07 13:51:08,140] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7354
+[2025-11-07 13:51:08,379] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:52:15,787] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:52:15,904] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 0
+[2025-11-07 13:52:16,084] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:52:27,314] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:52:27,421] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7354
+[2025-11-07 13:52:27,700] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:52:48,898] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:52:49,014] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7099
+[2025-11-07 13:52:49,242] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:52:57,229] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:52:57,334] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7354
+[2025-11-07 13:52:57,562] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:53:13,276] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:53:13,396] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7354
+[2025-11-07 13:53:13,669] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:53:24,940] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:53:25,070] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 7099
+[2025-11-07 13:53:25,229] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:53:37,762] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:53:37,885] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6983
+[2025-11-07 13:53:38,079] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:53:40,188] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:53:40,299] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6983
+[2025-11-07 13:53:40,505] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:53:54,919] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:53:55,021] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6432
+[2025-11-07 13:53:55,235] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:53:59,229] INFO django.server — "GET /admin/ HTTP/1.1" 200 29607
+[2025-11-07 13:53:59,409] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 13:54:04,256] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29005
+[2025-11-07 13:54:04,455] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 13:54:04,623] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:54:08,032] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 34278
+[2025-11-07 13:54:08,324] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 13:54:08,499] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:55:16,699] INFO django.server — "GET /admin/lab/resultadoitem/9/change/ HTTP/1.1" 200 25812
+[2025-11-07 13:55:16,894] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 13:55:17,255] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:55:17,277] INFO django.server — "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2025-11-07 13:55:17,278] INFO django.server — "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[2025-11-07 13:55:17,278] INFO django.server — "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2025-11-07 13:55:17,289] INFO django.server — "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[2025-11-07 13:55:51,799] INFO django.server — "POST /admin/lab/resultadoitem/9/change/ HTTP/1.1" 302 0
+[2025-11-07 13:55:52,033] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 34870
+[2025-11-07 13:55:52,307] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 13:55:52,516] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:56:21,145] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29021
+[2025-11-07 13:56:21,341] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 13:56:21,529] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:56:24,213] INFO django.server — "GET /admin/lab/exame/2/change/ HTTP/1.1" 200 116016
+[2025-11-07 13:56:24,638] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:57:38,363] INFO django.server — "POST /admin/lab/exame/2/change/ HTTP/1.1" 302 0
+[2025-11-07 13:57:38,665] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29588
+[2025-11-07 13:57:38,908] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 13:57:39,118] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:57:47,896] INFO django.server — "GET /admin/ HTTP/1.1" 200 29564
+[2025-11-07 13:57:56,022] INFO django.server — "GET /admin/lab/historicooperacao/ HTTP/1.1" 200 15464
+[2025-11-07 13:57:56,438] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:57:59,140] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 55738
+[2025-11-07 13:57:59,573] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:58:29,094] INFO django.server — "GET /admin/lab/paciente/6/change/ HTTP/1.1" 200 21943
+[2025-11-07 13:58:29,308] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 13:58:29,332] INFO django.server — "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+[2025-11-07 13:58:29,336] INFO django.server — "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2025-11-07 13:58:29,342] INFO django.server — "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-11-07 13:58:29,427] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:58:49,780] INFO django.server — "POST /admin/lab/paciente/6/change/ HTTP/1.1" 302 0
+[2025-11-07 13:58:49,980] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 56307
+[2025-11-07 13:58:50,470] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:59:03,669] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 21851
+[2025-11-07 13:59:03,854] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6432
+[2025-11-07 13:59:04,019] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:59:24,916] INFO django.server — "GET /admin/lab/requisicaoanalise/add/ HTTP/1.1" 200 31788
+[2025-11-07 13:59:25,130] INFO django.server — "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-11-07 13:59:25,149] INFO django.server — "GET /static/admin/css/autocomplete.css HTTP/1.1" 200 9185
+[2025-11-07 13:59:25,152] INFO django.server — "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2025-11-07 13:59:25,154] INFO django.server — "GET /static/admin/js/vendor/select2/i18n/pt-BR.js HTTP/1.1" 200 876
+[2025-11-07 13:59:25,311] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 13:59:27,009] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=requisicaoanalise&field_name=paciente HTTP/1.1" 200 1032
+[2025-11-07 13:59:28,037] INFO django.server — "GET /admin/autocomplete/?page=2&app_label=lab&model_name=requisicaoanalise&field_name=paciente HTTP/1.1" 200 1080
+[2025-11-07 13:59:28,602] INFO django.server — "GET /admin/autocomplete/?page=3&app_label=lab&model_name=requisicaoanalise&field_name=paciente HTTP/1.1" 200 1099
+[2025-11-07 13:59:32,294] INFO django.server — "GET /admin/autocomplete/?term=a&app_label=lab&model_name=requisicaoanalise&field_name=paciente HTTP/1.1" 200 1032
+[2025-11-07 13:59:32,622] INFO django.server — "GET /admin/autocomplete/?term=a&page=2&app_label=lab&model_name=requisicaoanalise&field_name=paciente HTTP/1.1" 200 1080
+[2025-11-07 13:59:33,853] INFO django.server — "GET /admin/autocomplete/?term=an&app_label=lab&model_name=requisicaoanalise&field_name=paciente HTTP/1.1" 200 1035
+[2025-11-07 13:59:34,278] INFO django.server — "GET /admin/autocomplete/?term=ana&app_label=lab&model_name=requisicaoanalise&field_name=paciente HTTP/1.1" 200 844
+[2025-11-07 13:59:35,929] INFO django.server — "GET /admin/autocomplete/?term=ana%20&app_label=lab&model_name=requisicaoanalise&field_name=paciente HTTP/1.1" 200 844
+[2025-11-07 14:00:30,528] INFO django.server — "POST /admin/lab/requisicaoanalise/add/ HTTP/1.1" 302 0
+[2025-11-07 14:00:30,718] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 23035
+[2025-11-07 14:00:31,081] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6432
+[2025-11-07 14:00:31,285] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:00:47,425] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 44329
+[2025-11-07 14:00:47,774] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:00:47,777] INFO django.server — "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+[2025-11-07 14:01:22,625] INFO django.server — "GET /admin/lab/resultadoitem/?o=-2.1 HTTP/1.1" 200 45369
+[2025-11-07 14:01:22,846] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 14:01:23,039] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:01:54,019] INFO django.server — "GET /admin/lab/resultadoitem/?q=ana+silva&o=-2.1 HTTP/1.1" 200 35739
+[2025-11-07 14:01:54,496] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:02:34,783] INFO django.server — "GET /admin/lab/resultadoitem/add/?_changelist_filters=q%3Dana%2Bsilva%26o%3D-2.1 HTTP/1.1" 200 25183
+[2025-11-07 14:02:35,026] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 14:02:35,064] INFO django.server — "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-11-07 14:02:35,143] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:03:20,545] INFO django.server — "POST /admin/lab/resultadoitem/add/?_changelist_filters=q%3Dana%2Bsilva%26o%3D-2.1 HTTP/1.1" 302 0
+[2025-11-07 14:03:20,770] INFO django.server — "GET /admin/lab/resultadoitem/add/?_changelist_filters=q%3Dana%2Bsilva%26o%3D-2.1 HTTP/1.1" 200 25818
+[2025-11-07 14:03:21,298] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:03:45,716] INFO django.server — "POST /admin/lab/resultadoitem/add/?_changelist_filters=q%3Dana%2Bsilva%26o%3D-2.1 HTTP/1.1" 302 0
+[2025-11-07 14:03:45,916] INFO django.server — "GET /admin/lab/resultadoitem/?q=ana+silva&o=-2.1 HTTP/1.1" 200 37099
+[2025-11-07 14:03:46,174] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 14:03:46,375] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:03:54,892] INFO django.server — "GET /admin/lab/resultadoitem/add/?_changelist_filters=q%3Dana%2Bsilva%26o%3D-2.1 HTTP/1.1" 200 25183
+[2025-11-07 14:03:55,292] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:04:24,198] INFO django.server — "POST /admin/lab/resultadoitem/add/?_changelist_filters=q%3Dana%2Bsilva%26o%3D-2.1 HTTP/1.1" 302 0
+[2025-11-07 14:04:24,387] INFO django.server — "GET /admin/lab/resultadoitem/?q=ana+silva&o=-2.1 HTTP/1.1" 200 37929
+[2025-11-07 14:04:24,940] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:04:50,482] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 22447
+[2025-11-07 14:04:50,705] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 14:04:50,966] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:05:12,677] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 646021
+[2025-11-07 14:06:15,344] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 22447
+[2025-11-07 14:06:15,531] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6432
+[2025-11-07 14:06:15,732] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:06:17,269] INFO django.server — "GET /admin/lab/requisicaoanalise/add/ HTTP/1.1" 200 31788
+[2025-11-07 14:06:17,532] INFO django.server — "GET /static/admin/js/vendor/select2/i18n/pt-BR.js HTTP/1.1" 200 876
+[2025-11-07 14:06:17,548] INFO django.server — "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2025-11-07 14:06:17,551] INFO django.server — "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-11-07 14:06:17,671] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:06:20,821] INFO django.server — "GET /admin/autocomplete/?app_label=lab&model_name=requisicaoanalise&field_name=paciente HTTP/1.1" 200 1032
+[2025-11-07 14:07:13,845] INFO django.server — "POST /admin/lab/requisicaoanalise/add/ HTTP/1.1" 302 0
+[2025-11-07 14:07:14,059] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 23647
+[2025-11-07 14:07:14,509] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:07:24,171] INFO django.server — "GET /admin/lab/requisicaoanalise/3/change/ HTTP/1.1" 200 38201
+[2025-11-07 14:07:24,578] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:07:35,534] INFO django.server — "POST /admin/lab/requisicaoanalise/3/change/ HTTP/1.1" 302 0
+[2025-11-07 14:07:35,718] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 23645
+[2025-11-07 14:07:35,937] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 14:07:36,128] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:07:44,421] INFO django.server — "GET /admin/lab/requisicaoanalise/2/change/ HTTP/1.1" 200 143503
+[2025-11-07 14:07:44,905] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:07:51,631] ERROR django.request — Internal Server Error: /admin/lab/requisicaoanalise/2/change/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1895, in _changeform_view
+    self.save_related(request, form, formsets, not add)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py", line 109, in save_related
+    ResultadoItem.objects.get_or_create(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        requisicao=requisicao,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        }
+        ^
+    )
+    ^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/query.py", line 946, in get_or_create
+    return self.get(**kwargs), False
+           ~~~~~~~~^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/query.py", line 636, in get
+    raise self.model.MultipleObjectsReturned(
+    ...<5 lines>...
+    )
+lab.models.ResultadoItem.MultipleObjectsReturned: get() returned more than one ResultadoItem -- it returned 2!
+[2025-11-07 14:07:51,636] ERROR django.server — "POST /admin/lab/requisicaoanalise/2/change/ HTTP/1.1" 500 167666
+[2025-11-07 14:07:57,415] INFO django.server — "GET /admin/lab/requisicaoanalise/2/change/ HTTP/1.1" 200 143503
+[2025-11-07 14:08:10,339] ERROR django.request — Internal Server Error: /admin/lab/requisicaoanalise/2/change/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1895, in _changeform_view
+    self.save_related(request, form, formsets, not add)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py", line 109, in save_related
+    ResultadoItem.objects.get_or_create(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        requisicao=requisicao,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        }
+        ^
+    )
+    ^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/query.py", line 946, in get_or_create
+    return self.get(**kwargs), False
+           ~~~~~~~~^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/query.py", line 636, in get
+    raise self.model.MultipleObjectsReturned(
+    ...<5 lines>...
+    )
+lab.models.ResultadoItem.MultipleObjectsReturned: get() returned more than one ResultadoItem -- it returned 2!
+[2025-11-07 14:08:10,346] ERROR django.server — "POST /admin/lab/requisicaoanalise/2/change/ HTTP/1.1" 500 167667
+[2025-11-07 14:08:27,802] INFO django.server — "GET /admin/lab/requisicaoanalise/2/change/ HTTP/1.1" 200 143503
+[2025-11-07 14:09:08,402] ERROR django.request — Internal Server Error: /admin/lab/requisicaoanalise/2/change/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1895, in _changeform_view
+    self.save_related(request, form, formsets, not add)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py", line 109, in save_related
+    ResultadoItem.objects.get_or_create(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        requisicao=requisicao,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        }
+        ^
+    )
+    ^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/query.py", line 946, in get_or_create
+    return self.get(**kwargs), False
+           ~~~~~~~~^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/query.py", line 636, in get
+    raise self.model.MultipleObjectsReturned(
+    ...<5 lines>...
+    )
+lab.models.ResultadoItem.MultipleObjectsReturned: get() returned more than one ResultadoItem -- it returned 2!
+[2025-11-07 14:09:08,406] ERROR django.server — "POST /admin/lab/requisicaoanalise/2/change/ HTTP/1.1" 500 167666
+[2025-11-07 14:09:08,679] WARNING django.request — Not Found: /favicon.ico
+[2025-11-07 14:09:13,935] INFO django.server — "GET /admin/lab/requisicaoanalise/2/change/ HTTP/1.1" 200 143503
+[2025-11-07 14:09:16,700] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29021
+[2025-11-07 14:09:16,874] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 14:09:17,116] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:09:22,560] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 23051
+[2025-11-07 14:09:22,924] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:09:38,742] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 645379
+[2025-11-07 14:10:27,186] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 302 0
+[2025-11-07 14:10:27,366] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 23568
+[2025-11-07 14:10:27,854] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:10:43,068] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 645291
+[2025-11-07 14:11:02,667] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 44382
+[2025-11-07 14:11:02,858] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 14:11:03,100] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:11:19,581] INFO django.server — "GET /admin/lab/resultadoitem/?o=-1.2 HTTP/1.1" 200 45322
+[2025-11-07 14:11:19,982] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:12:09,969] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 44382
+[2025-11-07 14:12:10,369] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:12:45,408] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:12:46,761] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:12:47,126] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:12:50,239] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:12:51,122] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:12:51,151] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:12:52,478] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:12:53,320] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:12:53,351] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:12:54,944] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:12:55,918] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:12:55,942] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:13:01,031] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 44382
+[2025-11-07 14:13:01,348] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 14:13:01,673] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:13:11,269] INFO django.server — "GET /admin/ HTTP/1.1" 200 28143
+[2025-11-07 14:13:16,437] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 29021
+[2025-11-07 14:13:16,996] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:13:29,048] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 55734
+[2025-11-07 14:13:29,442] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:13:35,728] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 23051
+[2025-11-07 14:13:36,275] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:13:45,857] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 44382
+[2025-11-07 14:13:46,291] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:13:52,453] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 44382
+[2025-11-07 14:13:52,793] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:14:13,054] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:14:14,166] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:14:14,635] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:14:15,783] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:14:16,767] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:14:16,804] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:14:18,116] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:14:18,812] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:14:18,834] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:14:31,400] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:14:32,392] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:14:32,738] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:14:33,807] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:14:34,305] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:14:34,548] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:14:38,630] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:14:39,371] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:14:39,656] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:14:41,744] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:14:42,348] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:14:42,599] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:14:45,720] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:14:47,065] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:14:47,096] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:14:56,886] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 44382
+[2025-11-07 14:14:57,023] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 14:14:57,211] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:16:21,423] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:16:22,321] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:16:22,628] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:16:24,782] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:16:25,556] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:16:25,576] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:16:30,921] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:16:32,047] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:16:32,081] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:16:33,434] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:16:34,140] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:16:34,158] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:16:36,480] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:16:37,378] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:16:37,402] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:16:45,839] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:16:47,026] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:16:47,532] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:16:48,694] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:16:49,398] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:16:49,643] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:16:51,795] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:16:53,233] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:16:53,261] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:17:33,347] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:17:34,240] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:17:34,269] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:17:37,821] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 44366
+[2025-11-07 14:17:37,908] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6432
+[2025-11-07 14:17:38,311] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:17:41,900] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 23714
+[2025-11-07 14:17:42,275] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:18:47,409] INFO django.server — "GET /admin/lab/requisicaoanalise/?id=3&q= HTTP/1.1" 200 23027
+[2025-11-07 14:18:47,829] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:18:53,336] INFO django.server — "GET /admin/lab/requisicaoanalise/3/change/?_changelist_filters=id%3D3%26q%3D HTTP/1.1" 200 38287
+[2025-11-07 14:18:53,806] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:19:02,832] INFO django.server — "GET /admin/lab/ HTTP/1.1" 200 25363
+[2025-11-07 14:19:09,562] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 44366
+[2025-11-07 14:19:10,026] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:20:06,799] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:20:07,457] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:20:07,689] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:20:09,764] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:20:10,856] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:20:10,924] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:20:13,403] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:20:14,264] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:20:14,301] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:20:15,789] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:20:16,820] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:20:16,867] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:20:18,265] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:20:19,081] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:20:19,106] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:20:30,618] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:20:31,129] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:20:31,431] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:20:32,560] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:20:33,161] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:20:33,401] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:20:35,483] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:20:36,069] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:20:36,314] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:20:40,404] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:20:41,161] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:20:41,190] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:20:43,526] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:20:44,473] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:20:44,739] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:20:49,839] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:20:50,575] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:20:50,608] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:21:02,134] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:21:03,084] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:21:03,123] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:21:05,466] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:21:06,381] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:21:06,406] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:21:20,933] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:21:22,046] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:21:22,542] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:21:23,718] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:21:24,297] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:21:24,565] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:21:25,675] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:21:26,458] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:21:26,484] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:21:28,767] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:21:29,572] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:21:29,596] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:21:39,061] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:21:39,741] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:21:39,752] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:21:41,919] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:21:42,651] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:21:42,661] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:22:20,027] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:22:20,729] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:22:20,742] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:22:23,920] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:22:24,790] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:22:24,818] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:22:27,793] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 44366
+[2025-11-07 14:22:27,876] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 14:22:27,909] INFO django.server — "GET /static/js/admin_custom.js HTTP/1.1" 200 0
+[2025-11-07 14:22:27,909] INFO django.server — "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-11-07 14:22:28,243] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:23:28,703] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:23:29,410] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:23:29,648] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:23:35,755] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:23:36,491] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:23:36,515] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:24:19,664] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:24:20,179] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:24:20,414] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:24:22,493] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:24:23,285] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:24:23,308] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:24:27,584] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:24:28,505] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:24:28,568] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:24:29,975] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:24:30,623] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:24:30,645] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:24:33,947] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:24:34,723] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:24:34,751] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:24:37,258] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 45586
+[2025-11-07 14:24:37,875] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:24:41,546] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 24143
+[2025-11-07 14:24:41,993] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:24:50,180] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 71626
+[2025-11-07 14:24:50,625] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:25:25,361] INFO django.server — "GET /admin/lab/paciente/?o=-2 HTTP/1.1" 200 73116
+[2025-11-07 14:25:25,555] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 304 0
+[2025-11-07 14:25:25,753] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:25:29,774] INFO django.server — "GET /admin/lab/paciente/?o=2 HTTP/1.1" 200 73050
+[2025-11-07 14:25:30,228] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:25:31,975] INFO django.server — "GET /admin/lab/paciente/?o=1.2 HTTP/1.1" 200 73562
+[2025-11-07 14:25:32,455] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:25:49,295] INFO django.server — "GET /admin/lab/paciente/?id=60&q=&o=1.2 HTTP/1.1" 200 39276
+[2025-11-07 14:25:49,737] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:25:58,327] INFO django.server — "GET /admin/lab/paciente/add/?_changelist_filters=id%3D60%26q%3D%26o%3D1.2 HTTP/1.1" 200 21185
+[2025-11-07 14:25:58,552] INFO django.server — "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2025-11-07 14:25:58,553] INFO django.server — "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+[2025-11-07 14:25:58,554] INFO django.server — "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-11-07 14:25:58,650] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:26:22,184] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 45586
+[2025-11-07 14:26:22,575] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:26:24,858] INFO django.server — "GET /admin/lab/resultadoitem/add/ HTTP/1.1" 200 25177
+[2025-11-07 14:26:25,263] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:27:56,440] INFO django.server — "POST /admin/lab/resultadoitem/add/ HTTP/1.1" 302 0
+[2025-11-07 14:27:56,688] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 46251
+[2025-11-07 14:27:57,142] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:28:14,173] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 24143
+[2025-11-07 14:28:14,557] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:28:25,103] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 645266
+[2025-11-07 14:28:38,534] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 645406
+[2025-11-07 14:34:29,591] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 14:34:30,554] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:34:30,574] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:34:35,892] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/models.py changed, reloading.
+[2025-11-07 14:34:36,569] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:34:36,588] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:38:01,128] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:38:02,073] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:38:02,095] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:38:10,527] INFO django.utils.autoreload — /home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py changed, reloading.
+[2025-11-07 14:38:11,277] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:38:11,301] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:44:32,193] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:44:32,679] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:44:32,698] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:44:55,072] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:44:55,745] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:46:44,986] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:46:45,682] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:47:07,234] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:47:08,007] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:47:14,826] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:47:15,301] WARNING lab.utils.pdf_generator — Falha ao registrar Roboto, usando Courier como fallback: Can't open file "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"
+[2025-11-07 14:47:15,323] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-07 14:47:19,691] INFO django.server — "GET /admin/lab/requisicaoanalise/3/change/ HTTP/1.1" 200 47277
+[2025-11-07 14:47:19,967] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 6432
+[2025-11-07 14:47:20,039] INFO django.server — "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+[2025-11-07 14:47:20,055] INFO django.server — "GET /static/admin/css/vendor/select2/select2.css HTTP/1.1" 200 17358
+[2025-11-07 14:47:20,058] INFO django.server — "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2025-11-07 14:47:20,061] INFO django.server — "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+[2025-11-07 14:47:20,064] INFO django.server — "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-11-07 14:47:20,071] INFO django.server — "GET /static/admin/css/autocomplete.css HTTP/1.1" 200 9185
+[2025-11-07 14:47:20,074] INFO django.server — "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-11-07 14:47:20,075] INFO django.server — "GET /static/admin/js/vendor/select2/i18n/pt-BR.js HTTP/1.1" 200 876
+[2025-11-07 14:47:20,078] INFO django.server — "GET /static/js/admin_custom.js HTTP/1.1" 200 0
+[2025-11-07 14:47:20,194] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:47:20,586] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+[2025-11-07 14:48:16,347] INFO django.server — "GET /admin/lab/requisicaoanalise/3/delete/ HTTP/1.1" 200 14358
+[2025-11-07 14:48:16,544] INFO django.server — "GET /static/admin/js/cancel.js HTTP/1.1" 200 564
+[2025-11-07 14:48:20,832] INFO django.server — "POST /admin/lab/requisicaoanalise/3/delete/ HTTP/1.1" 302 0
+[2025-11-07 14:48:20,974] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 23946
+[2025-11-07 14:48:21,491] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:48:27,177] INFO django.server — "GET /admin/lab/requisicaoanalise/2/change/ HTTP/1.1" 200 139880
+[2025-11-07 14:48:27,578] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 8514
+[2025-11-07 14:50:53,019] ERROR django.request — Internal Server Error: /admin/lab/requisicaoanalise/2/change/
+Traceback (most recent call last):
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1895, in _changeform_view
+    self.save_related(request, form, formsets, not add)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/lab/admin.py", line 109, in save_related
+    ResultadoItem.objects.get_or_create(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        requisicao=requisicao,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        }
+        ^
+    )
+    ^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/query.py", line 946, in get_or_create
+    return self.get(**kwargs), False
+           ~~~~~~~~^^^^^^^^^^
+  File "/home/australopithecus/Área de trabalho/proj-sys-lab/proj-sys-lab/venv/lib/python3.13/site-packages/django/db/models/query.py", line 636, in get
+    raise self.model.MultipleObjectsReturned(
+    ...<5 lines>...
+    )
+lab.models.ResultadoItem.MultipleObjectsReturned: get() returned more than one ResultadoItem -- it returned 2!
+[2025-11-07 14:50:53,025] ERROR django.server — "POST /admin/lab/requisicaoanalise/2/change/ HTTP/1.1" 500 177283

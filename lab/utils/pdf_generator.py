@@ -1,9 +1,12 @@
 """
 Módulo de geração de PDFs institucionais para AnaBioLink
-Autor: Trato
-Versão: 3.1 (layout híbrido: design AnaBioLink + margens institucionais precisas)
+Autor: Trato (ajustado)
+Versão: 3.1.1 (estilos de tabela ajustados)
+Descrição: Mantém comportamento anterior; altera apenas o desenho de linhas
+           nas tabelas de resultados: linhas horizontais somente entre exames,
+           e rótulos (Valor / Unidade / Valor referência) apresentados
+           junto ao cabeçalho do exame.
 """
-
 import os
 import io
 import logging
@@ -48,8 +51,9 @@ def draw_header(canvas, doc):
                 buf = io.BytesIO()
                 img.save(buf, format="PNG")
                 buf.seek(0)
+                # posicione a imagem no canto superior esquerdo
                 canvas.drawImage(ImageReader(buf), 20, A4[1] - 130,
-                                 width=125, height=190, preserveAspectRatio=True, mask='auto')
+                                 width=125, height=90, preserveAspectRatio=True, mask='auto')
         except Exception as e:
             logger.warning("Erro ao carregar logo: %s", e)
     else:
@@ -64,6 +68,7 @@ def draw_header(canvas, doc):
     canvas.drawString(150, A4[1] - 95, "Pemba - Cabo Delgado, Moçambique")
     canvas.drawString(150, A4[1] - 110, "Tel: +258 84 773 5374 | Email: suporte@anabiolink.mz")
 
+    # linha de separação robusta
     canvas.setStrokeColor(colors.darkblue)
     canvas.setLineWidth(5)
     canvas.line(0 * cm, A4[1] - 120, A4[0] - 0 * cm, A4[1] - 120)
@@ -84,13 +89,15 @@ def draw_signatures(canvas, doc, usuario=None):
     canvas.saveState()
     y = 2 * cm
     width_total = A4[0] - 2 * cm
+    # espaço entre assinaturas
     width_line = (width_total - 4 * cm) / 2
-    
-    x1, x2 = 3 * cm, 3 * cm + width_line + 2 * cm + width_line
+
+    x1 = 3 * cm
+    x2 = 3 * cm + width_line + 2 * cm + width_line
 
     canvas.setLineWidth(1)
-    canvas.line(3 * cm, y, 3 * cm + width_line, y)
-    canvas.line(3 * cm + width_line + 2 * cm, y, x2, y)
+    canvas.line(x1, y, x1 + width_line, y)
+    canvas.line(x1 + width_line + 2 * cm, y, x2, y)
 
     tecnico_nome = "Técnico de Laboratório"
     if usuario:
@@ -98,8 +105,8 @@ def draw_signatures(canvas, doc, usuario=None):
         tecnico_nome = " ".join(filter(None, nomes)).strip() or tecnico_nome
 
     canvas.setFont(FONT, 10)
-    canvas.drawCentredString((3 * cm + 3 * cm + width_line) / 2, y - 12, tecnico_nome)
-    canvas.drawCentredString((3 * cm + width_line + 2 * cm + x2) / 2, y - 12, "Responsável do Laboratório")
+    canvas.drawCentredString(x1 + width_line / 2, y - 12, tecnico_nome)
+    canvas.drawCentredString(x1 + width_line + 2 * cm + width_line / 2, y - 12, "Responsável do Laboratório")
     canvas.restoreState()
 
 
@@ -122,8 +129,12 @@ def draw_watermark(canvas, doc):
                 # Espaçamento entre as marcas
                 step_x, step_y = w + 40, h + 50
 
-                # Transparência
-                canvas.setFillAlpha(0.08)
+                # Transparência (ReportLab recente suporta setFillAlpha)
+                try:
+                    canvas.setFillAlpha(0.06)
+                except Exception:
+                    # alguns backends antigos podem não suportar setFillAlpha; ignore se falhar
+                    pass
 
                 # Desenhar múltiplas instâncias
                 y = 0
@@ -134,7 +145,10 @@ def draw_watermark(canvas, doc):
                         x += step_x
                     y += step_y
 
-                canvas.setFillAlpha(1.0)
+                try:
+                    canvas.setFillAlpha(1.0)
+                except Exception:
+                    pass
         else:
             logger.warning("Marca d'água não encontrada em %s", WATERMARK_PATH)
     except Exception as e:
@@ -145,6 +159,8 @@ def draw_watermark(canvas, doc):
 
 # ==================== LAYOUT PADRÃO ====================
 def layout(canvas, doc, usuario=None):
+    # Ordem: watermark por baixo, depois header, footer e assinaturas
+    # watermark desenhada primeiro para ficar atrás (dependendo do backend)
     draw_watermark(canvas, doc)
     draw_header(canvas, doc)
     draw_footer(canvas, doc)
@@ -152,31 +168,35 @@ def layout(canvas, doc, usuario=None):
 
 
 # ==================== ESTILO DE TABELAS ====================
-def estilo_tabela_sem_verticais():
-    return TableStyle([
-        ("FONTNAME", (0,0), (-1,-1), FONT),
-        ("FONTSIZE", (0,0), (-1,-1), 9),
-        ("VALIGN", (0,0), (-1,-1), "TOP"),
-        ("LINEABOVE", (0,0), (-1,0), 0.5, colors.black),
-        ("LINEBELOW", (0,-1), (-1,-1), 0.5, colors.black),
-        ("LINEBELOW", (0,0), (-1,-1), 0.25, colors.black),
-        ("BACKGROUND", (0,0), (-1,0), colors.HexColor("#E0E0E0"))
-    ])
+def estilo_tabela_base_cmds():
+    """
+    Retorna lista de comandos (tuplas) compatível com TableStyle.
+    Não adiciona linhas verticais nem linhas horizontais padrão — somente tipografia e paddings.
+    """
+    return [
+        ("FONTNAME", (0, 0), (-1, -1), FONT),
+        ("FONTSIZE", (0, 0), (-1, -1), 9),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 6),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+        ("TOPPADDING", (0, 0), (-1, -1), 3),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
+    ]
 
 
 # ==================== PDF DE REQUISIÇÃO ====================
-def gerar_pdf_requisicao(requisicao, pos_x=1*cm, pos_y=None):
+def gerar_pdf_requisicao(requisicao, pos_x=1 * cm, pos_y=None):
     buffer = io.BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=A4,
-                            leftMargin=3*cm, rightMargin=1*cm,
-                            topMargin=4*cm, bottomMargin=1*cm)
+                            leftMargin=3 * cm, rightMargin=1 * cm,
+                            topMargin=4 * cm, bottomMargin=1 * cm)
 
     story = []
 
     style = ParagraphStyle("Heading1", fontName=FONT_BOLD, fontSize=10)
-    story.append(Spacer(1, 1*cm if not pos_y else pos_y))
+    story.append(Spacer(1, 1 * cm if not pos_y else pos_y))
     story.append(Paragraph("REQUISIÇÃO DE ANÁLISES CLÍNICAS", style))
-    story.append(Spacer(2, 0.5*cm))
+    story.append(Spacer(2, 0.5 * cm))
 
     paciente = requisicao.paciente
     idade = getattr(paciente, "idade_display", lambda: "—")()
@@ -188,26 +208,21 @@ def gerar_pdf_requisicao(requisicao, pos_x=1*cm, pos_y=None):
         ["Documento:", paciente.numero_id or "—"],
         ["Proveniência:", getattr(paciente, "proveniencia", "N/D")]
     ]
-    tabela = Table(dados, colWidths=[4*cm, 12*cm], hAlign='LEFT')
-    tabela.setStyle(estilo_tabela_sem_verticais())
+    tabela = Table(dados, colWidths=[4 * cm, 12 * cm], hAlign='LEFT')
+    tabela.setStyle(TableStyle(estilo_tabela_base_cmds()))
     story.append(tabela)
-    story.append(Spacer(1, 0.5*cm))
+    story.append(Spacer(1, 0.5 * cm))
     story.append(Paragraph("Exames Requisitados", style))
-    story.append(Spacer(1, 0.5*cm))
+    story.append(Spacer(1, 0.5 * cm))
 
     exames = [[e.nome] for e in getattr(requisicao, "exames_list", requisicao.exames.all())] or [["Nenhum exame registrado."]]
-    tabela_exames = Table(exames, colWidths=[16*cm], hAlign='LEFT')
-    tabela_exames.setStyle(estilo_tabela_sem_verticais())
-    tabela_exames.setStyle(TableStyle([
-    ("LINEABOVE", (0, 0), (-1, 0), 0.5, colors.black),
-    ("LINEBELOW", (0, -1), (-1, -1), 0.5, colors.black),
-    ]))
-
+    tabela_exames = Table(exames, colWidths=[16 * cm], hAlign='LEFT')
+    tabela_exames.setStyle(TableStyle(estilo_tabela_base_cmds()))
     story.append(tabela_exames)
 
     usuario = getattr(requisicao, "analista", None)
-    doc.build(story, onFirstPage=lambda c,d: layout(c,d,usuario),
-              onLaterPages=lambda c,d: layout(c,d,usuario))
+    doc.build(story, onFirstPage=lambda c, d: layout(c, d, usuario),
+              onLaterPages=lambda c, d: layout(c, d, usuario))
 
     pdf_bytes = buffer.getvalue()
     buffer.close()
@@ -216,23 +231,27 @@ def gerar_pdf_requisicao(requisicao, pos_x=1*cm, pos_y=None):
 
 
 # ==================== PDF DE RESULTADOS ====================
-def gerar_pdf_resultados(requisicao, pos_x=2*cm, pos_y=None):
+def gerar_pdf_resultados(requisicao, pos_x=2 * cm, pos_y=None):
     """
     Gera PDF de resultados agrupando por exame.
-    Para cada exame, insere uma linha cabeçalho com o nome do exame antes dos seus parâmetros.
+    Alterações principais:
+    - Para cada exame adiciona um cabeçalho com o NOME DO EXAME (à esquerda) e 
+      os rótulos (Valor | Unidade | Valor referência) na mesma linha (colunas à direita).
+    - Desenha linha horizontal acima do cabeçalho do exame e abaixo do bloco do exame.
+    - Não desenha linhas entre os parâmetros do mesmo exame.
     """
     import itertools
 
     buffer = io.BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=A4,
-                            leftMargin=3*cm, rightMargin=1*cm,
-                            topMargin=4*cm, bottomMargin=1*cm)
+                            leftMargin=3 * cm, rightMargin=1 * cm,
+                            topMargin=4 * cm, bottomMargin=1 * cm)
 
     story = []
-    story.append(Spacer(1, 1*cm if not pos_y else pos_y))
+    story.append(Spacer(1, 1 * cm if not pos_y else pos_y))
     style = ParagraphStyle("Heading1", fontName=FONT_BOLD, fontSize=12)
     story.append(Paragraph("RESULTADOS DE ANÁLISES", style))
-    story.append(Spacer(1, 0.5*cm))
+    story.append(Spacer(1, 0.5 * cm))
 
     paciente = requisicao.paciente
     idade = getattr(paciente, "idade_display", lambda: "—")()
@@ -245,59 +264,52 @@ def gerar_pdf_resultados(requisicao, pos_x=2*cm, pos_y=None):
         ["Gênero:", paciente.genero or "—"],
         ["Data da Análise:", data_str],
     ]
-    tabela_dados = Table(dados, colWidths=[6*cm, 12*cm], hAlign='LEFT')
-    tabela_dados.setStyle(estilo_tabela_sem_verticais())
+    tabela_dados = Table(dados, colWidths=[6 * cm, 12 * cm], hAlign='LEFT')
+    tabela_dados.setStyle(TableStyle(estilo_tabela_base_cmds()))
     story.append(tabela_dados)
-    story.append(Spacer(1, 0.5*cm))
+    story.append(Spacer(1, 0.5 * cm))
 
     # -----------------------------------------------------------
     # Construção dos resultados agrupados por exame
     # -----------------------------------------------------------
-    # Cabeçalho da tabela (será usado apenas para a primeira linha do bloco de dados de cada exame)
-    # Vamos criar 'resultados_data' contendo linhas e também um 'table_style_extra' para estilizar os cabeçalhos dos exames.
     resultados_data = []
-    table_style_extra = []
+    style_cmds = estilo_tabela_base_cmds()
+    # larguras apropriadas: campo, valor, unidade, valor_referencia
+    col_widths = [6 * cm, 4 * cm, 2 * cm, 4 * cm]
 
-    # Pegar queryset de resultados relacionados à requisição
     resultados_qs = getattr(requisicao, "resultados", None)
     if not resultados_qs:
         resultados_data = [["Nenhum resultado disponível."]]
-        tabela_resultados = Table(resultados_data, colWidths=[16*cm], hAlign='LEFT')
-        tabela_resultados.setStyle(estilo_tabela_sem_verticais())
+        tabela_resultados = Table(resultados_data, colWidths=[16 * cm], hAlign='LEFT')
+        tabela_resultados.setStyle(TableStyle(style_cmds))
         story.append(tabela_resultados)
     else:
-        # Ordena por exame e por ordem do campo (se existir), para agrupar logicamente
         resultados_list = list(resultados_qs.all().select_related('exame_campo', 'exame_campo__exame'))
         resultados_list.sort(key=lambda r: (
             getattr(r.exame_campo.exame, "nome", ""),
             getattr(r.exame_campo, "ordem", 0)
         ))
 
-        # Agrupa por nome do exame
+        # iterar agrupado por exame
         for exame_nome, group in itertools.groupby(resultados_list, key=lambda r: getattr(r.exame_campo.exame, "nome", "—")):
-            # Inserir linha de cabeçalho do exame (uma linha só que ocupará as 4 colunas)
-            # Usamos uma linha com o nome do exame na primeira célula; em seguida criaremos um SPAN via estilos.
-            header_text = exame_nome or "—"
-            row_index = len(resultados_data)  # índice da linha que vamos inserir
-            resultados_data.append([header_text, "", "", ""])  # 4 colunas para manter compatibilidade
-            
-            # Aplica estilo para essa linha de cabeçalho (fundo claro, negrito, e span)
-            table_style_extra.append(("SPAN", (0, row_index), (-1, row_index)))
-            table_style_extra.append(("FONTNAME", (0, row_index), (0, row_index), FONT_BOLD))
-            table_style_extra.append(("FONTSIZE", (0, row_index), (0, row_index), 11))
-            table_style_extra.append(("BACKGROUND", (0, row_index), (-1, row_index), colors.HexColor("#F2F7FF")))
-            table_style_extra.append(("LEFTPADDING", (0, row_index), (-1, row_index), 6))
-            table_style_extra.append(("BOTTOMPADDING", (0, row_index), (-1, row_index), 4))
-            table_style_extra.append(("TOPPADDING", (0, row_index), (-1, row_index), 4))
-            
-            table_style_extra.append(("LINEABOVE", (0, row_index), (-1, row_index), 0.5, colors.black))
-            table_style_extra.append(("LINEBELOW", (0, row_index), (-1, row_index), 0.5, colors.black))
-            
-            # Adiciona linhas horizontais apenas no cabeçalho do exame
+            # índice da linha onde o cabeçalho do exame será inserido
+            row_index = len(resultados_data)
 
+            # CABEÇALHO: uma linha com [NOME_EXAME, "Valor", "Unidade", "Valor referência"]
+            # O nome do exame ficará na coluna 0; as labels das colunas na 1,2,3
+            resultados_data.append([exame_nome or "—", "Valor", "Unidade", "Valor referência"])
 
+            # estilo para o cabeçalho: fundo claro, negrito a linha inteira e fontsize um pouco maior
+            style_cmds.append(("BACKGROUND", (0, row_index), (-1, row_index), colors.HexColor("#F2F7FF")))
+            style_cmds.append(("FONTNAME", (0, row_index), (-1, row_index), FONT_BOLD))
+            style_cmds.append(("FONTSIZE", (0, row_index), (-1, row_index), 10))
+            style_cmds.append(("LEFTPADDING", (0, row_index), (0, row_index), 6))
+            style_cmds.append(("BOTTOMPADDING", (0, row_index), (-1, row_index), 6))
+            # linha horizontal acima do cabeçalho do exame
+            style_cmds.append(("LINEABOVE", (0, row_index), (-1, row_index), 0.7, colors.HexColor("#333333")))
 
-            # Agora acrescenta as linhas dos parâmetros desse exame
+            # agora adiciona os parâmetros (sem linhas entre eles)
+            start_block_index = len(resultados_data)
             for r in group:
                 exame_campo = getattr(r, "exame_campo", None)
                 exame_nome_campo = getattr(exame_campo, "nome_campo", "—")
@@ -306,22 +318,24 @@ def gerar_pdf_resultados(requisicao, pos_x=2*cm, pos_y=None):
                 valor = r.resultado or "—"
                 resultados_data.append([exame_nome_campo, valor, unidade, valor_ref])
 
-        # Criar tabela com larguras adaptadas
-        tabela_resultados = Table(resultados_data, colWidths=[5*cm, 5*cm, 2*cm, 6*cm], hAlign='LEFT')
+            # índice do final do bloco do exame (última linha pertencente a este exame)
+            last_block_index = len(resultados_data) - 1
+            # desenhar linha horizontal abaixo do bloco do exame para separar do próximo exame
+            style_cmds.append(("LINEBELOW", (0, last_block_index), (-1, last_block_index), 0.5, colors.HexColor("#333333")))
+            # pequeno espaçamento em baixo do bloco para melhorar leitura
+            style_cmds.append(("BOTTOMPADDING", (0, last_block_index), (-1, last_block_index), 8))
 
-        # Aplica o estilo base sem verticais e depois os estilos adicionais (cabeçalhos de exame)
-        base_style = estilo_tabela_sem_verticais()
-        for st in table_style_extra:
-            base_style.add(*st) if hasattr(base_style, 'add') else base_style._cmds.append(st)  # compatibilidade com versões
-        tabela_resultados.setStyle(base_style)
+        # criar a tabela final com os comandos acumulados
+        tabela_resultados = Table(resultados_data, colWidths=col_widths, hAlign='LEFT')
+        tabela_resultados.setStyle(TableStyle(style_cmds))
         story.append(tabela_resultados)
 
     # -----------------------------------------------------------
     # Finaliza documento mantendo header/footer/watermark via layout existente
     # -----------------------------------------------------------
     usuario = getattr(requisicao, "analista", None)
-    doc.build(story, onFirstPage=lambda c,d: layout(c,d,usuario),
-              onLaterPages=lambda c,d: layout(c,d,usuario))
+    doc.build(story, onFirstPage=lambda c, d: layout(c, d, usuario),
+              onLaterPages=lambda c, d: layout(c, d, usuario))
 
     pdf_bytes = buffer.getvalue()
     buffer.close()

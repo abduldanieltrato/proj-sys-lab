@@ -8,17 +8,34 @@ from .models import (
 from .utils.pdf_generator import gerar_pdf_requisicao, gerar_pdf_resultados
 
 
-# ========================== PACIENTE ==========================
+from django.contrib import admin
+from .models import Paciente
+from datetime import date
+
+
 @admin.register(Paciente)
 class PacienteAdmin(admin.ModelAdmin):
     """Gestão de pacientes."""
-    list_display = ('nome', 'numero_id', 'idade_display', 'genero', 'proveniencia', 'data_registo')
-    search_fields = ('nome', 'numero_id', 'contacto', 'proveniencia')
-    list_filter = ('genero', 'proveniencia')
-    readonly_fields = ('data_registo',)
-    list_per_page = 25
+    # aqui usamos o método formatado
+    list_display = ('id','nome', 'numero_id', 'idade', 'genero', 'proveniencia', 'data_registo_formatada')
+    
+    search_fields = ('id', 'nome', 'numero_id', 'contacto', 'proveniencia')
+    list_filter = ('id','genero', 'proveniencia', 'data_registo')
+    readonly_fields = ('data_registo', 'idade', 'genero', 'proveniencia', 'contacto')
+    list_per_page = 50
+
+    # Permite usar idade como campo no list_display
+    def idade(self, obj):
+        return obj.idade()
+    idade.short_description = "Idade"
+    
+    # Método para exibir data formatada
+    def data_registo_formatada(self, obj):
+        return obj.data_registo.strftime("%d/%m/%Y às %H:%M")
+    data_registo_formatada.short_description = "Data de Registo"
 
 
+    
 # ========================== EXAME ==========================
 class ExameCampoInline(admin.TabularInline):
     """Campos configuráveis dentro de cada exame."""
@@ -31,20 +48,20 @@ class ExameCampoInline(admin.TabularInline):
 @admin.register(Exame)
 class ExameAdmin(admin.ModelAdmin):
     """Gestão de exames e seus campos de resultados."""
-    list_display = ('nome', 'codigo', 'trl_horas', 'activo')
-    list_filter = ('activo',)
-    search_fields = ('nome', 'codigo')
+    list_display = ('nome', 'codigo', 'setor', 'metodo', 'trl_horas', 'activo')
+    list_filter = ('nome', 'codigo', 'activo', 'setor', 'metodo')
+    search_fields = ('nome', 'codigo', 'setor', 'metodo')
     inlines = [ExameCampoInline]
-    list_per_page = 25
+    list_per_page = 50
 
 
 # ========================== RESULTADO INLINE ==========================
 class ResultadoItemInline(admin.TabularInline):
     """Resultados individuais de uma requisição."""
     model = ResultadoItem
-    extra = 0
-    fields = ('exame_campo', 'resultado', 'unidade', 'valor_referencia', 'validado', 'data_validacao')
-    readonly_fields = ('unidade', 'valor_referencia', 'data_validacao')
+    extra = 1
+    fields = ('exame_campo', 'resultado', 'validado', 'data_validacao')
+    readonly_field = ('data_validacao')
     can_delete = False
 
     def get_queryset(self, request):
@@ -69,13 +86,13 @@ class RequisicaoAnaliseAdmin(admin.ModelAdmin):
     form = RequisicaoAnaliseForm
     inlines = [ResultadoItemInline]
     list_display = ('id', 'paciente', 'status', 'analista', 'created_at')
-    search_fields = ('paciente__nome', 'paciente__numero_id')
-    list_filter = ('status', 'analista', 'created_at')
+    search_fields = ('id', 'paciente__nome', 'paciente__numero_id')
+    list_filter = ('id','status', 'analista', 'created_at')
     autocomplete_fields = ('paciente', 'analista')
     readonly_fields = ('created_at', 'updated_at', 'analista')
     actions = ['gerar_pdf_requisicao', 'gerar_pdf_resultados']
     list_per_page = 25
-    ordering = ['-created_at']
+    ordering = ['-id','-created_at']
 
     def save_model(self, request, obj, form, change):
         """Atribui o analista automaticamente se não existir."""
@@ -128,8 +145,8 @@ class RequisicaoAnaliseAdmin(admin.ModelAdmin):
 @admin.register(ResultadoItem)
 class ResultadoItemAdmin(admin.ModelAdmin):
     """Gestão de resultados unitários de cada exame."""
-    list_display = ('requisicao', 'exame_campo', 'resultado', 'unidade', 'valor_referencia', 'validado', 'data_validacao')
-    search_fields = ('requisicao__paciente__nome', 'exame_campo__nome_campo', 'resultado')
+    list_display = ('id','requisicao', 'exame_campo', 'resultado', 'validado', 'data_validacao')
+    search_fields = ('id','requisicao__paciente__nome', 'exame_campo__nome_campo', 'resultado')
     list_filter = ('validado', 'exame_campo__exame')
     readonly_fields = ('data_validacao',)
     ordering = ['requisicao', 'exame_campo']
@@ -140,9 +157,14 @@ class ResultadoItemAdmin(admin.ModelAdmin):
 @admin.register(HistoricoOperacao)
 class HistoricoOperacaoAdmin(admin.ModelAdmin):
     """Monitoramento das operações administrativas e técnicas."""
-    list_display = ('acao', 'utilizador', 'requisicao', 'data')
-    search_fields = ('acao', 'utilizador__username', 'requisicao__paciente__nome')
-    list_filter = ('acao', 'utilizador')
+    list_display = ('id','acao', 'utilizador', 'requisicao', 'data')
+    search_fields = ('id','acao', 'utilizador__username', 'requisicao__paciente__nome')
+    list_filter = ('id','acao', 'utilizador')
     readonly_fields = ('data',)
-    ordering = ['-data']
+    ordering = ['-id','-data']
     list_per_page = 40
+
+
+
+from django.contrib import admin
+admin.site.enable_nav_sidebar = True 

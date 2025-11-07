@@ -1,107 +1,360 @@
 :root {
-    --grad-bg: linear-gradient(135deg, #3b5ca8, #6b7da5, #f0a655); /* azul → azul cinza → amarelo-alaranjado */
-    --btn-gradient: linear-gradient(45deg, #3b5ca8, #f0a655);
-    --text-light: #ffffff;
-    --text-dark: #1a1a1a;
-    --radius: 8px;
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+	--verde-principal: #05861b;
+	--verde-escuro:	rgb(21, 87, 21);
+	--preto: #000000;
+	--cinza-suave: #27790e;
+	--radius: 6px;
+	--shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+	--branco: #0a0808;
+}
+
+.card-body {
+	vertical-align: middle;
+	font-weight: 600;
+	color: var(--branco);
+	font: 1em sans-serif;
+	background-color: rgb(16, 68, 16);
 }
 
 /* ==========================
    📊 Painel administrativo
 =========================== */
-body {
-    background: var(--grad-bg);
-    font-family: 'Segoe UI', sans-serif;
-    color: var(--text-dark);
-}
-
-/* Navbar */
-.navbar {
-    background: var(--grad-bg);
-    color: var(--text-light);
-    box-shadow: var(--shadow);
-    font-weight: 700;
-}
 
 /* Sidebar */
+.sidebar-dark-primary {
+	background-color: rgb(19, 88, 19);
+	width: auto;
+}
+
+.sidebar .nav-link,
+.sidebar .brand-link,
+.sidebar .nav-link i {
+	font: 1em sans-serif;
+	color: var(--branco) !important;
+	font-weight: 600;
+	padding: 3px;
+	background-color: #310909b6;
+	border-radius: 5px;
+	line-height: 18px;
+	font-style: italic;
+}
+
 .sidebar {
-    background: rgba(255, 255, 255, 0.05); /* leve transparência */
-    color: var(--text-light);
-    border-radius: var(--radius);
+	background-color: var(--verde-escuro);
+	border-radius: var(--radius);
+	color: var(--branco) !important;
+	font-weight: bolder;
+	margin-right: 10px;
 }
 
-/* Card headers e corpo */
+/* Navbar (topo) */
+.navbar {
+	font-size: 1.4em;
+	background-color: var(--verde-escuro) !important;
+	color: var(--branco) !important;
+	box-shadow: var(--shadow);
+	padding: 0px 10px 5px 20px;
+}
+
+
+.navbar a {
+	text-align: center;
+	vertical-align: middle;
+	background-color: var(--verde-escuro);
+	line-height: 1em;
+	color: var(--branco) !important;
+    font-weight: 800;
+
+}
+
+/* Headers dos cards */
 .card-header {
-    background: var(--grad-bg);
-    color: var(--text-light);
-    text-align: center;
-    font-weight: 700;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 1rem;
+	padding: 20px;
+	background-color: var(--verde-escuro);
+	color: var(--branco) !important;
+
 }
 
-.card-body {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-light);
-}
-
-/* Botões */
-.btn-primary {
-    background: var(--btn-gradient);
-    border: none;
-    color: var(--text-dark);
-    font-weight: 700;
-    border-radius: var(--radius);
-    transition: 0.3s;
-}
-
-.btn-primary:hover {
-    background: linear-gradient(45deg, #f0a655, #3b5ca8);
-    color: var(--text-light);
-}
-
-/* Tabelas */
+/* ==========================
+   📋 Tabelas
+=========================== */
 .table-striped tbody tr:nth-of-type(odd) {
-    background: rgba(255, 255, 255, 0.05);
+	background-color: var(--verde-escuro);
+	opacity: 1;
 }
 
 .table td {
-    color: var(--text-dark);
-    background: rgba(255, 255, 255, 0.1);
+	padding: -1em;
+	font: 1em sans-serif;
+	text-decoration: none;
+	vertical-align: middle;
+	border-top: 2px solid #916161 !important;
+	border-bottom: 2px solid #a18282d2 !important;
+	color: var(--preto);
+    font-weight: bold;
+    font-size: 1em;
+	background-color: var(--verde-escuro);
 }
 
-/* Links */
-a, a:link, a:visited {
-    color: var(--text-dark);
-    font-weight: 600;
+/* Links dentro das tabelas (Ex: usuários, pacientes, exames, etc.) */
+.table a,
+a,
+a:link,
+a:visited {
+	color: var(--preto) !important;
+	text-decoration: none;
+    font: 1em sans-serif;
+	font-weight: 600;
+	
 }
 
+.table a:hover,
 a:hover {
-    color: var(--text-light);
+	color: var(--branco) !important;
+    font-weight: bold;
     text-decoration: underline;
 }
 
-/* Footer */
-.main-footer {
-    background: var(--grad-bg);
-    color: var(--text-light);
-    text-align: center;
-    font-style: italic;
+/* ==========================
+   🧩 Botões
+=========================== */
+.btn-primary {
+	overflow: hidden;
+	border-radius: var(--radius);
+	text-decoration: none;
+	background-color: var(--verde-principal);
+	border-color: var(--verde-escuro);
+	color: var(--preto);
+    font-weight: 800;
 }
 
-/* Inputs e focus */
+.btn-primary:hover {
+	background-color: var(--verde-escuro);
+	border-color: var(--verde-escuro);
+	color: var(--preto;
+    font-weight: 600;
+    
+}
+
+/* ==========================
+   🧭 Footer e detalhes
+=========================== */
+.main-footer {
+	background: var(--verde-escuro);
+	color: var(--branco);
+	text-align: center;
+	padding: 0.6rem;
+	font-style: italic;
+	font-size: 1rem;
+}
+
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-    border: 2px solid #f0a655;
-    outline: none;
-    box-shadow: 0 0 5px rgba(240, 166, 85, 0.4);
+	border: 1px solid var(--verde-principal);
+	outline: none;
+	border-color: var(--verde-principal);
+	background-color: var(--cinza-suave);
+	box-shadow: 0 0 5px rgba(13, 138, 13, 0.3);
+}
+/* ==========================
+   🔹 Logo de login ajustada ao formulário
+=========================== */
+.login-box {
+	padding: auto;
+	overflow: hidden;
+	justify-content: flex-end;
+	height: 450px;
+	border-radius: 6px;
+	border: 2px solid #27790e00 ;
+	box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.233);
+	background-color: rgb(15, 105, 15);
+	
 }
 
-/* Login box */
-.login-box {
-    background: var(--grad-bg);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    color: var(--text-light);
+/* Corrige ícones grandes no Django Admin */
+svg {
+  width: 3px !important;
+  height: 3px !important;
+  vertical-align: middle;
+}
+
+/* Mantém botões e links no tamanho padrão */
+a.changelink, a.deletelink, a.viewlink, a.addlink, .object-tools a, .object-tools button {
+  font-size: 10px !important;
+  line-height: normal !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Evita que o CSS global (como Tailwind) quebre o layout do admin */
+body#grp-body *, body#container * {
+  font-size: revert !important;
+  line-height: revert !important;
+}
+
+* {
+	color: #b4a9a9;
+}
+
+
+
+/* ==========================
+   🧭 TOPO (HEADER / NAVBAR)
+=========================== */
+#header {
+	background: linear-gradient(90deg, #15344d, #0a0a0a, #c28b2b);
+	color: #ffffff;
+	border-bottom: 3px solid #c28b2b;
+	padding: 10px 20px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* Título “Administração do Django” */
+#header #branding h1, 
+#header #branding h1 a {
+	color: #ffffff !important;
+	font-size: 1.4em;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+/* Links do topo (usuário, logout, etc.) */
+#user-tools {
+	color: #f1f1f1;
+	font-size: 0.9em;
+}
+
+#user-tools a {
+	color: #f0c05a;
+	text-decoration: none;
+	font-weight: 600;
+	margin-left: 6px;
+}
+
+#user-tools a:hover {
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+
+/* ==========================
+   📂 MENU LATERAL (APP LIST)
+=========================== */
+#content-related {
+	background: linear-gradient(180deg, #1f1f1f, #0d0d0d, #3b3b3b);
+	color: #ffffff;
+	border-radius: 6px;
+	padding: 15px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+#content-related h2 {
+	color: #f0c05a;
+	border-bottom: 1px solid #c28b2b;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+}
+
+#content-related a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+#content-related a:hover {
+	color: #f0c05a;
+	text-decoration: underline;
+}
+
+
+
+/* Botões principais */
+.button, input[type="submit"], .submit-row input {
+	background: linear-gradient(45deg, #15344d, #c28b2b);
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	padding: 6px 12px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.button:hover, input[type="submit"]:hover, .submit-row input:hover {
+	background: linear-gradient(45deg, #c28b2b, #15344d);
+}
+
+/* Tabelas de listagem */
+#changelist table {
+	background-color: #0e0e0e;
+	color: #e0e0e0;
+	border-radius: 4px;
+}
+
+#changelist table th {
+	background-color: #1a1a1a;
+	color: #f0c05a;
+}
+
+#changelist table td {
+	background-color: #121212;
+}
+
+
+
+#nav-sidebar {
+	background: linear-gradient(180deg, #0a0a0a, #15344d, #c28b2b);
+	color: #c5b8b8;
+}
+
+#nav-sidebar .current-app .model {
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 4px;
+}
+
+#nav-sidebar a {
+	color: #c2b2b2;
+}
+
+#nav-sidebar a:hover {
+	color: #f0c05a;
+}
+
+* html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	font: 1em sans-sarif black bold italic;
+}
+
+/* Remove "Jazzmin version X.X.X" do rodapé */
+.footer .float-right,
+.footer small {
+	display: none !important;
+}
+
+/* Ajusta o rodapé para exibir apenas o copyright */
+.footer {
+	text-align: center !important;
+	font-size: 12px !important;
+	color: #777 !important;
+	padding: 10px 0 !important;
+	background: #f9f9f9 !important;
+	border-top: 1px solid #ddd !important;
 }
