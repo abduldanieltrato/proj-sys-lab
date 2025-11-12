@@ -23,4 +23,4 @@ django-countries
 django-extensions
 pyOpenSSL
 django-tabbed-admin
-"737-325-093"
+django-select2

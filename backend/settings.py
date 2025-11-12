@@ -31,13 +31,13 @@ USE_TZ = True
 # BANCO DE DADOS
 # ============================================================
 DATABASES = {
-    "default": {
-        "ENGINE": os.environ.get("DB_ENGINE", "django.db.backends.sqlite3"),
-        "NAME": os.environ.get("DB_NAME", BASE_DIR / "db.sqlite3"),
-        "USER": os.environ.get("DB_USER", ""),
-        "PASSWORD": os.environ.get("DB_PASSWORD", ""),
-        "HOST": os.environ.get("DB_HOST", ""),
-        "PORT": os.environ.get("DB_PORT", ""),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'lab_db',
+        'USER': 'lab_user',
+        'PASSWORD': 'lab_password',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -47,23 +47,20 @@ DATABASES = {
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 
+STATICFILES_DIRS = [BASE_DIR / "lab" / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_ROOT = BASE_DIR / "mediafiles"
-STATICFILES_DIRS = [BASE_DIR / "lab" / "static"]
 
 # ============================================================
 # APLICAÇÕES
 # ============================================================
 INSTALLED_APPS = [
-    # Interface Administrativa
-    "jazzmin",
-    # Aplicações Locais
+    "jazzmin",                 # deve vir antes do admin
     "lab",
-    # Terceiros
+    "django_select2",
     "phonenumber_field",
     "django_countries",
     "django_extensions",
-    # Core Django
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -119,7 +116,6 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
-
 
 # ============================================================
 # VALIDAÇÃO DE SENHAS
@@ -202,75 +198,49 @@ SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SAMESITE = "Lax"
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_SAVE_EVERY_REQUEST = True
-SESSION_COOKIE_AGE = 30 * 60 * 60 * 60  # 30 minutos
+SESSION_COOKIE_AGE = 30 * 60  # 30 minutos
 
 # ============================================================
 # JAZZMIN SETTINGS — AnaBioLink
 # ============================================================
-
 JAZZMIN_SETTINGS = {
-	"site_title": "AnaBioLink | Painel Administrativo",
-	"site_header": "AnaBioLink | Gestão Laboratorial de Análises Clínicas",
-	"site_brand": "AnaBioLink",
-	"welcome_sign": "Bem-vindo ao AnaBioLink",
-	"site_logo": "img/watermark.png",
-	"login_logo": "img/watermark.png",
-	"custom_css": "css/admin_custom.css",
-	"custom_js": "js/admin_custom.js",
-	"copyright": "© 2025 AnaBioLink Systems",
-	"show_sidebar": True,
-	"show_ui_builder": False,
-	
-	"navigation_open": True,
-	"navigation_expand": True,
-	"navigation_expanded": True,
-	"order_with_respect_to": ["auth", "lab"],
-	"icons": {
-		"lab": "fas fa-vials",
-		"lab.RequisicaoAnalise": "fas fa-vials",
-		"lab.ResultadoItem": "fas fa-clipboard-check",
-		"lab.Paciente": "fas fa-user-injured",
-		"lab.Exame": "fas fa-vial",
-		"lab.Designacao": "fas fa-certificate",
-		"lab.Metodo": "fas fa-flask",
-		"lab.ExameCampoResultado": "fas fa-list-alt",
-		"auth": "fas fa-users-cog",
-		"auth.User": "fas fa-user-shield",
-	},
+    "site_title": "Sistema Laboratorial",
+    "site_header": "Sistema Laboratorial",
+    "site_brand": "LabAdmin",
+    "custom_js": "js/admin_custom.js",
+    "custom_css": "css/admin_custom.css",
+    "site_logo": "img/logo.png",
+    "site_icon": "img/favicon.ico",
+    "welcome_sign": "Bem-vindo ao Painel Administrativo",
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "hide_apps": [],
+    "hide_models": [],
+    "icons": {
+        "Paciente": "fas fa-user-injured",
+        "Exame": "fas fa-vials",
+        "ExameCampo": "fas fa-list",
+        "RequisicaoAnalise": "fas fa-file-medical",
+        "ResultadoItem": "fas fa-notes-medical",
+    },
 }
 
 JAZZMIN_UI_TWEAKS = {
-	"theme": "cosmo",
-	"navbar": "navbar-white navbar-light",
-	"navbar_fixed": True,
-	"sidebar_fixed": True,
-	"brand_color": "navbar-primary",
-	"actions_sticky_top": True,
-	"sidebar_nav_child_indent": True,
-	"related_modal_active": True,
-	"layout_fixed_navbar": True,
-	"layout_fixed_sidebar": True,
-	"layout_boxed": False,
-	"layout_collapsed_sidebar": False,
-	"layout_compact_sidebar": True,
-	"no_navbar_border": True,
+    "theme": "flatly",
+    "navbar_small_text": False,
+    "footer_small_text": True,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "action_buttons": True,
+    "actions_sticky_top": True,
 }
 
 # ============================================================
-# STATIC FILES
+# STATIC FILES (revisado)
 # ============================================================
-STATIC_URL = "static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
-from pathlib import Path
-BASE_DIR = Path(__file__).resolve().parent.parent
-
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 
-STATICFILES_DIRS = [
-	BASE_DIR / "lab" / "static",
-]
-
+STATICFILES_DIRS = [BASE_DIR / "lab" / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_ROOT = BASE_DIR / "mediafiles"

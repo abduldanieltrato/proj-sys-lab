@@ -1,26 +1,49 @@
+# =====================================
+# FORMS PERSONALIZADOS
+# =====================================
 from django import forms
-from django.contrib import admin
-from .models import Paciente
-from datetime import datetime, timedelta
+from django.utils import timezone
+from django_select2.forms import Select2MultipleWidget
+from datetime import timedelta
+from .models import Paciente, RequisicaoAnalise
 
-# Form customizado para o admin
+
+# =====================================
+# PACIENTE ADMIN FORM
+# =====================================
 class PacienteAdminForm(forms.ModelForm):
-    class Meta:
-        model = Paciente
-        fields = '__all__'
+	"""Formulário customizado para o admin de Paciente, com data e hora separadas."""
+	data_registo = forms.SplitDateTimeField(
+		widget=forms.SplitDateTimeWidget(
+			date_attrs={'type': 'date'},
+			time_attrs={'type': 'time'}
+		),
+		initial=timezone.now
+	)
 
-    data_registo = forms.SplitDateTimeField(
-        widget=forms.SplitDateTimeWidget(
-            date_attrs={'type': 'date'},  # permite selecionar o dia
-            time_attrs={'type': 'time'}   # permite selecionar a hora
-        ),
-        initial=datetime.now
-    )
+	class Meta:
+		model = Paciente
+		fields = '__all__'
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        # Cria opções rápidas para hoje e ontem usando select
-        hoje = datetime.now().date()
-        ontem = hoje - timedelta(days=1)
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
+		# Cria opções rápidas para hoje e ontem (usado em lista <datalist>)
+		hoje = timezone.now().date()
+		ontem = hoje - timedelta(days=1)
+		self.fields['data_registo'].widget.attrs['list'] = 'data_opcoes'
 
-        self.fields['data_registo'].widget.attrs['list'] = 'data_opcoes'
+
+# =====================================
+# REQUISIÇÃO DE ANÁLISE FORM
+# =====================================
+class RequisicaoAnaliseForm(forms.ModelForm):
+	"""Formulário da Requisição de Análise com Select2 para múltiplos exames."""
+	class Meta:
+		model = RequisicaoAnalise
+		fields = "__all__"
+		widgets = {
+			"exames": Select2MultipleWidget(attrs={
+				"data-placeholder": "Selecione ou pesquise exames...",
+				"style": "width: 100%; min-width: 300px;"
+			}),
+		}

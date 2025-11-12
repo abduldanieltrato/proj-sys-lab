@@ -1,12 +1,4 @@
-"""
-Módulo de geração de PDFs institucionais para AnaBioLink
-Autor: Trato (ajustado)
-Versão: 3.1.1 (estilos de tabela ajustados)
-Descrição: Mantém comportamento anterior; altera apenas o desenho de linhas
-           nas tabelas de resultados: linhas horizontais somente entre exames,
-           e rótulos (Valor / Unidade / Valor referência) apresentados
-           junto ao cabeçalho do exame.
-"""
+# lab/utils/pdf_generator.py
 import os
 import io
 import logging
@@ -15,329 +7,296 @@ from django.conf import settings
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import cm
 from reportlab.lib import colors
-from reportlab.lib.styles import ParagraphStyle
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+from reportlab.platypus import (
+	SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle,
+	KeepTogether
+)
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.utils import ImageReader
+from reportlab.pdfgen import canvas as rl_canvas
 from PIL import Image
 
 logger = logging.getLogger(__name__)
 
-# ==================== PATHS ====================
+# ---------------- Caminhos ----------------
 LOGO_PATH = os.path.join(settings.BASE_DIR, "lab", "static", "img", "logo.png")
-WATERMARK_PATH = LOGO_PATH
 
-# ==================== FONTES ====================
+# ---------------- Fontes ----------------
 try:
-    pdfmetrics.registerFont(TTFont("Roboto", "/usr/share/fonts/truetype/roboto/Roboto-Regular.ttf"))
-    pdfmetrics.registerFont(TTFont("Roboto-Bold", "/usr/share/fonts/truetype/roboto/Roboto-Bold.ttf"))
-    FONT = "Roboto"
-    FONT_BOLD = "Roboto-Bold"
+	pdfmetrics.registerFont(TTFont("Times-Roman", "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"))
+	pdfmetrics.registerFont(TTFont("Times-Bold", "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman_Bold.ttf"))
+	FONT = "Times-Roman"
+	FONT_BOLD = "Times-Bold"
 except Exception as e:
-    logger.warning("Falha ao registrar Roboto, usando Courier como fallback: %s", e)
-    FONT = "Courier"
-    FONT_BOLD = "Courier-Bold"
+	logger.warning("Falha ao registrar Times New Roman, usando Courier: %s", e)
+	FONT = "Courier"
+	FONT_BOLD = "Courier-Bold"
 
 
-# ==================== CABEÇALHO ====================
-def draw_header(canvas, doc):
-    canvas.saveState()
-    if os.path.exists(LOGO_PATH):
+# ---------------- Canvas com numeração ----------------
+from reportlab.pdfgen import canvas as rl_canvas
+
+class NumberedCanvas(rl_canvas.Canvas):
+    """
+    Implementação robusta: armazena o estado de cada página em showPage()
+    e, no save(), redesenha cada página adicionando o footer com 'Página X de Y'.
+    Esta versão evita duplicação quando usada como canvasmaker.
+    """
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._saved_page_states = []
+
+    def showPage(self):
+        # guarda o estado actual da página (dicionário das attrs do canvas)
+        self._saved_page_states.append(dict(self.__dict__))
+        # inicia uma nova página internamente (não chama novamente draw/footer)
+        self._startPage()
+
+    def save(self):
+        # número total de páginas
+        num_pages = len(self._saved_page_states)
+        # redesenha cada página a partir dos estados guardados, desenhando o footer
+        for state in self._saved_page_states:
+            self.__dict__.update(state)
+            self._draw_footer(num_pages)
+            # usar o método da classe base para finalizar esta página no arquivo final
+            rl_canvas.Canvas.showPage(self)
+        # finalmente salva o PDF
+        rl_canvas.Canvas.save(self)
+
+    def _draw_footer(self, total_pages):
         try:
-            with Image.open(LOGO_PATH) as img:
-                if img.mode == "RGBA":
-                    img = img.convert("RGB")
-                buf = io.BytesIO()
-                img.save(buf, format="PNG")
-                buf.seek(0)
-                # posicione a imagem no canto superior esquerdo
-                canvas.drawImage(ImageReader(buf), 20, A4[1] - 130,
-                                 width=125, height=90, preserveAspectRatio=True, mask='auto')
-        except Exception as e:
-            logger.warning("Erro ao carregar logo: %s", e)
-    else:
-        canvas.setFont(FONT, 10)
-        canvas.drawString(35, A4[1] - 90, "LOGO INDISPONÍVEL")
-
-    canvas.setFont(FONT_BOLD, 14)
-    canvas.drawString(150, A4[1] - 60, "AnaBioLink - Sistema de Gestão Laboratorial")
-    canvas.setFont(FONT, 11)
-    canvas.drawString(150, A4[1] - 78, "Laboratório de Análises Clínicas e Diagnóstico")
-    canvas.setFont(FONT, 9)
-    canvas.drawString(150, A4[1] - 95, "Pemba - Cabo Delgado, Moçambique")
-    canvas.drawString(150, A4[1] - 110, "Tel: +258 84 773 5374 | Email: suporte@anabiolink.mz")
-
-    # linha de separação robusta
-    canvas.setStrokeColor(colors.darkblue)
-    canvas.setLineWidth(5)
-    canvas.line(0 * cm, A4[1] - 120, A4[0] - 0 * cm, A4[1] - 120)
-    canvas.restoreState()
+            self.setFont(FONT, 8)
+        except Exception:
+            self.setFont("Helvetica", 8)
+        page_num = self._pageNumber
+        footer_text = f"Gerado automaticamente por AnaBioLink em {datetime.now().strftime('%d/%m/%Y %H:%M')}"
+        right = A4[0] - 1 * cm
+        self.drawRightString(right, 0.7 * cm, f"{footer_text} — Página {page_num} de {total_pages}")
 
 
-# ==================== RODAPÉ ====================
-def draw_footer(canvas, doc):
-    canvas.saveState()
-    canvas.setFont(FONT, 8)
-    footer_text = f"Gerado automaticamente por AnaBioLink em {datetime.now().strftime('%d/%m/%Y %H:%M')}"
-    canvas.drawRightString(A4[0] - 1 * cm, 0.7 * cm, footer_text)
-    canvas.restoreState()
+# ---------------- Header ----------------
+def _safe_image_reader(path):
+	if not os.path.exists(path):
+		return None
+	try:
+		with Image.open(path) as img:
+			img = img.convert("RGB")
+			buf = io.BytesIO()
+			img.save(buf, format="JPEG", quality=90)
+			buf.seek(0)
+			return ImageReader(buf)
+	except Exception as e:
+		logger.warning("Erro ao abrir imagem %s: %s", path, e)
+		return None
 
 
-# ==================== ASSINATURAS ====================
-def draw_signatures(canvas, doc, usuario=None):
-    canvas.saveState()
-    y = 2 * cm
-    width_total = A4[0] - 2 * cm
-    # espaço entre assinaturas
-    width_line = (width_total - 4 * cm) / 2
+def draw_header(canvas_obj, doc):
+	canvas_obj.saveState()
+	logo = _safe_image_reader(LOGO_PATH)
+	if logo:
+		try:
+			canvas_obj.drawImage(logo, 20, A4[1] - 130, width=125, height=90, preserveAspectRatio=True)
+		except Exception as e:
+			logger.warning("Erro ao desenhar logo no header: %s", e)
+	else:
+		canvas_obj.setFont(FONT, 10)
+		canvas_obj.drawString(35, A4[1] - 90, "LOGO INDISPONÍVEL")
 
-    x1 = 3 * cm
-    x2 = 3 * cm + width_line + 2 * cm + width_line
-
-    canvas.setLineWidth(1)
-    canvas.line(x1, y, x1 + width_line, y)
-    canvas.line(x1 + width_line + 2 * cm, y, x2, y)
-
-    tecnico_nome = "Técnico de Laboratório"
-    if usuario:
-        nomes = [usuario.first_name, usuario.last_name]
-        tecnico_nome = " ".join(filter(None, nomes)).strip() or tecnico_nome
-
-    canvas.setFont(FONT, 10)
-    canvas.drawCentredString(x1 + width_line / 2, y - 12, tecnico_nome)
-    canvas.drawCentredString(x1 + width_line + 2 * cm + width_line / 2, y - 12, "Responsável do Laboratório")
-    canvas.restoreState()
-
-
-# ==================== MARCA D'ÁGUA ====================
-def draw_watermark(canvas, doc):
-    canvas.saveState()
-    try:
-        if os.path.exists(WATERMARK_PATH):
-            with Image.open(WATERMARK_PATH) as img:
-                if img.mode == "RGBA":
-                    img = img.convert("RGB")
-                buf = io.BytesIO()
-                img.save(buf, format="PNG")
-                buf.seek(0)
-                watermark = ImageReader(buf)
-
-                # Tamanho da marca d’água (em pontos)
-                w, h = 120, 170
-
-                # Espaçamento entre as marcas
-                step_x, step_y = w + 40, h + 50
-
-                # Transparência (ReportLab recente suporta setFillAlpha)
-                try:
-                    canvas.setFillAlpha(0.06)
-                except Exception:
-                    # alguns backends antigos podem não suportar setFillAlpha; ignore se falhar
-                    pass
-
-                # Desenhar múltiplas instâncias
-                y = 0
-                while y < A4[1]:
-                    x = 0
-                    while x < A4[0]:
-                        canvas.drawImage(watermark, x, y, width=w, height=h, mask='auto', preserveAspectRatio=True)
-                        x += step_x
-                    y += step_y
-
-                try:
-                    canvas.setFillAlpha(1.0)
-                except Exception:
-                    pass
-        else:
-            logger.warning("Marca d'água não encontrada em %s", WATERMARK_PATH)
-    except Exception as e:
-        logger.warning("Falha ao aplicar marca d'água: %s", e)
-    finally:
-        canvas.restoreState()
+	canvas_obj.setFont(FONT_BOLD, 14)
+	canvas_obj.drawString(150, A4[1] - 60, "AnaBioLink - Sistema de Gestão Laboratorial")
+	canvas_obj.setFont(FONT, 11)
+	canvas_obj.drawString(150, A4[1] - 78, "Laboratório de Análises Clínicas e Diagnóstico")
+	canvas_obj.setFont(FONT, 9)
+	canvas_obj.drawString(150, A4[1] - 95, "Pemba - Cabo Delgado, Moçambique")
+	canvas_obj.drawString(150, A4[1] - 110, "Tel: +258 84 773 5374 | Email: suporte@anabiolink.mz")
+	canvas_obj.setStrokeColor(colors.darkblue)
+	canvas_obj.setLineWidth(5)
+	canvas_obj.line(0 * cm, A4[1] - 120, A4[0], A4[1] - 120)
+	canvas_obj.restoreState()
 
 
-# ==================== LAYOUT PADRÃO ====================
-def layout(canvas, doc, usuario=None):
-    # Ordem: watermark por baixo, depois header, footer e assinaturas
-    # watermark desenhada primeiro para ficar atrás (dependendo do backend)
-    draw_watermark(canvas, doc)
-    draw_header(canvas, doc)
-    draw_footer(canvas, doc)
-    draw_signatures(canvas, doc, usuario)
+# ---------------- Assinaturas ----------------
+def draw_signatures(canvas_obj, doc, usuario=None):
+	canvas_obj.saveState()
+	y = 2.5 * cm  # margem inferior aumentada
+	width_total = A4[0] - 2 * cm
+	width_line = (width_total - 4 * cm) / 2
+	x1 = 3 * cm
+	x2 = 3 * cm + width_line + 2 * cm + width_line
+	canvas_obj.setLineWidth(1)
+	canvas_obj.line(x1, y, x1 + width_line, y)
+	canvas_obj.line(x1 + width_line + 2 * cm, y, x2, y)
+	tecnico_nome = "Técnico de Laboratório"
+	if usuario:
+		nomes = [getattr(usuario, "first_name", ""), getattr(usuario, "last_name", "")]
+		tecnico_nome = " ".join(filter(None, nomes)).strip() or tecnico_nome
+	canvas_obj.setFont(FONT, 10)
+	canvas_obj.drawCentredString(x1 + width_line / 2, y - 12, tecnico_nome)
+	canvas_obj.drawCentredString(x1 + width_line + 2 * cm + width_line / 2, y - 12, "Responsável do Laboratório")
+	canvas_obj.restoreState()
 
 
-# ==================== ESTILO DE TABELAS ====================
-def estilo_tabela_base_cmds():
-    """
-    Retorna lista de comandos (tuplas) compatível com TableStyle.
-    Não adiciona linhas verticais nem linhas horizontais padrão — somente tipografia e paddings.
-    """
-    return [
-        ("FONTNAME", (0, 0), (-1, -1), FONT),
-        ("FONTSIZE", (0, 0), (-1, -1), 9),
-        ("VALIGN", (0, 0), (-1, -1), "TOP"),
-        ("LEFTPADDING", (0, 0), (-1, -1), 6),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 6),
-        ("TOPPADDING", (0, 0), (-1, -1), 3),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
-    ]
+# ---------------- Callback de Página ----------------
+def _on_page(canvas_obj, doc, usuario=None):
+	canvas_obj.saveState()
+	draw_header(canvas_obj, doc)
+	draw_signatures(canvas_obj, doc, usuario)
+	canvas_obj.restoreState()
 
 
-# ==================== PDF DE REQUISIÇÃO ====================
-def gerar_pdf_requisicao(requisicao, pos_x=1 * cm, pos_y=None):
-    buffer = io.BytesIO()
-    doc = SimpleDocTemplate(buffer, pagesize=A4,
-                            leftMargin=3 * cm, rightMargin=1 * cm,
-                            topMargin=4 * cm, bottomMargin=1 * cm)
-
-    story = []
-
-    style = ParagraphStyle("Heading1", fontName=FONT_BOLD, fontSize=10)
-    story.append(Spacer(1, 1 * cm if not pos_y else pos_y))
-    story.append(Paragraph("REQUISIÇÃO DE ANÁLISES CLÍNICAS", style))
-    story.append(Spacer(2, 0.5 * cm))
-
-    paciente = requisicao.paciente
-    idade = getattr(paciente, "idade_display", lambda: "—")()
-
-    dados = [
-        ["Nome do Paciente:", paciente.nome],
-        ["Idade:", idade],
-        ["Gênero:", paciente.genero or "—"],
-        ["Documento:", paciente.numero_id or "—"],
-        ["Proveniência:", getattr(paciente, "proveniencia", "N/D")]
-    ]
-    tabela = Table(dados, colWidths=[4 * cm, 12 * cm], hAlign='LEFT')
-    tabela.setStyle(TableStyle(estilo_tabela_base_cmds()))
-    story.append(tabela)
-    story.append(Spacer(1, 0.5 * cm))
-    story.append(Paragraph("Exames Requisitados", style))
-    story.append(Spacer(1, 0.5 * cm))
-
-    exames = [[e.nome] for e in getattr(requisicao, "exames_list", requisicao.exames.all())] or [["Nenhum exame registrado."]]
-    tabela_exames = Table(exames, colWidths=[16 * cm], hAlign='LEFT')
-    tabela_exames.setStyle(TableStyle(estilo_tabela_base_cmds()))
-    story.append(tabela_exames)
-
-    usuario = getattr(requisicao, "analista", None)
-    doc.build(story, onFirstPage=lambda c, d: layout(c, d, usuario),
-              onLaterPages=lambda c, d: layout(c, d, usuario))
-
-    pdf_bytes = buffer.getvalue()
-    buffer.close()
-    filename = f"AnaBioLink_Req-{paciente.numero_id}-{paciente.nome.replace(' ', '_')}.pdf"
-    return pdf_bytes, filename
+# ---------------- Funções Auxiliares ----------------
+def _cell_paragraph(text):
+	cell_style = ParagraphStyle("cell_style", fontName=FONT, fontSize=9, leading=11)
+	return Paragraph(str(text), cell_style)
 
 
-# ==================== PDF DE RESULTADOS ====================
-def gerar_pdf_resultados(requisicao, pos_x=2 * cm, pos_y=None):
-    """
-    Gera PDF de resultados agrupando por exame.
-    Alterações principais:
-    - Para cada exame adiciona um cabeçalho com o NOME DO EXAME (à esquerda) e 
-      os rótulos (Valor | Unidade | Valor referência) na mesma linha (colunas à direita).
-    - Desenha linha horizontal acima do cabeçalho do exame e abaixo do bloco do exame.
-    - Não desenha linhas entre os parâmetros do mesmo exame.
-    """
-    import itertools
+# ---------------- PDF: REQUISIÇÃO ----------------
+def gerar_pdf_requisicao(requisicao):
+	import reportlab.lib.pagesizes as pagesizes
+	buffer = io.BytesIO()
+	page_width, _ = pagesizes.A4
+	left_margin, right_margin = 3 * cm, 1 * cm
+	usable_width = page_width - left_margin - right_margin
 
-    buffer = io.BytesIO()
-    doc = SimpleDocTemplate(buffer, pagesize=A4,
-                            leftMargin=3 * cm, rightMargin=1 * cm,
-                            topMargin=4 * cm, bottomMargin=1 * cm)
+	doc = SimpleDocTemplate(
+		buffer, pagesize=pagesizes.A4,
+		leftMargin=left_margin, rightMargin=right_margin,
+		topMargin=4 * cm, bottomMargin=3.5 * cm  # espaço extra p/ assinaturas
+	)
 
-    story = []
-    story.append(Spacer(1, 1 * cm if not pos_y else pos_y))
-    style = ParagraphStyle("Heading1", fontName=FONT_BOLD, fontSize=12)
-    story.append(Paragraph("RESULTADOS DE ANÁLISES", style))
-    story.append(Spacer(1, 0.5 * cm))
+	story = []
+	style_title = ParagraphStyle("Heading1", fontName=FONT_BOLD, fontSize=10)
+	story.append(Spacer(1, 1 * cm))
+	story.append(Paragraph("REQUISIÇÃO DE EXAMES", style_title))
+	story.append(Spacer(1, 0.5 * cm))
 
-    paciente = requisicao.paciente
-    idade = getattr(paciente, "idade_display", lambda: "—")()
-    data_analise = getattr(requisicao, "created_at", None)
-    data_str = data_analise.strftime("%d/%m/%Y") if data_analise else "—"
+	paciente = requisicao.paciente
+	idade = getattr(paciente, "idade", lambda: "—")()
+	dados = [
+		[Paragraph("Nome do Paciente:", style_title), Paragraph(paciente.nome, style_title)],
+		[Paragraph("Idade:", style_title), Paragraph(idade, style_title)],
+		[Paragraph("Gênero:", style_title), Paragraph(paciente.genero or "—", style_title)],
+		[Paragraph("Documento:", style_title), Paragraph(paciente.numero_id or "—", style_title)],
+		[Paragraph("Proveniência:", style_title), Paragraph(getattr(paciente, "proveniencia", "N/D"), style_title)],
+		[Paragraph("Data de Criação:", style_title), Paragraph(requisicao.created_at.strftime("%d/%m/%Y %H:%M"), style_title)],
+	]
+	tabela = Table(dados, colWidths=[usable_width * 0.25, usable_width * 0.75], hAlign="LEFT")
+	tabela.setStyle(TableStyle([
+		("FONTNAME", (0, 0), (-1, -1), FONT),
+		("FONTSIZE", (0, 0), (-1, -1), 9),
+	]))
+	story.append(tabela)
+	story.append(Spacer(1, 0.5 * cm))
 
-    dados = [
-        ["Nome do Paciente:", paciente.nome],
-        ["Idade:", idade],
-        ["Gênero:", paciente.genero or "—"],
-        ["Data da Análise:", data_str],
-    ]
-    tabela_dados = Table(dados, colWidths=[6 * cm, 12 * cm], hAlign='LEFT')
-    tabela_dados.setStyle(TableStyle(estilo_tabela_base_cmds()))
-    story.append(tabela_dados)
-    story.append(Spacer(1, 0.5 * cm))
+	story.append(Paragraph("Exames Requisitados", style_title))
+	story.append(Spacer(1, 0.3 * cm))
+	exames = requisicao.exames.all()
+	exames_data = [[_cell_paragraph(e.nome)] for e in exames] if exames.exists() else [[_cell_paragraph("Nenhum exame registrado.")]]
+	tabela_exames = Table(exames_data, colWidths=[usable_width], hAlign="LEFT")
+	story.append(KeepTogether(tabela_exames))
 
-    # -----------------------------------------------------------
-    # Construção dos resultados agrupados por exame
-    # -----------------------------------------------------------
-    resultados_data = []
-    style_cmds = estilo_tabela_base_cmds()
-    # larguras apropriadas: campo, valor, unidade, valor_referencia
-    col_widths = [6 * cm, 4 * cm, 2 * cm, 4 * cm]
+	doc.build(
+		story,
+		onFirstPage=lambda c, d: _on_page(c, d, getattr(requisicao, "analista", None)),
+		onLaterPages=lambda c, d: _on_page(c, d, getattr(requisicao, "analista", None)),
+		canvasmaker=NumberedCanvas
+	)
 
-    resultados_qs = getattr(requisicao, "resultados", None)
-    if not resultados_qs:
-        resultados_data = [["Nenhum resultado disponível."]]
-        tabela_resultados = Table(resultados_data, colWidths=[16 * cm], hAlign='LEFT')
-        tabela_resultados.setStyle(TableStyle(style_cmds))
-        story.append(tabela_resultados)
-    else:
-        resultados_list = list(resultados_qs.all().select_related('exame_campo', 'exame_campo__exame'))
-        resultados_list.sort(key=lambda r: (
-            getattr(r.exame_campo.exame, "nome", ""),
-            getattr(r.exame_campo, "ordem", 0)
-        ))
+	pdf_bytes = buffer.getvalue()
+	buffer.close()
+	filename = f"AnaBioLink_Requisicao_{requisicao.id_custom}_{requisicao.paciente.nome}.pdf"
+	return pdf_bytes, filename
 
-        # iterar agrupado por exame
-        for exame_nome, group in itertools.groupby(resultados_list, key=lambda r: getattr(r.exame_campo.exame, "nome", "—")):
-            # índice da linha onde o cabeçalho do exame será inserido
-            row_index = len(resultados_data)
 
-            # CABEÇALHO: uma linha com [NOME_EXAME, "Valor", "Unidade", "Valor referência"]
-            # O nome do exame ficará na coluna 0; as labels das colunas na 1,2,3
-            resultados_data.append([exame_nome or "—", "Valor", "Unidade", "Valor referência"])
+# ---------------- PDF: RESULTADOS ----------------
+def gerar_pdf_resultados(requisicao, apenas_validados=False):
+	import reportlab.lib.pagesizes as pagesizes
+	buffer = io.BytesIO()
+	page_width, _ = pagesizes.A4
+	left_margin, right_margin = 3 * cm, 1 * cm
+	usable_width = page_width - left_margin - right_margin
 
-            # estilo para o cabeçalho: fundo claro, negrito a linha inteira e fontsize um pouco maior
-            style_cmds.append(("BACKGROUND", (0, row_index), (-1, row_index), colors.HexColor("#F2F7FF")))
-            style_cmds.append(("FONTNAME", (0, row_index), (-1, row_index), FONT_BOLD))
-            style_cmds.append(("FONTSIZE", (0, row_index), (-1, row_index), 10))
-            style_cmds.append(("LEFTPADDING", (0, row_index), (0, row_index), 6))
-            style_cmds.append(("BOTTOMPADDING", (0, row_index), (-1, row_index), 6))
-            # linha horizontal acima do cabeçalho do exame
-            style_cmds.append(("LINEABOVE", (0, row_index), (-1, row_index), 0.7, colors.HexColor("#333333")))
+	doc = SimpleDocTemplate(
+		buffer, pagesize=pagesizes.A4,
+		leftMargin=left_margin, rightMargin=right_margin,
+		topMargin=4.5 * cm, bottomMargin=2 * cm  # margem corrigida
+	)
 
-            # agora adiciona os parâmetros (sem linhas entre eles)
-            start_block_index = len(resultados_data)
-            for r in group:
-                exame_campo = getattr(r, "exame_campo", None)
-                exame_nome_campo = getattr(exame_campo, "nome_campo", "—")
-                unidade = r.unidade or getattr(exame_campo, "unidade", "—")
-                valor_ref = r.valor_referencia or getattr(exame_campo, "valor_referencia", "—")
-                valor = r.resultado or "—"
-                resultados_data.append([exame_nome_campo, valor, unidade, valor_ref])
+	elements = []
+	styles = getSampleStyleSheet()
+	style_title = ParagraphStyle("Heading3", fontName=FONT_BOLD, fontSize=12)
+	style_subtitle = ParagraphStyle("Heading4", fontName=FONT_BOLD, fontSize=10)
+	style_normal = ParagraphStyle("Normal", fontName=FONT, fontSize=9)
+	cell_style = ParagraphStyle("cell_style", fontName=FONT, fontSize=9, leading=11)
 
-            # índice do final do bloco do exame (última linha pertencente a este exame)
-            last_block_index = len(resultados_data) - 1
-            # desenhar linha horizontal abaixo do bloco do exame para separar do próximo exame
-            style_cmds.append(("LINEBELOW", (0, last_block_index), (-1, last_block_index), 0.5, colors.HexColor("#333333")))
-            # pequeno espaçamento em baixo do bloco para melhorar leitura
-            style_cmds.append(("BOTTOMPADDING", (0, last_block_index), (-1, last_block_index), 8))
+	elements.append(Paragraph("RESULTADOS DE ANÁLISES", style_title))
+	elements.append(Spacer(1, 10))
+	elements.append(Paragraph(f"Nome do(a) Paciente: {requisicao.paciente.nome}", style_normal))
+	elements.append(Paragraph(f"Idade: {requisicao.paciente.idade()}", style_normal))
+	elements.append(Paragraph(f"Gênero: {requisicao.paciente.genero}", style_normal))
+	elements.append(Paragraph(f"Documento: {requisicao.paciente.numero_id}", style_normal))
+	elements.append(Paragraph(f"Proveniência: {requisicao.paciente.proveniencia}", style_normal))
+	elements.append(Spacer(1, 8))
+	elements.append(Paragraph(f"Ordem da Requisição: {requisicao.id_custom}", style_normal))
+	elements.append(Paragraph(f"Data dos Resultados: {requisicao.created_at.strftime('%d/%m/%Y %H:%M')}", style_normal))
+	elements.append(Spacer(1, 16))
 
-        # criar a tabela final com os comandos acumulados
-        tabela_resultados = Table(resultados_data, colWidths=col_widths, hAlign='LEFT')
-        tabela_resultados.setStyle(TableStyle(style_cmds))
-        story.append(tabela_resultados)
+	resultados_qs = getattr(requisicao, "resultados", None) or getattr(requisicao, "resultadoitem_set", None)
+	if not resultados_qs:
+		elements.append(Paragraph("Nenhum resultado disponível para esta requisição.", style_normal))
+	else:
+		qs = resultados_qs.select_related("exame_campo__exame")
+		if apenas_validados:
+			qs = qs.filter(validado=True)
+		exames_agrupados = {}
+		for r in qs:
+			exame = r.exame_campo.exame
+			exames_agrupados.setdefault(exame.nome, []).append(r)
+		if not exames_agrupados:
+			elements.append(Paragraph("Nenhum resultado validado encontrado.", style_normal))
+		else:
+			for exame_nome, resultados in exames_agrupados.items():
+				elements.append(Paragraph(exame_nome, style_subtitle))
+				elements.append(Spacer(1, 6))
+				data = [[
+					Paragraph("Parâmetro de Exame", cell_style),
+					Paragraph("Resultado", cell_style),
+					Paragraph("Unidade", cell_style),
+					Paragraph("Valor de Ref.", cell_style)
+				]]
+				for r in resultados:
+					valor = getattr(r, "resultado", None)
+					if valor in (None, ""):
+						for attr in ("valor_texto", "valor_numerico", "valor_percentagem", "valor_escolha"):
+							v = getattr(r, attr, None)
+							if v not in (None, ""):
+								valor = v
+								break
+					data.append([
+						Paragraph(r.exame_campo.nome_campo, cell_style),
+						Paragraph(str(valor) if valor not in (None, "") else "-", cell_style),
+						Paragraph(r.exame_campo.unidade or "-", cell_style),
+						Paragraph(r.exame_campo.valor_referencia or "-", cell_style),
+					])
+				table = Table(data, colWidths=[usable_width * 0.35, usable_width * 0.35, usable_width * 0.15, usable_width * 0.15], hAlign="LEFT")
+				table.setStyle(TableStyle([
+					("FONTNAME", (0, 0), (-1, 0), FONT_BOLD),
+					("ALIGN", (1, 1), (-1, -1), "LEFT"),
+				]))
+				elements.append(table)
+				elements.append(Spacer(1, 12))
 
-    # -----------------------------------------------------------
-    # Finaliza documento mantendo header/footer/watermark via layout existente
-    # -----------------------------------------------------------
-    usuario = getattr(requisicao, "analista", None)
-    doc.build(story, onFirstPage=lambda c, d: layout(c, d, usuario),
-              onLaterPages=lambda c, d: layout(c, d, usuario))
+	doc.build(
+		elements,
+		onFirstPage=lambda c, d: _on_page(c, d, getattr(requisicao, "analista", None)),
+		onLaterPages=lambda c, d: _on_page(c, d, getattr(requisicao, "analista", None)),
+		canvasmaker=NumberedCanvas
+	)
 
-    pdf_bytes = buffer.getvalue()
-    buffer.close()
-    filename = f"AnaBioLink_Res-{paciente.numero_id}-{paciente.nome.replace(' ', '_')}.pdf"
-    return pdf_bytes, filename
+	pdf = buffer.getvalue()
+	buffer.close()
+	filename = f"AnaBioLink_Resultados_{requisicao.id_custom}_{requisicao.paciente.nome}.pdf"
+	return pdf, filename

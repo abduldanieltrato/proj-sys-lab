@@ -1,280 +1,243 @@
-"""
-models.py - Modelos centrais do sistema AnaBioLink
-Autor: Abdul Daniel Trato
-Versão: 4.0
-Descrição: Estrutura de dados principal para gestão laboratorial. Inclui:
-- Pacientes
-- Exames e campos de resultados
-- Requisições de análises
-- Resultados
-- Histórico de operações
-Implementa herança de valores de referência para evitar duplicidade e métodos claros para manipulação de dados.
-"""
-
+from email.policy import default
+from sys import prefix
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.forms import ValidationError
 from django.utils import timezone
 from datetime import date
+User = get_user_model()
 
 # =====================================
-# UTILITÁRIOS
+# UTILITÁRIO DE GERAÇÃO DE CÓDIGO
 # =====================================
-def get_user_model_instance():
-	"""
-	Retorna o modelo de usuário do Django.
-	"""
-	return get_user_model()
+def gerar_codigo(prefixo, modelo):
+    hoje = timezone.now().strftime("%Y%m%d")
+    ultimo = modelo.objects.filter(id_custom__startswith=f"{prefixo}{hoje}").order_by('id_custom').last()
+    if ultimo and ultimo.id_custom:
+        ultimo_num = int(ultimo.id_custom[-4:])
+        nova_ordem = ultimo_num + 1
+    else:
+        nova_ordem = 1
+    return f"{prefixo}{hoje}{nova_ordem:04d}"
 
-User = get_user_model_instance()
+# =====================================
+# MIXIN PARA ID CUSTOM
+# =====================================
+class CustomIDMixin(models.Model):
+    prefixo = None
+    id_custom = models.CharField('Ordem de Trabalho', max_length=20, unique=True, editable=False)
 
+    class Meta:
+        abstract = True
+
+    def save(self, *args, **kwargs):
+        if not self.id_custom and self.prefixo:
+            self.id_custom = gerar_codigo(self.prefixo, self.__class__)
+        super().save(*args, **kwargs)
 
 # =====================================
 # PACIENTE
 # =====================================
-class Paciente(models.Model):
-	"""
-	Modelo que representa um paciente atendido no laboratório.
-	"""
+class Paciente(CustomIDMixin):
+    prefixo = "PAC"
 
-	class Proveniencia(models.TextChoices):
-		AMBULATORIO = "Ambulatório", "Ambulatório"
-		CLINICA_EXTERNA = "Clínica Externa", "Clínica Externa"
-		MEDICINA_OCUPACIONAL = "Medicina Ocupacional", "Medicina Ocupacional"
-		MATERNIDADE = "Maternidade", "Maternidade"
-		GINECOLOGIA = "Ginecologia", "Ginecologia"
-		PEDIATRIA = "Pediatria", "Pediatria"
-		BANCO_DE_SOCORROS = "Banco de Socorros", "Banco de Socorros"
-		CONSULTA_EXTERNA = "Consulta Externa", "Consulta Externa"
-		UROLOGIA = "Urologia", "Urologia"
-		CIRURGIA = "Cirurgia", "Cirurgia"
-		DENTARIA = "Dentária", "Dentária"
-		OFTALMOLOGIA = "Oftalmologia", "Oftalmologia"
-		OUTRO = "Outro", "Outro"
+    class Proveniencia(models.TextChoices):
+        AMBULATORIO = "Ambulatório", "Ambulatório"
+        CLINICA_EXTERNA = "Clínica Externa", "Clínica Externa"
+        MEDICINA_OCUPACIONAL = "Medicina Ocupacional", "Medicina Ocupacional"
+        MATERNIDADE = "Maternidade", "Maternidade"
+        GINECOLOGIA = "Ginecologia", "Ginecologia"
+        PEDIATRIA = "Pediatria", "Pediatria"
+        BANCO_DE_SOCORROS = "Banco de Socorros", "Banco de Socorros"
+        CONSULTA_EXTERNA = "Consulta Externa", "Consulta Externa"
+        UROLOGIA = "Urologia", "Urologia"
+        CIRURGIA = "Cirurgia", "Cirurgia"
+        DENTARIA = "Dentária", "Dentária"
+        OFTALMOLOGIA = "Oftalmologia", "Oftalmologia"
+        OUTRO = "Outro", "Outro"
 
-	nome = models.CharField("Nome completo", max_length=120)
-	numero_id = models.CharField("Número de Documento", max_length=50, unique=True)
-	data_nascimento = models.DateField("Data de nascimento", null=True, blank=True)
-	genero = models.CharField("Gênero", max_length=10, choices=[("M","Masculino"),("F","Feminino")], blank=True)
-	contacto = models.CharField("Contacto", max_length=30, blank=True)
-	proveniencia = models.CharField("Proveniência", max_length=50, choices=Proveniencia.choices, default=Proveniencia.OUTRO, blank=True)
-	data_registo = models.DateTimeField("Data de registo", auto_now_add=True)
+    nome = models.CharField("Nome completo", max_length=120)
+    numero_id = models.CharField("Número de B.I/Passaporte", max_length=50, unique=True)
+    data_nascimento = models.DateField("Data de nascimento", null=True, blank=True)
+    genero = models.CharField("Gênero", max_length=10, choices=[("M","Masculino"),("F","Feminino")], blank=True)
+    contacto = models.CharField("Telefone", max_length=30, blank=True, null=True)
+    proveniencia = models.CharField("Proveniência", max_length=50, choices=Proveniencia.choices, default=Proveniencia.OUTRO, blank=True)
+    email = models.EmailField("Email", blank=True, null=True, unique=True, default=None )
+    data_registo = models.DateTimeField("Data de registo", auto_now_add=True)
 
-	class Meta:
-		verbose_name = "Paciente"
-		verbose_name_plural = "Pacientes"
-		ordering = ["nome"]
+    class Meta:
+        verbose_name = "Paciente"
+        verbose_name_plural = "Pacientes"
+        ordering = ["nome"]
 
-	def __str__(self):
-		return f"{self.nome} ({self.numero_id})"
+    def __str__(self):
+        return f"{self.nome} ({self.id_custom})"
 
-	def idade(self):
-		"""
-		Retorna a idade em anos, meses ou dias:
-		- >=2 anos: anos
-		- >=2 meses: meses
-		- <2 meses: dias
-		"""
-		if not self.data_nascimento:
-			return "—"
-		hoje = date.today()
-		delta = hoje - self.data_nascimento
-		anos = int(delta.days / 365.25)
-		if anos >= 2:
-			return f"{anos} anos"
-		meses = int(delta.days / 30.44)
-		if meses >= 2:
-			return f"{meses} meses"
-		return f"{delta.days} dias"
-
+    def idade(self):
+        if not self.data_nascimento:
+            return "—"
+        delta = (date.today() - self.data_nascimento).days
+        anos = delta // 365
+        if anos >= 2: return f"{anos} anos"
+        meses = delta // 30
+        if meses >= 2: return f"{meses} meses"
+        return f"{delta} dias"
 
 # =====================================
 # EXAME
 # =====================================
 class Exame(models.Model):
-	"""
-	Catálogo de exames disponíveis no laboratório.
-	"""
+    class MetodoExame(models.TextChoices):
+        ENZIMATICO = "Enzimático", "Enzimático"
+        COLORIMETRICO = "Colorimétrico", "Colorimétrico"
+        HISTOLOGICO = "Histológico", "Histológico"
+        MICROSCOPICO = "Microscópico", "Microscópico"
+        CITOMETRIA_DE_FLUXO = "Citometria de Fluxo", "Citometria de Fluxo"
+        QUIMICO = "Químico", "Químico"
+        CITOLOGICO = "Citoológico", "Citoológico"
+        ESPECTROFOTOMETRICO = "Espectrofotométrico", "Espectrofotométrico"
+        CULTURA = "Cultura", "Cultura"
+        IMUNOLOGICO = "Imunológico", "Imunológico"
+        ELISA = "ELISA", "ELISA"
+        PCR = "PCR / Reação em Cadeia da Polimerase", "PCR / Reação em Cadeia da Polimerase"
+        OUTRO = "Outro", "Outro"
 
-	class MetodoExame(models.TextChoices):
-		ENZIMATICO = "Enzimático", "Enzimático"
-		ENZIMATICO_HIBRIDO = "Enzimático-Híbrido", "Enzimático-Híbrido"
-		COLORIMETRICO = "Colorimétrico", "Colorimétrico"
-		ESPECTROFOTOMETRICO = "Espectrofotométrico", "Espectrofotométrico"
-		CROMATOGRAFICO = "Cromatográfico", "Cromatográfico"
-		CROMATOGRAFICO_ACOPLADO = "Cromatográfico Acoplado", "Cromatográfico Acoplado (ex: LC-MS/MS)"
-		MICROSCOPICO = "Microscópico", "Microscópico"
-		SEPARACAO_FISICOQUIMICA = "Separação Físico-Química", "Separação Físico-Química"
-		CULTURA = "Cultura", "Cultura"
-		COPROCULTURA = "Coprocultura", "Coprocultura"
-		UROCULTURA = "Urocultura", "Urocultura"
-		IMUNOLOGICO = "Imunológico", "Imunológico"
-		ELISA = "ELISA", "ELISA"
-		PCR = "PCR / Reação em Cadeia da Polimerase", "PCR / Reação em Cadeia da Polimerase"
-		OUTRO = "Outro", "Outro"
+    class SetorExame(models.TextChoices):
+        HEMATOLOGIA = "Hematologia", "Hematologia"
+        SEROLOGIA = "Serologia", "Serologia"
+        ANATOMIA_PATHOLOGICA = "Anatomia Páthologica", "Anatomia Páthologica"
+        BIOQUIMICA = "Bioquímica", "Bioquímica"
+        MICROBIOLOGIA = "Microbiologia", "Microbiologia"
+        IMUNOLOGIA = "Imunologia", "Imunologia"
+        PARASITOLOGIA = "Parasitologia", "Parasitologia"
+        BANCO_DE_SANGUE = "Banco de Sangue", "Banco de Sangue"
+        OUTRO = "Outro", "Outro"
+        
 
-	class SetorExame(models.TextChoices):
-		HEMATOLOGIA = "Hematologia", "Hematologia"
-		BIOQUIMICA = "Bioquímica", "Bioquímica"
-		MICROBIOLOGIA = "Microbiologia", "Microbiologia"
-		IMUNOLOGIA = "Imunologia", "Imunologia"
-		PARASITOLOGIA = "Parasitologia", "Parasitologia"
-		OUTRO = "Outro", "Outro"
+    nome = models.CharField("Nome do exame", max_length=100, unique=True)
+    codigo = models.CharField("Código", max_length=20, unique=True)
+    trl_horas = models.PositiveIntegerField("Tempo de resposta (h)", default=24)
+    metodo = models.CharField("Método", max_length=40, choices=MetodoExame.choices, default=MetodoExame.OUTRO)
+    setor = models.CharField("Setor", max_length=40, choices=SetorExame.choices, default=SetorExame.OUTRO)
+    activo = models.BooleanField("Ativo", default=True)
+    criado_em = models.DateTimeField("Criado em", auto_now_add=True)
 
-	nome = models.CharField("Nome do exame", max_length=100, unique=True)
-	codigo = models.CharField("Código", max_length=20, unique=True)
-	trl_horas = models.PositiveIntegerField("Tempo de resposta (h)", default=24)
-	metodo = models.CharField("Método", max_length=40, choices=MetodoExame.choices, default=MetodoExame.OUTRO)
-	setor = models.CharField("Setor", max_length=40, choices=SetorExame.choices, default=SetorExame.OUTRO)
-	activo = models.BooleanField("Ativo", default=True)
-	criado_em = models.DateTimeField("Criado em", auto_now_add=True)
+    class Meta:
+        verbose_name = "Exame"
+        verbose_name_plural = "Exames"
+        ordering = ["nome"]
 
-	class Meta:
-		verbose_name = "Exame"
-		verbose_name_plural = "Exames"
-		ordering = ["nome"]
-
-	def __str__(self):
-		return self.nome
-
+    def __str__(self):
+        return self.nome
 
 # =====================================
-# CAMPO DE EXAME (HERDA VALOR DE REFERÊNCIA)
+# CAMPO DE EXAME
 # =====================================
 class ExameCampo(models.Model):
-	"""
-	Campos configuráveis para cada exame.
-	Herda unidade e valor de referência para padronizar resultados.
-	"""
-	TIPO_RESULTADO = [
-		("NUM","Numérico"),
-		("TXT","Texto"),
-		("PRC","Percentagem"),
-		("CHC","Escolha"),
-	]
+    TIPO_RESULTADO = [
+        ("NUM", "Numérico"),
+        ("TXT", "Texto"),
+        ("PRC", "Percentagem"),
+        ("CHC", "Escolha"),
+    ]
 
-	exame = models.ForeignKey(Exame, on_delete=models.CASCADE, related_name="campos")
-	nome_campo = models.CharField("Campo", max_length=80)
-	tipo = models.CharField("Tipo", max_length=3, choices=TIPO_RESULTADO, default="TXT")
-	unidade = models.CharField("Unidade", max_length=20, blank=True)
-	valor_referencia = models.CharField("Valor de referência", max_length=80, blank=True)
-	ordem = models.PositiveIntegerField("Ordem", default=1)
+    exame = models.ForeignKey(Exame, on_delete=models.CASCADE, related_name="campos")
+    nome_campo = models.CharField("Campo", max_length=80)
+    tipo = models.CharField("Tipo de Resultado", max_length=3, choices=TIPO_RESULTADO, default="TXT")
+    
+    valor_texto = models.TextField("Texto", blank=True)
+    valor_numerico = models.FloatField("Numérico", blank=True, null=True)
+    valor_percentagem = models.FloatField("Percentagem", blank=True, null=True)
+    valor_escolha = models.CharField(
+        "Escolha",
+        max_length=20,
+        blank=True,
+        choices=[("Positivo", "Positivo"), ("Negativo", "Negativo"), ("Indeterminado", "Indeterminado"), ("Invalido", "Inválido")]
+    )
 
-	class Meta:
-		verbose_name = "Campo de Exame"
-		verbose_name_plural = "Campos de Exame"
-		ordering = ["exame","ordem"]
+    unidade = models.CharField("Unidade", max_length=20, blank=True)
+    valor_referencia = models.CharField("Valor de referência", max_length=80, blank=True)
+    ordem = models.PositiveIntegerField("Ordem", default=1)
 
-	def __str__(self):
-		return f"{self.exame.nome} → {self.nome_campo}"
+    class Meta:
+        verbose_name = "Campo de Exame"
+        verbose_name_plural = "Campos de Exame"
+        ordering = ["exame","ordem"]
+
+    def __str__(self):
+        return f"{self.exame.nome} → {self.nome_campo}"
 
 
 # =====================================
-# REQUISIÇÃO DE ANÁLISES
+# REQUISIÇÃO DE ANÁLISE
 # =====================================
-class RequisicaoAnalise(models.Model):
-	"""
-	Requisição de exames para um paciente.
-	Cada requisição gera automaticamente Resultados vinculados aos campos dos exames.
-	"""
-	STATUS = [
-		("PEND","Pendente"),
-		("PROC","Em processamento"),
-		("CONC","Concluída"),
-		("VAL","Validada"),
-	]
+class RequisicaoAnalise(CustomIDMixin):
+    prefixo = "REQ"
 
-	paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE, related_name="requisicoes")
-	exames = models.ManyToManyField(Exame, related_name="requisicoes")
-	analista = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Analista responsável")
-	observacoes = models.TextField("Observações", blank=True)
-	status = models.CharField("Estado", max_length=10, choices=STATUS, default="PEND")
-	created_at = models.DateTimeField("Criada em", auto_now_add=True)
-	updated_at = models.DateTimeField("Atualizada em", auto_now=True)
+    STATUS = [
+        ("PEND","Pendente"),
+        ("VAL","Validada"),
+    ]
 
-	class Meta:
-		verbose_name = "Requisição"
-		verbose_name_plural = "Requisições"
-		ordering = ["-created_at"]
+    paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE, related_name="requisicoes")
+    exames = models.ManyToManyField(Exame, related_name="requisicoes")
+    analista = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Analista responsável")
+    observacoes = models.TextField("Observações", blank=True)
+    status = models.CharField("Estado", max_length=10, choices=STATUS, default="PEND")
+    created_at = models.DateTimeField("Criada em", auto_now_add=True)
+    updated_at = models.DateTimeField("Atualizada em", auto_now=True)
 
-	def __str__(self):
-		return f"Req #{self.id} - {self.paciente.nome}"
+    class Meta:
+        verbose_name = "Requisição"
+        verbose_name_plural = "Requisições"
+        ordering = ["-created_at"]
 
-	def criar_resultados_automaticos(self):
-		"""
-		Gera resultados vinculados a todos os campos dos exames desta requisição.
-		"""
-		for exame in self.exames.all():
-			for campo in exame.campos.all():
-				ResultadoItem.objects.get_or_create(
-					requisicao=self,
-					exame_campo=campo,
-					defaults={
-						'unidade': campo.unidade,
-						'valor_referencia': campo.valor_referencia,
-					}
-				)
+    def __str__(self):
+        return f"{self.id_custom} - {self.paciente}"
 
-	def marcar_concluida(self):
-		self.status = "CONC"
-		self.save()
+    def criar_resultados_automaticos(self):
+        for exame in self.exames.all():
+            for campo in exame.campos.all():
+                ResultadoItem.objects.get_or_create(
+                    requisicao=self,
+                    exame_campo=campo
+                )
 
-	def marcar_validada(self):
-		self.status = "VAL"
-		self.save()
+    @property
+    def total_resultados(self):
+        return self.resultados.count()
 
+    @property
+    def pendentes(self):
+        return self.resultados.filter(validado=False).count()
+
+    @property
+    def validados(self):
+        return self.resultados.filter(validado=True).count()
 
 # =====================================
 # RESULTADO DE EXAME
 # =====================================
-class ResultadoItem(models.Model):
-	"""
-	Resultado individual de um campo de um exame em uma requisição.
-	"""
+class ResultadoItem(CustomIDMixin):
+    prefixo = "RES"
 
-	requisicao = models.ForeignKey(RequisicaoAnalise, on_delete=models.CASCADE, related_name="resultados")
-	exame_campo = models.ForeignKey(ExameCampo, on_delete=models.CASCADE, related_name="resultados")
-	resultado = models.CharField("Resultado", max_length=120, blank=True)
-	validado = models.BooleanField("Validado", default=False)
-	validado_por = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name="validacoes_resultado")
-	data_validacao = models.DateTimeField("Data de validação", null=True, blank=True)
-	unidade = models.CharField("Unidade", max_length=20, blank=True)
-	valor_referencia = models.CharField("Valor de referência", max_length=80, blank=True)
+    requisicao = models.ForeignKey(RequisicaoAnalise, on_delete=models.CASCADE, related_name="resultados")
+    exame_campo = models.ForeignKey(ExameCampo, on_delete=models.CASCADE, related_name="resultados", verbose_name="Exame")
+    resultado = models.CharField("Resultado", max_length=120, blank=True)
+    validado = models.BooleanField("Validado", default=False)
+    validado_por = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name="validacoes_resultado")
+    data_validacao = models.DateTimeField("Data de validação", null=True, blank=True)
 
-	class Meta:
-		verbose_name = "Resultado"
-		verbose_name_plural = "Resultados"
-		ordering = ["requisicao","exame_campo"]
+    class Meta:
+        verbose_name = "Resultado"
+        verbose_name_plural = "Resultados"
+        ordering = ["requisicao","exame_campo"]
 
-	def __str__(self):
-		return f"{self.requisicao} → {self.exame_campo.nome_campo}"
+    def __str__(self):
+        return f'{self.id_custom} - {self.exame_campo.nome_campo}'
 
-	def validar(self, usuario):
-		"""
-		Marca o resultado como validado e registra o usuário.
-		"""
-		self.validado = True
-		self.validado_por = usuario
-		self.data_validacao = timezone.now()
-		self.save()
-
-
-# =====================================
-# HISTÓRICO DE OPERAÇÕES
-# =====================================
-class HistoricoOperacao(models.Model):
-	"""
-	Registo de todas as operações realizadas em requisições ou resultados.
-	"""
-	utilizador = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-	requisicao = models.ForeignKey(RequisicaoAnalise, on_delete=models.CASCADE, related_name="historico")
-	acao = models.CharField("Ação", max_length=120)
-	detalhes = models.TextField("Detalhes", blank=True)
-	data = models.DateTimeField("Data", auto_now_add=True)
-
-	class Meta:
-		verbose_name = "Histórico"
-		verbose_name_plural = "Histórico de operações"
-		ordering = ["-data"]
-
-	def __str__(self):
-		return f"{self.data.strftime('%d/%m/%Y %H:%M')} - {self.acao}"
+    def validar(self, usuario):
+        self.validado = True
+        self.validado_por = usuario
+        self.data_validacao = timezone.now()
+        self.save(update_fields=["validado","validado_por","data_validacao"])

@@ -1,0 +1,6 @@
+CREATE ROLE lab_user WITH LOGIN PASSWORD 'lab_password';
+CREATE DATABASE lab_db OWNER postgres;
+ALTER ROLE lab_user SET client_encoding TO 'utf8';
+ALTER ROLE lab_user SET default_transaction_isolation TO 'read committed';
+ALTER ROLE lab_user SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE lab_db TO postgres;
