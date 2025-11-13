@@ -57,7 +57,7 @@ class Paciente(CustomIDMixin):
         OUTRO = "Outro", "Outro"
 
     nome = models.CharField("Nome completo", max_length=120)
-    numero_id = models.CharField("Número de B.I/Passaporte", max_length=50, unique=True)
+    numero_id = models.CharField("Número de B.I/Passaporte", max_length=50, unique=True, blank=True, null=True)
     data_nascimento = models.DateField("Data de nascimento", null=True, blank=True)
     genero = models.CharField("Gênero", max_length=10, choices=[("M","Masculino"),("F","Feminino")], blank=True)
     contacto = models.CharField("Telefone", max_length=30, blank=True, null=True)
@@ -71,7 +71,7 @@ class Paciente(CustomIDMixin):
         ordering = ["nome"]
 
     def __str__(self):
-        return f"{self.nome} ({self.id_custom})"
+        return self.nome
 
     def idade(self):
         if not self.data_nascimento:
@@ -168,8 +168,9 @@ class RequisicaoAnalise(CustomIDMixin):
     ]
 
     paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE, related_name="requisicoes")
+    numero_id = models.ForeignKey(Paciente, on_delete=models.SET_NULL, null=True, blank=True, related_name="requisicoes_id", verbose_name="Número de B.I./PASS/ID")
     exames = models.ManyToManyField(Exame, related_name="requisicoes")
-    analista = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Analista responsável")
+    analista = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Técnico de Laboratório")
     observacoes = models.TextField("Observações", blank=True)
     status = models.CharField("Estado", max_length=10, choices=STATUS, default="PEND")
     created_at = models.DateTimeField("Criada em", auto_now_add=True)
@@ -182,6 +183,9 @@ class RequisicaoAnalise(CustomIDMixin):
 
     def __str__(self):
         return f"{self.id_custom} - {self.paciente}"
+    
+    def analista_display(self):
+        return f'{self.analista.first_name} {self.analista.last_name}'
 
     def criar_resultados_automaticos(self):
         for exame in self.exames.all():

@@ -1,9 +1,18 @@
 {% extends "admin/change_form.html" %}
-{% load i18n admin_urls static %}
+{% load static i18n admin_urls %}
 
 {% block submit_buttons_top %}
     {{ block.super }}
-    <a class="button" href="{% url 'admin:lab_requisicaoanalise_changelist' %}?action=gerar_pdf_requisicao&_selected_action={{ original.pk }}">PDF Requisição</a>
-    <a class="button" href="{% url 'admin:lab_requisicaoanalise_changelist' %}?action=gerar_pdf_resultados&_selected_action={{ original.pk }}">PDF Resultados</a>
+    <a class="button" href="{% url 'lab:pdf_requisicao' original.id %}">PDF Requisição</a>
+    <a class="button" href="{% url 'lab:pdf_resultados' original.id %}">PDF Resultados</a>
 {% endblock %}
 
+{% block object-tools-items %}
+    {{ block.super }}
+    <li>
+        <a class="button" href="{% url 'lab:pdf_requisicao' original.id %}">PDF Requisição</a>
+    </li>
+    <li>
+        <a class="button" href="{% url 'lab:pdf_resultados' original.id %}">PDF Resultados</a>
+    </li>
+{% endblock %}
