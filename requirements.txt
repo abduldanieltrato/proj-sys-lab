@@ -24,3 +24,4 @@ django-extensions
 pyOpenSSL
 django-tabbed-admin
 django-select2
+psycopg[binary]

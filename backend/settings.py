@@ -16,8 +16,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SEGURANÇA
 # ============================================================
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "coloque_aqui_uma_chave_super_segura_e_unica")
-DEBUG = os.environ.get("DJANGO_DEBUG", "True") == "True"
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "False"
+ALLOWED_HOSTS = ['127.0.0.1', '197.235.165.209']
 
 # ============================================================
 # INTERNACIONALIZAÇÃO
@@ -50,6 +50,7 @@ MEDIA_URL = "/media/"
 STATICFILES_DIRS = [BASE_DIR / "lab" / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_ROOT = BASE_DIR / "mediafiles"
+
 
 # ============================================================
 # APLICAÇÕES
