@@ -137,25 +137,13 @@ class ExameCampo(models.Model):
     TIPO_RESULTADO = [
         ("NUM", "Numérico"),
         ("TXT", "Texto"),
-        ("PRC", "Percentagem"),
-        ("CHC", "Escolha"),
     ]
 
     exame = models.ForeignKey(Exame, on_delete=models.CASCADE, related_name="campos")
-    nome_campo = models.CharField("Campo", max_length=80)
-    tipo = models.CharField("Tipo de Resultado", max_length=3, choices=TIPO_RESULTADO, default="TXT")
-    
-    valor_texto = models.TextField("Texto", blank=True)
-    valor_numerico = models.FloatField("Numérico", blank=True, null=True)
-    valor_percentagem = models.FloatField("Percentagem", blank=True, null=True)
-    valor_escolha = models.CharField(
-        "Escolha",
-        max_length=20,
-        blank=True,
-        choices=[("Positivo", "Positivo"), ("Negativo", "Negativo"), ("Indeterminado", "Indeterminado"), ("Invalido", "Inválido")]
-    )
-
-    unidade = models.CharField("Unidade", max_length=20, blank=True)
+    nome_campo = models.CharField("indicador", max_length=80)
+    tipo = models.CharField("resultado", max_length=3, choices=TIPO_RESULTADO, default="NUM")
+    potencia = models.CharField("potência", default="x1000000", max_length=8, blank=True, choices=[("x100000", "x1000000"), ("x1000", "x1000"), ("x1000", "x1000"), ("x1000000", "x1000000")])
+    unidade = models.CharField("unidade S.I.", max_length=8, blank=True)
     valor_referencia = models.CharField("Valor de referência", max_length=80, blank=True)
     ordem = models.PositiveIntegerField("Ordem", default=1)
 
@@ -218,26 +206,91 @@ class RequisicaoAnalise(CustomIDMixin):
 # =====================================
 # RESULTADO DE EXAME
 # =====================================
+from django.utils import timezone
+from django.db import models
+from django.contrib.auth.models import User
+
+
 class ResultadoItem(CustomIDMixin):
-    prefixo = "RES"
+	prefixo = "RES"
 
-    requisicao = models.ForeignKey(RequisicaoAnalise, on_delete=models.CASCADE, related_name="resultados")
-    exame_campo = models.ForeignKey(ExameCampo, on_delete=models.CASCADE, related_name="resultados", verbose_name="Exame")
-    resultado = models.CharField("Resultado", max_length=120, blank=True)
-    validado = models.BooleanField("Validado", default=False)
-    validado_por = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name="validacoes_resultado")
-    data_validacao = models.DateTimeField("Data de validação", null=True, blank=True)
+	requisicao = models.ForeignKey(
+		RequisicaoAnalise,
+		on_delete=models.CASCADE,
+		related_name="resultados"
+	)
+	exame_campo = models.ForeignKey(
+		ExameCampo,
+		on_delete=models.CASCADE,
+		related_name="resultados",
+		verbose_name="Exame"
+	)
+	resultado = models.CharField("Resultado", max_length=120, blank=True)
 
-    class Meta:
-        verbose_name = "Resultado"
-        verbose_name_plural = "Resultados"
-        ordering = ["requisicao","exame_campo"]
+	unidade = models.ForeignKey(
+		ExameCampo,
+		on_delete=models.SET_NULL,
+		null=True,
+		blank=True,
+		related_name="resultados_unidade",
+		verbose_name="Unidade"
+	)
+	referencia = models.ForeignKey(
+		ExameCampo,
+		on_delete=models.SET_NULL,
+		null=True,
+		blank=True,
+		related_name="resultados_referencia",
+		verbose_name="Referência"
+	)
 
-    def __str__(self):
-        return f'{self.id_custom} - {self.exame_campo.nome_campo}'
+	validado = models.BooleanField("Validado", default=False)
+	validado_por = models.ForeignKey(
+		User,
+		on_delete=models.SET_NULL,
+		null=True,
+		blank=True,
+		related_name="validacoes_resultado"
+	)
+	data_validacao = models.DateTimeField("Data de validação", null=True, blank=True)
 
-    def validar(self, usuario):
-        self.validado = True
-        self.validado_por = usuario
-        self.data_validacao = timezone.now()
-        self.save(update_fields=["validado","validado_por","data_validacao"])
+	class Meta:
+		verbose_name = "Resultado"
+		verbose_name_plural = "Resultados"
+		ordering = ["requisicao", "exame_campo"]
+
+	def __str__(self):
+		return f"{self.id_custom} - {self.exame_campo.nome_campo}"
+
+	# ========================== MÉTODOS AUXILIARES ==========================
+	def validar(self, usuario):
+		"""Marca o resultado como validado."""
+		self.validado = True
+		self.validado_por = usuario
+		self.data_validacao = timezone.now()
+		self.save(update_fields=["validado", "validado_por", "data_validacao"])
+
+	def unidade_display(self):
+		"""Retorna a unidade do exame campo principal (ou do FK unidade)."""
+		if self.unidade and self.unidade.unidade:
+			return self.unidade.unidade
+		return self.exame_campo.unidade or "—"
+	unidade_display.short_description = "Unidade"
+
+	def referencia_display(self):
+		"""Retorna o valor de referência do exame campo principal (ou do FK referência)."""
+		if self.referencia and self.referencia.valor_referencia:
+			return self.referencia.valor_referencia
+		return self.exame_campo.valor_referencia or "—"
+	referencia_display.short_description = "Valor de Referência"
+
+	def exame_nome(self):
+		"""Retorna o nome do exame principal para exibição no admin."""
+		return self.exame_campo.exame.nome
+	exame_nome.short_description = "Exame"
+
+	def campo_nome(self):
+		"""Retorna o nome do parâmetro do exame."""
+		return self.exame_campo.nome_campo
+	campo_nome.short_description = "Campo"
+

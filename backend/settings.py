@@ -33,9 +33,9 @@ USE_TZ = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'lab_db',
-        'USER': 'lab_user',
-        'PASSWORD': 'lab_password',
+        'NAME': 'sys_db',
+        'USER': 'abdul',
+        'PASSWORD': '147mil',
         'HOST': 'localhost',
         'PORT': '5432',
     }

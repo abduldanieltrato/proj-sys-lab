@@ -1,3 +1,5 @@
+from encodings.punycode import T
+from math import e
 from django.contrib import admin
 from django import forms
 from django.http import HttpResponse
@@ -38,7 +40,7 @@ class ExameCampoInline(admin.TabularInline):
     model = ExameCampo
     form = ExameCampoForm
     extra = 0
-    fields = ('nome_campo', 'tipo', 'unidade', 'valor_referencia', 'ordem')
+    fields = ('nome_campo', 'tipo','potencia', 'unidade', 'valor_referencia', 'ordem')
     ordering = ['ordem']
 
 @admin.register(Exame)
@@ -49,15 +51,23 @@ class ExameAdmin(admin.ModelAdmin):
     inlines = [ExameCampoInline]
     list_per_page = 200
 
+
+@admin.register(ResultadoItem)
+class ResultadoItemAdmin(admin.ModelAdmin):
+	list_display = ("id_custom", "exame_nome", "campo_nome", "resultado", "unidade_display", "referencia_display", "validado", "data_validacao")
+	list_filter = ("validado", "data_validacao", "exame_campo__exame")
+	search_fields = ("exame_campo__nome_campo", "exame_campo__exame__nome", "resultado")
+
+
 # =====================================
 # RESULTADO INLINE
 # =====================================
 class ResultadoItemInline(admin.TabularInline):
     model = ResultadoItem
     extra = 0
-    fields = ('exame_campo', 'resultado', 'validado', 'validado_por', 'data_validacao')
-    readonly_fields = ('validado_por', 'data_validacao')
-    can_delete = False
+    fields = ('exame_campo', 'resultado', 'unidade_display', 'referencia_display', 'validado', 'validado_por', 'data_validacao')
+    readonly_fields = ('validado_por', 'data_validacao', 'exame_campo')
+    can_delete = True
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
@@ -99,7 +109,7 @@ class RequisicaoAnaliseAdmin(admin.ModelAdmin):
 	# LISTAGEM E FILTROS
 	# ==========================
 	list_display = ('id_custom', 'paciente', 'status', 'analista', 'created_at')
-	search_fields = ('id_custom', 'paciente__nome', 'paciente__numero_id', 'exames__nome')
+	search_fields = ('id_custom', 'paciente__nome', 'paciente__numero_id', 'exames__nome', 'status')
 	list_filter = ('status', 'analista', 'created_at')
 	ordering = ['-created_at']
 	list_per_page = 500
@@ -108,7 +118,7 @@ class RequisicaoAnaliseAdmin(admin.ModelAdmin):
 	# CAMPOS E FORMULÁRIOS
 	# ==========================
 	autocomplete_fields = ('paciente', 'analista')
-	readonly_fields = ('created_at', 'updated_at', 'analista')
+	readonly_fields = ('paciente', 'created_at', 'updated_at', 'analista', 'status',)
 	change_form_template = "admin/requisicao_analise_changeform.html"
 	actions = ['gerar_pdf_requisicao', 'gerar_pdf_resultados']
 

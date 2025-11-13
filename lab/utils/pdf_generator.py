@@ -234,7 +234,7 @@ def gerar_pdf_resultados(requisicao, apenas_validados=False):
 
 	elements.append(Paragraph("RESULTADOS DE ANÁLISES", style_title))
 	elements.append(Spacer(1, 10))
-	elements.append(Paragraph(f"Nome do(a) Paciente: {requisicao.paciente.nome}", style_normal))
+	elements.append(Paragraph(f"Nome de Paciente: {requisicao.paciente.nome}", style_normal))
 	elements.append(Paragraph(f"Idade: {requisicao.paciente.idade()}", style_normal))
 	elements.append(Paragraph(f"Gênero: {requisicao.paciente.genero}", style_normal))
 	elements.append(Paragraph(f"Documento: {requisicao.paciente.numero_id}", style_normal))
@@ -262,7 +262,7 @@ def gerar_pdf_resultados(requisicao, apenas_validados=False):
 				elements.append(Paragraph(exame_nome, style_subtitle))
 				elements.append(Spacer(1, 6))
 				data = [[
-					Paragraph("Parâmetro de Exame", cell_style),
+					Paragraph("Indicador", cell_style),
 					Paragraph("Resultado", cell_style),
 					Paragraph("Unidade", cell_style),
 					Paragraph("Valor de Ref.", cell_style)
@@ -277,7 +277,7 @@ def gerar_pdf_resultados(requisicao, apenas_validados=False):
 								break
 					data.append([
 						Paragraph(r.exame_campo.nome_campo, cell_style),
-						Paragraph(str(valor) if valor not in (None, "") else "-", cell_style),
+						Paragraph(str(f'{valor} {r.exame_campo.unidade}') if valor not in (None, "") else "-", cell_style),
 						Paragraph(r.exame_campo.unidade or "-", cell_style),
 						Paragraph(r.exame_campo.valor_referencia or "-", cell_style),
 					])
