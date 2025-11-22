@@ -5548,3 +5548,227 @@ TypeError: _cell_paragraph() got an unexpected keyword argument 'leading'
 [2025-11-13 16:27:58,013] INFO django.server — "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
 [2025-11-13 16:27:58,015] INFO django.server — "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
 [2025-11-13 16:28:12,226] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 181209
+[2025-11-22 21:19:04,463] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-22 21:20:24,593] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-22 21:20:25,133] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-22 21:20:25,158] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-22 21:32:06,599] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-22 21:32:07,131] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-22 21:32:07,146] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-22 21:38:23,302] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-22 21:38:23,781] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-22 21:38:23,797] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-22 21:38:42,453] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-22 21:38:50,589] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-22 21:39:05,166] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-22 21:39:23,028] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-22 21:39:23,552] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-22 21:39:23,568] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-22 21:39:57,362] INFO django.server — "GET /api/teste/ HTTP/1.1" 200 5150
+[2025-11-22 21:39:57,413] INFO django.server — "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+[2025-11-22 21:39:57,414] INFO django.server — "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+[2025-11-22 21:39:57,418] INFO django.server — "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+[2025-11-22 21:39:57,424] INFO django.server — "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+[2025-11-22 21:39:57,429] INFO django.server — "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+[2025-11-22 21:39:57,432] INFO django.server — "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+[2025-11-22 21:39:57,434] INFO django.server — "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+[2025-11-22 21:39:57,434] INFO django.server — "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+[2025-11-22 21:39:57,434] INFO django.server — "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+[2025-11-22 21:39:57,439] INFO django.server — "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+[2025-11-22 21:39:57,440] INFO django.server — "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+[2025-11-22 21:39:57,453] INFO django.server — "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+[2025-11-22 21:39:57,564] WARNING django.request — Not Found: /favicon.ico
+[2025-11-22 21:39:57,566] WARNING django.server — "GET /favicon.ico HTTP/1.1" 404 4925
+[2025-11-22 21:40:08,466] INFO django.server — "GET /api/teste/?format=api HTTP/1.1" 200 5194
+[2025-11-22 21:40:10,232] INFO django.server — "OPTIONS /api/teste/?format=api HTTP/1.1" 200 5491
+[2025-11-22 21:40:12,871] INFO django.server — "OPTIONS /api/teste/?format=api HTTP/1.1" 200 5491
+[2025-11-22 23:51:27,358] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-22 23:51:27,895] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-22 23:51:27,908] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-22 23:51:42,988] WARNING django.request — Not Found: /lab/api/pacientes/
+[2025-11-22 23:51:42,989] WARNING django.server — "GET /lab/api/pacientes/ HTTP/1.1" 404 13296
+[2025-11-22 23:52:25,546] WARNING django.request — Not Found: /lab/api/requisicoes/
+[2025-11-22 23:52:25,547] WARNING django.server — "GET /lab/api/requisicoes/ HTTP/1.1" 404 13302
+[2025-11-22 23:57:30,695] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-22 23:57:31,241] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-22 23:57:31,264] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-22 23:57:40,511] WARNING django.request — Not Found: /lab/api/requisicoes/
+[2025-11-22 23:57:40,512] WARNING django.server — "GET /lab/api/requisicoes/ HTTP/1.1" 404 5203
+[2025-11-22 23:57:43,126] WARNING django.request — Not Found: /lab/api/requisicoes/
+[2025-11-22 23:57:43,126] WARNING django.server — "GET /lab/api/requisicoes/ HTTP/1.1" 404 5203
+[2025-11-22 23:57:43,859] WARNING django.request — Not Found: /lab/api/requisicoes/
+[2025-11-22 23:57:43,860] WARNING django.server — "GET /lab/api/requisicoes/ HTTP/1.1" 404 5203
+[2025-11-22 23:57:47,566] WARNING django.request — Not Found: /lab/api/pacientes/
+[2025-11-22 23:57:47,567] WARNING django.server — "GET /lab/api/pacientes/ HTTP/1.1" 404 5197
+[2025-11-22 23:57:51,644] INFO django.server — "GET /api/teste/?format=api HTTP/1.1" 200 5302
+[2025-11-22 23:57:51,663] INFO django.server — "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+[2025-11-22 23:57:51,663] INFO django.server — "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+[2025-11-22 23:57:51,671] INFO django.server — "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+[2025-11-22 23:57:51,676] INFO django.server — "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+[2025-11-22 23:57:51,678] INFO django.server — "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+[2025-11-22 23:57:51,681] INFO django.server — "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+[2025-11-22 23:57:51,681] INFO django.server — "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+[2025-11-22 23:57:51,686] INFO django.server — "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+[2025-11-22 23:57:51,686] INFO django.server — "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+[2025-11-22 23:57:51,686] INFO django.server — "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+[2025-11-22 23:57:51,686] INFO django.server — "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+[2025-11-22 23:57:51,704] INFO django.server — "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+[2025-11-22 23:57:52,797] INFO django.server — "GET /api/teste/?format=api HTTP/1.1" 200 5302
+[2025-11-22 23:57:54,957] INFO django.server — "GET /api/teste/?format=api HTTP/1.1" 200 5302
+[2025-11-22 23:57:57,574] INFO django.server — "GET /api/teste/?format=json HTTP/1.1" 200 34
+[2025-11-22 23:58:01,906] INFO django.server — "GET /api/teste/?format=json HTTP/1.1" 200 34
+[2025-11-22 23:58:03,585] INFO django.server — "GET /api/teste/?format=json HTTP/1.1" 200 34
+[2025-11-22 23:58:04,297] INFO django.server — "GET /api/teste/?format=json HTTP/1.1" 200 34
+[2025-11-22 23:58:05,296] INFO django.server — "GET /api/teste/?format=json HTTP/1.1" 200 34
+[2025-11-23 00:05:26,379] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 00:05:26,912] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 00:05:26,929] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 00:05:52,735] WARNING django.request — Not Found: /lab/api/pacientes/
+[2025-11-23 00:05:52,737] WARNING django.server — "GET /lab/api/pacientes/ HTTP/1.1" 404 5197
+[2025-11-23 00:06:22,751] WARNING django.request — Not Found: /lab/api/
+[2025-11-23 00:06:22,752] WARNING django.server — "GET /lab/api/ HTTP/1.1" 404 5167
+[2025-11-23 00:06:27,595] WARNING django.request — Not Found: /lab/api
+[2025-11-23 00:06:27,595] WARNING django.server — "GET /lab/api HTTP/1.1" 404 5164
+[2025-11-23 00:06:31,468] WARNING django.request — Not Found: /lab/
+[2025-11-23 00:06:31,469] WARNING django.server — "GET /lab/ HTTP/1.1" 404 5155
+[2025-11-23 00:06:36,237] WARNING django.request — Not Found: /
+[2025-11-23 00:06:36,238] WARNING django.server — "GET / HTTP/1.1" 404 5125
+[2025-11-23 00:06:45,728] INFO django.server — "GET /admin HTTP/1.1" 301 0
+[2025-11-23 00:06:45,761] INFO django.server — "GET /admin/ HTTP/1.1" 302 0
+[2025-11-23 00:06:45,782] INFO django.server — "GET /admin/login/?next=/admin/ HTTP/1.1" 200 3274
+[2025-11-23 00:06:45,802] INFO django.server — "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+[2025-11-23 00:06:45,813] INFO django.server — "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2025-11-23 00:06:45,828] INFO django.server — "GET /static/css/admin_custom.css HTTP/1.1" 200 953
+[2025-11-23 00:06:45,832] INFO django.server — "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+[2025-11-23 00:06:45,848] INFO django.server — "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 200 164819
+[2025-11-23 00:06:45,849] INFO django.server — "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+[2025-11-23 00:06:45,850] INFO django.server — "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+[2025-11-23 00:06:45,859] INFO django.server — "GET /static/js/admin_custom.js HTTP/1.1" 200 0
+[2025-11-23 00:06:45,862] INFO django.server — "GET /static/img/logo.png HTTP/1.1" 200 563338
+[2025-11-23 00:06:45,868] INFO django.server — "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+[2025-11-23 00:06:47,099] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+[2025-11-23 00:06:48,412] WARNING django.server — "GET /static/img/favicon.ico HTTP/1.1" 404 1859
+[2025-11-23 00:07:02,326] INFO django.server — "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2025-11-23 00:07:02,409] INFO django.server — "GET /admin/ HTTP/1.1" 200 18553
+[2025-11-23 00:07:02,429] INFO django.server — "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+[2025-11-23 00:07:02,465] INFO django.server — "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+[2025-11-23 00:07:05,430] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 18586
+[2025-11-23 00:07:05,463] INFO django.server — "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-11-23 00:07:05,468] INFO django.server — "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+[2025-11-23 00:07:05,468] INFO django.server — "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[2025-11-23 00:07:05,472] INFO django.server — "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[2025-11-23 00:07:05,474] INFO django.server — "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[2025-11-23 00:07:05,476] INFO django.server — "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[2025-11-23 00:07:05,478] INFO django.server — "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[2025-11-23 00:07:05,484] INFO django.server — "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2025-11-23 00:07:05,484] INFO django.server — "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+[2025-11-23 00:07:05,489] INFO django.server — "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+[2025-11-23 00:07:05,497] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-23 00:09:06,061] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 00:09:27,766] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 00:09:38,661] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 00:10:13,071] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 00:10:13,573] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 00:10:13,592] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 00:10:19,691] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 147144
+[2025-11-23 00:10:19,937] INFO django.server — "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[2025-11-23 00:10:19,937] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-23 00:10:49,470] INFO django.server — "GET /admin/lab/paciente/ HTTP/1.1" 200 255705
+[2025-11-23 00:10:49,778] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-23 00:10:58,966] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 348979
+[2025-11-23 00:10:58,996] INFO django.server — "GET /static/django_select2/django_select2.css HTTP/1.1" 200 54
+[2025-11-23 00:10:58,996] INFO django.server — "GET /static/django_select2/django_select2.js HTTP/1.1" 200 2561
+[2025-11-23 00:10:59,020] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-23 00:11:06,481] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 101338
+[2025-11-23 00:12:33,565] INFO django.server — "GET /admin/lab/resultadoitem/ HTTP/1.1" 200 51574
+[2025-11-23 00:12:33,611] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-23 00:12:39,434] INFO django.server — "GET /admin/lab/resultadoitem/add/ HTTP/1.1" 200 153777
+[2025-11-23 00:12:39,461] INFO django.server — "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-11-23 00:12:39,462] INFO django.server — "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2025-11-23 00:12:39,463] INFO django.server — "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+[2025-11-23 00:12:39,464] INFO django.server — "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+[2025-11-23 00:12:39,470] INFO django.server — "GET /static/jazzmin/js/change_form.js HTTP/1.1" 200 6052
+[2025-11-23 00:12:39,485] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-23 00:12:39,494] INFO django.server — "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2025-11-23 00:12:39,505] INFO django.server — "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2025-11-23 00:12:39,506] INFO django.server — "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[2025-11-23 00:12:39,507] INFO django.server — "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[2025-11-23 00:12:47,878] INFO django.server — "GET /admin/lab/ HTTP/1.1" 200 15779
+[2025-11-23 00:12:50,709] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 147160
+[2025-11-23 00:12:50,752] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-23 00:12:53,195] INFO django.server — "GET /admin/lab/exame/51/change/ HTTP/1.1" 200 29733
+[2025-11-23 00:12:53,213] INFO django.server — "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+[2025-11-23 00:12:53,233] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-23 00:14:13,325] INFO django.server — "POST /admin/lab/exame/51/change/ HTTP/1.1" 302 0
+[2025-11-23 00:14:13,500] INFO django.server — "GET /admin/lab/exame/ HTTP/1.1" 200 147727
+[2025-11-23 00:14:13,541] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-23 00:14:19,695] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 348979
+[2025-11-23 00:14:19,742] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-23 00:14:21,679] INFO django.server — "GET /admin/lab/requisicaoanalise/2000/change/ HTTP/1.1" 200 62331
+[2025-11-23 00:14:21,704] INFO django.server — "GET /static/admin/js/autocomplete.js HTTP/1.1" 200 1060
+[2025-11-23 00:14:21,704] INFO django.server — "GET /static/admin/js/vendor/select2/i18n/en.js HTTP/1.1" 200 844
+[2025-11-23 00:14:21,706] INFO django.server — "GET /static/admin/css/autocomplete.css HTTP/1.1" 200 9185
+[2025-11-23 00:14:21,706] INFO django.server — "GET /static/admin/css/vendor/select2/select2.css HTTP/1.1" 200 17358
+[2025-11-23 00:14:21,711] INFO django.server — "GET /static/admin/js/vendor/select2/select2.full.js HTTP/1.1" 200 173566
+[2025-11-23 00:14:21,738] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-23 00:14:54,213] INFO django.server — "POST /admin/lab/requisicaoanalise/2000/change/ HTTP/1.1" 302 0
+[2025-11-23 00:14:55,157] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 349580
+[2025-11-23 00:14:55,206] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-23 00:15:02,639] INFO django.server — "GET /admin/lab/requisicaoanalise/2000/change/ HTTP/1.1" 200 66089
+[2025-11-23 00:15:02,681] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-23 00:15:19,025] INFO django.server — "POST /admin/lab/requisicaoanalise/2000/change/ HTTP/1.1" 302 0
+[2025-11-23 00:15:19,950] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 349580
+[2025-11-23 00:15:20,003] INFO django.server — "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-23 00:15:28,707] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 101357
+[2025-11-23 00:16:33,874] WARNING django.request — Not Found: /
+[2025-11-23 00:16:33,875] WARNING django.server — "GET / HTTP/1.1" 404 5125
+[2025-11-23 00:25:36,671] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 00:25:37,214] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 00:25:37,228] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 00:25:58,104] INFO django.server — "GET / HTTP/1.1" 200 5814
+[2025-11-23 00:25:58,122] INFO django.server — "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+[2025-11-23 00:25:58,126] INFO django.server — "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+[2025-11-23 00:25:58,132] INFO django.server — "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+[2025-11-23 00:25:58,132] INFO django.server — "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+[2025-11-23 00:25:58,133] INFO django.server — "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+[2025-11-23 00:25:58,133] INFO django.server — "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+[2025-11-23 00:25:58,139] INFO django.server — "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+[2025-11-23 00:25:58,142] INFO django.server — "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+[2025-11-23 00:25:58,143] INFO django.server — "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+[2025-11-23 00:25:58,143] INFO django.server — "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+[2025-11-23 00:25:58,145] INFO django.server — "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+[2025-11-23 00:25:58,148] INFO django.server — "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+[2025-11-23 00:26:03,587] INFO django.server — "GET /pacientes/ HTTP/1.1" 200 2722028
+[2025-11-23 00:26:24,665] INFO django.server — "GET /pacientes/ HTTP/1.1" 200 2722028
+[2025-11-23 00:26:29,452] INFO django.server — "GET / HTTP/1.1" 200 5814
+[2025-11-23 00:26:32,294] INFO django.server — "GET /exames/ HTTP/1.1" 200 91892
+[2025-11-23 01:06:03,390] INFO django.server — "GET /exames/ HTTP/1.1" 200 91862
+[2025-11-23 01:06:03,410] INFO django.server — "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+[2025-11-23 01:06:03,413] INFO django.server — "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+[2025-11-23 01:06:03,418] INFO django.server — "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+[2025-11-23 01:06:03,420] INFO django.server — "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+[2025-11-23 01:06:03,424] INFO django.server — "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+[2025-11-23 01:06:03,424] INFO django.server — "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+[2025-11-23 01:06:03,425] INFO django.server — "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+[2025-11-23 01:06:03,425] INFO django.server — "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+[2025-11-23 01:06:03,426] INFO django.server — "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+[2025-11-23 01:06:03,427] INFO django.server — "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+[2025-11-23 01:06:03,428] INFO django.server — "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+[2025-11-23 01:06:06,969] INFO django.server — "GET /exames/ HTTP/1.1" 200 91862
+[2025-11-23 01:06:11,940] INFO django.server — "GET /exames/ HTTP/1.1" 200 91862
+[2025-11-23 01:06:12,901] INFO django.server — "GET / HTTP/1.1" 200 5784
+[2025-11-23 01:06:22,540] INFO django.server — "GET /pacientes/ HTTP/1.1" 200 2721998
+[2025-11-23 01:06:25,860] INFO django.server — "GET / HTTP/1.1" 200 5784
+[2025-11-23 01:06:25,877] INFO django.server — "GET / HTTP/1.1" 200 5784
+[2025-11-23 01:06:28,407] INFO django.server — "GET /resultados/ HTTP/1.1" 200 117171
+[2025-11-23 01:07:25,760] INFO django.server — "GET /resultados/ HTTP/1.1" 200 117171
+[2025-11-23 01:07:27,930] INFO django.server — "GET / HTTP/1.1" 200 5784
+[2025-11-23 01:07:58,753] INFO django.server — "GET / HTTP/1.1" 200 5784
+[2025-11-23 01:08:05,548] INFO django.server — "GET /pacientes/ HTTP/1.1" 200 2721998
+[2025-11-23 01:20:35,183] INFO django.server — "GET /pacientes/ HTTP/1.1" 200 2721998
+[2025-11-23 01:20:35,276] INFO django.server — "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+[2025-11-23 01:20:39,118] INFO django.server — "GET /pacientes/ HTTP/1.1" 200 2721998
+[2025-11-23 01:20:42,777] INFO django.server — "GET /pacientes/ HTTP/1.1" 200 2721998
+[2025-11-23 01:20:45,799] INFO django.server — "GET /pacientes/ HTTP/1.1" 200 2721998
+[2025-11-23 01:20:50,185] INFO django.server — "GET / HTTP/1.1" 200 5784
+[2025-11-23 01:20:57,229] INFO django.server — "GET /pacientes/ HTTP/1.1" 200 2721998
