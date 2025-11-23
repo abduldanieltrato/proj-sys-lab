@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from django.views.generic import RedirectView
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -14,6 +15,8 @@ urlpatterns = [
 
 	# -------------------- INTERNACIONALIZAÇÃO --------------------
 	path("i18n/", include("django.conf.urls.i18n")),
+	path('', RedirectView.as_view(url='/admin/', permanent=False)),  # redireciona "/" para "/admin/"
+    # outras rotas...
 ]
 
 # -------------------- ARQUIVOS ESTÁTICOS E MÍDIA --------------------

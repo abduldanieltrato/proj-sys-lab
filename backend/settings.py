@@ -240,8 +240,15 @@ JAZZMIN_UI_TWEAKS = {
 # STATIC FILES (revisado)
 # ============================================================
 STATIC_URL = "/static/"
-MEDIA_URL = "/media/"
 
 STATICFILES_DIRS = [BASE_DIR / "lab" / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-MEDIA_ROOT = BASE_DIR / "mediafiles"
+
+
+# settings.py
+
+STATIC_URL = '/static/'
+STATIC_ROOT = '/srv/projects/proj-sys-lab/proj-sys-lab/staticfiles'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/srv/projects/proj-sys-lab/proj-sys-lab/media'

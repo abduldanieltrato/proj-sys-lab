@@ -17,7 +17,7 @@ class PacienteAdmin(admin.ModelAdmin):
     list_display = ('id_custom', 'nome', 'numero_id', 'idade', 'genero', 'proveniencia', 'data_registo_formatada')
     search_fields = ('id_custom', 'nome', 'numero_id', 'contacto', 'proveniencia')
     list_filter = ('genero', 'proveniencia', 'data_registo')
-    readonly_fields = ('data_registo', 'idade',)
+    readonly_fields = ('data_registo', 'idade')
     list_per_page = 350
 
     def idade(self, obj: Paciente) -> int:

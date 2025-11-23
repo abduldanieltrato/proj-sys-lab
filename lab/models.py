@@ -186,7 +186,7 @@ class RequisicaoAnalise(CustomIDMixin):
     
     def analista_display(self):
         return f'{self.analista.first_name} {self.analista.last_name}'
-
+    
     def criar_resultados_automaticos(self):
         for exame in self.exames.all():
             for campo in exame.campos.all():
