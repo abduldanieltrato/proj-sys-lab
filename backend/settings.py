@@ -17,7 +17,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ============================================================
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "coloque_aqui_uma_chave_super_segura_e_unica")
 DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "False"
-ALLOWED_HOSTS = ['127.0.0.1', '197.235.165.209']
+ALLOWED_HOSTS = ['*']
+
 
 # ============================================================
 # INTERNACIONALIZAÇÃO
@@ -58,6 +59,8 @@ MEDIA_ROOT = BASE_DIR / "mediafiles"
 INSTALLED_APPS = [
     "jazzmin",                 # deve vir antes do admin
     "lab",
+    "corsheaders",
+    "rest_framework",
     "django_select2",
     "phonenumber_field",
     "django_countries",
@@ -86,6 +89,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # ============================================================
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -226,6 +230,7 @@ JAZZMIN_SETTINGS = {
     },
 }
 
+
 JAZZMIN_UI_TWEAKS = {
     "theme": "flatly",
     "navbar_small_text": False,
@@ -243,6 +248,7 @@ STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [BASE_DIR / "lab" / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
+<<<<<<< HEAD
 
 
 # settings.py
@@ -252,3 +258,14 @@ STATIC_ROOT = '/srv/projects/proj-sys-lab/proj-sys-lab/staticfiles'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/srv/projects/proj-sys-lab/proj-sys-lab/media'
+=======
+MEDIA_ROOT = BASE_DIR / "mediafiles"
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+
+# Permitir apenas localhost:5173
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
+>>>>>>> d92c9b3a48034f6de5ab86ced32b8135ce233787
