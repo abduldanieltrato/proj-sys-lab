@@ -5517,3 +5517,17 @@ TypeError: _cell_paragraph() got an unexpected keyword argument 'leading'
 [2025-11-13 14:11:51,414] INFO django.server — "GET /admin/lab/requisicaoanalise/ HTTP/1.1" 200 22123
 [2025-11-13 14:11:51,560] INFO django.server — "GET /static/img/logo.png HTTP/1.1" 200 563338
 [2025-11-13 14:12:02,401] INFO django.server — "POST /admin/lab/requisicaoanalise/ HTTP/1.1" 200 181176
+[2025-11-13 14:43:09,686] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-13 15:12:52,492] WARNING django.request — Not Found: /static/vendor/fontawesome-free/css/all.min.css
+[2025-11-13 15:12:52,522] WARNING django.request — Not Found: /static/jazzmin/css/main.css
+[2025-11-13 15:12:52,523] WARNING django.request — Not Found: /static/vendor/bootswatch/flatly/bootstrap.min.css
+[2025-11-13 15:12:52,533] WARNING django.request — Not Found: /static/css/admin_custom.css
+[2025-11-13 15:12:52,537] WARNING django.request — Not Found: /static/vendor/adminlte/css/adminlte.min.css
+[2025-11-13 15:12:52,656] WARNING django.request — Not Found: /static/vendor/bootstrap/js/bootstrap.min.js
+[2025-11-13 15:12:52,657] WARNING django.request — Not Found: /static/admin/js/vendor/jquery/jquery.js
+[2025-11-13 15:12:52,731] WARNING django.request — Not Found: /static/js/admin_custom.js
+[2025-11-13 15:12:52,732] WARNING django.request — Not Found: /static/vendor/adminlte/js/adminlte.min.js
+[2025-11-13 15:12:53,251] WARNING django.request — Not Found: /static/vendor/bootstrap/js/bootstrap.min.js
+[2025-11-13 15:12:53,625] WARNING django.request — Not Found: /static/vendor/adminlte/js/adminlte.min.js
+[2025-11-13 15:12:53,653] WARNING django.request — Not Found: /static/js/admin_custom.js
+[2025-11-13 15:13:57,548] WARNING django.request — Not Found: /favicon.ico

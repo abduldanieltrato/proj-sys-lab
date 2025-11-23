@@ -38,3 +38,10 @@ urlpatterns = [
         name="pdf_resultados"
     ),
 ]
+
+from django.urls import path
+from . import views
+
+urlpatterns += [
+	path('teste-async/', views.teste_async, name='teste_async'),
+]

@@ -6,6 +6,16 @@ from .models import RequisicaoAnalise, ResultadoItem, ExameCampo
 from .utils.pdf_generator import gerar_pdf_requisicao, gerar_pdf_resultados
 
 
+
+# app/views.py
+from django.http import JsonResponse
+import asyncio
+
+async def teste_async(request):
+	await asyncio.sleep(3)
+	return JsonResponse({"status": "ok", "mensagem": "View assíncrona funcionando!"})
+
+
 # ========================== FORMULÁRIO DINÂMICO ==========================
 class ResultadosDinamicosForm(forms.Form):
 	"""
