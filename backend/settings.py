@@ -16,8 +16,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SEGURANÇA
 # ============================================================
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "coloque_aqui_uma_chave_super_segura_e_unica")
-DEBUG = os.environ.get("DJANGO_DEBUG", "True") == "True"
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "False"
+ALLOWED_HOSTS = ['*']
+
 
 # ============================================================
 # INTERNACIONALIZAÇÃO
@@ -51,12 +52,15 @@ STATICFILES_DIRS = [BASE_DIR / "lab" / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_ROOT = BASE_DIR / "mediafiles"
 
+
 # ============================================================
 # APLICAÇÕES
 # ============================================================
 INSTALLED_APPS = [
     "jazzmin",                 # deve vir antes do admin
     "lab",
+    "corsheaders",
+    "rest_framework",
     "django_select2",
     "phonenumber_field",
     "django_countries",
@@ -85,6 +89,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # ============================================================
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -225,6 +230,7 @@ JAZZMIN_SETTINGS = {
     },
 }
 
+
 JAZZMIN_UI_TWEAKS = {
     "theme": "flatly",
     "navbar_small_text": False,
@@ -244,3 +250,11 @@ MEDIA_URL = "/media/"
 STATICFILES_DIRS = [BASE_DIR / "lab" / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_ROOT = BASE_DIR / "mediafiles"
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+
+# Permitir apenas localhost:5173
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
