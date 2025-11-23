@@ -6,6 +6,95 @@ from .models import RequisicaoAnalise, ResultadoItem, ExameCampo
 from .utils.pdf_generator import gerar_pdf_requisicao, gerar_pdf_resultados
 
 
+# lab/views.py
+from rest_framework import generics
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from django.http import HttpResponse
+from .models import Paciente, Exame, ExameCampo, RequisicaoAnalise, ResultadoItem
+from .serializers import (
+    PacienteSerializer,
+    ExameSerializer,
+    ExameCampoSerializer,
+    RequisicaoAnaliseSerializer,
+    ResultadoItemSerializer,
+)
+import io
+from reportlab.pdfgen import canvas
+
+# ====================== PACIENTES ======================
+class PacienteList(generics.ListCreateAPIView):
+    queryset = Paciente.objects.all()
+    serializer_class = PacienteSerializer
+
+class PacienteDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Paciente.objects.all()
+    serializer_class = PacienteSerializer
+
+# ====================== EXAMES ======================
+class ExameList(generics.ListCreateAPIView):
+    queryset = Exame.objects.all()
+    serializer_class = ExameSerializer
+
+class ExameDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Exame.objects.all()
+    serializer_class = ExameSerializer
+
+# ====================== EXAME CAMPOS ======================
+class ExameCampoList(generics.ListCreateAPIView):
+    queryset = ExameCampo.objects.all()
+    serializer_class = ExameCampoSerializer
+
+class ExameCampoDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ExameCampo.objects.all()
+    serializer_class = ExameCampoSerializer
+
+# ====================== REQUISIÇÕES ======================
+class RequisicaoList(generics.ListCreateAPIView):
+    queryset = RequisicaoAnalise.objects.all()
+    serializer_class = RequisicaoAnaliseSerializer
+
+class RequisicaoDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = RequisicaoAnalise.objects.all()
+    serializer_class = RequisicaoAnaliseSerializer
+
+# PDF de requisição
+class RequisicaoPdf(APIView):
+    def get(self, request, pk):
+        requisicao = RequisicaoAnalise.objects.get(pk=pk)
+        buffer = io.BytesIO()
+        p = canvas.Canvas(buffer)
+        p.drawString(100, 750, f"Requisição ID: {requisicao.id}")
+        p.drawString(100, 730, f"Paciente: {requisicao.paciente.nome}")
+        p.showPage()
+        p.save()
+        buffer.seek(0)
+        return HttpResponse(buffer, content_type='application/pdf')
+
+# ====================== RESULTADOS ======================
+class ResultadoList(generics.ListCreateAPIView):
+    queryset = ResultadoItem.objects.all()
+    serializer_class = ResultadoItemSerializer
+
+class ResultadoDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ResultadoItem.objects.all()
+    serializer_class = ResultadoItemSerializer
+
+# PDF de resultado
+class ResultadoPdf(APIView):
+    def get(self, request, pk):
+        resultado = ResultadoItem.objects.get(pk=pk)
+        buffer = io.BytesIO()
+        p = canvas.Canvas(buffer)
+        p.drawString(100, 750, f"Resultado ID: {resultado.id}")
+        p.drawString(100, 730, f"Paciente: {resultado.paciente.nome}")
+        p.showPage()
+        p.save()
+        buffer.seek(0)
+        return HttpResponse(buffer, content_type='application/pdf')
+
+
+
 # ========================== FORMULÁRIO DINÂMICO ==========================
 class ResultadosDinamicosForm(forms.Form):
 	"""
@@ -164,3 +253,4 @@ def pdf_resultados(request, requisicao_id):
 
 def inserir_resultados(request):
 	return render(request, 'lab/inserir_resultados.html')
+

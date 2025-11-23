@@ -17,7 +17,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ============================================================
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "coloque_aqui_uma_chave_super_segura_e_unica")
 DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "False"
-ALLOWED_HOSTS = ['127.0.0.1', '197.235.165.209']
+ALLOWED_HOSTS = ['*']
+
 
 # ============================================================
 # INTERNACIONALIZAÇÃO
@@ -252,6 +253,8 @@ MEDIA_ROOT = BASE_DIR / "mediafiles"
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+
+# Permitir apenas localhost:5173
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # porta padrão do React dev
+    "http://localhost:5173",
 ]

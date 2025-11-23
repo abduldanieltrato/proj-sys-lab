@@ -5772,3 +5772,1024 @@ TypeError: _cell_paragraph() got an unexpected keyword argument 'leading'
 [2025-11-23 01:20:45,799] INFO django.server — "GET /pacientes/ HTTP/1.1" 200 2721998
 [2025-11-23 01:20:50,185] INFO django.server — "GET / HTTP/1.1" 200 5784
 [2025-11-23 01:20:57,229] INFO django.server — "GET /pacientes/ HTTP/1.1" 200 2721998
+[2025-11-23 01:37:54,119] INFO django.server — "GET / HTTP/1.1" 200 5784
+[2025-11-23 01:37:54,133] INFO django.server — "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+[2025-11-23 01:37:54,133] INFO django.server — "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+[2025-11-23 01:37:54,142] INFO django.server — "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+[2025-11-23 01:37:54,142] INFO django.server — "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+[2025-11-23 01:37:54,142] INFO django.server — "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+[2025-11-23 01:37:54,143] INFO django.server — "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+[2025-11-23 01:37:54,143] INFO django.server — "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+[2025-11-23 01:37:54,145] INFO django.server — "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+[2025-11-23 01:37:54,148] INFO django.server — "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+[2025-11-23 01:37:54,149] INFO django.server — "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+[2025-11-23 01:37:54,149] INFO django.server — "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+[2025-11-23 01:38:02,081] INFO django.server — "GET /pacientes/ HTTP/1.1" 200 2721998
+[2025-11-23 01:42:57,098] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:42:57,101] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 400 72020
+[2025-11-23 01:42:57,317] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:42:57,319] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 400 72020
+[2025-11-23 01:43:16,596] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:43:16,597] WARNING django.server — "GET /api/exames/ HTTP/1.1" 400 71987
+[2025-11-23 01:43:16,957] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:43:16,958] WARNING django.server — "GET /api/exames/ HTTP/1.1" 400 71987
+[2025-11-23 01:43:18,972] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:43:18,972] WARNING django.server — "GET /api/examecampos/ HTTP/1.1" 400 72042
+[2025-11-23 01:43:19,232] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:43:19,234] WARNING django.server — "GET /api/examecampos/ HTTP/1.1" 400 72042
+[2025-11-23 01:43:20,449] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:43:20,450] WARNING django.server — "GET /api/requisicoes/ HTTP/1.1" 400 72042
+[2025-11-23 01:43:20,815] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:43:20,816] WARNING django.server — "GET /api/requisicoes/ HTTP/1.1" 400 72042
+[2025-11-23 01:43:22,258] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:43:22,259] WARNING django.server — "GET /api/resultados/ HTTP/1.1" 400 72031
+[2025-11-23 01:43:22,480] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:43:22,482] WARNING django.server — "GET /api/resultados/ HTTP/1.1" 400 72031
+[2025-11-23 01:43:30,712] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:43:30,713] WARNING django.server — "GET /api/requisicoes/ HTTP/1.1" 400 72042
+[2025-11-23 01:43:31,071] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:43:31,072] WARNING django.server — "GET /api/requisicoes/ HTTP/1.1" 400 72042
+[2025-11-23 01:43:32,494] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:43:32,495] WARNING django.server — "GET /api/examecampos/ HTTP/1.1" 400 72042
+[2025-11-23 01:43:32,755] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:43:32,757] WARNING django.server — "GET /api/examecampos/ HTTP/1.1" 400 72042
+[2025-11-23 01:43:33,312] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:43:33,313] WARNING django.server — "GET /api/resultados/ HTTP/1.1" 400 72031
+[2025-11-23 01:43:33,677] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:43:33,677] WARNING django.server — "GET /api/resultados/ HTTP/1.1" 400 72031
+[2025-11-23 01:43:35,312] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:43:35,314] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 400 72020
+[2025-11-23 01:43:35,569] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:43:35,571] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 400 72020
+[2025-11-23 01:44:06,904] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:44:06,905] WARNING django.server — "GET /api/requisicoes/ HTTP/1.1" 400 72042
+[2025-11-23 01:44:07,267] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:44:07,269] WARNING django.server — "GET /api/requisicoes/ HTTP/1.1" 400 72042
+[2025-11-23 01:44:08,094] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:44:08,095] WARNING django.server — "GET /api/examecampos/ HTTP/1.1" 400 72042
+[2025-11-23 01:44:08,388] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:44:08,389] WARNING django.server — "GET /api/examecampos/ HTTP/1.1" 400 72042
+[2025-11-23 01:44:08,433] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:44:08,434] WARNING django.server — "GET /api/exames/ HTTP/1.1" 400 71987
+[2025-11-23 01:44:08,797] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:44:08,799] WARNING django.server — "GET /api/exames/ HTTP/1.1" 400 71987
+[2025-11-23 01:44:09,277] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:44:09,278] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 400 72020
+[2025-11-23 01:44:09,535] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:44:09,536] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 400 72020
+[2025-11-23 01:44:14,975] INFO django.server — "OPTIONS /api/pacientes/ HTTP/1.1" 200 0
+[2025-11-23 01:44:14,998] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:44:14,998] WARNING django.server — "POST /api/pacientes/ HTTP/1.1" 400 72035
+[2025-11-23 01:44:17,046] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:44:17,046] WARNING django.server — "POST /api/pacientes/ HTTP/1.1" 400 72035
+[2025-11-23 01:45:04,109] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:04,110] WARNING django.server — "POST /api/pacientes/ HTTP/1.1" 400 72035
+[2025-11-23 01:45:05,366] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:05,369] WARNING django.server — "GET /api/resultados/ HTTP/1.1" 400 72031
+[2025-11-23 01:45:05,651] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:05,652] WARNING django.server — "GET /api/resultados/ HTTP/1.1" 400 72031
+[2025-11-23 01:45:05,888] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:05,889] WARNING django.server — "GET /api/requisicoes/ HTTP/1.1" 400 72042
+[2025-11-23 01:45:06,243] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:06,245] WARNING django.server — "GET /api/requisicoes/ HTTP/1.1" 400 72042
+[2025-11-23 01:45:07,034] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:07,034] WARNING django.server — "GET /api/examecampos/ HTTP/1.1" 400 72042
+[2025-11-23 01:45:07,301] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:07,302] WARNING django.server — "GET /api/examecampos/ HTTP/1.1" 400 72042
+[2025-11-23 01:45:08,307] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:08,308] WARNING django.server — "GET /api/exames/ HTTP/1.1" 400 71987
+[2025-11-23 01:45:08,686] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:08,688] WARNING django.server — "GET /api/exames/ HTTP/1.1" 400 71987
+[2025-11-23 01:45:09,457] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:09,458] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 400 72020
+[2025-11-23 01:45:09,712] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:09,713] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 400 72020
+[2025-11-23 01:45:45,474] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 01:45:45,887] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 01:45:45,899] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 01:45:51,578] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:51,580] WARNING django.server — "GET /api/resultados/ HTTP/1.1" 400 72031
+[2025-11-23 01:45:51,818] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:51,819] WARNING django.server — "GET /api/resultados/ HTTP/1.1" 400 72031
+[2025-11-23 01:45:52,584] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:52,585] WARNING django.server — "GET /api/examecampos/ HTTP/1.1" 400 72042
+[2025-11-23 01:45:52,956] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:52,957] WARNING django.server — "GET /api/examecampos/ HTTP/1.1" 400 72042
+[2025-11-23 01:45:53,771] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:53,773] WARNING django.server — "GET /api/exames/ HTTP/1.1" 400 71987
+[2025-11-23 01:45:54,000] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:54,001] WARNING django.server — "GET /api/exames/ HTTP/1.1" 400 71987
+[2025-11-23 01:45:54,104] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:54,105] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 400 72020
+[2025-11-23 01:45:54,304] ERROR django.security.DisallowedHost — Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/australopithecus/venv/lib/python3.12/site-packages/django/http/request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+[2025-11-23 01:45:54,305] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 400 72020
+[2025-11-23 01:47:35,105] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-23 01:47:35,737] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 01:47:35,752] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 01:47:42,239] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-23 01:47:42,792] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 01:47:42,808] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 01:48:01,174] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:48:01,175] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:48:01,182] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:48:01,183] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:49:47,699] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-23 01:49:48,210] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 01:49:48,223] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 01:49:53,630] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-23 01:49:54,132] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 01:49:54,145] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 01:49:55,567] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-23 01:49:56,026] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 01:49:56,038] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 01:50:00,382] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/backend/settings.py changed, reloading.
+[2025-11-23 01:50:00,860] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 01:50:00,873] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 01:50:19,437] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 01:50:19,804] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 01:50:19,818] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 01:50:47,686] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:50:47,687] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:50:47,697] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:50:47,698] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:50:49,566] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:50:49,566] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:50:49,572] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:50:49,572] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:50:51,597] WARNING django.request — Not Found: /api/exames/
+[2025-11-23 01:50:51,597] WARNING django.server — "GET /api/exames/ HTTP/1.1" 404 12981
+[2025-11-23 01:50:51,605] WARNING django.request — Not Found: /api/exames/
+[2025-11-23 01:50:51,606] WARNING django.server — "GET /api/exames/ HTTP/1.1" 404 12981
+[2025-11-23 01:50:52,614] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:50:52,615] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:50:52,623] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:50:52,624] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:50:53,659] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:50:53,659] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:50:53,666] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:50:53,666] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:50:54,598] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:50:54,598] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:50:54,606] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:50:54,606] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:50:55,056] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:50:55,057] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:50:55,064] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:50:55,064] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:51:15,610] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:51:15,611] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:51:15,621] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:51:15,622] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:51:18,426] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:51:18,427] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:51:18,434] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:51:18,435] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:51:18,887] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:51:18,887] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:51:18,894] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:51:18,895] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:51:19,710] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:51:19,711] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:51:19,719] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:51:19,719] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:51:20,600] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:51:20,600] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:51:20,607] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:51:20,607] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:51:27,558] WARNING django.request — Not Found: /api/examecampos/
+[2025-11-23 01:51:27,558] WARNING django.server — "GET /api/examecampos/ HTTP/1.1" 404 12996
+[2025-11-23 01:51:27,565] WARNING django.request — Not Found: /api/examecampos/
+[2025-11-23 01:51:27,566] WARNING django.server — "GET /api/examecampos/ HTTP/1.1" 404 12996
+[2025-11-23 01:51:28,925] WARNING django.request — Not Found: /api/exames/
+[2025-11-23 01:51:28,925] WARNING django.server — "GET /api/exames/ HTTP/1.1" 404 12981
+[2025-11-23 01:51:28,931] WARNING django.request — Not Found: /api/exames/
+[2025-11-23 01:51:28,931] WARNING django.server — "GET /api/exames/ HTTP/1.1" 404 12981
+[2025-11-23 01:51:33,980] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:51:33,980] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:51:33,986] WARNING django.request — Not Found: /api/pacientes/
+[2025-11-23 01:51:33,986] WARNING django.server — "GET /api/pacientes/ HTTP/1.1" 404 12990
+[2025-11-23 01:51:35,333] WARNING django.request — Not Found: /api/exames/
+[2025-11-23 01:51:35,334] WARNING django.server — "GET /api/exames/ HTTP/1.1" 404 12981
+[2025-11-23 01:51:35,342] WARNING django.request — Not Found: /api/exames/
+[2025-11-23 01:51:35,343] WARNING django.server — "GET /api/exames/ HTTP/1.1" 404 12981
+[2025-11-23 01:51:36,751] WARNING django.request — Not Found: /api/requisicoes/
+[2025-11-23 01:51:36,752] WARNING django.server — "GET /api/requisicoes/ HTTP/1.1" 404 12996
+[2025-11-23 01:51:36,760] WARNING django.request — Not Found: /api/requisicoes/
+[2025-11-23 01:51:36,761] WARNING django.server — "GET /api/requisicoes/ HTTP/1.1" 404 12996
+[2025-11-23 01:51:37,968] WARNING django.request — Not Found: /api/resultados/
+[2025-11-23 01:51:37,969] WARNING django.server — "GET /api/resultados/ HTTP/1.1" 404 12993
+[2025-11-23 01:51:37,978] WARNING django.request — Not Found: /api/resultados/
+[2025-11-23 01:51:37,979] WARNING django.server — "GET /api/resultados/ HTTP/1.1" 404 12993
+[2025-11-23 01:51:38,937] WARNING django.request — Not Found: /api/examecampos/
+[2025-11-23 01:51:38,938] WARNING django.server — "GET /api/examecampos/ HTTP/1.1" 404 12996
+[2025-11-23 01:51:38,946] WARNING django.request — Not Found: /api/examecampos/
+[2025-11-23 01:51:38,947] WARNING django.server — "GET /api/examecampos/ HTTP/1.1" 404 12996
+[2025-11-23 01:56:37,767] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/urls.py changed, reloading.
+[2025-11-23 01:56:38,263] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 01:56:38,276] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 01:56:42,485] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/urls.py changed, reloading.
+[2025-11-23 01:56:43,025] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 01:56:43,039] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:00:11,951] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/api_views.py changed, reloading.
+[2025-11-23 02:00:12,472] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:00:12,484] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:00:21,926] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/api_views.py changed, reloading.
+[2025-11-23 02:00:22,443] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:00:22,455] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:02:55,525] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/api_views.py changed, reloading.
+[2025-11-23 02:02:55,995] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:02:56,006] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:03:26,064] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:03:26,704] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:03:26,719] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:03:36,024] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:03:36,570] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:03:36,584] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:03:37,730] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:03:38,400] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:03:38,412] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:05:35,333] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:05:35,696] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:05:35,708] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:06:31,700] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:06:32,232] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:06:32,247] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:06:44,805] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:06:45,359] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:06:45,372] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:06:49,605] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:06:50,138] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:06:50,151] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:07:00,598] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:07:01,088] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:07:01,100] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:08:29,492] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:08:29,965] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:08:29,978] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:10:21,081] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/serializers.py changed, reloading.
+[2025-11-23 02:10:21,615] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:10:21,629] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:10:22,763] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/serializers.py changed, reloading.
+[2025-11-23 02:10:23,253] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:10:23,266] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:10:24,383] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/serializers.py changed, reloading.
+[2025-11-23 02:10:24,970] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:10:24,985] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:10:33,365] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/serializers.py changed, reloading.
+[2025-11-23 02:10:33,857] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:10:33,870] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:10:37,044] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/serializers.py changed, reloading.
+[2025-11-23 02:10:37,537] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:10:37,551] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:11:18,017] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/serializers.py changed, reloading.
+[2025-11-23 02:11:18,530] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:11:18,543] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:11:19,692] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/serializers.py changed, reloading.
+[2025-11-23 02:11:20,252] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:11:20,266] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:11:22,407] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/serializers.py changed, reloading.
+[2025-11-23 02:11:22,939] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:11:22,952] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:12:36,572] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:12:37,058] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:12:37,071] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:12:40,267] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:12:40,851] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:12:40,865] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:13:05,815] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:13:06,292] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:13:06,305] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:13:09,479] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:13:10,075] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:13:10,091] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:13:33,963] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:13:34,454] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:13:34,467] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:13:37,643] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:13:38,165] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:13:38,178] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:13:44,454] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:13:44,942] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:13:44,955] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:13:47,094] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:13:47,582] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:13:47,596] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:14:27,045] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:14:27,562] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:14:27,577] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:14:35,961] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:14:36,462] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:14:36,474] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:14:42,745] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:14:43,251] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:14:43,265] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:14:53,719] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:14:54,192] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:14:54,205] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:15:02,564] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:15:03,101] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:15:03,114] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:15:07,349] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:15:07,868] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:15:07,881] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:16:14,385] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:16:14,852] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:16:14,865] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:16:15,998] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:16:16,598] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:16:16,617] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:16:31,175] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:16:31,665] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:16:31,681] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:16:34,852] INFO django.utils.autoreload — /home/australopithecus/proj-sys-lab/lab/views.py changed, reloading.
+[2025-11-23 02:16:35,340] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:16:35,352] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:17:00,306] INFO django.server — "GET /api/resultados/ HTTP/1.1" 200 188
+[2025-11-23 02:17:00,327] INFO django.server — "GET /api/resultados/ HTTP/1.1" 200 188
+[2025-11-23 02:17:06,479] INFO django.server — "GET /api/examecampos/ HTTP/1.1" 200 135
+[2025-11-23 02:17:06,501] INFO django.server — "GET /api/examecampos/ HTTP/1.1" 200 135
+[2025-11-23 02:17:08,573] INFO django.server — "GET /api/exames/ HTTP/1.1" 200 35928
+[2025-11-23 02:17:08,604] INFO django.server — "GET /api/requisicoes/ HTTP/1.1" 200 1930589
+[2025-11-23 02:17:08,625] INFO django.server — "GET /api/exames/ HTTP/1.1" 200 35928
+[2025-11-23 02:17:12,524] INFO django.server — "GET /api/requisicoes/ HTTP/1.1" 200 1930589
+[2025-11-23 02:17:27,906] INFO django.server — "OPTIONS /api/exames/95/ HTTP/1.1" 200 0
+[2025-11-23 02:17:27,948] INFO django.server — "DELETE /api/exames/95/ HTTP/1.1" 204 0
+[2025-11-23 02:17:27,973] INFO django.server — "GET /api/exames/ HTTP/1.1" 200 35764
+[2025-11-23 02:17:32,728] INFO django.server — "OPTIONS /api/exames/59/ HTTP/1.1" 200 0
+[2025-11-23 02:17:32,755] INFO django.server — "DELETE /api/exames/59/ HTTP/1.1" 204 0
+[2025-11-23 02:17:32,779] INFO django.server — "GET /api/exames/ HTTP/1.1" 200 35597
+[2025-11-23 02:17:49,098] INFO django.server — "GET /api/resultados/ HTTP/1.1" 200 188
+[2025-11-23 02:17:49,117] INFO django.server — "GET /api/resultados/ HTTP/1.1" 200 188
+[2025-11-23 02:17:51,872] WARNING django.request — Not Found: /api/resultados/1/pdf/
+[2025-11-23 02:17:51,872] WARNING django.server — "GET /api/resultados/1/pdf/ HTTP/1.1" 404 13098
+[2025-11-23 02:17:55,021] WARNING django.request — Not Found: /api/resultados/1/pdf/
+[2025-11-23 02:17:55,021] WARNING django.server — "GET /api/resultados/1/pdf/ HTTP/1.1" 404 13098
+[2025-11-23 02:17:57,901] WARNING django.request — Not Found: /api/resultados/1/pdf/
+[2025-11-23 02:17:57,901] WARNING django.server — "GET /api/resultados/1/pdf/ HTTP/1.1" 404 13098
+[2025-11-23 02:17:58,899] WARNING django.request — Not Found: /api/resultados/1/pdf/
+[2025-11-23 02:17:58,899] WARNING django.server — "GET /api/resultados/1/pdf/ HTTP/1.1" 404 13098
+[2025-11-23 02:17:59,122] WARNING django.request — Not Found: /api/resultados/1/pdf/
+[2025-11-23 02:17:59,123] WARNING django.server — "GET /api/resultados/1/pdf/ HTTP/1.1" 404 13098
+[2025-11-23 02:17:59,358] WARNING django.request — Not Found: /api/resultados/1/pdf/
+[2025-11-23 02:17:59,358] WARNING django.server — "GET /api/resultados/1/pdf/ HTTP/1.1" 404 13098
+[2025-11-23 02:17:59,573] WARNING django.request — Not Found: /api/resultados/1/pdf/
+[2025-11-23 02:17:59,574] WARNING django.server — "GET /api/resultados/1/pdf/ HTTP/1.1" 404 13098
+[2025-11-23 02:17:59,805] WARNING django.request — Not Found: /api/resultados/1/pdf/
+[2025-11-23 02:17:59,806] WARNING django.server — "GET /api/resultados/1/pdf/ HTTP/1.1" 404 13098
+[2025-11-23 02:18:16,299] WARNING django.request — Not Found: /api/resultados/1/pdf/
+[2025-11-23 02:18:16,300] WARNING django.server — "GET /api/resultados/1/pdf/ HTTP/1.1" 404 13098
+[2025-11-23 02:18:17,174] WARNING django.request — Not Found: /api/resultados/1/pdf/
+[2025-11-23 02:18:17,175] WARNING django.server — "GET /api/resultados/1/pdf/ HTTP/1.1" 404 13098
+[2025-11-23 02:18:22,278] INFO django.server — "GET /api/exames/ HTTP/1.1" 200 35597
+[2025-11-23 02:18:22,313] INFO django.server — "GET /api/exames/ HTTP/1.1" 200 35597
+[2025-11-23 02:18:22,741] INFO django.server — "GET /api/requisicoes/ HTTP/1.1" 200 1921804
+[2025-11-23 02:18:24,452] INFO django.server — "GET /api/pacientes/ HTTP/1.1" 200 1260290
+[2025-11-23 02:18:24,756] INFO django.server — "GET /api/pacientes/ HTTP/1.1" 200 1260290
+[2025-11-23 02:18:27,006] INFO django.server — "GET /api/requisicoes/ HTTP/1.1" 200 1921804
+[2025-11-23 02:19:02,532] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:19:02,914] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:19:02,929] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:19:08,269] INFO django.server — "GET /api/resultados/ HTTP/1.1" 200 188
+[2025-11-23 02:19:08,299] INFO django.server — "GET /api/resultados/ HTTP/1.1" 200 188
+[2025-11-23 02:19:10,134] INFO django.server — "GET /api/requisicoes/ HTTP/1.1" 200 1921804
+[2025-11-23 02:19:13,743] INFO django.server — "GET /api/requisicoes/ HTTP/1.1" 200 1921804
+[2025-11-23 02:19:19,920] INFO django.server — "GET /api/exames/ HTTP/1.1" 200 35597
+[2025-11-23 02:19:19,955] INFO django.server — "GET /api/exames/ HTTP/1.1" 200 35597
+[2025-11-23 02:19:21,864] INFO django.server — "GET /api/requisicoes/ HTTP/1.1" 200 1921804
+[2025-11-23 02:19:23,914] INFO django.server — "GET /api/resultados/ HTTP/1.1" 200 188
+[2025-11-23 02:19:23,937] INFO django.server — "GET /api/resultados/ HTTP/1.1" 200 188
+[2025-11-23 02:19:25,815] INFO django.server — "GET /api/requisicoes/ HTTP/1.1" 200 1921804
+[2025-11-23 02:19:25,874] WARNING django.request — Not Found: /api/resultados/1/pdf/
+[2025-11-23 02:19:25,874] WARNING django.server — "GET /api/resultados/1/pdf/ HTTP/1.1" 404 13098
+[2025-11-23 02:19:43,644] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:19:44,007] WARNING lab.utils.pdf_generator — Falha ao registrar Times New Roman; usando Courier. Erro: Can't open file "/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman.ttf"
+[2025-11-23 02:19:44,019] INFO django.utils.autoreload — Watching for file changes with StatReloader
+[2025-11-23 02:19:55,589] WARNING django.request — Not Found: /api/resultados/1/pdf/
+[2025-11-23 02:19:55,590] WARNING django.server — "GET /api/resultados/1/pdf/ HTTP/1.1" 404 13098
+[2025-11-23 02:22:43,597] INFO django.server — "GET /api/exames/ HTTP/1.1" 200 35597
+[2025-11-23 02:22:43,625] INFO django.server — "GET /api/exames/ HTTP/1.1" 200 35597
+[2025-11-23 02:22:47,301] INFO django.server — "GET /api/pacientes/ HTTP/1.1" 200 1260290
+[2025-11-23 02:22:47,534] INFO django.server — "GET /api/pacientes/ HTTP/1.1" 200 1260290
+[2025-11-23 02:22:57,487] INFO django.server — "GET /api/examecampos/ HTTP/1.1" 200 135
+[2025-11-23 02:22:57,508] INFO django.server — "GET /api/examecampos/ HTTP/1.1" 200 135
+[2025-11-23 02:23:03,884] INFO django.server — "GET /api/pacientes/ HTTP/1.1" 200 1260290
+[2025-11-23 02:23:04,079] INFO django.server — "GET /api/pacientes/ HTTP/1.1" 200 1260290
+[2025-11-23 02:23:51,169] INFO django.server — "GET /api/resultados/ HTTP/1.1" 200 188
+[2025-11-23 02:23:51,191] INFO django.server — "GET /api/resultados/ HTTP/1.1" 200 188
+[2025-11-23 02:24:00,594] INFO django.server — "GET /api/resultados/ HTTP/1.1" 200 188
+[2025-11-23 02:24:00,619] INFO django.server — "GET /api/resultados/ HTTP/1.1" 200 188
+[2025-11-23 02:24:02,390] WARNING django.request — Not Found: /api/resultados/1/pdf/
+[2025-11-23 02:24:02,390] WARNING django.server — "GET /api/resultados/1/pdf/ HTTP/1.1" 404 13098
+[2025-11-23 02:24:05,285] WARNING django.request — Not Found: /api/resultados/1/pdf/
+[2025-11-23 02:24:05,285] WARNING django.server — "GET /api/resultados/1/pdf/ HTTP/1.1" 404 13098

@@ -34,3 +34,4 @@ class ResultadoItemViewSet(viewsets.ModelViewSet):
 class RequisicaoAnaliseViewSet(viewsets.ModelViewSet):
     queryset = RequisicaoAnalise.objects.all()
     serializer_class = RequisicaoAnaliseSerializer
+
